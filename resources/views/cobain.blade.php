@@ -9,7 +9,7 @@
     Hover saya
 </button>
 
-<h1>COBA TEST COMMIT YA BOI</h1>
+<h1>COBA GITHUB</h1>
 
 <!-- Alert yang bisa di-close -->
 <div class="alert alert-warning alert-dismissible fade show mt-3" role="alert">
