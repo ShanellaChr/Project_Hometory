@@ -7,15 +7,5 @@
 </head>
 <body>
 
-    {{-- Navbar --}}
-    @include('components.navbar')
-
-    <div class="container mt-5">
-        @yield('content')
-    </div>
-
-    {{-- Footer --}}
-    @include('components.footer')
-
 </body>
 </html>
