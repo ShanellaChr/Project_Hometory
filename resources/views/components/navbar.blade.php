@@ -1,9 +1,13 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">Hometory</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon">
-            </span>
-        </button>
-    </div>
+<nav class="navbar poppins-regular header">
+        {{-- <img src="{{ asset('img/Footer Logo svg.svg') }}" alt=""> --}}
+    <nav-link class="shadow div-header rounded-5">
+        <a class="" href="">My Inventory</a>
+        <a href="">Calendar</a>
+        <a href="">Statistic</a>
+        <a href="">Wishlist</a>
+        <a href="">Article</a>
+        <a href="">CASHH</a>
+    </nav-link>
+
+        
 </nav>

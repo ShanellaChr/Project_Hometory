@@ -1,40 +1,64 @@
 @import 'bootstrap/dist/css/bootstrap.min.css';
 
 .footer-hometory {
-    width: 22vw;
-    height: auto;
-    padding-top: 2vh;
+  width: 22vw;
+  height: auto;
+  padding-top: 2vh;
 }
 
 .footer-navbar{
-    margin: 3vw;
-    display: flex;
-    justify-content: center;
-    gap: 3.8vw;
-    font-size: 1vw;
+  margin: 3vw;
+  display: flex;
+  justify-content: center;
+  gap: 3.8vw;
+  font-size: 1vw;
 }
 
 .footer-navbar a{
-    text-decoration: none;
-    color: white;
+  text-decoration: none;
+  color: white;
 }
 
 .footer-navbar a:hover{
-    text-decoration: none;
-    color: #FD7034;
+  text-decoration: none;
+  color: #FD7034;
 }
 
 .footer-icon{
-    display: flex;
-    justify-content: center;
-    gap: 2.5vw;
+  display: flex;
+  justify-content: center;
+  gap: 2.5vw;
 }
 
 .footer-p{
-    color: white;
-    margin: 2.5vw;
-    font-size: 1vw;
+  color: white;
+  margin: 2.5vw;
+  font-size: 1vw;
 }
+
+.header{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2vh;
+}
+
+.div-header{
+  display: flex;
+  padding: 1vw;
+  gap: 4vw;
+  width: 95%;
+  justify-content: center;
+  align-items: center;
+}
+
+.header a{
+  text-decoration: none;
+  color: black;
+  font-size: small;
+}
+
+#-------------------------------------------------------------------------------------------------------
 
 .poppins-light {
   font-family: "Poppins", sans-serif;
