@@ -1,5 +1,5 @@
 <footer class="text-center py-3 mt-5 poppins-regular" style="background-color: #011638">
-    <img class="footer-hometory" src="{{ asset('img/footer Logo svg.svg') }}" alt="">
+    <img class="footer-hometory" src="{{ asset('img/footer Logo.svg') }}" alt="">
 
     <div class="footer-navbar">
         <a class="" href="">My Inventory</a>

@@ -41,21 +41,61 @@
   align-items: center;
   justify-content: center;
   margin: 2vh;
+
 }
 
 .div-header{
   display: flex;
-  padding: 1vw;
-  gap: 4vw;
+  padding-inline: 3vw;
   width: 95%;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  position: fixed ;
+  z-index: 1000;
+  background-color: white;
+  top: 4vh;
 }
 
-.header a{
+.div-header a{
   text-decoration: none;
   color: black;
   font-size: small;
+  transition: color 0.3s;
+}
+
+.div-header a:hover{
+  color: #E46504;
+}
+
+.navbar-tengah{
+  text-decoration: none;
+  color: black;
+  display: flex;
+  gap: 4vw;
+}
+
+.navbar-logo{
+  height: 4vh; 
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 1.7vh;
+  margin-bottom: 1.7vh;
+}
+
+.navbar-login{
+  display: inline-flex;
+  gap: 0.5vw;
+  border: 0.15vw solid black;
+  padding: 0.7vh 0.8vw;
+  border-radius: 50vh;
+  font-weight: bold;
+  font-size: small;
+  transition: color 0.3s;
+}
+
+.navbar-login:hover{
+  border: 0.15vw solid #E46504;
+  color: #E46504;
 }
 
 #-------------------------------------------------------------------------------------------------------
