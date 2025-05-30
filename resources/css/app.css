@@ -50,28 +50,36 @@
   width: 95%;
   justify-content: space-between;
   align-items: center;
-  position: fixed ;
+  position: fixed;
   z-index: 1000;
   background-color: white;
   top: 4vh;
 }
 
-.div-header a{
+.navlink-a{
   text-decoration: none;
   color: black;
-  font-size: small;
-  transition: color 0.3s;
+  font-size: 1vw;
+  transition: color 0.3s, border-bottom 1s ease-out;
+  border: 0.5vh solid transparent;
+  box-sizing: border-box;
+  padding: 1vh ;
 }
 
-.div-header a:hover{
+.navlink-a:hover{
   color: #E46504;
+}
+
+.navlink-a.active{
+  color: #E46504;
+  border-bottom: solid#E46504;
 }
 
 .navbar-tengah{
   text-decoration: none;
   color: black;
   display: flex;
-  gap: 4vw;
+  gap: 2vw;
 }
 
 .navbar-logo{
@@ -90,6 +98,8 @@
   border-radius: 50vh;
   font-weight: bold;
   font-size: small;
+  text-decoration: none;
+  color: black;
   transition: color 0.3s;
 }
 
