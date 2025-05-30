@@ -1,5 +1,5 @@
 <x-master>
-    <h3>Cek Bootstrap JS dengan Tooltip & Alert</h3>
+    <h3 style="margin-top: 11vh">Cek Bootstrap JS dengan Tooltip & Alert</h3>
 
     <!-- Tombol dengan Tooltip -->
     <button type="button" class="btn btn-outline-info" data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip muncul saat hover!">
