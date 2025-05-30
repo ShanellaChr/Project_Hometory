@@ -6,11 +6,11 @@
         </a>
         
         <div class="navbar-tengah">
-            <a class="" href="">My Inventory</a>
-            <a href="">Calendar</a>
-            <a href="">Statistic</a>
-            <a href="">Wishlist</a>
-            <a href="">Article</a>    
+            <a class="" href="/myInventory">My Inventory</a>
+            <a href="/calendar">Calendar</a>
+            <a href="/statistic">Statistic</a>
+            <a href="/wishlist">Wishlist</a>
+            <a href="/article">Article</a>    
         </div>
 
         <a class="navbar-login" href="">
