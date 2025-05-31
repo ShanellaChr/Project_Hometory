@@ -237,6 +237,16 @@
   background-color: #F3F9E3; 
 }
 
+.btn-dark-blue {
+  background-color: #011638;
+  border: none;
+}
+
+.btn-dark-blue:hover {
+  background-color: #566E3D;
+  border: none; 
+}
+
 .text-orange {
   color: #EEA144;
 }
