@@ -222,7 +222,21 @@
   position: absolute !important;
   top: 0 !important;
   left: 0 !important;
-  margin: 1rem !important; /* m-3 setara 1rem */
+  margin: 1rem !important; 
   width: 40px;
   cursor: pointer;
+}
+
+.btn-orange {
+  background-color: #EEA144;
+  color: white;
+  border: none;
+}
+
+.btn-orange:hover {
+  background-color: #F3F9E3; 
+}
+
+.text-orange {
+  color: #EEA144;
 }
