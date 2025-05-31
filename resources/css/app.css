@@ -1,5 +1,11 @@
 @import 'bootstrap/dist/css/bootstrap.min.css';
 
+/* tambahan ukuran bootstrap */
+.pt-7 {
+  padding-top: 5rem; 
+}
+
+/* footer */
 .footer-hometory {
   width: 22vw;
   height: auto;
@@ -36,6 +42,7 @@
   font-size: 1vw;
 }
 
+/* header dan navbar */
 .header{
   display: flex;
   align-items: center;
@@ -109,7 +116,7 @@
 }
 
 #-------------------------------------------------------------------------------------------------------
-
+/* Typography */
 .poppins-light {
   font-family: "Poppins", sans-serif;
   font-weight: 300;
@@ -208,4 +215,14 @@
   font-optical-sizing: auto;
   font-weight: 700;
   font-style: normal;
+}
+
+/* Class tambahan universal*/
+.BackButton {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  margin: 1rem !important; /* m-3 setara 1rem */
+  width: 40px;
+  cursor: pointer;
 }
