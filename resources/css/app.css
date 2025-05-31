@@ -115,6 +115,37 @@
   color: #E46504;
 }
 
+/* Title class */
+.title-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10vh;
+}
+
+/* ini bagian tulisan "My" nya */
+.title-my{
+  justify-content: center;
+  align-items: center;
+  font-size: 3vw;
+}
+
+/* ini bagian tulisan page, entah Calendar atau Wishlist atau apapun */
+.title-custom{
+  margin-left: 0.7vw;
+  justify-content: center;
+  align-items: center;
+  color: #E46504;
+  font-size: 3vw;
+}
+
+/* teks dibawah title utama */
+.subtitle{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 #-------------------------------------------------------------------------------------------------------
 /* Typography */
 .poppins-light {

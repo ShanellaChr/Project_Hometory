@@ -1,12 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <h1>test calendar</h1>
-</body>
-</html>
+<x-master>
+
+    <div class="title-container">
+        <h3 class="montserrat-bold title-my">My</h3>
+        <h3 class="montserrat-bold title-custom">Calendar</h3>
+    </div>
+
+    <div class="nunito-regular subtitle">Track your expires, track smarter!</div>
+
+</x-master>
