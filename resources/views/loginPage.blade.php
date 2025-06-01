@@ -21,7 +21,7 @@
             <div class="col-6 vh-100 position-relative d-flex flex-column align-items-center">
                 <img src="/img/Back Button.svg" alt="Back Button" class="BackButton">
                 <div class="position-absolute top-50 start-50 translate-middle" style="width: 400px;">
-                    <img src="/img/LogoBox.svg" alt="Logo Box" class="img-fluid d-block mx-auto" style="margin-top:20%;">
+                    <img src="/img/LogoBox.svg" alt="Logo Box" class="img-fluid d-block mx-auto" >
                     <h3 class="pt-3 mb-5 montserrat-bold text-center">Login on Hometory</h3>
                     {{-- input form --}}
                     <form>
@@ -39,7 +39,7 @@
                             <a href="#" class="small text-dark montserrat-medium text-decoration-none">Forgot Password?</a>
                         </div>
     
-                        <button type="submit" class="btn btn-orange btn-orange-hover shadow w-100 nunito-bold">Login</button>
+                        <button type="submit" class="p-3 btn btn-orange btn-orange-hover shadow w-100 nunito-bold">Login</button>
                         
                          <div class="mt-3 mb-5">
                             <p class="d-inline montserrat-medium">Don't have an account? </p>
