@@ -1,12 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <h1>test statistic</h1>
-</body>
-</html>
+<x-master>
+    {{-- Judul My Statistic --}}
+    <div class="d-flex justify-content-center align-items-center pt-7">
+        <h3 class="montserrat-bold justify-content-center align-items-center fs-1">My</h3>
+        <h3 class="montserrat-bold justify-content-center align-items-center ms-2 fs-1 title-color">Statistic</h3>
+    </div>
+
+    {{-- Slogan My Statistic --}}
+    <div class="nunito-regular d-flex justify-content-center align-items-center">Track your storage, plan smarter!</div>
+
+    {{-- Tabel Statistik --}}
+    <div class = "container mt-4">
+        {{-- Header Tabel --}}
+        <div class="d-flex justify-content-between align-items-center text-white p-3 rounded-3 position-relative" style="background-color: #364156; z-index: 2;">
+            <button class="btn btn-sm text-white montserrat-semibold">&lt; April</button>
+            <h4 class="m-0 montserrat-bold fs-3">May 2025</h4>
+            <button class="btn btn-sm text-white-50 montserrat-semibold border-0 disabled">June &gt;</button>
+        </div>
+        {{-- End Header Tabel --}}
+        
+        <!-- Main content -->
+        <div class="d-flex justify-content-between align-items-center text-white p-3 rounded-bottom-3 shadow-lg" style="background: linear-gradient(to bottom, #FFCE93, #EEA144); margin-top: -0.45vw; z-index: 1; position: relative;">
+            <p class="text-dark">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex accusantium dolorem repellat molestias quos, nulla numquam nihil est, possimus dolores repellendus deleniti nequea iste fugiat in, suscipit a aspernatur necessitatibus!</p>
+        </div>
+        {{-- End MainContent --}}
+
+        {{-- Noted --}}
+
+        {{-- End Noted --}}
+    </div>
+
+</x-master>

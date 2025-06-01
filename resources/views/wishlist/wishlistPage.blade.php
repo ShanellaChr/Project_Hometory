@@ -1,12 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <h1>test wishlist</h1>
-</body>
-</html>
+<x-master>
+    {{-- Judul My Wishlist--}}
+    <div class="d-flex justify-content-center align-items-center pt-7">
+        <h3 class="montserrat-bold justify-content-center align-items-center fs-1">My</h3>
+        <h3 class="montserrat-bold justify-content-center align-items-center ms-2 fs-1 title-color">Wishlist</h3>
+    </div>
+
+    {{-- Slogan My Wishlist --}}
+    <div class="nunito-regular d-flex justify-content-center align-items-center">Plan wisely, shop mindfully!</div>
+
+    {{-- Box Wishlist --}}
+    <div class = "container mt-4">
+        
+    </div>
+
+</x-master>
