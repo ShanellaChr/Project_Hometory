@@ -152,15 +152,4 @@
   color: #E46504;
 }
 
-.color-box-wishlist {
-    width: 1.25vw;
-    height: 1.25vw;
-    display: inline-block;  /* atau block, supaya ukuran dipakai */
-}
 
-.bg-personal-care { background-color: #f8c8dc; }
-.bg-foods { background-color: #CD4361; }
-.bg-beverages { background-color: #99D8F0; }
-.bg-kitchen-needs { background-color: #D29375; }
-.bg-household-essentials { background-color: #9CBA7F; }
-.bg-health-supplies { background-color: #E86060; }
