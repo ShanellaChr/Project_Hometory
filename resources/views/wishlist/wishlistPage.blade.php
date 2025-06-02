@@ -19,29 +19,29 @@
         </div>
 
         {{-- Kategori Label --}} 
-        <div class="d-flex flex-wrap justify-content-center gap-4 mt-7">
+        <div class="d-flex justify-content-center gap-4 mt-7">
             <div class="d-flex align-items-center gap-2">
-                <div class="color-box-wishlist bg-personal-care"></div>
+                <div class="color-box-wishlist bg-personal-care">Test</div>
                 <p class="poppins-semibold">Personal Care</p>
             </div>
             <div class="d-flex align-items-center gap-2">
-                <div class="color-box-wishlist bg-foods"></div>
+                <div class="color-box-wishlist bg-foods">Test</div>
                 <p class="poppins-semibold">Foods</p>
             </div>
             <div class="d-flex align-items-center gap-2">
-                <div class="color-box-wishlist bg-beverages"></div>
+                <div class="color-box-wishlist bg-beverages">Test</div>
                 <p class="poppins-semibold">Beverages</p>
             </div>
             <div class="d-flex align-items-center gap-2">
-                <div class="color-box-wishlist bg-kitchen-needs"></div>
+                <div class="color-box-wishlist bg-kitchen-needs">Test</div>
                 <p class="poppins-semibold">Kitchen Needs</p>
             </div>
             <div class="d-flex align-items-center gap-2">
-                <div class="color-box-wishlist bg-household-essentials"></div>
+                <div class="color-box-wishlist bg-household-essentials">Test</div>
                 <p class="poppins-semibold">Household Essentials</p>
             </div>
             <div class="d-flex align-items-center gap-2">
-                <div class="color-box-wishlist bg-health-supplies"></div>
+                <div class="color-box-wishlist bg-health-supplies">Test</div>
                 <p class="poppins-semibold">Health Supplies</p>
             </div>
         </div>
