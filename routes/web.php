@@ -37,3 +37,7 @@ Route::get('/article', function () {
 Route::get('/profile', function () {
     return view('profileUser.profilePage');
 });
+
+Route::get('/reset', function () {
+    return view('resetPasswordPage');
+});
