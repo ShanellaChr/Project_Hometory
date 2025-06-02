@@ -8,7 +8,7 @@
     {{-- END OF SECTION JUDUL PAGE --}}
 
     {{-- Tabel Statistik --}}
-    <div class = "container mt-4">
+    <div class = "container mt-0">
         {{-- Header Tabel --}}
         <div class="d-flex justify-content-between align-items-center text-white p-3 rounded-3 position-relative" style="background-color: #364156; z-index: 2;">
             <button class="btn btn-sm text-white montserrat-semibold">&lt; April</button>
