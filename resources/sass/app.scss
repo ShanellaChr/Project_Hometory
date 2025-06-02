@@ -124,3 +124,10 @@ $custom-colors: (
   font-weight: 700;
   font-style: normal;
 }
+
+// Wishlist
+.color-box-wishlist {
+    width: 1.25vw;
+    height: 1.25vw;
+    display: inline-block;  /* atau block, supaya ukuran dipakai */
+}
