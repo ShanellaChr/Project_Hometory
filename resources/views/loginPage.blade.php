@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
@@ -39,11 +39,11 @@
                             <a href="#" class="small text-dark montserrat-medium text-decoration-none">Forgot Password?</a>
                         </div>
     
-                        <button type="submit" class="p-3 btn btn-orange btn-orange-hover shadow w-100 nunito-bold">Login</button>
+                        <button type="submit" class="p-3 btn btn-orange btn-orange-hover shadow w-100 ">Login</button>
                         
                          <div class="mt-3 mb-5">
                             <p class="d-inline montserrat-medium">Don't have an account? </p>
-                            <a href="#" class="montserrat-bold text-decoration-none text-orange">Sign Up</a>
+                            <a href="#" class="montserrat-bold text-decoration-none text-orenyedija">Sign Up</a>
                         </div>
                     </form>
                 </div>
