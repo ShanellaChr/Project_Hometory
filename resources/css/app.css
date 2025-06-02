@@ -2,7 +2,7 @@
 
 /* tambahan ukuran bootstrap */
 .pt-7 {
-  padding-top: 5rem; 
+  padding-top: 7.5rem; 
 }
 
 /* footer */
@@ -43,14 +43,6 @@
 }
 
 /* header dan navbar */
-.header{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 2vh;
-
-}
-
 .div-header{
   display: flex;
   padding-inline: 3vw;
