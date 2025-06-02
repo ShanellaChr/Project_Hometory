@@ -106,3 +106,46 @@
   border: 0.15vw solid #E46504;
   color: #E46504;
 }
+
+/* Class tambahan universal*/
+.BackButton {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  margin: 1rem !important; 
+  width: 40px;
+  cursor: pointer;
+}
+
+.btn-orange {
+  background-color: #EEA144;
+  border: none;
+}
+
+.btn-orange:hover {
+  background-color: #F3F9E3; 
+}
+
+.btn-dark-blue {
+  background-color: #011638;
+  padding-left: 10vw;
+  padding-right: 10vw;
+  padding-top: 2.5vh;
+  padding-bottom: 2.5vh;
+  border: none;
+}
+
+.btn-dark-blue:hover {
+  background-color: #566E3D;
+  border: none; 
+}
+
+.text-orange {
+  color: #EEA144;
+}
+
+.title-color {
+  color: #E46504;
+}
+
+
