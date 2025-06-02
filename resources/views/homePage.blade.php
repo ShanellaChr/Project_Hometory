@@ -1,4 +1,6 @@
 <x-master>
+
+    
     <div class="container">
 
         <h3 class="pt-7">Cek Bootstrap JS dengan Tooltip & Alert</h3>
