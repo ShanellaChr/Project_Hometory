@@ -1,4 +1,4 @@
-<nav class="navbar poppins-regular header">
+<nav class="poppins-regular d-flex justify-content-center">
         
     <nav-link class="shadow div-header rounded-5">
         <a class="navbar-logo" href="/">
