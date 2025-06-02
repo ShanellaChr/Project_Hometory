@@ -1,10 +1,10 @@
 <x-master>
     {{-- START OF SECTION JUDUL PAGE --}}
     {{-- Judul My Wishlist --}}
-    <div class="d-flex justify-content-center align-items-center pt-7 montserrat-bold text-6xl">My<span class="ms-3 text-orenyedija">Wishlist</span></div>
+    <div class="d-flex justify-content-center align-items-center pt-7 montserrat-bold text-5xl">My<span class="ms-3 text-orenyedija">Wishlist</span></div>
 
     {{-- Slogan My Wishlist --}}
-    <div class="d-flex justify-content-center align-items-center mt-1 mb-5 nunito-regular text-2xl">Plan wisely, shop mindfully!</div>
+    <div class="d-flex justify-content-center align-items-center mt-1 mb-5 nunito-regular text-lg">Plan wisely, shop mindfully!</div>
     {{-- END OF SECTION JUDUL PAGE --}}
 
     {{-- Kondisi Kosong --}}
