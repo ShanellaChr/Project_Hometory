@@ -1,49 +1,19 @@
 <x-master>
 
-    
-    <div class="container">
+    <div class="p-2 position-relative d-flex">
+    <img class="z-0" style="width: 100%;" src="{{ asset('img/Background_Homepage.svg') }}" alt="">
 
-        <h3 class="pt-7">Cek Bootstrap JS dengan Tooltip & Alert</h3>
-    
-        <!-- Tombol dengan Tooltip -->
-        <button type="button" class="btn btn-outline-info" data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip muncul saat hover!">
-            Hover saya
+    <div class="z-10 position-absolute top-50 start-50 translate-middle text-center">
+        <h1 class="text-orenpalette montserrat-bold" style="letter-spacing: 0.3vw;  font-size:2vw">HOMETORY</h1>
+        <h1 class="text-white montserrat-bold text-6xl" style="letter-spacing: 0.3vw">TRACK SMARTER</h1>
+        <h1 class="text-white montserrat-bold text-6xl" style="letter-spacing: 0.3vw">WASTE NO MORE!</h1>
+        <p class="text-white nunito-medium">A flexible and structured inventory system allows users to record and organize household items with ease. It helps streamline daily management, minimize waste, and maintain clarity over available supplies at home.</p>
+
+        <button type="button" class="btn btn-orange" style="background-color: #E46504">
+            GET STARTED
         </button>
-    
-        <h1>COBA GITHUB</h1>
-    
-        <!-- Alert yang bisa di-close -->
-        <div class="alert alert-warning alert-dismissible fade show mt-3" role="alert">
-            Ini adalah alert Bootstrap dengan tombol close!
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    
-        <div class="bg-ijopalette">
-            <h1 class="text-pinkcategory">AAAAAAAAAAAA SAYA GILA</h1>
-        </div>
-
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor explicabo architecto magni. Omnis sapiente, magnam maiores, cumque nostrum rem provident repellat nisi quibusdam dicta aliquid corrupti? Aut distinctio fuga minus! Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius distinctio saepe rerum quas amet, rem ullam dolorem fugiat natus illo quibusdam suscipit laborum eligendi ex nesciunt dolorum provident dolores quidem?
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, id in quos ab quia, rem voluptatem dolore voluptatibus commodi eos reprehenderit doloremque quo quis explicabo cum. Labore suscipit eligendi repudiandae.
-    
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat tempora eligendi officiis aut blanditiis doloribus vel ex sit dolorum quo, adipisci quod ipsum cumque expedita nemo accusamus consequatur. Ab, harum!
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor explicabo architecto magni. Omnis sapiente, magnam maiores, cumque nostrum rem provident repellat nisi quibusdam dicta aliquid corrupti? Aut distinctio fuga minus! Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius distinctio saepe rerum quas amet, rem ullam dolorem fugiat natus illo quibusdam suscipit laborum eligendi ex nesciunt dolorum provident dolores quidem?
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, id in quos ab quia, rem voluptatem dolore voluptatibus commodi eos reprehenderit doloremque quo quis explicabo cum. Labore suscipit eligendi repudiandae.
-    
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat tempora eligendi officiis aut blanditiis doloribus vel ex sit dolorum quo, adipisci quod ipsum cumque expedita nemo accusamus consequatur. Ab, harum!
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor explicabo architecto magni. Omnis sapiente, magnam maiores, cumque nostrum rem provident repellat nisi quibusdam dicta aliquid corrupti? Aut distinctio fuga minus! Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius distinctio saepe rerum quas amet, rem ullam dolorem fugiat natus illo quibusdam suscipit laborum eligendi ex nesciunt dolorum provident dolores quidem?
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, id in quos ab quia, rem voluptatem dolore voluptatibus commodi eos reprehenderit doloremque quo quis explicabo cum. Labore suscipit eligendi repudiandae.
-    
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat tempora eligendi officiis aut blanditiis doloribus vel ex sit dolorum quo, adipisci quod ipsum cumque expedita nemo accusamus consequatur. Ab, harum!
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor explicabo architecto magni. Omnis sapiente, magnam maiores, cumque nostrum rem provident repellat nisi quibusdam dicta aliquid corrupti? Aut distinctio fuga minus! Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius distinctio saepe rerum quas amet, rem ullam dolorem fugiat natus illo quibusdam suscipit laborum eligendi ex nesciunt dolorum provident dolores quidem?
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, id in quos ab quia, rem voluptatem dolore voluptatibus commodi eos reprehenderit doloremque quo quis explicabo cum. Labore suscipit eligendi repudiandae.
-    
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat tempora eligendi officiis aut blanditiis doloribus vel ex sit dolorum quo, adipisci quod ipsum cumque expedita nemo accusamus consequatur. Ab, harum!
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor explicabo architecto magni. Omnis sapiente, magnam maiores, cumque nostrum rem provident repellat nisi quibusdam dicta aliquid corrupti? Aut distinctio fuga minus! Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius distinctio saepe rerum quas amet, rem ullam dolorem fugiat natus illo quibusdam suscipit laborum eligendi ex nesciunt dolorum provident dolores quidem?
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, id in quos ab quia, rem voluptatem dolore voluptatibus commodi eos reprehenderit doloremque quo quis explicabo cum. Labore suscipit eligendi repudiandae.
-    
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat tempora eligendi officiis aut blanditiis doloribus vel ex sit dolorum quo, adipisci quod ipsum cumque expedita nemo accusamus consequatur. Ab, harum!
-            
-        </p>
     </div>
+
+</div>
 
 </x-master>
