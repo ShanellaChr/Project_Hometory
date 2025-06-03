@@ -30,7 +30,7 @@
                     <div class="row g-3">
                         {{-- Card 1 --}}
                         <div class="col-6">
-                            <div class="bg-light rounded-3 p-3 shadow-sm h-100">
+                            <div class="bg-light rounded-5 p-3 shadow-sm h-100">
                                 <strong>Personal Care</strong>
                                 <div class="text-purple fs-4 fw-bold">21%</div>
                                 <small>Makeup, body care, hair care, and others.</small>
@@ -96,12 +96,12 @@
     <script>
         // Load images
         const segmentImages = [
-            { src: '/img/Personal Care - Default.svg', img: new Image() },
-            { src: '/img/Personal Care - Default.svg', img: new Image() },
-            { src: '/img/Personal Care - Default.svg', img: new Image() },
-            { src: '/img/Personal Care - Default.svg', img: new Image() },
-            { src: '/img/Personal Care - Default.svg', img: new Image() },
-            { src: '/img/Personal Care - Default.svg', img: new Image() }
+            { src: '/img/Personal_Care.svg', img: new Image() },
+            { src: '/img/Foods.svg', img: new Image() },
+            { src: '/img/Beverages.svg', img: new Image() },
+            { src: '/img/Kitchen_Needs.svg', img: new Image() },
+            { src: '/img/Household_Essentials.svg', img: new Image() },
+            { src: '/img/Health_Supplies.svg', img: new Image() }
         ];
 
         segmentImages.forEach(item => item.img.src = item.src);
@@ -157,7 +157,16 @@
                     responsive: true,
                     cutout: '30%',
                     plugins: {
-                        legend: { display: false }
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const label = context.label || '';
+                                    const value = context.raw !== undefined ? context.raw : '';
+                                    return `${label}: ${value}%`;
+                                }
+                            }
+                        }
                     },
                     elements: {
                         arc: { borderWidth: 0 }
