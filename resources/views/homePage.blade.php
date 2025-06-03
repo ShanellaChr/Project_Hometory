@@ -9,7 +9,7 @@
             <h1 class="text-white montserrat-bold text-6xl" style="letter-spacing: 0.3vw">WASTE NO MORE!</h1>
             <p class="text-white nunito-medium">A flexible and structured inventory system allows users to record and organize household items with ease. It helps streamline daily management, minimize waste, and maintain clarity over available supplies at home.</p>
 
-            <button type="button" class="btn btn-orange montserrat-bold text-white mt-3" style="background-color: #E46504">
+            <button type="button" class="btn montserrat-bold text-white mt-3" style="background-color: #E46504 ">
                 GET STARTED
             </button>
         </div>
@@ -78,6 +78,34 @@
 
     </div>
 
+    {{-- Review Aplikasi --}}
+
+    <div class=" d-flex flex-row" style="">
+        <i class="bi bi-caret-left-fill"></i>
+
+        <div class="d-flex flex-row">
+            
+            <div class="shadow p-3 ">
+                {{-- Untuk foto profil dan username --}}
+                <div class="d-flex flex-row"> 
+                    <img src="{{ asset('img/Profil Dummy.svg') }}" alt="">
+
+                    <div class="ms-2" style=""> {{-- Untuk username dan waktu upload --}}
+                        <p class="mb-0 poppins-medium text-orenyedija" style="font-size: 1.5vw">Christina</p>
+                        <p class="mb-0 poppins-medium opacity-75" style="font-size: 0.8vw">1 day ago</p>
+                    </div>
+                </div>
+
+                {{-- Untuk Commentnya --}}
+                <p class="mb-0 mt-3 poppins-medium">
+                    Website buatan oe memang sangat mantap o, bisa bantu olang banyak juga lo, so proud of my team.
+                </p>
+            </div>
+        
+        </div>
+
+        <i class="bi bi-caret-right-fill"></i>
+    </div>
     
     
 
