@@ -176,6 +176,16 @@ $custom-colors: (
   background-color: #566E3D !important;
   border: none !important; 
 }
+
+.btn-orange-gelap{
+  background-color: #E46504 !important;
+}
+
+.btn-orange-gelap:hover{
+  background-color: #ab4a00 !important;
+  transform: scale(0.98);
+}
+
 // Line pembatas bulan tahun dan tanggal
 .calendar-line {
   border-bottom: 2px solid #fff;
