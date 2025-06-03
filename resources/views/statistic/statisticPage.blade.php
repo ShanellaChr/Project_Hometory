@@ -20,7 +20,32 @@
         <!-- Main content -->
         <div class="d-flex justify-content-between align-items-center text-white p-3 rounded-bottom-3 shadow-lg" style="background: linear-gradient(to bottom, #FFCE93, #EEA144); margin-top: -0.45vw; z-index: 1; position: relative;">
             <p class="text-dark">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex accusantium dolorem repellat molestias quos, nulla numquam nihil est, possimus dolores repellendus deleniti nequea iste fugiat in, suscipit a aspernatur necessitatibus!</p>
+            <canvas id="inventoryPieChart" width="4" height="4"></canvas>
         </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const ctx = document.getElementById('inventoryPieChart').getContext('2d');
+                new window.Chart(ctx, {
+                    type: "doughnut",
+                    data: {
+                        labels: ['Elektronik', 'Perabot', 'Alat Tulis'],
+                        datasets: [{
+                            data: [10, 20, 30],
+                            backgroundColor: ['#60a5fa', '#fbbf24', '#34d399']
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: {
+                                position: 'none'
+                            }
+                        }
+                    }
+                });
+            });
+        </script>
+
         {{-- End MainContent --}}
 
         {{-- Noted --}}
