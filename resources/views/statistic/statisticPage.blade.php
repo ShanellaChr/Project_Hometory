@@ -10,19 +10,19 @@
     {{-- Tabel Statistik --}}
     <div class = "container mt-0">
         {{-- Header Tabel --}}
-        <div class="d-flex justify-content-between align-items-center text-white p-3 rounded-3 position-relative" style="background-color: #364156; z-index: 2;">
-            <button class="btn btn-sm text-white montserrat-semibold">&lt; April</button>
-            <h4 class="m-0 montserrat-bold fs-3">May 2025</h4>
-            <button class="btn btn-sm text-white-50 montserrat-semibold border-0 disabled">June &gt;</button>
+        <div class="d-flex justify-content-between align-items-center text-white p-4 rounded-4 position-relative" style="background-color: #364156; z-index: 2;">
+            <button class="btn btn-sm text-white montserrat-semibold fs-5">&lt; April</button>
+            <h4 class="m-0 montserrat-bold fs-2">May 2025</h4>
+            <button class="btn btn-sm text-white-50 montserrat-semibold border-0 disabled fs-5">June &gt;</button>
         </div>
         {{-- End Header Tabel --}}
         
         {{-- Main Content --}}
-        <div class="rounded-bottom-3 shadow-lg p-4" style="background: linear-gradient(to bottom, #FFCE93, #EEA144); margin-top: -0.45vw;">
+        <div class="rounded-bottom-4 shadow-lg p-4" style="background: linear-gradient(to bottom, #FFCE93, #EEA144); margin-top: -0.85vw;">
             <div class="row m-4">
                 {{-- PIE CHART --}}
                 <div class="col-md-6 d-flex justify-content-center align-items-center">
-                    <canvas id="inventoryPieChart" style="width:100%; max-width:40vw"></canvas>
+                    <canvas id="inventoryPieChart" style="width:100%; max-width:38vw"></canvas>
                 </div>
 
                 {{-- DESKRIPSI --}}
@@ -30,50 +30,50 @@
                     <div class="row g-3">
                         {{-- Card 1 --}}
                         <div class="col-6">
-                            <div class="bg-light rounded-5 p-3 shadow-sm h-100">
-                                <strong>Personal Care</strong>
-                                <div class="text-purple fs-4 fw-bold">21%</div>
-                                <small>Makeup, body care, hair care, and others.</small>
+                            <div class="bg-ijomuda_bgstat rounded-5 p-3 shadow-lg h-100 text-center">
+                                <strong class="montserrat-semibold text-xl">Personal Care</strong>
+                                <div class="text-purple text-4xl fw-bold nunito-extrabold">21%</div>
+                                <p class="nunito-reguler text-xs">Makeup, body care, hair care, and others.</p>
                             </div>
                         </div>
                         {{-- Card 2 --}}
                         <div class="col-6">
-                            <div class="bg-light rounded-3 p-3 shadow-sm h-100">
-                                <strong>Foods</strong>
-                                <div class="text-danger fs-4 fw-bold">17.8%</div>
-                                <small>Instant foods, snacks, canned foods, and others.</small>
+                            <div class="bg-ijomuda_bgstat rounded-5 p-3 shadow-lg h-100 text-center">
+                                <strong class="montserrat-semibold text-xl">Foods</strong>
+                                <div class="text-danger text-4xl fw-bold nunito-extrabold">17.8%</div>
+                                <p class="nunito-reguler text-xs">Instant foods, snacks, canned foods, and others.</p>
                             </div>
                         </div>
                         {{-- Card 3 --}}
                         <div class="col-6">
-                            <div class="bg-light rounded-3 p-3 shadow-sm h-100">
-                                <strong>Beverages</strong>
-                                <div class="text-primary fs-4 fw-bold">15.4%</div>
-                                <small>Dairy products, soft drinks, and others.</small>
+                            <div class="bg-ijomuda_bgstat rounded-5 p-3 shadow-lg h-100 text-center">
+                                <strong class="montserrat-semibold text-xl">Beverages</strong>
+                                <div class="text-primary text-4xl fw-bold nunito-extrabold">15.4%</div>
+                                <p class="nunito-reguler text-xs">Dairy products, soft drinks, and others.</p>
                             </div>
                         </div>
                         {{-- Card 4 --}}
                         <div class="col-6">
-                            <div class="bg-light rounded-3 p-3 shadow-sm h-100">
-                                <strong>Kitchen Needs</strong>
-                                <div class="text-warning fs-4 fw-bold">22.8%</div>
-                                <small>Spices, cooking tools, baking ingredients, etc.</small>
+                            <div class="bg-ijomuda_bgstat rounded-5 p-3 shadow-lg h-100 text-center">
+                                <strong class="montserrat-semibold text-xl">Kitchen Needs</strong>
+                                <div class="text-warning text-4xl fw-bold nunito-extrabold">22.8%</div>
+                                <p class="nunito-reguler text-xs">Spices, cooking tools, baking ingredients, etc.</p>
                             </div>
                         </div>
                         {{-- Card 5 --}}
                         <div class="col-6">
-                            <div class="bg-light rounded-3 p-3 shadow-sm h-100">
-                                <strong>Household Essentials</strong>
-                                <div class="text-success fs-4 fw-bold">12.5%</div>
-                                <small>Cleaning, home supplies, air fresheners, etc.</small>
+                            <div class="bg-ijomuda_bgstat rounded-5 p-3 shadow-lg h-100 text-center">
+                                <strong class="montserrat-semibold text-xl">Household Essentials</strong>
+                                <div class="text-success text-4xl fw-bold nunito-extrabold">12.5%</div>
+                                <p class="nunito-reguler text-xs">Cleaning, home supplies, air fresheners, etc.</p>
                             </div>
                         </div>
                         {{-- Card 6 --}}
                         <div class="col-6">
-                            <div class="bg-light rounded-3 p-3 shadow-sm h-100">
-                                <strong>Health Supplies</strong>
-                                <div class="text-danger fs-4 fw-bold">10.5%</div>
-                                <small>Medicines, vitamins, hygiene products, etc.</small>
+                            <div class="bg-ijomuda_bgstat rounded-5 p-3 shadow-lg h-100 text-center">
+                                <strong class="montserrat-semibold text-xl">Health Supplies</strong>
+                                <div class="text-danger text-4xl fw-bold nunito-extrabold">10.5%</div>
+                                <p class="nunito-reguler text-xs">Medicines, vitamins, hygiene products, etc.</p>
                             </div>
                         </div>
                     </div>
@@ -121,7 +121,7 @@
                     const img = segmentImages[index]?.img;
                     if (img && img.complete) {
                         ctx.save();
-                        ctx.drawImage(img, x - 24, y - 24, 48, 48); // Gambar asli tampil persegi
+                        ctx.drawImage(img, x - 40, y - 40, 80, 80);
                         ctx.restore();
                     }
                 });

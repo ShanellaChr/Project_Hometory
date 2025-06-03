@@ -1,6 +1,7 @@
 /* Colors */
 $custom-colors: (
     "orenpalette": #EEA144,
+    "ijomuda_bgstat": #F3F9E3,
     "putihpalette": #F3F9E3,
     "ijopalette": #566E3D,
     "birupalette": #011638,
@@ -31,6 +32,7 @@ $custom-colors: (
 
 #-------------------------------------------------------------------------------------------------------
 /* Font size utilities ala TailwindCSS */
+.text-xxs { font-size: 0.625rem !important; }
 .text-xs { font-size: 0.75rem !important; }
 .text-sm { font-size: 0.875rem !important; }
 .text-base { font-size: 1rem !important; }
@@ -109,6 +111,13 @@ $custom-colors: (
   font-family: "Nunito", sans-serif !important;
   font-optical-sizing: auto !important;
   font-weight: 700 !important;
+  font-style: normal !important;
+}
+
+.nunito-extrabold {
+  font-family: "Nunito", sans-serif !important;
+  font-optical-sizing: auto !important;
+  font-weight: 800 !important;
   font-style: normal !important;
 }
 
