@@ -26,7 +26,7 @@
                     <p class="poppins-semibold mb-0">Personal Care</p>
                 </div>
                 <div class="col-4 d-flex align-items-center gap-2">
-                    <div class="color-box-wishlist rounded-1 bg-kuningcategory"> </div>
+                    <div class="color-box-wishlist rounded-1 bg-merahtuacategory"> </div>
                     <p class="poppins-semibold mb-0">Foods</p>
                 </div>
                 <div class="col-4 d-flex align-items-center gap-2">

@@ -15,6 +15,9 @@ $custom-colors: (
 );
 
 @each $name, $color in $custom-colors {
+  :root {
+    --#{$name}: #{$color};
+  }
   .bg-#{$name} {
     background-color: $color !important;
   }
