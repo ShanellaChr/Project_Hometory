@@ -1,12 +1,11 @@
 <x-master>
+    {{-- START OF SECTION JUDUL PAGE --}}
+    {{-- Judul My Calendar --}}
+    <div class="d-flex justify-content-center align-items-center pt-7 montserrat-bold text-5xl">My<span class="ms-3 text-orenyedija">Calendar</span></div>
 
-    {{-- Title Section --}}
-    <div class="d-flex justify-content-center align-items-center pt-7">
-        <h3 class="montserrat-bold justify-content-center align-items-center fs-1">My</h3>
-        <h3 class="montserrat-bold justify-content-center align-items-center ms-2 fs-1 title-color">Calendar</h3>
-    </div>
-
-    <div class="nunito-regular d-flex justify-content-center align-items-center">Track your expires, track smarter!</div>
+    {{-- Slogan My Calendar --}}
+    <div class="d-flex justify-content-center align-items-center mt-1 mb-5 nunito-regular text-lg">Track your expires, track smarter!</div>
+    {{-- END OF SECTION JUDUL PAGE --}}
 
     {{-- Div ini untuk nampung semuanya; calendar, items to expire, edit item expiration date button --}}
     <div class="d-flex">
