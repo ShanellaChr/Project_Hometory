@@ -39,10 +39,10 @@
                     @endphp
 
                     @foreach ($cards as $card)
-                        <div class="bg-putihpalette rounded-5 shadow-lg p-2 ps-3 pe-3 mb-0 text-center" style="width: 21.8vw; height: 10.3vw; display: flex; flex-direction: column;">
+                        <div class="bg-putihpalette rounded-5 shadow-lg p-2 ps-3 pe-3 mb-0 text-center" style="width: 21.8vw; height: 9.5vw; display: flex; flex-direction: column;">
                             <strong class="montserrat-semibold fw-semibold text-xl" style="margin-top: 0.2vw">{{ $card['title'] }}</strong>
-                            <div class="{{ $card['color'] }} text-4xl fw-bold nunito-extrabold mb-0">{{ $card['value'] }}</div>
-                            <p class="nunito-reguler text-xs mt-0 mb-0">{{ $card['desc'] }}</p>
+                            <div class="{{ $card['color'] }} text-4xl fw-bold nunito-extrabold mb-0" style="text-shadow: 1px 1px 0 #000, -1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000;">{{ $card['value'] }}</div>
+                            <p class="nunito-reguler text-xs mt-0 mb-0" style="line-height: 1.2;">{{ $card['desc'] }}</p>
                         </div>
                     @endforeach
                 </div>
