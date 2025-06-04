@@ -10,7 +10,27 @@
     {{-- START OF SECTION MY INVENTORY --}}
     <div class="d-flex flex-row overflow-hidden w-100">
         {{-- Bagian Kiri (Sidebar) Section START --}}
-        <div class="w-25 bg-ijocategory min-h-full">
+        <div class="w-25 bg-pinkcategory min-h-full">
+            {{-- Button Add New Item --}}
+            <div class="mb-4 mx-4">
+                <a href = "../myInventory/crudItemPage.blade.php" class="btn-orange rounded-3 shadow-lg w-100">
+                    <span  class= "nunito-bold text-2xl">Add New Item</span> 
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-plus mb-2" viewBox="0 0 16 16">
+                        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
+                    </svg>
+                </a>
+            </div>
+
+            {{-- Button Expired Products --}}
+            <div class="m-4">
+                <a href = "../myInventory/expiredItemPage.blade.php" class="btn-dark-blue rounded-3 shadow-lg w-100">
+                    <span  class= "nunito-bold text-2xl">Expired Products</span> 
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-plus mb-2" viewBox="0 0 16 16">
+                        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
+                    </svg>
+                </a>
+            </div>
+            
             {{-- Category Start --}}
             <div class="m-4 bg-light shadow-lg rounded-4 p-4">
                 <div class="ps-2">
@@ -19,16 +39,16 @@
                     <hr class="border-4 border-orenyedija rounded w-full my-2" style="opacity: 1;">
                 </div>
                 
-                <!-- ALL CATEGORY -->
+                <!-- PERSONAL CARE CATEGORY -->
                 <button class="w-100 d-flex flex-row rounded-1 bg-light" style="border: 0;">
-                    <img src="/img/Personal Care - Default.svg" class="w-25 p-0 m-0 rounded-5" alt="Personal Care - Default">
+                    <img src="{{ asset('img/Personal Care - Default.svg') }}" class="w-25 p-0 m-0 rounded-5" alt="Personal Care - Default">
                     <div class="flex-row w-75 ms-2">
-                        <p class="montserrat-semibold text-2xl text-left mt-4 pt-2">Personal Care</p>
-                        <hr class="border-4 border-pinkcategory w-50 ms-2 pt-3" style="opacity: 1;">
+                        <p class="montserrat-semibold text-2xl text-left mt-3 pt-5">Personal Care</p>
+                        <hr class="border-4 border-pinkcategory w-50 ms-2 pt-5" style="opacity: 1;">
                     </div>
                 </button>    
                 
-                <!-- nyalain komen di bawah ini kalo lagi di category all -->
+                <!-- nyalain komen di bawah ini kalo lagi di category personal care -->
                 <!-- <button class="pl-2 pr-2 w-full transition duration-500 ease-in-out rounded-xl group bg-orenmuda">
                     <p class="text-xl font-semibold mt-2 text-left text-white">All Category</p>
                     <hr class="border-1/2 my-2 w-full border-white">
@@ -110,7 +130,7 @@
             {{-- Card Item Start --}}
             <div class="d-flex flex-column m-5 p-4 w-25 rounded-4 bg-light shadow-lg hover:bg-secondary">
                 {{-- Gambar Item --}}
-                <img src="/img/Personal Care - Default.svg" class="img-fluid" alt="Personal Care - Default">
+                <img src="{{ asset('img/Personal Care - Default.svg') }}" class="img-fluid" alt="Personal Care - Default">
 
                 {{-- Category Item --}}
                 <div class="my-3 py-2 rounded-2 bg-birucategory shadow-sm">

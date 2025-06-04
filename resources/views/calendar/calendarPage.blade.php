@@ -97,8 +97,8 @@
             <div class="d-flex mt-5">
                 {{-- INI CARA NGE LINKNYA KAYAKNYA HARUS BERUBAH SESUAI LOKASI MYINVENTORYPAGE DI ROUTE, TUNGGU ROUTENYA ADA--}}
                 {{-- harus customize margin left dan margin right nya. kurang panjang bro --}}
-                <a href="../myInventory/myInventoryPage.blade.php" class="nunito-bold btn-dark-blue text-white rounded-3 text-decoration-none">
-                    Edit Item Expiration Date
+                <a href="../myInventory/myInventoryPage.blade.php" class="nunito-bold btn-dark-blue text-2xl text-center rounded-3" style="width:41vw; padding-left: 5vw; padding-right: 5vw; padding-top: 2.5vh; padding-bottom: 2.5vh;">
+                    Edit Item's Expiration Date
                     {{-- gambar masih harus di resize woi --}}
                     <img src="{{ asset('img/editButton.svg') }}" alt="Edit Button" class="pencil-icon">
                 </a>
