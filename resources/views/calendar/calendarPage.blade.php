@@ -100,7 +100,7 @@
                 <a href="../myInventory/myInventoryPage.blade.php" class="nunito-bold btn-dark-blue text-2xl text-center rounded-3" style="width:41vw; padding-left: 5vw; padding-right: 5vw; padding-top: 2.5vh; padding-bottom: 2.5vh;">
                     Edit Item's Expiration Date
                     {{-- gambar masih harus di resize woi --}}
-                    <img src="{{ asset('img/editButton.svg') }}" alt="Edit Button" class="pencil-icon">
+                    <img src="{{ asset('img/editButton.svg') }}" alt="Edit Button" class="pencil-icon mb-1 ms-0 pe-3">
                 </a>
             </div>
         </div>

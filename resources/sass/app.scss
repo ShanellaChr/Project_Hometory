@@ -27,6 +27,9 @@ $custom-colors: (
   .border-#{$name} {
     border-color: $color !important;
   }
+  .gradient-#{$name} {
+    background-image: linear-gradient(to right, #{$color} 0%, #{$color} 100%);
+  }
 }
 
 /* FONT SIZE utilities ala TailwindCSS */
@@ -187,6 +190,39 @@ $custom-colors: (
   transform: scale(0.98);
 }
 
+/* CATEGORY HOVER */
+.category-btn {
+  background-size: 0% 100%;
+  background-repeat: no-repeat;
+  background-position: left;
+  transition: background-size 0.5s ease-in-out;
+}
+
+.category-title {
+  transition: color 0.5s ease-in-out;
+}
+
+.category-line {
+  transition: all 0.5s ease-in-out;
+  width: 50%;
+}
+
+.category-btn:hover, 
+.category-btn.active {
+  background-size: 100% 100%; 
+}
+
+.category-btn:hover .category-title,
+.category-btn.active .category-title {
+  color: white;
+}
+
+.category-btn:hover .category-line,
+.category-btn.active .category-line  {
+  width: 90%;
+  border-color: white;
+}
+
 /* OTHERS CLASS UNIVERSAL */
 
 // Wishlist
@@ -213,8 +249,8 @@ $custom-colors: (
 
 /* cuma buat sizing si pensil di tombol button Edit */
 .pencil-icon{
-  width: 3vw;
-  height: 3vh;
+  width: 3.5vw;
+  height: 3.5vh;
 }
 
 // Line pembatas bulan tahun dan tanggal
