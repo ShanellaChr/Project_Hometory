@@ -11,9 +11,32 @@
     <div class = "container mt-0">
         {{-- Header Tabel --}}
         <div class="d-flex justify-content-between align-items-center text-white p-4 rounded-4 position-relative" style="background-color: #364156; z-index: 2;">
-            <button class="btn btn-sm text-white montserrat-semibold fs-5">&lt; April</button>
-            <h4 class="m-0 montserrat-bold fs-2">May 2025</h4>
-            <button class="btn btn-sm text-white-50 montserrat-semibold border-0 disabled fs-5">June &gt;</button>
+            {{-- Previous Month Button --}}
+            @if($hasPrev)
+                <a href="{{ route('statistic.page', ['month' => $prevMonth->format('Y-m')]) }}"
+                class="btn btn-sm montserrat-semibold fs-5 text-white">
+                    &lt; {{ $prevMonth->format('F') }}
+                </a>
+            @else
+                <span class="btn btn-sm montserrat-semibold fs-5 text-white-50 disabled border-0">
+                    &lt; {{ $prevMonth->format('F') }}
+                </span>
+            @endif
+
+            {{-- Current Month Title --}}
+            <h4 class="m-0 montserrat-bold fs-2">{{ $currentMonth->format('F Y') }}</h4>
+
+            {{-- Next Month Button --}}
+            @if($hasNext)
+                <a href="{{ route('statistic.page', ['month' => $nextMonth->format('Y-m')]) }}"
+                class="btn btn-sm montserrat-semibold fs-5 text-white">
+                    {{ $nextMonth->format('F') }} &gt;
+                </a>
+            @else
+                <span class="btn btn-sm montserrat-semibold fs-5 text-white-50 disabled border-0">
+                    {{ $nextMonth->format('F') }} &gt;
+                </span>
+            @endif
         </div>
         {{-- End Header Tabel --}}
         
@@ -22,7 +45,7 @@
             <div class="row m-4">
                 {{-- PIE CHART --}}
                 <div class="col-md-5 d-flex justify-content-center align-items-center">
-                    <canvas id="inventoryPieChart" style="width:100%; max-width:40vw"></canvas>
+                    <canvas id="inventoryPieChart" style="width:100%; max-width:38vw"></canvas>
                 </div>
 
                 {{-- DESKRIPSI --}}
@@ -39,25 +62,24 @@
                     @endphp
 
                     @foreach ($cards as $card)
-                        <div class="bg-putihpalette rounded-5 shadow-lg p-2 ps-3 pe-3 mb-0 text-center" style="width: 21.8vw; height: 9.5vw; display: flex; flex-direction: column;">
-                            <strong class="montserrat-semibold fw-semibold text-xl" style="margin-top: 0.2vw">{{ $card['title'] }}</strong>
-                            <div class="{{ $card['color'] }} text-4xl fw-bold nunito-extrabold mb-0" style="text-shadow: 1px 1px 0 #000, -1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000;">{{ $card['value'] }}</div>
-                            <p class="nunito-reguler text-xs mt-0 mb-0" style="line-height: 1.2;">{{ $card['desc'] }}</p>
+                        <div class="bg-putihpalette rounded-5 shadow-lg p-3 text-center" style="flex: 1 1 14.5vw; max-width: 100%; max-height: 10.5vw;">
+                            <strong class="montserrat-semibold text-xl">{{ $card['title'] }}</strong>
+                            <div class="{{ $card['color'] }} text-4xl flex-bold nunito-extrabold">{{ $card['value'] }}</div>
+                            <p class="nunito-reguler text-xs mt-0 mb-0">{{ $card['desc'] }}</p>
                         </div>
                     @endforeach
                 </div>
                 {{-- END OF DESKRIPSI --}}
-            </div>
 
-            {{-- Note --}}
-            <div class="mt-4 text-black fs-6 nunito-semibold m-4">
-                <strong>Note:</strong><br>
-                • Statistics are based only on data recorded by users this month<br>
-                • Please make sure that used or discarded items are updated for accurate results.
+                {{-- Note --}}
+                <div class="mt-4 text-black text-lg nunito-semibold m-4">
+                    <strong>Note:</strong><br>
+                    • Statistics are based only on data recorded by users this month<br>
+                    • Please make sure that used or discarded items are updated for accurate results.
+                </div>
             </div>
         </div>
-    </div>
-    {{-- END OF TABEL STATISTIK --}}
+        {{-- End Main Content --}}
 
     {{-- Script Chart --}}
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
