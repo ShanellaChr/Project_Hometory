@@ -10,11 +10,11 @@
     {{-- START OF SECTION MY INVENTORY --}}
     <div class="d-flex flex-row overflow-hidden w-100">
         {{-- Bagian Kiri (Sidebar) Section START --}}
-        <div class="w-25 bg-pinkcategory min-h-full">
+        <div class="w-25 min-h-full">
             {{-- Button Add New Item --}}
-            <div class="mb-4 mx-4">
-                <a href = "../myInventory/crudItemPage.blade.php" class="btn-orange rounded-3 shadow-lg w-100">
-                    <span  class= "nunito-bold text-2xl">Add New Item</span> 
+            <div class="mt-3 mb-4 mx-4" style="width: 88%">
+                <a href = "../myInventory/crudItemPage.blade.php" class="btn-orange rounded-3 shadow-lg" style="padding-left: 4.2vw; padding-right: 4.5vw; padding-top: 1.5vw; padding-bottom: 1.5vw">
+                    <span  class= "nunito-bold text-2xl text-center">Add New Item</span> 
                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-plus mb-2" viewBox="0 0 16 16">
                         <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
                     </svg>
@@ -22,85 +22,31 @@
             </div>
 
             {{-- Button Expired Products --}}
-            <div class="m-4">
-                <a href = "../myInventory/expiredItemPage.blade.php" class="btn-dark-blue rounded-3 shadow-lg w-100">
-                    <span  class= "nunito-bold text-2xl">Expired Products</span> 
-                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-plus mb-2" viewBox="0 0 16 16">
-                        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
-                    </svg>
+            <div class="mx-4 mb-4 mt-5" style="width: 88%">
+                <a href = "../myInventory/expiredItemPage.blade.php" class="btn-dark-blue rounded-3 shadow-lg" style="padding-left: 3.25vw; padding-right: 2vw; padding-top: 1.5vw; padding-bottom: 1.5vw">
+                    <span  class= "nunito-bold text-2xl text-center">Expired Products</span> 
+                    <img src="{{ asset('img/expiredButton.svg') }}" alt="Expired Icon" class="pencil-icon mb-1 ms-0 pe-3">
                 </a>
             </div>
             
             {{-- Category Start --}}
-            <div class="m-4 bg-light shadow-lg rounded-4 p-4">
-                <div class="ps-2">
+            <div class="d-flex flex-column justify-content-center justify-start bg-light shadow-lg rounded-4 p-4 m-4" style="width: 88%">
+                <div>
                     <h4 class="montserrat-bold text-2xl">Items Category</h4>
                     
                     <hr class="border-4 border-orenyedija rounded w-full my-2" style="opacity: 1;">
                 </div>
                 
                 <!-- PERSONAL CARE CATEGORY -->
-                <button class="w-100 d-flex flex-row rounded-1 bg-light" style="border: 0;">
-                    <img src="{{ asset('img/Personal Care - Default.svg') }}" class="w-25 p-0 m-0 rounded-5" alt="Personal Care - Default">
-                    <div class="flex-row w-75 ms-2">
-                        <p class="montserrat-semibold text-2xl text-left mt-3 pt-5">Personal Care</p>
-                        <hr class="border-4 border-pinkcategory w-50 ms-2 pt-5" style="opacity: 1;">
+                <button class="category-btn pinkcategory my-3 ps-0 w-100 d-flex flex-row rounded-3" style="border: 0;">
+                    <img src="{{ asset('img/Personal_Care.svg') }}" class="rounded-3 ms-0 ps-0" style="width: 5vw;" alt="Personal Care - Default">
+                    <div class="w-75">
+                        <p class="category-title text-pinkcategory montserrat-semibold text-2xl text-left ps-2 pb-0 mb-0 mt-4">Personal Care</p>
+                        <hr class="category-line border-4 border-pinkcategory ms-3 mt-1" style="opacity: 1;">
                     </div>
                 </button>    
                 
-                <!-- nyalain komen di bawah ini kalo lagi di category personal care -->
-                <!-- <button class="pl-2 pr-2 w-full transition duration-500 ease-in-out rounded-xl group bg-orenmuda">
-                    <p class="text-xl font-semibold mt-2 text-left text-white">All Category</p>
-                    <hr class="border-1/2 my-2 w-full border-white">
-                </button>           -->
-                
-                <!-- DOG CATEGORY -->
-                <!-- <button class="pl-2 pr-2 w-full transition duration-500 ease-in-out rounded-xl group hover:bg-kuning">
-                    <p class="text-xl font-semibold mt-2 text-left group-hover:text-white transition-colors duration-500 ease-in-out">Dog</p>
-                    <hr class="border-kuning border-1/2 w-3/6 my-2 group-hover:w-full group-hover:border-white transition-all duration-500 ease-in-out">
-                </button>                              -->
-                
-                <!-- nyalain komen di bawah ini kalo lagi di category dog -->
-                <button class="pl-2 pr-2 w-full transition duration-500 ease-in-out rounded-xl group bg-kuning">
-                    <p class="text-xl font-semibold mt-2 text-left text-white">Dog</p>
-                    <hr class="border-1/2 my-2 w-full border-white">
-                </button>                                     
-
-                <!-- CAT CATEGORY -->
-                <button class="pl-2 pr-2 w-full transition duration-500 ease-in-out rounded-xl group hover:bg-greencat">
-                    <p class="text-xl font-semibold mt-2 text-left group-hover:text-white transition-colors duration-500 ease-in-out">Cat</p>
-                    <hr class="border-greencat border-1/2 w-3/6 my-2 group-hover:w-full group-hover:border-white transition-all duration-500 ease-in-out">
-                </button>    
-                
-                <!-- nyalain komen di bawah ini kalo lagi di category cat -->
-                <!-- <button class="pl-2 pr-2 w-full transition duration-500 ease-in-out rounded-xl group bg-greencat">
-                    <p class="text-xl font-semibold mt-2 text-left text-white">Cat</p>
-                    <hr class="border-1/2 my-2 w-full border-white">
-                </button>      -->
-                
-                <!-- REPTILE CATEGORY -->
-                <button class="pl-2 pr-2 w-full transition duration-500 ease-in-out rounded-xl group hover:bg-bluereptile">
-                    <p class="text-xl font-semibold mt-2 text-left group-hover:text-white transition-colors duration-500 ease-in-out">Reptile</p>
-                    <hr class="border-bluereptile border-1/2 w-3/6 my-2 group-hover:w-full group-hover:border-white transition-all duration-500 ease-in-out">
-                </button>     
-                
-                <!-- nyalain komen di bawah ini kalo lagi di category reptile -->
-                <!-- <button class="pl-2 pr-2 w-full transition duration-500 ease-in-out rounded-xl group bg-bluereptile">
-                    <p class="text-xl font-semibold mt-2 text-left text-white">Reptile</p>
-                    <hr class="border-1/2 my-2 w-full border-white">
-                </button>      -->
-                
-                <!-- OTHER PET CATEGORY -->
-                <button class="pl-2 pr-2 w-full transition duration-500 ease-in-out rounded-xl group hover:bg-oren">
-                    <p class="text-xl font-semibold mt-2 text-left group-hover:text-white transition-colors duration-500 ease-in-out">Other Pet</p>
-                    <hr class="border-oren border-1/2 w-3/6 my-2 group-hover:w-full group-hover:border-white transition-all duration-500 ease-in-out">
-                </button>  
-
-                <!-- nyalain komen di bawah ini kalo lagi di category other pet -->
-                <!-- <button class="pl-2 pr-2 w-full transition duration-500 ease-in-out rounded-xl group bg-oren">
-                    <p class="text-xl font-semibold mt-2 text-left text-white">Other Pet</p>
-                    <hr class="border-1/2 my-2 w-full border-white">
-                </button>                              -->
+                 
             </div>
             {{-- Category End --}}
         </div>
@@ -156,4 +102,24 @@
         {{-- Bagian Kanan (Konten) End --}}
     </div>
     {{-- END OF SECTION MY INVENTORY --}}
+
+    {{-- START OF SCRIPT SECTION untuk CATEGORY --}}
+    <script>
+        document.querySelectorAll('.category-btn').forEach(function(button) {
+            button.addEventListener('click', function() {
+                // Jika tombol yang diklik sudah aktif, matikan
+                if (this.classList.contains('active')) {
+                    this.classList.remove('active');
+                } else {
+                    // Nonaktifkan semua tombol dulu
+                    document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active'));
+                    // Aktifkan tombol yang diklik
+                    this.classList.add('active');
+                }
+            });
+        });
+    </script>
+
+    {{-- END OF SCRIPT SECTION --}}
+    
 </x-master>
