@@ -7,15 +7,49 @@
     <div class="d-flex justify-content-center align-items-center mt-1 mb-5 nunito-regular text-lg">Plan wisely, shop mindfully!</div>
     {{-- END OF SECTION JUDUL PAGE --}}
 
-    {{-- Kondisi Kosong --}}
     {{-- Box Wishlist --}}
     <div class="container mt-0 card bg-dark-blue text-white shadow-lg p-3 rounded-4 position-relative bg-abupalette">
         
-        {{-- Ikon Scroll Heart --}}
-        <div class="text-center mb-3 mt-5">
+        {{-- Kondisi Kosong --}}
+        {{-- <div class="text-center mb-3 mt-5">
             <img src="{{ asset('img/Wishlist.svg') }}" class="img-fluid" style="width: 17vw; height: auto;">
             <p class="mt-3 fs-4 nunito-semibold">Your Wishlist Is Empty</p>
-        </div>
+        </div> --}}
+
+        {{-- Daftar Wishlist --}}
+        @if(count($wishlists))
+            @foreach ($wishlists as $wishlist)
+                <div class="d-flex align-items-center justify-content-between bg-putihpalette text-black px-3 py-3 mb-3 rounded-4">
+                    {{-- Warna Strip Kategori --}}
+                    <div class="me-3">
+                        <div class="rounded-start bg-{{ $wishlist['category_class'] }}" style="width: 1vw; height: 100%;"></div>
+                    </div>
+
+                    {{-- Konten Wishlist ada --}}
+                    <div class="flex-grow-1">
+                        <p class="mb-0 montserrat-bold">{{ $wishlist['name'] }}</p>
+                        <p class="mb-0 nunito-medium">{{ $wishlist['description'] }}</p>
+                    </div>
+
+                    {{-- Aksi --}}
+                    <div class="ms-3 d-flex gap-3">
+                        <button class="btn btn-light rounded-circle">
+                            <i class="bi bi-pencil-fill"></i>
+                        </button>
+                        <button class="btn btn-light rounded-circle">
+                            <i class="bi bi-trash-fill"></i>
+                        </button>
+                    </div>
+                </div>
+            @endforeach
+        {{-- ini kondisi kalau kosong --}}
+        @else
+            <div class="text-center mt-5">
+                <img src="{{ asset('img/Wishlist.svg') }}" class="img-fluid" style="width: 17vw; height: auto;">
+                <p class="mt-3 fs-4 nunito-semibold">Your Wishlist Is Empty</p>
+            </div>
+        @endif
+        {{-- End --}}
 
         {{-- Label dan tombol --}}
         <div class = "container position-relative mt-4">

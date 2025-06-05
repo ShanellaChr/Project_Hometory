@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\StatisticController;
+use App\Http\Controllers\WishlistController;
 
 Route::get('/', function () {
     return view('homePage');
@@ -24,9 +25,7 @@ Route::get('/calendar', [CalendarController::class , 'show'])->name('calendar.sh
 
 Route::get('/statistic', [StatisticController::class, 'index'])->name('statistic.page');
 
-Route::get('/wishlist', function () {
-    return view('wishlist.wishlistPage');
-})->name('wishlist');
+Route::get('/wishlist', [WishlistController::class, 'index'])->name('wishlist');
 
 Route::get('/wishlist/add', function () {
     return view('wishlist.AddWishlistPage');
