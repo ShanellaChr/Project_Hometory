@@ -8,7 +8,7 @@
     {{-- END OF SECTION JUDUL PAGE --}}
 
     {{-- START OF SECTION MY INVENTORY --}}
-    <div class="d-flex flex-row overflow-hidden w-100">
+    <div class="d-flex flex-row overflow-hidden w-100 pb-5">
         {{-- Bagian Kiri (Sidebar) Section START --}}
         <div class="w-25 min-h-full">
             {{-- Button Add New Item --}}
@@ -38,15 +38,58 @@
                 </div>
                 
                 <!-- PERSONAL CARE CATEGORY -->
-                <button class="category-btn pinkcategory my-3 ps-0 w-100 d-flex flex-row rounded-3" style="border: 0;">
-                    <img src="{{ asset('img/Personal_Care.svg') }}" class="rounded-3 ms-0 ps-0" style="width: 5vw;" alt="Personal Care - Default">
-                    <div class="w-75">
-                        <p class="category-title text-pinkcategory montserrat-semibold text-2xl text-left ps-2 pb-0 mb-0 mt-4">Personal Care</p>
+                <button class="category-btn bg-light gradient-pinkcategory my-3 ps-0 w-100 d-flex flex-row rounded-3" style="border: 0;">
+                    <img src="{{ asset('img/Personal_Care.svg') }}" class="rounded-3 ms-0 ps-0" style="width: 5vw;" alt="Personal Care Category">
+                    <div class="w-75 d-flex flex-column align-items-start">
+                        <p class="category-title text-pinkcategory montserrat-semibold text-2xl text-left ps-3 pb-0 mb-0 mt-4">Personal Care</p>
                         <hr class="category-line border-4 border-pinkcategory ms-3 mt-1" style="opacity: 1;">
                     </div>
                 </button>    
                 
+                <!-- FOODS CATEGORY -->
+                <button class="category-btn bg-light gradient-merahtuacategory my-3 ps-0 w-100 d-flex flex-row rounded-3" style="border: 0;">
+                    <img src="{{ asset('img/Foods.svg') }}" class="rounded-3 ms-0 ps-0" style="width: 5vw;" alt="Foods Category">
+                    <div class="w-75 d-flex flex-column align-items-start">
+                        <p class="category-title text-merahtuacategory montserrat-semibold text-2xl text-left ps-3 pb-0 mb-0 mt-4">Foods</p>
+                        <hr class="category-line border-4 border-merahtuacategory ms-3 mt-1" style="opacity: 1;">
+                    </div>
+                </button> 
                  
+                <!-- BEVERAGES CATEGORY -->
+                <button class="category-btn bg-light gradient-birucategory my-3 ps-0 w-100 d-flex flex-row rounded-3" style="border: 0;">
+                    <img src="{{ asset('img/Beverages.svg') }}" class="rounded-3 ms-0 ps-0" style="width: 5vw;" alt="Beverages Category">
+                    <div class="w-75 d-flex flex-column align-items-start">
+                        <p class="category-title text-birucategory montserrat-semibold text-2xl text-left ps-3 pb-0 mb-0 mt-4">Beverages</p>
+                        <hr class="category-line border-4 border-birucategory ms-3 mt-1" style="opacity: 1;">
+                    </div>
+                </button>
+
+                <!-- KITCHEN NEEDS CATEGORY -->
+                <button class="category-btn bg-light gradient-coklatcategory my-3 ps-0 w-100 d-flex flex-row rounded-3" style="border: 0;">
+                    <img src="{{ asset('img/Kitchen_Needs.svg') }}" class="rounded-3 ms-0 ps-0" style="width: 5vw;" alt="Kitchen Needs Category">
+                    <div class="w-75 d-flex flex-column align-items-start">
+                        <p class="category-title text-coklatcategory montserrat-semibold text-2xl text-left ps-3 pb-0 mb-0 mt-4">Kitchen Needs</p>
+                        <hr class="category-line border-4 border-coklatcategory ms-3 mt-1" style="opacity: 1;">
+                    </div>
+                </button> 
+
+                <!-- HOUSEHOLD ESSENTIALS CATEGORY -->
+                <button class="category-btn bg-light gradient-ijocategory my-3 ps-0 w-100 d-flex flex-row rounded-3" style="border: 0;">
+                    <img src="{{ asset('img/Household_Essentials.svg') }}" class="rounded-3 ms-0 ps-0" style="width: 5vw;" alt="Household Essentials Category">
+                    <div class="w-75 d-flex flex-column align-items-start">
+                        <p class="category-title text-ijocategory montserrat-semibold text-2xl text-start ps-3 pb-0 my-0">Household Essentials</p>
+                        <hr class="category-line border-4 border-ijocategory ms-3 mt-1" style="opacity: 1;">
+                    </div>
+                </button> 
+
+                <!-- HEALTH SUPPLIES CATEGORY -->
+                <button class="category-btn bg-light gradient-merahcategory my-3 ps-0 w-100 d-flex flex-row rounded-3" style="border: 0;">
+                    <img src="{{ asset('img/Household_Essentials.svg') }}" class="rounded-3 ms-0 ps-0" style="width: 5vw;" alt="Health Supplies Category">
+                    <div class="w-75 d-flex flex-column align-items-start">
+                        <p class="category-title text-merahcategory montserrat-semibold text-2xl text-start ps-3 pb-0 my-0">Health Supplies</p>
+                        <hr class="category-line border-4 border-merahcategory ms-3 mt-1" style="opacity: 1;">
+                    </div>
+                </button> 
             </div>
             {{-- Category End --}}
         </div>

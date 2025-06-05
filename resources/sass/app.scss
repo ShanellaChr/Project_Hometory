@@ -195,15 +195,15 @@ $custom-colors: (
   background-size: 0% 100%;
   background-repeat: no-repeat;
   background-position: left;
-  transition: background-size 0.5s ease-in-out;
+  transition: background-size 0.6s ease-in-out;
 }
 
 .category-title {
-  transition: color 0.5s ease-in-out;
+  transition: color 0.6s ease-in-out;
 }
 
 .category-line {
-  transition: all 0.5s ease-in-out;
+  transition: all 0.6s ease-in-out;
   width: 50%;
 }
 
@@ -214,13 +214,13 @@ $custom-colors: (
 
 .category-btn:hover .category-title,
 .category-btn.active .category-title {
-  color: white;
+  color: white !important;
 }
 
 .category-btn:hover .category-line,
 .category-btn.active .category-line  {
   width: 90%;
-  border-color: white;
+  border-color: white !important;
 }
 
 /* OTHERS CLASS UNIVERSAL */
