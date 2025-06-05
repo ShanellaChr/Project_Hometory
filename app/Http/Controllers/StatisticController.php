@@ -15,16 +15,21 @@ class StatisticController extends Controller
             ? Carbon::createFromFormat('Y-m', $monthParam)->startOfMonth()
             : now()->startOfMonth();
 
-        // Batas bulan tersedia (hardcoded)
-        $earliestMonth = Carbon::create(2024, 4, 1)->startOfMonth();
-        $latestMonth = Carbon::create(2025, 5, 1)->startOfMonth();
+        // Bulan sekarang (real time)
+        $nowMonth = now()->startOfMonth();
 
-        // Clone untuk menghindari manipulasi langsung
+        // Batas bulan tersedia (hardcoded)
+        // Batas bulan tersedia (otomatis 12 bulan)
+        $latestMonth = now()->startOfMonth(); // bulan sekarang
+        $earliestMonth = $latestMonth->copy()->subMonths(11); // 12 bulan ke belakang termasuk bulan ini
+
+        // Clone untuk navigasi
         $prevMonth = $currentMonth->copy()->subMonth();
         $nextMonth = $currentMonth->copy()->addMonth();
 
         return view('statistic.statisticPage', [
             'currentMonth' => $currentMonth,
+            'nowMonth' => $nowMonth, // <-- Ditambahkan untuk keperluan highlight bulan saat ini
             'prevMonth' => $prevMonth,
             'nextMonth' => $nextMonth,
             'hasPrev' => $prevMonth->greaterThanOrEqualTo($earliestMonth),
