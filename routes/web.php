@@ -47,3 +47,7 @@ Route::get('/profile', function () {
 Route::get('/reset', function () {
     return view('resetPasswordPage');
 });
+
+Route::get('/admin', function () {
+    return view('admin.dashboardAdminPage');
+});
