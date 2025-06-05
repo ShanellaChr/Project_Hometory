@@ -9,7 +9,7 @@
 
     {{-- Kondisi Kosong --}}
     {{-- Box Wishlist --}}
-    <div class="container mt-0 card bg-dark-blue text-white shadow-lg p-3 rounded-4 position-relative" style="background-color: #364156;">
+    <div class="container mt-0 card bg-dark-blue text-white shadow-lg p-3 rounded-4 position-relative bg-abupalette">
         
         {{-- Ikon Scroll Heart --}}
         <div class="text-center mb-3 mt-5">
@@ -51,7 +51,7 @@
             
             {{-- Tombol Tambah --}}
             <div class="position-absolute bottom-0 end-0">
-                <a href = "../wishlist/crudWishlistPage.blade.php" class="btn-orange rounded-3 px-4 pe-4 shadow-lg gap-2" style="padding-bottom: 0.8vw; padding-top: 0.8vw; display: flex; align-items: center;">
+                <a href="{{ route('wishlist.add') }}" class="btn-orange rounded-3 px-4 pe-4 shadow-lg gap-2" style="padding-bottom: 0.8vw; padding-top: 0.8vw; display: flex; align-items: center;">
                     <span  class= "nunito-bold">Add Wishlist</span> 
                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
                         <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>

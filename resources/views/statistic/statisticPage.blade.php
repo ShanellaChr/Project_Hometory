@@ -69,6 +69,7 @@
                         </div>
                     @endforeach
                 </div>
+                {{-- END OF DESKRIPSI --}}
 
                 {{-- Note --}}
                 <div class="mt-4 text-black text-lg nunito-semibold m-4">
@@ -76,7 +77,6 @@
                     • Statistics are based only on data recorded by users this month<br>
                     • Please make sure that used or discarded items are updated for accurate results.
                 </div>
-                {{-- END OF DESKRIPSI --}}
             </div>
         </div>
         {{-- End Main Content --}}

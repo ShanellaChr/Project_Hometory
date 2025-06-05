@@ -26,7 +26,15 @@ Route::get('/statistic', [StatisticController::class, 'index'])->name('statistic
 
 Route::get('/wishlist', function () {
     return view('wishlist.wishlistPage');
-});
+})->name('wishlist');
+
+Route::get('/wishlist/add', function () {
+    return view('wishlist.AddWishlistPage');
+})->name('wishlist.add');
+
+Route::get('/wishlist/update', function () {
+    return view('wishlist.UpdateWishlistPage');
+})->name('wishlist.update');
 
 Route::get('/article', function () {
     return view('article.articlePage');
