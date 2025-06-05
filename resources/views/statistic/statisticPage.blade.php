@@ -18,66 +18,35 @@
         {{-- End Header Tabel --}}
         
         {{-- Main Content --}}
-        <div class="rounded-bottom-4 shadow-lg p-4" style="background: linear-gradient(to bottom, #FFCE93, #EEA144); margin-top: -0.85vw;">
+        <div class="rounded-bottom-4 shadow-lg p-3 pt-5" style="background: linear-gradient(to bottom, #FFCE93, #EEA144); margin-top: -0.85vw;">
             <div class="row m-4">
                 {{-- PIE CHART --}}
-                <div class="col-md-6 d-flex justify-content-center align-items-center">
-                    <canvas id="inventoryPieChart" style="width:100%; max-width:38vw"></canvas>
+                <div class="col-md-5 d-flex justify-content-center align-items-center">
+                    <canvas id="inventoryPieChart" style="width:100%; max-width:40vw"></canvas>
                 </div>
 
                 {{-- DESKRIPSI --}}
-                <div class="col-md-6">
-                    <div class="row g-3">
-                        {{-- Card 1 --}}
-                        <div class="col-6">
-                            <div class="bg-putihpalette rounded-5 p-3 shadow-lg h-100 text-center">
-                                <strong class="montserrat-semibold text-xl">Personal Care</strong>
-                                <div class="text-purple text-4xl fw-bold nunito-extrabold">21%</div>
-                                <p class="nunito-reguler text-xs">Makeup, body care, hair care, and others.</p>
-                            </div>
+                <div class="col-md-7 d-flex flex-wrap justify-content-center gap-4">
+                    @php
+                        $cards = [
+                            ['title' => 'Personal Care', 'color' => 'text-pinkcategory', 'value' => '21%', 'desc' => 'Makeup, body care, facial care, hair care, perfume, feminine hygiene & diapers, dental & oral care, and others.'],
+                            ['title' => 'Foods', 'color' => 'text-merahtuacategory', 'value' => '17.8%', 'desc' => 'Instant foods, snacks, canned foods, jams and cereals, and others.'],
+                            ['title' => 'Beverages', 'color' => 'text-birucategory', 'value' => '15.4%', 'desc' => 'Dairy products, soft drinks, instant drinks, and others.'],
+                            ['title' => 'Kitchen Needs', 'color' => 'text-coklatcategory', 'value' => '22.8%', 'desc' => 'Kitchen & dining equipment, spices, baking ingredients, cooking ingredients, and others.'],
+                            ['title' => 'Household Essentials', 'color' => 'text-ijocategory', 'value' => '12.5%', 'desc' => 'Care & cleaning, home supplies, air fresheners & dehumidifiers, pest & insect repellent, and others.'],
+                            ['title' => 'Health Supplies', 'color' => 'text-merahcategory', 'value' => '10.5%', 'desc' => 'Medicines, vitamins & supplements, medical devices, hygiene products, and others.'],
+                        ];
+                    @endphp
+
+                    @foreach ($cards as $card)
+                        <div class="bg-putihpalette rounded-5 shadow-lg p-2 ps-3 pe-3 mb-0 text-center" style="width: 21.8vw; height: 9.5vw; display: flex; flex-direction: column;">
+                            <strong class="montserrat-semibold fw-semibold text-xl" style="margin-top: 0.2vw">{{ $card['title'] }}</strong>
+                            <div class="{{ $card['color'] }} text-4xl fw-bold nunito-extrabold mb-0" style="text-shadow: 1px 1px 0 #000, -1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000;">{{ $card['value'] }}</div>
+                            <p class="nunito-reguler text-xs mt-0 mb-0" style="line-height: 1.2;">{{ $card['desc'] }}</p>
                         </div>
-                        {{-- Card 2 --}}
-                        <div class="col-6">
-                            <div class="bg-putihpalette rounded-5 p-3 shadow-lg h-100 text-center">
-                                <strong class="montserrat-semibold text-xl">Foods</strong>
-                                <div class="text-danger text-4xl fw-bold nunito-extrabold">17.8%</div>
-                                <p class="nunito-reguler text-xs">Instant foods, snacks, canned foods, and others.</p>
-                            </div>
-                        </div>
-                        {{-- Card 3 --}}
-                        <div class="col-6">
-                            <div class="bg-putihpalette rounded-5 p-3 shadow-lg h-100 text-center">
-                                <strong class="montserrat-semibold text-xl">Beverages</strong>
-                                <div class="text-primary text-4xl fw-bold nunito-extrabold">15.4%</div>
-                                <p class="nunito-reguler text-xs">Dairy products, soft drinks, and others.</p>
-                            </div>
-                        </div>
-                        {{-- Card 4 --}}
-                        <div class="col-6">
-                            <div class="bg-putihpalette rounded-5 p-3 shadow-lg h-100 text-center">
-                                <strong class="montserrat-semibold text-xl">Kitchen Needs</strong>
-                                <div class="text-warning text-4xl fw-bold nunito-extrabold">22.8%</div>
-                                <p class="nunito-reguler text-xs">Spices, cooking tools, baking ingredients, etc.</p>
-                            </div>
-                        </div>
-                        {{-- Card 5 --}}
-                        <div class="col-6">
-                            <div class="bg-putihpalette rounded-5 p-3 shadow-lg h-100 text-center">
-                                <strong class="montserrat-semibold text-xl">Household Essentials</strong>
-                                <div class="text-success text-4xl fw-bold nunito-extrabold">12.5%</div>
-                                <p class="nunito-reguler text-xs">Cleaning, home supplies, air fresheners, etc.</p>
-                            </div>
-                        </div>
-                        {{-- Card 6 --}}
-                        <div class="col-6">
-                            <div class="bg-putihpalette rounded-5 p-3 shadow-lg h-100 text-center">
-                                <strong class="montserrat-semibold text-xl">Health Supplies</strong>
-                                <div class="text-danger text-4xl fw-bold nunito-extrabold">10.5%</div>
-                                <p class="nunito-reguler text-xs">Medicines, vitamins, hygiene products, etc.</p>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
+                {{-- END OF DESKRIPSI --}}
             </div>
 
             {{-- Note --}}
