@@ -12,13 +12,12 @@
         {{-- Div ini untuk nampung bagian kiri dari container, isinya Kalender dan Button --}}
         <div class="col-6 d-flex flex-column justify-content-center align-items-center">
             {{-- Kalender --}}
-            <div class="container rounded-3 bg-orenpalette mb-5 col-10 p-4 calendar-shadow overflow-hidden">
+            <div class="container rounded-3 bg-orenpalette mb-4 col-10 p-4 calendar-shadow overflow-hidden">
                 {{-- Ini khusus untuk header kalendernya --}}
                 {{-- Header Kalender --}}
                 <div class="d-flex align-items-center justify-content-center mb-3 mt-3 calendar-line">
                     {{-- Bulan sebelumnya --}}
                     <div class="me-5 mb-3">
-                        {{-- buttonnya dibuat link, tapi dia cuma bakal berubah jadi bulan sblmnya --}}
                         <a href="{{ route('calendar.show', ['month' => $prevMonth, 'year' => $prevYear]) }}">
                             <img src="{{ asset('img/White Back Button.svg') }}" alt="Previous Month" />
                         </a>
@@ -26,13 +25,11 @@
                     {{-- Bulan dan Tahun --}}
                     <div class="ms-5 me-5 mb-3">
                         <div class="text-center montserrat-bold text-3xl text-white">
-                            {{-- utk print Full nama bulan dan Tahun --}}
                             {{ $date->format('F Y') }}
                         </div>
                     </div>
                     {{-- Bulan setelahnya --}}
                     <div class="ms-5 mb-3">
-                        {{-- versi next month aja --}}
                         <a href="{{ route('calendar.show', ['month' => $nextMonth, 'year' => $nextYear]) }}">
                             <img src="{{ asset('img/White Back Button.svg') }}" alt="Next Month" class="rotate-180"/>
                         </a>
@@ -52,15 +49,17 @@
                 <table class="w-100 calendar-table">
                     <tbody>
                         <?php 
-                        
                         // variable yang bakal bertambah utk print tanggal sesuai bulan tahun tsb
                         $day = 1;
                         $position = 0;
                         // sama seperti di Controller, bikin variable DateTime utk bulan lalu.
-                        $prevMonthDays = (new DateTime ("$prevYear-$prevMonth-01"))->format('t');
+                        $prevMonthDays = (new DateTime("$prevYear-$prevMonth-01"))->format('t');
                         // utk tgl stlh bulan ini selesai
                         $nextMonthDay = 1;
 
+                        // Calculate current date for selected date comparison
+                        $currentYear = $date->format('Y');
+                        $currentMonth = $date->format('m');
                         ?>
                         {{-- ngeloop baris, di kalender ini max 6 baris (sama kyk kalender bawaan windows di bawah kanan) --}}
                         @for ($i = 0; $i < 5; $i++)
@@ -75,10 +74,20 @@
                                         <td class="prev-month bg-transparent text-center text-xl align-middle poppins-bold text-birupalette py-3">{{ $prevMonthDay }}</td>
                                     {{-- kondisi udah masuk dalam tanggal dari bulan tahun disaat user buka kalender --}}
                                     @elseif ($day <= $daysInMonth)
+                                        <?php
+                                            $currentDate = sprintf('%04d-%02d-%02d', $currentYear, $currentMonth, $day);
+                                        ?>
                                         <td class="calendar-day bg-transparent text-center text-xl align-middle poppins-bold text-putihpalette py-3">
-                                            {{ $day }}
-                                            {{-- di tanggal, kalo ada item yg expire, bikin ada titik dibawah tanggalnya --}}
-                                            {{-- to be implemented after db exists --}}
+                                            <a href="{{ url('/calendar', ['month' => $currentMonth, 'year' => $currentYear, 'selected_date' => $currentDate]) }}" class="text-decoration-none text-putihpalette">
+                                                @if ($selectedDate == $currentDate)
+                                                    <span class="selected-date">{{ $day }}</span>
+                                                @else
+                                                    {{ $day }}
+                                                @endif
+                                                @if (in_array($day, $expirations))
+                                                    <span class="expiration-dot"></span>
+                                                @endif
+                                            </a>
                                         </td>
                                         <?php $day++; ?>
                                     {{-- kondisi tanggal utk bulan setelahnya --}}
@@ -95,43 +104,36 @@
             </div>
             {{-- Edit Item Expiration Date Button --}}
             <div class="mt-3 edit-button-shadow">
-                {{-- INI CARA NGE LINKNYA KAYAKNYA HARUS BERUBAH SESUAI LOKASI MYINVENTORYPAGE DI ROUTE, TUNGGU ROUTENYA ADA--}}
-                {{-- harus customize margin left dan margin right nya. kurang panjang bro --}}
                 <a href="../myInventory" class="nunito-bold btn-dark-blue text-xl text-center rounded-3">
                     Edit Item's Expiration Date
-                    {{-- gambar masih harus di resize woi --}}
                     <img src="{{ asset('img/editButton.svg') }}" alt="Edit Button" class="pencil-icon mb-1 ms-0 pe-3">
                 </a>
             </div>
         </div>
         {{-- Items to Expire --}}
-        <div class="col-6 d-flex flex-column border">
-            <div class="container rounded-3 border col-10 pt-5">
-                <div class="text-2xl montserrat-bold">
+        <div class="col-6 d-flex flex-column">
+            <div class="container rounded-3 border shadow-lg col-10 pt-5 right-box">
+                <div class="text-2xl montserrat-bold ms-4 mb-2">
                     Items to Expire
                 </div>
-                @if ($expirations->isEmpty())
-                    <!-- Image 1: No items expired -->
-                    <div class="text-center mt-4">
-                        <img src="{{ asset('img/Calendar Icon Home.svg') }}" alt="Calendar Icon">
-                        <p class="mt-3 nunito-semibold">No Item Expired Today</p>
+                @if (!$selectedDate || $selectedItems->isEmpty())
+                    <div class="text-center">
+                        <img src="{{ asset('img/Calendar for No Items.svg') }}" alt="Calendar Icon" class="bg-transparent">
+                        <p class="mt-5 nunito-semibold text-3xl">No Item Expired Today</p>
                     </div>
                 @else
-                    <!-- Image 2: List of items -->
-                    {{-- BELOM BENER  --}}
-                    @foreach ($expirations as $item)
+                    @foreach ($selectedItems as $item)
                         <div class="d-flex align-items-center p-2 mb-2 bg-light rounded" style="border-left: 10px solid #{{ $item->id % 2 == 0 ? 'd9534f' : '5cb85c' }};">
-                            <img src="{{ asset('img/' . strtolower(str_replace(' ', '-', $item->name)) . '.png') }}" alt="{{ $item->name }}" style="width: 40px; height: 40px; margin-right: 10px;">
+                            <img src="{{ asset($item->subcategory->img) }}" alt="{{ $item->name }}" style="width: 40px; height: 40px; margin-right: 10px;">
                             <div>
                                 <span>{{ $item->name }}</span>
-                                <span class="ms-3">{{ $item->items_count ?? 1 }} item{{ $item->items_count != 1 ? 's' : '' }}</span>
+                                <span class="ms-3">{{ $item->expirationDate->qty }} item{{ $item->expirationDate->qty != 1 ? 's' : '' }}</span>
                             </div>
                         </div>
                     @endforeach
                 @endif
             </div>
         </div>
-
     </div>
 
 </x-master>
