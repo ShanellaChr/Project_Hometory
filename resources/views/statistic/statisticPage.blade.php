@@ -45,11 +45,7 @@
             <div class="row m-4">
                 {{-- PIE CHART --}}
                 <div class="col-md-5 d-flex justify-content-center align-items-center">
-<<<<<<< Updated upstream
-                    <canvas id="inventoryPieChart" style="width:100%; max-width:40vw"></canvas>
-=======
                     <canvas id="inventoryPieChart" style="width:100%; max-width:38vw"></canvas>
->>>>>>> Stashed changes
                 </div>
 
                 {{-- DESKRIPSI --}}
@@ -66,14 +62,6 @@
                     @endphp
 
                     @foreach ($cards as $card)
-<<<<<<< Updated upstream
-                        <div class="bg-putihpalette rounded-5 shadow-lg p-2 ps-3 pe-3 mb-0 text-center" style="width: 21.8vw; height: 9.5vw; display: flex; flex-direction: column;">
-                            <strong class="montserrat-semibold fw-semibold text-xl" style="margin-top: 0.2vw">{{ $card['title'] }}</strong>
-                            <div class="{{ $card['color'] }} text-4xl fw-bold nunito-extrabold mb-0" style="text-shadow: 1px 1px 0 #000, -1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000;">{{ $card['value'] }}</div>
-                            <p class="nunito-reguler text-xs mt-0 mb-0" style="line-height: 1.2;">{{ $card['desc'] }}</p>
-                        </div>
-                    @endforeach
-=======
                         <div class="bg-putihpalette rounded-5 shadow-lg p-3 text-center" style="flex: 1 1 14.5vw; max-width: 100%; max-height: 10.5vw;">
                             <strong class="montserrat-semibold text-xl">{{ $card['title'] }}</strong>
                             <div class="{{ $card['color'] }} text-4xl flex-bold nunito-extrabold" style="-webkit-text-stroke: 1px #0000;">{{ $card['value'] }}</div>
@@ -87,7 +75,6 @@
                     <strong>Note:</strong><br>
                     • Statistics are based only on data recorded by users this month<br>
                     • Please make sure that used or discarded items are updated for accurate results.
->>>>>>> Stashed changes
                 </div>
                 {{-- END OF DESKRIPSI --}}
             </div>
