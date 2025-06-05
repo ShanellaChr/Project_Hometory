@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CalendarController;
+use App\Http\Controllers\StatisticController;
 
 Route::get('/', function () {
     return view('homePage');
@@ -21,9 +22,7 @@ Route::get('/myInventory', function () {
 
 Route::get('/calendar', [CalendarController::class , 'show'])->name('calendar.show');
 
-Route::get('/statistic', function () {
-    return view('statistic.statisticPage');
-});
+Route::get('/statistic', [StatisticController::class, 'index'])->name('statistic.page');
 
 Route::get('/wishlist', function () {
     return view('wishlist.wishlistPage');

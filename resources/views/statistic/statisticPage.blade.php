@@ -11,9 +11,32 @@
     <div class = "container mt-0">
         {{-- Header Tabel --}}
         <div class="d-flex justify-content-between align-items-center text-white p-4 rounded-4 position-relative" style="background-color: #364156; z-index: 2;">
-            <button class="btn btn-sm text-white montserrat-semibold fs-5">&lt; April</button>
-            <h4 class="m-0 montserrat-bold fs-2">May 2025</h4>
-            <button class="btn btn-sm text-white-50 montserrat-semibold border-0 disabled fs-5">June &gt;</button>
+            {{-- Previous Month Button --}}
+            @if($hasPrev)
+                <a href="{{ route('statistic.page', ['month' => $prevMonth->format('Y-m')]) }}"
+                class="btn btn-sm montserrat-semibold fs-5 text-white">
+                    &lt; {{ $prevMonth->format('F') }}
+                </a>
+            @else
+                <span class="btn btn-sm montserrat-semibold fs-5 text-white-50 disabled border-0">
+                    &lt; {{ $prevMonth->format('F') }}
+                </span>
+            @endif
+
+            {{-- Current Month Title --}}
+            <h4 class="m-0 montserrat-bold fs-2">{{ $currentMonth->format('F Y') }}</h4>
+
+            {{-- Next Month Button --}}
+            @if($hasNext)
+                <a href="{{ route('statistic.page', ['month' => $nextMonth->format('Y-m')]) }}"
+                class="btn btn-sm montserrat-semibold fs-5 text-white">
+                    {{ $nextMonth->format('F') }} &gt;
+                </a>
+            @else
+                <span class="btn btn-sm montserrat-semibold fs-5 text-white-50 disabled border-0">
+                    {{ $nextMonth->format('F') }} &gt;
+                </span>
+            @endif
         </div>
         {{-- End Header Tabel --}}
         
