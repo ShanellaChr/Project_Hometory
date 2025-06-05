@@ -4,15 +4,15 @@
     <div class="d-flex justify-content-center align-items-center pt-7 montserrat-bold text-5xl">My<span class="ms-3 text-orenyedija">Calendar</span></div>
 
     {{-- Slogan My Calendar --}}
-    <div class="d-flex justify-content-center align-items-center mt-1 mb-5 nunito-regular text-lg">Track your expires, track smarter!</div>
+    <div class="d-flex justify-content-center align-items-center mt-1 mb-3 nunito-regular text-lg">Track your expires, track smarter!</div>
     {{-- END OF SECTION JUDUL PAGE --}}
 
     {{-- Div ini untuk nampung semuanya; calendar, items to expire, edit item expiration date button --}}
     <div class="d-flex">
         {{-- Div ini untuk nampung bagian kiri dari container, isinya Kalender dan Button --}}
-        <div class="col-6 d-flex flex-column justify-content-center align-items-center mt-5">
+        <div class="col-6 d-flex flex-column justify-content-center align-items-center">
             {{-- Kalender --}}
-            <div class="container rounded-3 bg-orenpalette mb-5 col-10 p-4">
+            <div class="container rounded-3 bg-orenpalette mb-5 col-10 p-4 calendar-shadow overflow-hidden">
                 {{-- Ini khusus untuk header kalendernya --}}
                 {{-- Header Kalender --}}
                 <div class="d-flex align-items-center justify-content-center mb-3 mt-3 calendar-line">
@@ -25,7 +25,7 @@
                     </div>
                     {{-- Bulan dan Tahun --}}
                     <div class="ms-5 me-5 mb-3">
-                        <div class="text-center montserrat-bold text-2xl text-white">
+                        <div class="text-center montserrat-bold text-3xl text-white">
                             {{-- utk print Full nama bulan dan Tahun --}}
                             {{ $date->format('F Y') }}
                         </div>
@@ -49,7 +49,7 @@
                     <div class="nunito-bold text-white">Sa</div>
                 </div>
                 {{-- Tanggal dari kalender--}}
-                <table class="table table-bordered text-center">
+                <table class="w-100 calendar-table">
                     <tbody>
                         <?php 
                         
@@ -63,7 +63,7 @@
 
                         ?>
                         {{-- ngeloop baris, di kalender ini max 6 baris (sama kyk kalender bawaan windows di bawah kanan) --}}
-                        @for ($i = 0; $i < 6; $i++)
+                        @for ($i = 0; $i < 5; $i++)
                             <tr>
                                 {{-- loop kolom, utk tanggalnya --}}
                                 @for ($j = 0; $j < 7; $j++)
@@ -72,10 +72,10 @@
                                         <?php
                                             $prevMonthDay = $prevMonthDays - ($firstDay - $position - 1);
                                         ?>
-                                        <td class="prev-month">{{ $prevMonthDay }}</td>
+                                        <td class="prev-month bg-transparent text-center text-xl align-middle poppins-bold text-birupalette py-3">{{ $prevMonthDay }}</td>
                                     {{-- kondisi udah masuk dalam tanggal dari bulan tahun disaat user buka kalender --}}
                                     @elseif ($day <= $daysInMonth)
-                                        <td class="calendar-day">
+                                        <td class="calendar-day bg-transparent text-center text-xl align-middle poppins-bold text-putihpalette py-3">
                                             {{ $day }}
                                             {{-- di tanggal, kalo ada item yg expire, bikin ada titik dibawah tanggalnya --}}
                                             {{-- to be implemented after db exists --}}
@@ -83,21 +83,21 @@
                                         <?php $day++; ?>
                                     {{-- kondisi tanggal utk bulan setelahnya --}}
                                     @else
-                                        <td class="next-month">{{ $nextMonthDay }}</td>
+                                        <td class="next-month bg-transparent text-center text-xl align-middle poppins-bold text-birupalette py-3">{{ $nextMonthDay }}</td>
                                         <?php $nextMonthDay++; ?> 
                                     @endif
+                                    <?php $position++; ?>
                                 @endfor
-                                <?php $position++; ?>
                             </tr>
                         @endfor
                     </tbody>
                 </table>
             </div>
             {{-- Edit Item Expiration Date Button --}}
-            <div class="d-flex mt-5">
+            <div class="mt-3 edit-button-shadow">
                 {{-- INI CARA NGE LINKNYA KAYAKNYA HARUS BERUBAH SESUAI LOKASI MYINVENTORYPAGE DI ROUTE, TUNGGU ROUTENYA ADA--}}
                 {{-- harus customize margin left dan margin right nya. kurang panjang bro --}}
-                <a href="../myInventory/myInventoryPage.blade.php" class="nunito-bold btn-dark-blue text-2xl text-center rounded-3" style="width:41vw; padding-left: 5vw; padding-right: 5vw; padding-top: 2.5vh; padding-bottom: 2.5vh;">
+                <a href="../myInventory" class="nunito-bold btn-dark-blue text-xl text-center rounded-3">
                     Edit Item's Expiration Date
                     {{-- gambar masih harus di resize woi --}}
                     <img src="{{ asset('img/editButton.svg') }}" alt="Edit Button" class="pencil-icon mb-1 ms-0 pe-3">
@@ -105,8 +105,31 @@
             </div>
         </div>
         {{-- Items to Expire --}}
-        <div class="col-6 border">
-            
+        <div class="col-6 d-flex flex-column border">
+            <div class="container rounded-3 border col-10 pt-5">
+                <div class="text-2xl montserrat-bold">
+                    Items to Expire
+                </div>
+                @if ($expirations->isEmpty())
+                    <!-- Image 1: No items expired -->
+                    <div class="text-center mt-4">
+                        <img src="{{ asset('img/Calendar Icon Home.svg') }}" alt="Calendar Icon">
+                        <p class="mt-3 nunito-semibold">No Item Expired Today</p>
+                    </div>
+                @else
+                    <!-- Image 2: List of items -->
+                    {{-- BELOM BENER  --}}
+                    @foreach ($expirations as $item)
+                        <div class="d-flex align-items-center p-2 mb-2 bg-light rounded" style="border-left: 10px solid #{{ $item->id % 2 == 0 ? 'd9534f' : '5cb85c' }};">
+                            <img src="{{ asset('img/' . strtolower(str_replace(' ', '-', $item->name)) . '.png') }}" alt="{{ $item->name }}" style="width: 40px; height: 40px; margin-right: 10px;">
+                            <div>
+                                <span>{{ $item->name }}</span>
+                                <span class="ms-3">{{ $item->items_count ?? 1 }} item{{ $item->items_count != 1 ? 's' : '' }}</span>
+                            </div>
+                        </div>
+                    @endforeach
+                @endif
+            </div>
         </div>
 
     </div>
