@@ -23,25 +23,9 @@
 
     <p class=" montserrat-semibold text-2xl m-5">Article List</p>
 
-    <div class="" style="margin:5vw">
+    <div style="margin: 3vw">
 
         <div class="row" style="">
-{{-- 
-            <div class="col-6 p-3 bg-white article-card d-flex justify-content-between align-items-start shadow rounded-2">
-                <div>
-                    <div class="fw-semibold">Sistem Inventory Sederhana untuk Kebutuhan Rumah Tangga</div>
-                    <div class="text-muted small">2 days ago</div>
-                </div>
-                <i class="bi bi-trash delete-icon"></i>
-            </div>
-
-                <div class="shadow rounded-3 col-6 p-3 bg-white article-card d-flex justify-content-between align-items-start">
-                    <div>
-                        <div class="fw-semibold">Sistem Inventory Sederhana untuk Kebutuhan Rumah Tangga</div>
-                        <div class="text-muted small">2 days ago</div>
-                    </div>
-                    <i class="bi bi-trash delete-icon"></i>
-                </div> --}}
 
             <div class="col-6">
                 <div class="p-3 bg-white d-flex justify-content-between align-items-start shadow">
