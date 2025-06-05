@@ -31,7 +31,7 @@
     </div>
 
     <div class="container mt-4 p-4 ps-5 pe-5 rounded-4 bg-abupalette text-white mb-0" style="max-width: 92%; max-height:100%; min-height: 100%;">
-        <form>
+        <form id="wishlistForm">
             @csrf
             <!-- Item Name -->
             <div class="mb-4">
@@ -53,6 +53,9 @@
                     @endforeach
                 </div>
                 <input type="hidden" name="category" id="selectedCategory">
+                <div id="categoryError" class="text-danger mt-2" style="display: none;">
+                    Please select a category before submitting.
+                </div>
             </div>
 
             <!-- Description -->

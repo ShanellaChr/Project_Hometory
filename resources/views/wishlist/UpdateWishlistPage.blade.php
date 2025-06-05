@@ -32,7 +32,7 @@
     </div>
 
     <div class="container mt-4 p-4 ps-5 pe-5 rounded-4 bg-abupalette text-white mb-0" style="max-width: 92%; max-height:100%; min-height: 100%;">
-        <form>
+        <form id="wishlistForm">
             @csrf
             <!-- Item Name -->
             <div class="mb-4">
@@ -46,7 +46,7 @@
                 <div class="row gy-2">
                     @foreach (['Personal Care', 'Beverages', 'Household Essentials', 'Foods', 'Kitchen Needs', 'Health Supplies'] as $category)
                         <div class="col-6 col-md-4">
-                            <button type="button" class="w-100 btn bg-putihpalette montserrat-semibold category-btn text-dark">
+                            <button type="button" class="w-100 btn bg-putihpalette montserrat-semibold category-btn text-dark p-2">
                                 {{ $category }}
                             </button>
 
@@ -54,6 +54,9 @@
                     @endforeach
                 </div>
                 <input type="hidden" name="category" id="selectedCategory">
+                <div id="categoryError" class="text-danger mt-2" style="display: none;">
+                    Please select a category before submitting.
+                </div>
             </div>
 
             <!-- Description -->
