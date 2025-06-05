@@ -64,7 +64,7 @@
                     @foreach ($cards as $card)
                         <div class="bg-putihpalette rounded-5 shadow-lg p-3 text-center" style="flex: 1 1 14.5vw; max-width: 100%; max-height: 10.5vw;">
                             <strong class="montserrat-semibold text-xl">{{ $card['title'] }}</strong>
-                            <div class="{{ $card['color'] }} text-4xl flex-bold nunito-extrabold" style="-webkit-text-stroke: 1px #0000;">{{ $card['value'] }}</div>
+                            <div class="{{ $card['color'] }} text-4xl flex-bold nunito-extrabold">{{ $card['value'] }}</div>
                             <p class="nunito-reguler text-xs mt-0 mb-0">{{ $card['desc'] }}</p>
                         </div>
                     @endforeach
