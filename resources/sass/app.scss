@@ -163,6 +163,11 @@ $custom-colors: (
   background-color: #011638 !important;
   border: none !important;
   transition: all 0.4s ease-in-out !important;
+  width:41vw; 
+  padding-left: 10.5vw; 
+  padding-right: 10.5vw; 
+  padding-top: 2.5vh; 
+  padding-bottom: 2.5vh;
 }
 
 .btn-dark-blue:hover {
@@ -256,4 +261,16 @@ $custom-colors: (
 // Line pembatas bulan tahun dan tanggal
 .calendar-line {
   border-bottom: 2px solid #fff;
+}
+
+.calendar-table {
+  table-layout: fixed;
+}
+
+.calendar-shadow {
+  box-shadow: 15px 15px 15px rgba(0, 0, 0, 0.25);
+}
+
+.edit-button-shadow {
+  box-shadow: 30px 30px 30px rgba(0, 0, 0, 0.25);
 }
