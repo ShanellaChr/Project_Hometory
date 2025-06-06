@@ -35,6 +35,8 @@ Route::get('/wishlist/update', function () {
     return view('wishlist.UpdateWishlistPage');
 })->name('wishlist.update');
 
+Route::get('/wishlist/{id}/redirect', [WishlistController::class, 'redirect'])->name('wishlist.redirect');
+
 Route::get('/article', function () {
     return view('article.articlePage');
 });

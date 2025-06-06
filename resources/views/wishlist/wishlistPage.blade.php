@@ -9,39 +9,43 @@
 
     {{-- Box Wishlist --}}
     <div class="container mt-0 card bg-dark-blue text-white shadow-lg p-3 rounded-4 position-relative bg-abupalette">
-        
-        {{-- Kondisi Kosong --}}
-        {{-- <div class="text-center mb-3 mt-5">
-            <img src="{{ asset('img/Wishlist.svg') }}" class="img-fluid" style="width: 17vw; height: auto;">
-            <p class="mt-3 fs-4 nunito-semibold">Your Wishlist Is Empty</p>
-        </div> --}}
 
         {{-- Daftar Wishlist --}}
         @if(count($wishlists))
-            @foreach ($wishlists as $wishlist)
-                <div class="d-flex align-items-center justify-content-between bg-putihpalette text-black px-3 py-3 mb-3 rounded-4">
-                    {{-- Warna Strip Kategori --}}
-                    <div class="me-3">
-                        <div class="rounded-start bg-{{ $wishlist['category_class'] }}" style="width: 1vw; height: 100%;"></div>
-                    </div>
+           @foreach ($wishlists as $wishlist)
+                <div class="position-relative bg-putihpalette text-black py-3 ps-4 pe-3 mb-3 rounded-4 d-flex align-items-center" style="overflow: hidden;">
+                    {{-- Strip warna kategori --}}
+                    <div class="position-absolute top-0 bottom-0 start-0 rounded-start bg-{{ $wishlist['category_class'] }}" style="width: 1.2vw;"></div>
 
-                    {{-- Konten Wishlist ada --}}
+                    {{-- Checkbox --}}
+                    <label class="custom-checkbox-wrapper ms-1 me-3">
+                        <input 
+                            type="checkbox" 
+                            class="custom-checkbox" 
+                            onchange="window.location.href='{{ route('wishlist.redirect', $wishlist['id']) }}'"
+                        >
+                        <span class="checkmark"></span>
+                    </label>
+
+                    {{-- Konten Wishlist --}}
                     <div class="flex-grow-1">
                         <p class="mb-0 montserrat-bold">{{ $wishlist['name'] }}</p>
                         <p class="mb-0 nunito-medium">{{ $wishlist['description'] }}</p>
                     </div>
 
                     {{-- Aksi --}}
-                    <div class="ms-3 d-flex gap-3">
-                        <button class="btn btn-light rounded-circle">
-                            <i class="bi bi-pencil-fill"></i>
-                        </button>
-                        <button class="btn btn-light rounded-circle">
-                            <i class="bi bi-trash-fill"></i>
-                        </button>
+                    <div class="position-absolute top-0 end-0 me-3 mt-2 d-flex gap-2">
+                        <a href="{{ route('wishlist.update') }}" class="btn bg-transparent p-0">
+                            <img src="{{ asset('img/pencil black.svg') }}" alt="Edit" width="26" height="26" class="icon-pencil">
+                        </a>
+                        <a href="{{ route('wishlist.add') }}" class="btn bg-transparent p-0">
+                            <img src="{{ asset('img/trashbin black.svg') }}" alt="Delete" width="26" height="26" class="icon-trash">
+                        </a>
+                        {{-- yang delete nanti linknya diganti pop up --}}
                     </div>
                 </div>
             @endforeach
+
         {{-- ini kondisi kalau kosong --}}
         @else
             <div class="text-center mt-5">

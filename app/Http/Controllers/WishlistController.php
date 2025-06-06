@@ -47,4 +47,12 @@ class WishlistController extends Controller
 
         return view('wishlist.wishlistPage', compact('wishlists'));
     }
+
+    public function redirect($id)
+    {
+        // Arahkan ke halaman detail / edit / action spesifik
+        return redirect()->route('wishlist.AddWishlistPage', ['id' => $id]);
+        // nanti linknya diubah ke add item
+    }
+
 }
