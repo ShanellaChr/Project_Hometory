@@ -1,5 +1,6 @@
 /* COLORS */
 $custom-colors: (
+    "putih": #FFFFFF,
     "orenpalette": #EEA144,
     "putihpalette": #F3F9E3,
     "ijopalette": #566E3D,
@@ -228,6 +229,15 @@ $custom-colors: (
   border-color: white !important;
 }
 
+.custom-card {
+  background-color: white; /* warna awal */
+  transition: background-color 0.3s ease-in-out;
+}
+
+.custom-card:hover {
+  background-color: #f0f0f0; /* abu-abu saat hover */
+}
+
 /* OTHERS CLASS UNIVERSAL */
 
 // Wishlist
@@ -273,4 +283,11 @@ $custom-colors: (
 
 .edit-button-shadow {
   box-shadow: 30px 30px 30px rgba(0, 0, 0, 0.25);
+}
+
+// Search Bar
+.search-form {
+  border: 2px solid #000;     
+  border-radius: 10px;         
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); 
 }
