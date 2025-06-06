@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
+use App\Models\Item;
+use App\Models\ExpirationDate;
 use DateTime;
 
 class CalendarController extends Controller
@@ -22,7 +24,33 @@ class CalendarController extends Controller
         $firstDay = $date->format('w');
 
         // code untuk ambil tanggal expire dari database
-        // reserved for it bc no db now
+        // Fetch days with expirations for the current month
+        $expirations = Item::whereHas('expirationDate', function ($query) use ($month, $year) {
+            $query->whereMonth('expiration_date', $month)
+                  ->whereYear('expiration_date', $year);
+        })
+        ->with('expirationDate')
+        ->get()
+        ->pluck('expirationDate.expiration_date')
+        ->map(function ($expirationDate) {
+            return (int) $expirationDate->format('d');
+        })
+        ->unique()
+        ->values()
+        ->toArray();
+
+        // Get the selected date (default to null if not set)
+        $selectedDate = $request->input('selected_date', null);
+        $selectedItems = [];
+
+        if ($selectedDate) {
+            // Fetch items expiring on the selected date
+            $selectedItems = Item::whereHas('expirationDate', function ($query) use ($selectedDate) {
+                $query->whereDate('expiration_date', $selectedDate);
+            })
+            ->with(['subcategory', 'expirationDate'])
+            ->get();
+        }
 
         // ini logic utk perhitungan tanggal sblm dan stlh bbulan tahun
         // yang tertulis di kalender
@@ -39,6 +67,6 @@ class CalendarController extends Controller
 
         // kasih semua data ini ke view
         // masih kurang ngirimin items to expire aja
-        return view('calendar.calendarPage', compact('date', 'daysInMonth', 'firstDay', 'prevMonth', 'prevYear', 'nextMonth', 'nextYear'));
+        return view('calendar.calendarPage', compact('date', 'daysInMonth', 'firstDay', 'expirations', 'selectedDate', 'selectedItems','prevMonth', 'prevYear', 'nextMonth', 'nextYear'));
     }
 }
