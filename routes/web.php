@@ -46,7 +46,15 @@ Route::get('/profile', function () {
 });
 
 Route::get('/reset', function () {
-    return view('resetPasswordPage');
+    return view('resetPassword.requestResetPage');
+});
+
+Route::get('/resetVerif', function () {
+    return view('resetPassword.verifyResetPage');
+});
+
+Route::get('/resetAdd', function () {
+    return view('resetPassword.addNewPasswordPage');
 });
 
 Route::get('/admin', function () {

@@ -28,12 +28,12 @@
                     <form>
                         <div class="mb-3">
                             <label for="inputUsername" class="form-label montserrat-medium">Username</label>
-                            <input type="text" class="form-control nunito-medium" id="inputUsername" placeholder="Enter your username">
+                            <input type="text" class="form-control form-control-lg nunito-medium" id="inputUsername" placeholder="Enter your username">
                         </div>
     
                         <div class="mb-1">
                             <label for="inputPassword" class="form-label montserrat-medium">Password</label>
-                            <input type="password" class="form-control nunito-medium" id="inputPassword" placeholder="Enter your password">
+                            <input type="password" class="form-control form-control-lg nunito-medium" id="inputPassword" placeholder="Enter your password">
                         </div>
     
                         <div class="mt-3 mb-5 text-end">

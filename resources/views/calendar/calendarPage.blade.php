@@ -8,7 +8,7 @@
     {{-- END OF SECTION JUDUL PAGE --}}
 
     {{-- Div ini untuk nampung semuanya; calendar, items to expire, edit item expiration date button --}}
-    <div class="d-flex">
+    <div class="d-flex mb-5">
         {{-- Div ini untuk nampung bagian kiri dari container, isinya Kalender dan Button --}}
         <div class="col-6 d-flex flex-column justify-content-center align-items-center">
             {{-- Kalender --}}

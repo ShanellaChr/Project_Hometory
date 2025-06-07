@@ -13,7 +13,7 @@
             <a class="navlink-a {{ request()->is('article*') ? 'active' : '' }}" href="/article">Article</a>  
         </div>
 
-        <a class="navbar-login" href="">
+        <a class="navbar-login" href="/profile">
             LOGIN
             {{-- <img style="height:2.5vh" src="{{ asset('img/Navbar Person.svg') }}" alt=""> --}}
             {{-- <div style="display: flex; vertical-align:middle;">

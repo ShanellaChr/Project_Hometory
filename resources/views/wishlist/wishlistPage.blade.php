@@ -8,7 +8,7 @@
     {{-- END OF SECTION JUDUL PAGE --}}
 
     {{-- Box Wishlist --}}
-    <div class="container mt-0 card bg-dark-blue text-white shadow-lg p-3 rounded-4 position-relative bg-abupalette">
+    <div class="container mt-0 mb-5 card bg-dark-blue text-white shadow-lg p-3 rounded-4 position-relative bg-abupalette">
 
         {{-- Daftar Wishlist --}}
         @if(count($wishlists))

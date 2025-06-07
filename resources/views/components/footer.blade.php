@@ -1,4 +1,4 @@
-<footer class="text-center py-3 mt-5 poppins-regular" style="background-color: #011638">
+<footer class="text-center py-3 poppins-regular" style="background-color: #011638">
     <img class="footer-hometory" src="{{ asset('img/footer Logo.svg') }}" alt="">
 
     <div class="footer-navbar">

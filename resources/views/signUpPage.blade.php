@@ -29,17 +29,17 @@
                     <form>
                         <div class="mb-3">
                             <label for="inputEmail" class="form-label montserrat-medium">Email</label>
-                            <input type="text" class="form-control nunito-medium" id="inputEmail" placeholder="Enter your email">
+                            <input type="text" class="form-control form-control-lg  nunito-medium" id="inputEmail" placeholder="Enter your email">
                         </div>
 
                         <div class="mb-3">
                             <label for="inputUsername" class="form-label montserrat-medium">Username</label>
-                            <input type="text" class="form-control nunito-medium" id="inputUsername" placeholder="Enter your username">
+                            <input type="text" class="form-control form-control-lg nunito-medium" id="inputUsername" placeholder="Enter your username">
                         </div>
     
                         <div class="mb-1">
                             <label for="inputPassword" class="form-label montserrat-medium">Password</label>
-                            <input type="password" class="nunito-medium form-control" id="inputPassword" placeholder="Enter your password">
+                            <input type="password" class="nunito-medium form-control form-control-lg" id="inputPassword" placeholder="Enter your password">
                         </div>
 
     

@@ -80,7 +80,7 @@
 
     {{-- Review Aplikasi --}}
 
-    <div class=" d-flex flex-row justify-content-center mt-5 align-items-center" style="gap: 7vw">
+    <div class=" d-flex flex-row justify-content-center mt-5 mb-5 align-items-center" style="gap: 7vw">
 
         <button class=" border-0 bg-transparent">
             <i class="bi bi-caret-left-fill rounded-circle d-flex justify-content-center align-items-center p-2 shadow"></i>

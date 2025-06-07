@@ -12,7 +12,8 @@ $custom-colors: (
     "coklatcategory": #D29375,
     "ijocategory": #9CBA7F,
     "merahcategory": #E86060,
-    "orenyedija": #E46504
+    "orenyedija": #E46504,
+    "merahbutton": #89072A,
 );
 
 @each $name, $color in $custom-colors {
