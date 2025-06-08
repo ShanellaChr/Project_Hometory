@@ -39,13 +39,13 @@
       </form>
       <div class="row justify-content-center mt-5 pt-3 text-center">
             <div class="col-12 col-md-4 mb-2">
-              <a href="{{ route('profile.edit') }}" class="btn bg-ijopalette text-putihpalette w-100 d-flex justify-content-center align-items-center gap-2 py-2 nunito-bold">
+              <a href="{{ route('profile.edit') }}" class="btn btn-ijo btn-ijo:hover w-100 d-flex justify-content-center align-items-center gap-2 py-2 nunito-bold">
                 Edit
                 <img src="/img/editButton.svg" alt="Edit" width="20" height="20">
               </a>
             </div>
             <div class="col-12 col-md-4 mb-2">
-                <button type="button" class="btn bg-orenpalette text-putihpalette w-100 d-flex justify-content-center align-items-center gap-2 py-2  nunito-bold">
+                <button type="button" class="btn btn-orange-putih btn-orange-putih:hover w-100 d-flex justify-content-center align-items-center gap-2 py-2  nunito-bold">
                     Logout
                 <img src="/img/logOutIcon.svg" alt="Logout" width="20" height="20">
             </button>
@@ -54,7 +54,7 @@
               <!-- Trigger Modal -->
               <button 
                   type="button" 
-                  class="btn bg-merahbutton text-putihpalette w-100 d-flex justify-content-center align-items-center gap-2 py-2 nunito-bold"
+                  class="btn btn-merah btn-merah:hover w-100 d-flex justify-content-center align-items-center gap-2 py-2 nunito-bold"
                   data-bs-toggle="modal" 
                   data-bs-target="#deleteConfirmationModal"
               >
@@ -79,7 +79,7 @@
         <!-- Footer -->
         <div class="modal-footer d-flex justify-content-center gap-3 pt-2 mb-3">
           <h3 class="modal-title w-100 text-center montserrat-bold" id="deleteConfirmationLabel">Are You Sure Want <br> To Delete?</h3>
-          <button type="button" class="btn btn-secondary bg-abubutton text-putihpalette d-flex align-items-center gap-2 px-4" data-bs-dismiss="modal">
+          <button type="button" class="btn btn-abu btn-abu:hover d-flex align-items-center gap-2 px-4" data-bs-dismiss="modal">
             Cancel
             <img src="/img/cancel icon.svg" alt="Cancel" width="20" height="20">
           </button>
@@ -87,7 +87,7 @@
           <form action="{{ route('profile.delete') }}" method="POST">
             @csrf
             @method('DELETE')
-            <button type="submit" class="btn bg-merahbutton text-putihpalette  d-flex align-items-center gap-2 px-4">
+            <button type="submit" class="btn btn-merah btn-merah:hover d-flex align-items-center gap-2 px-4">
               Delete
               <img src="/img/trashbin white icon.svg" alt="Delete" width="20" height="20">
             </button>
