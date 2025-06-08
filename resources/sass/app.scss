@@ -189,11 +189,72 @@ $custom-colors: (
   background-color: #F3F9E3 !important; 
 }
 
-.btn-orange-gelap{
+.btn-putih {
+  color: #000000 !important;
+  text-decoration: none !important;
+  background-color: #F3F9E3 !important;
+  border: none !important;
+  transition: all 0.4s ease-in-out !important;
+}
+
+.btn-putih:hover {
+  color: #FFFFFF !important;
+  background-color: #566E3D !important; 
+}
+
+.btn-merah {
+  color: #F3F9E3 !important;
+  text-decoration: none !important;
+  background-color: #89072A !important;
+  border: none !important;
+  transition: all 0.4s ease-in-out !important;
+}
+
+.btn-merah:hover {
+  background-color: #AA3756 !important;
+}
+
+.btn-orange-putih {
+  color: #F3F9E3 !important;
+  text-decoration: none !important;
+  background-color: #EEA144 !important;
+  border: none !important;
+  transition: all 0.4s ease-in-out !important;
+}
+
+.btn-orange-putih:hover {
+  background-color: #FFBD6E !important;
+}
+
+.btn-ijo {
+  color: #F3F9E3 !important;
+  text-decoration: none !important;
+  background-color: #566E3D !important;
+  border: none !important;
+  transition: all 0.4s ease-in-out !important;
+}
+
+.btn-ijo:hover {
+  background-color: #90A07F !important;
+}
+
+.btn-abu {
+  color: #F3F9E3 !important;
+  text-decoration: none !important;
+  background-color: #888888 !important;
+  border: none !important;
+  transition: all 0.4s ease-in-out !important;
+}
+
+.btn-abu:hover {
+  background-color: #C0C0C0 !important;
+}
+
+.btn-orange-gelap {
   background-color: #E46504 !important;
 }
 
-.btn-orange-gelap:hover{
+.btn-orange-gelap:hover {
   background-color: #ab4a00 !important;
   transform: scale(0.98);
 }
