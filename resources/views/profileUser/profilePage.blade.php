@@ -69,7 +69,7 @@
   <!-- Delete Confirmation Modal -->
   <div class="modal fade" id="deleteConfirmationModal" tabindex="-1" aria-labelledby="deleteConfirmationLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content" style="border-radius: 12px;">
+      <div class="modal-content" style="border-radius: 1rem;">
         
         <!-- Header -->
         <div class="modal-header bg-merahbutton text-putihpalette d-flex flex-column align-items-center" style="border-bottom: none;">
@@ -77,7 +77,7 @@
         </div>
         
         <!-- Footer -->
-        <div class="modal-footer d-flex justify-content-center gap-3 mt-3 pt-2 mb-3" style="border-top: none;">
+        <div class="modal-footer d-flex justify-content-center gap-3 pt-2 mb-3">
           <h3 class="modal-title w-100 text-center montserrat-bold" id="deleteConfirmationLabel">Are You Sure Want <br> To Delete?</h3>
           <button type="button" class="btn btn-secondary bg-abubutton text-putihpalette d-flex align-items-center gap-2 px-4" data-bs-dismiss="modal">
             Cancel
