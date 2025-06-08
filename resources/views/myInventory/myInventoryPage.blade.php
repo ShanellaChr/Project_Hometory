@@ -13,7 +13,7 @@
         <div class="w-25 min-h-full">
             {{-- Button Add New Item --}}
             <div class="mt-3 mb-4 mx-4" style="width: 88%">
-                <a href = "../myInventory/crudItemPage.blade.php" class="btn-orange rounded-3 shadow" style="padding-left: 4.2vw; padding-right: 4.5vw; padding-top: 1.5vw; padding-bottom: 1.5vw">
+                <a href = "../myInventory/crudItemPage" class="btn-orange rounded-3 shadow" style="padding-left: 4.2vw; padding-right: 4.5vw; padding-top: 1.5vw; padding-bottom: 1.5vw">
                     <span  class= "nunito-bold text-2xl text-center">Add New Item</span> 
                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-plus mb-2" viewBox="0 0 16 16">
                         <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
@@ -23,7 +23,7 @@
 
             {{-- Button Expired Products --}}
             <div class="mx-4 mb-4 mt-5" style="width: 88%">
-                <a href = "../myInventory/expiredItemPage.blade.php" class="btn-dark-blue rounded-3 shadow" style="padding-left: 3.25vw; padding-right: 2vw; padding-top: 1.5vw; padding-bottom: 1.5vw">
+                <a href = "../myInventory/expiredItemPage" class="btn-dark-blue rounded-3 shadow" style="padding-left: 3.25vw; padding-right: 2vw; padding-top: 1.5vw; padding-bottom: 1.5vw">
                     <span  class= "nunito-bold text-2xl text-center">Expired Products</span> 
                     <img src="{{ asset('img/expiredButton.svg') }}" alt="Expired Icon" class="pencil-icon mb-1 ms-0 pe-3">
                 </a>
@@ -125,7 +125,7 @@
                 {{-- KALO ADA ITEM --}}
                 <div class="row">
                     <div class="col-12 col-sm-6 col-md-4 mb-4 mb-4">
-                        <a href="../itemDetailPage.blade" class="custom-card d-block p-4 h-100 rounded-4 shadow text-black text-decoration-none">
+                        <a href="../itemDetailPage" class="custom-card d-block p-4 h-100 rounded-4 shadow text-black text-decoration-none">
                             <img src="{{ asset('img/Beverages - Dairy Products.svg') }}" class="img-fluid" alt="Beverages - Dairy Products">
             
                             <div class="my-3 py-2 rounded-2 bg-birucategory shadow">
@@ -143,7 +143,7 @@
                     </div>
     
                     <div class="col-12 col-sm-6 col-md-4 mb-4 mb-4">
-                        <a href="../itemDetailPage.blade" class="custom-card d-block p-4 h-100 rounded-4 shadow text-black text-decoration-none">
+                        <a href="../itemDetailPage" class="custom-card d-block p-4 h-100 rounded-4 shadow text-black text-decoration-none">
                             <img src="{{ asset('img/Foods - Snacks.svg') }}" class="img-fluid" alt="Foods - Snacks">
             
                             <div class="my-3 py-2 rounded-2 bg-merahtuacategory shadow">
@@ -161,7 +161,7 @@
                     </div>
     
                     <div class="col-12 col-sm-6 col-md-4 mb-4 mb-4">
-                        <a href="../itemDetailPage.blade" class="custom-card d-block p-4 h-100 rounded-4 shadow text-black text-decoration-none">
+                        <a href="../itemDetailPage" class="custom-card d-block p-4 h-100 rounded-4 shadow text-black text-decoration-none">
                             <img src="{{ asset('img/Personal Care - Oral Care.svg') }}" class="img-fluid" alt="Personal Care - Oral Care">
             
                             <div class="my-3 py-2 rounded-2 bg-pinkcategory shadow">
@@ -179,7 +179,7 @@
                     </div>
 
                     <div class="col-12 col-sm-6 col-md-4 mb-4 mb-4">
-                        <a href="../itemDetailPage.blade" class="custom-card d-block p-4 h-100 rounded-4 shadow text-black text-decoration-none">
+                        <a href="../itemDetailPage" class="custom-card d-block p-4 h-100 rounded-4 shadow text-black text-decoration-none">
                             <img src="{{ asset('img/Kitchen Needs - Baking Ingredients.svg') }}" class="img-fluid" alt="Kitchen Needs - Baking Ingredients">
 
                             <div class="my-3 py-2 rounded-2 bg-coklatcategory shadow">
@@ -197,7 +197,7 @@
                     </div>
 
                     <div class="col-12 col-sm-6 col-md-4 mb-4 mb-4">
-                        <a href="../itemDetailPage.blade" class="custom-card d-block p-4 h-100 rounded-4 shadow text-black text-decoration-none">
+                        <a href="../itemDetailPage" class="custom-card d-block p-4 h-100 rounded-4 shadow text-black text-decoration-none">
                             <img src="{{ asset('img/Household Essentials - Cleaning & Care Products.svg') }}" class="img-fluid" alt="Household Essentials - Cleaning & Care Products">
             
                             <div class="my-3 py-2 rounded-2 bg-ijocategory shadow">
@@ -215,7 +215,7 @@
                     </div>
 
                     <div class="col-12 col-sm-6 col-md-4 mb-4 mb-4">
-                        <a href="../itemDetailPage.blade" class="custom-card d-block p-4 h-100 rounded-4 shadow text-black text-decoration-none">
+                        <a href="../itemDetailPage" class="custom-card d-block p-4 h-100 rounded-4 shadow text-black text-decoration-none">
                             <img src="{{ asset('img/Health Supplies - Medicines.svg') }}" class="img-fluid" alt="Health Supplies - Medicines">
             
                             <div class="my-3 py-2 rounded-2 bg-merahcategory shadow">
@@ -233,7 +233,7 @@
                     </div>
 
                     <div class="col-12 col-sm-6 col-md-4 mb-4 mb-4">
-                        <a href="../itemDetailPage.blade" class="custom-card d-block p-4 h-100 rounded-4 shadow text-black text-decoration-none">
+                        <a href="../itemDetailPage" class="custom-card d-block p-4 h-100 rounded-4 shadow text-black text-decoration-none">
                             <img src="{{ asset('img/Beverages - Soft Drinks.svg') }}" class="img-fluid" alt="Beverages - Soft Drinks">
 
                             <div class="my-3 py-2 rounded-2 bg-birucategory shadow">
@@ -251,7 +251,7 @@
                     </div>
 
                     <div class="col-12 col-sm-6 col-md-4 mb-4 mb-4">
-                        <a href="../itemDetailPage.blade" class="custom-card d-block p-4 h-100 rounded-4 shadow text-black text-decoration-none">
+                        <a href="../itemDetailPage" class="custom-card d-block p-4 h-100 rounded-4 shadow text-black text-decoration-none">
                             <img src="{{ asset('img/Personal Care - Oral Care.svg') }}" class="img-fluid" alt="Personal Care - Oral Care">
 
                             <div class="my-3 py-2 rounded-2 bg-pinkcategory shadow">
@@ -269,7 +269,7 @@
                     </div>
     
                     <div class="col-12 col-sm-6 col-md-4 mb-4 mb-4">
-                        <a href="../itemDetailPage.blade" class="custom-card d-block p-4 h-100 rounded-4 shadow text-black text-decoration-none">
+                        <a href="../itemDetailPage" class="custom-card d-block p-4 h-100 rounded-4 shadow text-black text-decoration-none">
                             <img src="{{ asset('img/Kitchen Needs - Baking Ingredients.svg') }}" class="img-fluid" alt="Kitchen Needs - Baking Ingredients">
 
                             <div class="my-3 py-2 rounded-2 bg-coklatcategory shadow">
@@ -289,7 +289,7 @@
 
                 {{-- KALO SEARCH NOT FOUND --}}
                 {{-- <div class="d-flex justify-content-center align-items-center flex-column h-100" style="margin-top: 15vh">
-                    <img src="{{ asset('img/Inventory Icon Home.svg') }}" class="img-fluid w-25" alt="No Item Icon">
+                    <img src="{{ asset('img/Not Found.svg') }}" class="img-fluid w-25" alt="No Found Icon">
                     <h1 class="nunito-semibold w-25 text-center text-3xl mt-3">Item Not Found.</h1>
                     <h1 class="nunito-semibold text-center text-3xl" style="width: 30vw">Try A Different Keyword Or Check Your Category Filters.</h1>
                 </div> --}}
