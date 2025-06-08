@@ -39,10 +39,10 @@
       </form>
       <div class="row justify-content-center mt-5 pt-3 text-center">
             <div class="col-12 col-md-4 mb-2">
-                <button type="button" class="btn bg-ijopalette text-putihpalette w-100 d-flex justify-content-center align-items-center gap-2 py-2  nunito-bold">
-                    Edit
+              <a href="{{ route('profile.edit') }}" class="btn bg-ijopalette text-putihpalette w-100 d-flex justify-content-center align-items-center gap-2 py-2 nunito-bold">
+                Edit
                 <img src="/img/editButton.svg" alt="Edit" width="20" height="20">
-                </button>
+              </a>
             </div>
             <div class="col-12 col-md-4 mb-2">
                 <button type="button" class="btn bg-orenpalette text-putihpalette w-100 d-flex justify-content-center align-items-center gap-2 py-2  nunito-bold">
@@ -51,13 +51,49 @@
             </button>
             </div>
             <div class="col-12 col-md-4 mb-2">
-                <button type="button" class="btn bg-merahbutton text-putihpalette w-100 d-flex justify-content-center align-items-center gap-2 py-2  nunito-bold">
-                    Delete
-                <img src="/img/trashbin white icon.svg" alt="Delete" width="20" height="20">
-                </button>
+              <!-- Trigger Modal -->
+              <button 
+                  type="button" 
+                  class="btn bg-merahbutton text-putihpalette w-100 d-flex justify-content-center align-items-center gap-2 py-2 nunito-bold"
+                  data-bs-toggle="modal" 
+                  data-bs-target="#deleteConfirmationModal"
+              >
+                  Delete
+                  <img src="/img/trashbin white icon.svg" alt="Delete" width="20" height="20">
+              </button>
             </div>
         </div>
 
+    </div>
+  </div>
+  <!-- Delete Confirmation Modal -->
+  <div class="modal fade" id="deleteConfirmationModal" tabindex="-1" aria-labelledby="deleteConfirmationLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content" style="border-radius: 12px;">
+        
+        <!-- Header -->
+        <div class="modal-header bg-merahbutton text-putihpalette d-flex flex-column align-items-center" style="border-bottom: none;">
+          <img src="/img/warning icon.svg" alt="Warning" width="80" height="80" class="mb-2">
+        </div>
+        
+        <!-- Footer -->
+        <div class="modal-footer d-flex justify-content-center gap-3 mt-3 pt-2 mb-3" style="border-top: none;">
+          <h3 class="modal-title w-100 text-center montserrat-bold" id="deleteConfirmationLabel">Are You Sure Want <br> To Delete?</h3>
+          <button type="button" class="btn btn-secondary bg-abubutton text-putihpalette d-flex align-items-center gap-2 px-4" data-bs-dismiss="modal">
+            Cancel
+            <img src="/img/cancel icon.svg" alt="Cancel" width="20" height="20">
+          </button>
+
+          <form action="{{ route('profile.delete') }}" method="POST">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="btn bg-merahbutton text-putihpalette  d-flex align-items-center gap-2 px-4">
+              Delete
+              <img src="/img/trashbin white icon.svg" alt="Delete" width="20" height="20">
+            </button>
+          </form>
+        </div>
+      </div>
     </div>
   </div>
 </x-master>

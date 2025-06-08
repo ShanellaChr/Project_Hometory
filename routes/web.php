@@ -1,9 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CalendarController;
-use App\Http\Controllers\StatisticController;
 use App\Http\Controllers\WishlistController;
+use App\Http\Controllers\StatisticController;
 
 Route::get('/', function () {
     return view('homePage');
@@ -56,6 +57,10 @@ Route::get('/resetVerif', function () {
 Route::get('/resetAdd', function () {
     return view('resetPassword.addNewPasswordPage');
 });
+
+Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+
+Route::delete('/profile/delete', [ProfileController::class, 'destroy'])->name('profile.delete');
 
 Route::get('/admin', function () {
     return view('admin.dashboardAdminPage');
