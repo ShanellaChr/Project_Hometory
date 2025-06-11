@@ -18,42 +18,172 @@
 </head>
 <body>
     
-    <p class=" text-4xl montserrat-bold m-5 mb-0">Helo, <span class="text-orenyedija">Good Afternoon!</span></p>
-    <p class=" text-2xl montserrat-bold ms-5">__________________</p>
+    <div class=" d-flex justify-content-between align-content-between my-4 mx-5">
+        <p class=" text-4xl montserrat-bold mb-0">Helo, <span class="text-orenyedija">Good Afternoon!</span></p>
+        
+        <div class="align-items-center d-flex">
+            <button class="btn-merah rounded-3 nunito-bold" style="padding-inline:1.5vw; padding-block:1vh">Log Out <i class="bi bi-box-arrow-right" style="margin-left:0.5rem"></i> </button>
+        </div>
+        
+    </div>
+    
+    <div class="border border-2 mx-5 mb-3"></div>
 
-    <p class=" montserrat-semibold text-2xl m-5">Article List</p>
+    {{-- <p class=" montserrat-semibold text-2xl mx-5">Article List</p> --}}
 
-    <div style="margin: 3vw">
+    <div class="row overflow-auto" style="margin-inline:2.5vw; max-height:60vh">
 
-        <div class="row" style="">
-
-            <div class="col-6">
-                <div class="p-3 bg-white d-flex justify-content-between align-items-start shadow">
-                    <div>
-                        <div class="fw-semibold">Sistem Inventory Sederhana untuk Kebutuhan Rumah Tangga</div>
-                        <div class="text-muted small">2 days ago</div>
-                    </div>
-                    <i class="bi bi-trash delete-icon"></i>
+        <div class="col-6 my-3">
+            <div class="p-3 bg-white d-flex justify-content-between align-items-start shadow rounded-4">
+                <div>
+                    <p class="mb-0 nunito-bold">Sistem Inventory Sederhana untuk Kebutuhan Rumah Tangga</p>
+                    <p class="mb-0">2 days ago</p>
                 </div>
-            </div>
-
-            <div class="col-6">
-                <div class="p-3 bg-white d-flex justify-content-between align-items-start shadow">
-                    <div>
-                        <div class="fw-semibold">Sistem Inventory Sederhana untuk Kebutuhan Rumah Tangga</div>
-                        <div class="text-muted small">2 days ago</div>
-                    </div>
+                <button class=" bg-transparent border-0">
                     <i class="bi bi-trash delete-icon"></i>
-                </div>
+                </button>
             </div>
+        </div>
 
-            
-            <!-- Ulangi col-md-6 di atas sesuai jumlah artikel -->
-            <!-- Bisa copy-paste 6x sesuai gambar -->
+        <div class="col-6 my-3">
+            <div class="p-3 bg-white d-flex justify-content-between align-items-start shadow rounded-4">
+                <div>
+                    <p class="mb-0 nunito-bold">Sistem Inventory Sederhana untuk Kebutuhan Rumah Tangga</p>
+                    <p class="mb-0">2 days ago</p>
+                </div>
+                <button class=" bg-transparent border-0">
+                    <i class="bi bi-trash delete-icon"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div class="col-6 my-3">
+            <div class="p-3 bg-white d-flex justify-content-between align-items-start shadow rounded-4">
+                <div>
+                    <p class="mb-0 nunito-bold">Sistem Inventory Sederhana untuk Kebutuhan Rumah Tangga</p>
+                    <p class="mb-0">2 days ago</p>
+                </div>
+                <button class=" bg-transparent border-0">
+                    <i class="bi bi-trash delete-icon"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="col-6 my-3">
+            <div class="p-3 bg-white d-flex justify-content-between align-items-start shadow rounded-4">
+                <div>
+                    <p class="mb-0 nunito-bold">Sistem Inventory Sederhana untuk Kebutuhan Rumah Tangga</p>
+                    <p class="mb-0">2 days ago</p>
+                </div>
+                <button class=" bg-transparent border-0">
+                    <i class="bi bi-trash delete-icon"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="col-6 my-3">
+            <div class="p-3 bg-white d-flex justify-content-between align-items-start shadow rounded-4">
+                <div>
+                    <p class="mb-0 nunito-bold">Sistem Inventory Sederhana untuk Kebutuhan Rumah Tangga</p>
+                    <p class="mb-0">2 days ago</p>
+                </div>
+                <button class=" bg-transparent border-0">
+                    <i class="bi bi-trash delete-icon"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="col-6 my-3">
+            <div class="p-3 bg-white d-flex justify-content-between align-items-start shadow rounded-4">
+                <div>
+                    <p class="mb-0 nunito-bold">Sistem Inventory Sederhana untuk Kebutuhan Rumah Tangga</p>
+                    <p class="mb-0">2 days ago</p>
+                </div>
+                <button class=" bg-transparent border-0">
+                    <i class="bi bi-trash delete-icon"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="col-6 my-3">
+            <div class="p-3 bg-white d-flex justify-content-between align-items-start shadow rounded-4">
+                <div>
+                    <p class="mb-0 nunito-bold">Sistem Inventory Sederhana untuk Kebutuhan Rumah Tangga</p>
+                    <p class="mb-0">2 days ago</p>
+                </div>
+                <button class=" bg-transparent border-0">
+                    <i class="bi bi-trash delete-icon"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="col-6 my-3">
+            <div class="p-3 bg-white d-flex justify-content-between align-items-start shadow rounded-4">
+                <div>
+                    <p class="mb-0 nunito-bold">Sistem Inventory Sederhana untuk Kebutuhan Rumah Tangga</p>
+                    <p class="mb-0">2 days ago</p>
+                </div>
+                <button class=" bg-transparent border-0">
+                    <i class="bi bi-trash delete-icon"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div class="col-6 my-3">
+            <div class="p-3 bg-white d-flex justify-content-between align-items-start shadow rounded-4">
+                <div>
+                    <p class="mb-0 nunito-bold">Sistem Inventory Sederhana untuk Kebutuhan Rumah Tangga</p>
+                    <p class="mb-0">2 days ago</p>
+                </div>
+                <button class=" bg-transparent border-0">
+                    <i class="bi bi-trash delete-icon"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="col-6 my-3">
+            <div class="p-3 bg-white d-flex justify-content-between align-items-start shadow rounded-4">
+                <div>
+                    <p class="mb-0 nunito-bold">Sistem Inventory Sederhana untuk Kebutuhan Rumah Tangga</p>
+                    <p class="mb-0">2 days ago</p>
+                </div>
+                <button class=" bg-transparent border-0">
+                    <i class="bi bi-trash delete-icon"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="col-6 my-3">
+            <div class="p-3 bg-white d-flex justify-content-between align-items-start shadow rounded-4">
+                <div>
+                    <p class="mb-0 nunito-bold">Sistem Inventory Sederhana untuk Kebutuhan Rumah Tangga</p>
+                    <p class="mb-0">2 days ago</p>
+                </div>
+                <button class=" bg-transparent border-0">
+                    <i class="bi bi-trash delete-icon"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="col-6 my-3">
+            <div class="p-3 bg-white d-flex justify-content-between align-items-start shadow rounded-4">
+                <div>
+                    <p class="mb-0 nunito-bold">Sistem Inventory Sederhana untuk Kebutuhan Rumah Tangga</p>
+                    <p class="mb-0">2 days ago</p>
+                </div>
+                <button class=" bg-transparent border-0">
+                    <i class="bi bi-trash delete-icon"></i>
+                </button>
+            </div>
         </div>
 
     </div>
 
+    <div class="border border-2 mx-5 mt-3"></div>
+
+    <div class="d-flex justify-content-between p-5">
+        <button class="btn-orange rounded-3 nunito-bold" style="padding-inline:1.5vw; padding-block:1vh">Add Article <span style="font-size: 1.4vw; font-weight:800">+</span></button>
+    </div>
 </div>
 
 
