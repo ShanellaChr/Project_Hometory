@@ -8,10 +8,10 @@ window.Chart = Chart; // supaya bisa diakses di file blade juga
 document.addEventListener("DOMContentLoaded", function () {
     const categoryColors = {
         "Personal Care": "#F8C8DC",
-        "Beverages": "#CD4361",
-        "Household Essentials": "#99D8F0",
-        "Foods": "#D29375",
-        "Kitchen Needs": "#9CBA7F",
+        "Foods": "#CD4361",
+        "Beverages": "#99D8F0",
+        "Kitchen Needs": "#D29375",
+        "Household Essentials": "#9CBA7F",
         "Health Supplies": "#E86060",
     };
 

@@ -13,7 +13,7 @@
         <div class="w-25 min-h-full">
             {{-- Button Add New Item --}}
             <div class="mt-3 mb-4 mx-4" style="width: 88%">
-                <a href = "../myInventory/crudItemPage" class="btn-orange rounded-3 shadow" style="padding-left: 4.2vw; padding-right: 4.5vw; padding-top: 1.5vw; padding-bottom: 1.5vw">
+                <a href = "../crudItemPage" class="btn-orange rounded-3 shadow" style="padding-left: 4.2vw; padding-right: 4.5vw; padding-top: 1.5vw; padding-bottom: 1.5vw">
                     <span  class= "nunito-bold text-2xl text-center">Add New Item</span> 
                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-plus mb-2" viewBox="0 0 16 16">
                         <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
@@ -23,14 +23,14 @@
 
             {{-- Button Expired Products --}}
             <div class="mx-4 mb-4 mt-5" style="width: 88%">
-                <a href = "../myInventory/expiredItemPage" class="btn-dark-blue rounded-3 shadow" style="padding-left: 3.25vw; padding-right: 2vw; padding-top: 1.5vw; padding-bottom: 1.5vw">
+                <a href = "../expiredItemPage" class="btn-dark-blue rounded-3 shadow" style="padding-left: 3.25vw; padding-right: 2vw; padding-top: 1.5vw; padding-bottom: 1.5vw">
                     <span  class= "nunito-bold text-2xl text-center">Expired Products</span> 
                     <img src="{{ asset('img/expiredButton.svg') }}" alt="Expired Icon" class="pencil-icon mb-1 ms-0 pe-3">
                 </a>
             </div>
             
             {{-- Category Start --}}
-            <div class="d-flex flex-column justify-content-center justify-start bg-putih shadow-lg rounded-4 p-4 m-4" style="width: 88%">
+            <div class="d-flex flex-column justify-content-center justify-start bg-putih shadow-lg border rounded-4 p-4 m-4" style="width: 88%">
                 <div>
                     <h4 class="montserrat-bold text-2xl">Items Category</h4>
                     
@@ -41,7 +41,7 @@
                 <button class="category-btn bg-putih gradient-pinkcategory my-3 ps-0 w-100 d-flex flex-row rounded-3" style="border: 0;">
                     <img src="{{ asset('img/Personal_Care.svg') }}" class="rounded-3 ms-0 ps-0" style="width: 5vw;" alt="Personal Care Category">
                     <div class="w-75 d-flex flex-column align-items-start">
-                        <p class="category-title text-pinkcategory montserrat-semibold text-2xl text-left ps-3 pb-0 mb-0 mt-4">Personal Care</p>
+                        <p class="category-title text-pinkcategory montserrat-semibold text-2xl text-start ps-3 pb-0 mb-0 mt-4">Personal Care</p>
                         <hr class="category-line border-4 border-pinkcategory ms-3 mt-1" style="opacity: 1;">
                     </div>
                 </button>    
@@ -50,7 +50,7 @@
                 <button class="category-btn bg-putih gradient-merahtuacategory my-3 ps-0 w-100 d-flex flex-row rounded-3" style="border: 0;">
                     <img src="{{ asset('img/Foods.svg') }}" class="rounded-3 ms-0 ps-0" style="width: 5vw;" alt="Foods Category">
                     <div class="w-75 d-flex flex-column align-items-start">
-                        <p class="category-title text-merahtuacategory montserrat-semibold text-2xl text-left ps-3 pb-0 mb-0 mt-4">Foods</p>
+                        <p class="category-title text-merahtuacategory montserrat-semibold text-2xl text-start ps-3 pb-0 mb-0 mt-4">Foods</p>
                         <hr class="category-line border-4 border-merahtuacategory ms-3 mt-1" style="opacity: 1;">
                     </div>
                 </button> 
@@ -59,16 +59,16 @@
                 <button class="category-btn bg-putih gradient-birucategory my-3 ps-0 w-100 d-flex flex-row rounded-3" style="border: 0;">
                     <img src="{{ asset('img/Beverages.svg') }}" class="rounded-3 ms-0 ps-0" style="width: 5vw;" alt="Beverages Category">
                     <div class="w-75 d-flex flex-column align-items-start">
-                        <p class="category-title text-birucategory montserrat-semibold text-2xl text-left ps-3 pb-0 mb-0 mt-4">Beverages</p>
+                        <p class="category-title text-birucategory montserrat-semibold text-2xl text-start ps-3 pb-0 mb-0 mt-4">Beverages</p>
                         <hr class="category-line border-4 border-birucategory ms-3 mt-1" style="opacity: 1;">
                     </div>
                 </button>
 
                 <!-- KITCHEN NEEDS CATEGORY -->
-                <button class="category-btn bg-putih gradient-coklatcategory my-3 ps-0 w-100 d-flex flex-row rounded-3" style="border: 0;">
-                    <img src="{{ asset('img/Kitchen_Needs.svg') }}" class="rounded-3 ms-0 ps-0" style="width: 5vw;" alt="Kitchen Needs Category">
-                    <div class="w-75 d-flex flex-column align-items-start">
-                        <p class="category-title text-coklatcategory montserrat-semibold text-2xl text-left ps-3 pb-0 mb-0 mt-4">Kitchen Needs</p>
+                <button class="category-btn bg-putih gradient-coklatcategory my-3 pt-0 ps-0 w-100 d-flex flex-row rounded-3" style="border: 0;">
+                    <img src="{{ asset('img/Kitchen_Needs.svg') }}" class="rounded-3 ms-0 pt-0 ps-0" style="width: 5vw;" alt="Kitchen Needs Category">
+                    <div class="w-75 d-flex flex-column align-items-start pt-0">
+                        <p class="category-title text-coklatcategory montserrat-semibold text-2xl text-start ps-3 pb-0 mb-0 my-0">Kitchen Needs</p>
                         <hr class="category-line border-4 border-coklatcategory ms-3 mt-1" style="opacity: 1;">
                     </div>
                 </button> 
@@ -124,8 +124,8 @@
 
                 {{-- KALO ADA ITEM --}}
                 <div class="row">
-                    <div class="col-12 col-sm-6 col-md-4 mb-4 mb-4">
-                        <a href="../itemDetailPage" class="custom-card d-block p-4 h-100 rounded-4 shadow text-black text-decoration-none">
+                    <div class="col-12 col-sm-6 col-md-4 mb-4">
+                        <a href="../itemDetailPage" class="custom-card d-block p-4 h-100 rounded-4 shadow text-black text-decoration-none border">
                             <img src="{{ asset('img/Beverages - Dairy Products.svg') }}" class="img-fluid" alt="Beverages - Dairy Products">
             
                             <div class="my-3 py-2 rounded-2 bg-birucategory shadow">
@@ -142,8 +142,8 @@
                         </a>
                     </div>
     
-                    <div class="col-12 col-sm-6 col-md-4 mb-4 mb-4">
-                        <a href="../itemDetailPage" class="custom-card d-block p-4 h-100 rounded-4 shadow text-black text-decoration-none">
+                    <div class="col-12 col-sm-6 col-md-4 mb-4">
+                        <a href="../itemDetailPage" class="custom-card d-block p-4 h-100 rounded-4 shadow text-black text-decoration-none border">
                             <img src="{{ asset('img/Foods - Snacks.svg') }}" class="img-fluid" alt="Foods - Snacks">
             
                             <div class="my-3 py-2 rounded-2 bg-merahtuacategory shadow">
@@ -160,8 +160,8 @@
                         </a>
                     </div>
     
-                    <div class="col-12 col-sm-6 col-md-4 mb-4 mb-4">
-                        <a href="../itemDetailPage" class="custom-card d-block p-4 h-100 rounded-4 shadow text-black text-decoration-none">
+                    <div class="col-12 col-sm-6 col-md-4 mb-4">
+                        <a href="../itemDetailPage" class="custom-card d-block p-4 h-100 rounded-4 shadow text-black text-decoration-none border">
                             <img src="{{ asset('img/Personal Care - Oral Care.svg') }}" class="img-fluid" alt="Personal Care - Oral Care">
             
                             <div class="my-3 py-2 rounded-2 bg-pinkcategory shadow">
@@ -178,8 +178,8 @@
                         </a>
                     </div>
 
-                    <div class="col-12 col-sm-6 col-md-4 mb-4 mb-4">
-                        <a href="../itemDetailPage" class="custom-card d-block p-4 h-100 rounded-4 shadow text-black text-decoration-none">
+                    <div class="col-12 col-sm-6 col-md-4 mb-4">
+                        <a href="../itemDetailPage" class="custom-card d-block p-4 h-100 rounded-4 shadow text-black text-decoration-none border">
                             <img src="{{ asset('img/Kitchen Needs - Baking Ingredients.svg') }}" class="img-fluid" alt="Kitchen Needs - Baking Ingredients">
 
                             <div class="my-3 py-2 rounded-2 bg-coklatcategory shadow">
@@ -196,8 +196,8 @@
                         </a>
                     </div>
 
-                    <div class="col-12 col-sm-6 col-md-4 mb-4 mb-4">
-                        <a href="../itemDetailPage" class="custom-card d-block p-4 h-100 rounded-4 shadow text-black text-decoration-none">
+                    <div class="col-12 col-sm-6 col-md-4 mb-4">
+                        <a href="../itemDetailPage" class="custom-card d-block p-4 h-100 rounded-4 shadow text-black text-decoration-none border">
                             <img src="{{ asset('img/Household Essentials - Cleaning & Care Products.svg') }}" class="img-fluid" alt="Household Essentials - Cleaning & Care Products">
             
                             <div class="my-3 py-2 rounded-2 bg-ijocategory shadow">
@@ -214,8 +214,8 @@
                         </a>
                     </div>
 
-                    <div class="col-12 col-sm-6 col-md-4 mb-4 mb-4">
-                        <a href="../itemDetailPage" class="custom-card d-block p-4 h-100 rounded-4 shadow text-black text-decoration-none">
+                    <div class="col-12 col-sm-6 col-md-4 mb-4">
+                        <a href="../itemDetailPage" class="custom-card d-block p-4 h-100 rounded-4 shadow text-black text-decoration-none border">
                             <img src="{{ asset('img/Health Supplies - Medicines.svg') }}" class="img-fluid" alt="Health Supplies - Medicines">
             
                             <div class="my-3 py-2 rounded-2 bg-merahcategory shadow">
@@ -232,8 +232,8 @@
                         </a>
                     </div>
 
-                    <div class="col-12 col-sm-6 col-md-4 mb-4 mb-4">
-                        <a href="../itemDetailPage" class="custom-card d-block p-4 h-100 rounded-4 shadow text-black text-decoration-none">
+                    <div class="col-12 col-sm-6 col-md-4 mb-4">
+                        <a href="../itemDetailPage" class="custom-card d-block p-4 h-100 rounded-4 shadow text-black text-decoration-none border">
                             <img src="{{ asset('img/Beverages - Soft Drinks.svg') }}" class="img-fluid" alt="Beverages - Soft Drinks">
 
                             <div class="my-3 py-2 rounded-2 bg-birucategory shadow">
@@ -250,8 +250,8 @@
                         </a>
                     </div>
 
-                    <div class="col-12 col-sm-6 col-md-4 mb-4 mb-4">
-                        <a href="../itemDetailPage" class="custom-card d-block p-4 h-100 rounded-4 shadow text-black text-decoration-none">
+                    <div class="col-12 col-sm-6 col-md-4 mb-4">
+                        <a href="../itemDetailPage" class="custom-card d-block p-4 h-100 rounded-4 shadow text-black text-decoration-none border">
                             <img src="{{ asset('img/Personal Care - Oral Care.svg') }}" class="img-fluid" alt="Personal Care - Oral Care">
 
                             <div class="my-3 py-2 rounded-2 bg-pinkcategory shadow">
@@ -268,8 +268,8 @@
                         </a>
                     </div>
     
-                    <div class="col-12 col-sm-6 col-md-4 mb-4 mb-4">
-                        <a href="../itemDetailPage" class="custom-card d-block p-4 h-100 rounded-4 shadow text-black text-decoration-none">
+                    <div class="col-12 col-sm-6 col-md-4 mb-4">
+                        <a href="../itemDetailPage" class="custom-card d-block p-4 h-100 rounded-4 shadow text-black text-decoration-none border">
                             <img src="{{ asset('img/Kitchen Needs - Baking Ingredients.svg') }}" class="img-fluid" alt="Kitchen Needs - Baking Ingredients">
 
                             <div class="my-3 py-2 rounded-2 bg-coklatcategory shadow">

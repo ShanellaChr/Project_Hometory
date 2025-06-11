@@ -43,12 +43,11 @@
             <div class="mb-4">
                 <label class="form-label nunito-bold text-2xl">Item Category</label>
                 <div class="row gy-2">
-                    @foreach (['Personal Care', 'Beverages', 'Household Essentials', 'Foods', 'Kitchen Needs', 'Health Supplies'] as $category)
+                    @foreach (['Personal Care', 'Foods', 'Beverages', 'Kitchen Needs', 'Household Essentials', 'Health Supplies'] as $category)
                         <div class="col-6 col-md-4">
                             <button type="button" class="w-100 btn bg-putihpalette montserrat-semibold category-btn text-dark p-2">
                                 {{ $category }}
                             </button>
-
                         </div>
                     @endforeach
                 </div>

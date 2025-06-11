@@ -26,6 +26,14 @@ Route::get('/itemDetailPage', function () {
     return view('myInventory.itemDetailPage');
 });
 
+Route::get('/expiredItemPage', function () {
+    return view('myInventory.expiredItemPage');
+});
+
+Route::get('/crudItemPage', function () {
+    return view('myInventory.crudItemPage');
+});
+
 Route::get('/calendar', [CalendarController::class , 'show'])->name('calendar.show');
 
 Route::get('/statistic', [StatisticController::class, 'index'])->name('statistic.page');
