@@ -57,7 +57,7 @@
             <div class="col-12 col-md-4 mb-2">
               <a href="{{ route('profile.edit') }}" class="btn btn-ijo btn-ijo:hover w-100 d-flex justify-content-center align-items-center gap-2 py-2 nunito-bold">
                 Save
-                <img src="/img/editButton.svg" alt="Edit" width="20" height="20">
+                <img src="/img/Checklist Icon.svg" alt="Edit" width="20" height="20">
               </a>
         </div>
 </body>
