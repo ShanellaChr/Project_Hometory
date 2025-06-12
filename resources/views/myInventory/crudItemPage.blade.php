@@ -75,26 +75,36 @@
                             <img src="{{ asset('img/CalendarGreen.svg') }}" alt="Calendar Icon" class="me-3" style="width: 85px; height: 85px;">
                             
                             <div class="d-flex flex-column w-100">
-                                <!-- Judul -->
                                 <div class="d-flex justify-content-between align-items-center text-dark">
+                                    <!-- Judul -->
                                     <h1 class="montserrat-semibold text-xl pt-2">Date 1</h1>
 
                                     <!-- Tombol +/- -->
-                                    <div class="d-flex align-items-center">
+                                    <div class="d-flex align-items-center pe-5">
                                         <button type="button" class="btn btn-sm btn-outline-dark px-2 py-0 decreaseBtn">-</button>
                                         <span class="mx-2 poppins-semibold text-sm text-center" id="quantity" style="min-width: 30px">1</span>
                                         <button type="button" class="btn btn-sm btn-outline-dark px-2 py-0 increaseBtn">+</button>
                                     </div>
                                 </div>
 
-                                <!-- Input tanggal -->
-                                <div class="mt-2">
+                                <div class="d-flex mt-2">
+                                    <!-- Input tanggal -->
                                     <div class="input-group shadow-sm rounded border">
                                         <input type="date" name="date[]" class="form-control border-0 bg-putihpalette nunito-medium" placeholder="dd/mm/yyyy" required>
                                     </div>
+
+                                    {{-- Delete --}}
+                                    <img src="{{ asset('img/trashbin black.svg') }}"
+                                        alt="Delete"
+                                        class="icon-trash mt-1 delete-btn"
+                                        style="width: 3.5vw; height: 3.5vh; cursor: pointer;">
                                 </div>
                             </div>
+
                         </div>
+                    </div>
+                    <div id="deletionError" class="text-danger mt-0 mb-4" style="display: none;">
+                        Date 1 cannot be deleted
                     </div>
                 </div>
 
@@ -116,12 +126,45 @@
             <!-- Notes -->
             <div class="mb-4">
                 <label for="itemNotes" class="form-label nunito-bold text-2xl">Add Notes</label>
-                <textarea name="notes" class="form-control" id="itemNotes" rows="4" placeholder="Enter notes about the item..."></textarea>
+                <textarea name="notes" class="form-control" id="itemNotes" rows="4" placeholder="Enter notes about the item..." required></textarea>
             </div>
 
             <!-- Submit -->
             <button type="submit" class="btn btn-orange px-4 p-2 shadow-lg nunito-bold">Submit</button>
         </form>
+    </div>
+
+    {{-- MODAL UNTUK DELETE --}}
+    <div class="modal fade" id="deleteConfirmationModal" tabindex="-1" aria-labelledby="deleteConfirmationLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content" style="border-radius: 1rem;">
+                
+                <!-- Header -->
+                <div class="modal-header bg-merahbutton text-putihpalette d-flex flex-column align-items-center" style="border-bottom: none;">
+                    <img src="/img/warning icon.svg" alt="Warning" width="80" height="80" class="mb-2">
+                </div>
+                
+                <!-- Footer -->
+                <div class="modal-footer d-flex justify-content-center gap-3 pt-2 mb-3">
+                    <h3 class="modal-title w-100 text-center montserrat-bold" id="deleteConfirmationLabel">
+                        Are You Sure Want <br> To Delete?
+                    </h3>
+                    <button type="button" class="btn btn-abu d-flex align-items-center gap-2 px-4" data-bs-dismiss="modal">
+                        Cancel
+                        <img src="/img/cancel icon.svg" alt="Cancel" width="20" height="20">
+                    </button>
+
+                    {{-- <form action="{{ route('profile.delete') }}" method="POST">
+                        @csrf
+                        @method('DELETE') --}}
+                        <button type="button" class="btn btn-merah d-flex align-items-center gap-2 px-4" data-bs-dismiss="modal" id="deleteConfirmBtn">
+                            Delete
+                            <img src="/img/trashbin white icon.svg" alt="Delete" width="20" height="20">
+                        </button>
+                    {{-- </form> --}}
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -179,7 +222,10 @@
         document.addEventListener("DOMContentLoaded", function() {
             let addMoreBtn = document.getElementById('addMoreBtn');
             let dateContainer = document.getElementById('dateContainer');
+            let deleteConfirmBtn = document.getElementById('deleteConfirmBtn');
+            let itemToDelete = null; // Variabel untuk menyimpan item yang akan dihapus
 
+            // Fungsi untuk menambah input tanggal
             addMoreBtn.addEventListener('click', function() {
                 // Membuat container baru untuk input tanggal
                 let newDateItem = document.createElement('div');
@@ -197,18 +243,26 @@
                                 <h1 class="montserrat-semibold text-xl pt-2">Date ${dateContainer.children.length + 1}</h1>
 
                                 <!-- Tombol +/- -->
-                                <div class="d-flex align-items-center">
+                                <div class="d-flex align-items-center pe-5">
                                     <button type="button" class="btn btn-sm btn-outline-dark px-2 py-0 decreaseBtn">-</button>
                                     <span class="mx-2 poppins-semibold text-sm text-center" id="quantity" style="min-width: 30px">1</span>
                                     <button type="button" class="btn btn-sm btn-outline-dark px-2 py-0 increaseBtn">+</button>
                                 </div>
                             </div>
 
-                            <!-- Input tanggal -->
-                            <div class="mt-2">
+                            <div class="d-flex mt-2">
+                                <!-- Input tanggal -->
                                 <div class="input-group shadow-sm rounded border">
                                     <input type="date" name="date[]" class="form-control border-0 bg-putihpalette nunito-medium" placeholder="dd/mm/yyyy" required>
                                 </div>
+
+                                {{-- Delete --}}
+                                <img src="{{ asset('img/trashbin black.svg') }}"
+                                    alt="Delete"
+                                    class="icon-trash mt-1 delete-btn"
+                                    style="width: 3.5vw; height: 3.5vh; cursor: pointer;"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#deleteConfirmationModal">
                             </div>
                         </div>
                     </div>
@@ -216,10 +270,12 @@
 
                 // Menambahkan container baru ke dalam dateContainer
                 dateContainer.appendChild(newDateItem);
+                updateDateNumbers();
             });
 
             // Gunakan event delegation untuk menangani klik tombol +/- pada semua date-item
             dateContainer.addEventListener('click', function(event) {
+                // Untuk handle quantity buttons
                 if (event.target.classList.contains('decreaseBtn')) {
                     let quantityElement = event.target.nextElementSibling; // Ambil elemen quantity
                     let currentQuantity = parseInt(quantityElement.innerText);
@@ -231,7 +287,47 @@
                     let currentQuantity = parseInt(quantityElement.innerText);
                     quantityElement.innerText = currentQuantity + 1;
                 }
+
+                // Untuk handle delete button
+                if (event.target.classList.contains('delete-btn')) {
+                    itemToDelete = event.target.closest('.date-item') // Simpan item yang akan dihapus
+                    let dateTitle = itemToDelete.querySelector('h1');
+                    
+                    // Jika item yang akan dihapus adalah Date 1, tampilkan pesan error
+                    if (dateTitle && dateTitle.textContent === 'Date 1') {
+                        let errorMessage = document.getElementById('deletionError');
+                        errorMessage.style.display = 'block';  // Tampilkan error message
+                        return;  // Hentikan proses penghapusan
+                    }
+                    else{
+                        // Jika bukan Date 1, sembunyikan pesan error
+                        let errorMessage = document.getElementById('deletionError');
+                        errorMessage.style.display = 'none';  // Sembunyikan error message
+    
+                        // For any other dates, show the modal
+                        let deleteModal = new bootstrap.Modal(document.getElementById('deleteConfirmationModal'));
+                        deleteModal.show();  // Show the modal for other dates
+                    }
+                }
             });
+
+            // Konfirmasi hapus item setelah klik konfirmasi di modal
+            deleteConfirmBtn.addEventListener('click', function() {
+                if (itemToDelete) {
+                    itemToDelete.remove(); // Hapus item
+                    updateDateNumbers(); // Perbarui nomor date setelah hapus
+                    itemToDelete = null; // Reset
+                }
+            });
+
+            // Fungsi untuk memperbarui nomor Date
+            function updateDateNumbers() {
+                let dateItems = dateContainer.querySelectorAll('.date-item');
+                dateItems.forEach((item, index) => {
+                    let dateNumber = item.querySelector('h1');
+                    dateNumber.textContent = `Date ${index + 1}`; // Update urutan
+                });
+            }
         });
     </script>
 </body>
