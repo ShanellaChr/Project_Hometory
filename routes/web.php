@@ -76,4 +76,8 @@ Route::delete('/profile/delete', [ProfileController::class, 'destroy'])->name('p
 
 Route::get('/admin', function () {
     return view('admin.dashboardAdminPage');
-});
+})->name('admin');
+
+Route::get('/addarticle', function () {
+    return view('admin.crudArticlePage');
+})->name('admin.addArticle');

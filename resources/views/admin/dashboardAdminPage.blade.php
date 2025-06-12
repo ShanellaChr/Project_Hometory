@@ -22,7 +22,7 @@
         <p class=" text-4xl montserrat-bold mb-0">Helo, <span class="text-orenyedija">Good Afternoon!</span></p>
         
         <div class="align-items-center d-flex">
-            <button class="btn-merah rounded-3 nunito-bold" style="padding-inline:1.5vw; padding-block:1vh">Log Out <i class="bi bi-box-arrow-right" style="margin-left:0.5rem"></i> </button>
+            <a href="/" class="btn-merah rounded-3 nunito-bold" style="padding-inline:1.5vw; padding-block:1vh; text-decoration: none; display: inline-block;">Log Out <i class="bi bi-box-arrow-right" style="margin-left:0.5rem"></i></a>
         </div>
         
     </div>
@@ -181,8 +181,8 @@
 
     <div class="border border-2 mx-5 mt-3"></div>
 
-    <div class="d-flex justify-content-between p-5">
-        <button class="btn-orange rounded-3 nunito-bold" style="padding-inline:1.5vw; padding-block:1vh">Add Article <span style="font-size: 1.4vw; font-weight:800">+</span></button>
+    <div class="d-flex justify-content-center p-5">
+        <a href="/addarticle" class="btn btn-orange rounded-3 nunito-bold" style="padding-inline:1.5vw; padding-block:1vh; text-decoration:none; display:inline-block;">Add Article <span style="font-size: 1.4vw; font-weight:800">+</span></a>
     </div>
 </div>
 
