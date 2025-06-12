@@ -39,9 +39,9 @@
                     <p class="mb-0 nunito-bold">Sistem Inventory Sederhana untuk Kebutuhan Rumah Tangga</p>
                     <p class="mb-0">2 days ago</p>
                 </div>
-                <button class=" bg-transparent border-0">
-                    <i class="bi bi-trash delete-icon"></i>
-                </button>
+
+                <img src="{{ asset('img/trashbin black.svg') }}" alt="Delete" class="icon-trash mt-1 delete-btn" style="width: 3.5vw; height: 3.5vh; cursor: pointer;">
+
             </div>
         </div>
 
@@ -54,18 +54,9 @@
                 <button class=" bg-transparent border-0">
                     <i class="bi bi-trash delete-icon"></i>
                 </button>
-            </div>
-        </div>
-        
-        <div class="col-6 my-3">
-            <div class="p-3 bg-white d-flex justify-content-between align-items-start shadow rounded-4">
-                <div>
-                    <p class="mb-0 nunito-bold">Sistem Inventory Sederhana untuk Kebutuhan Rumah Tangga</p>
-                    <p class="mb-0">2 days ago</p>
-                </div>
-                <button class=" bg-transparent border-0">
-                    <i class="bi bi-trash delete-icon"></i>
-                </button>
+
+                <img src="{{ asset('img/trashbin black.svg') }}" alt="Delete" class="icon-trash mt-1 delete-btn" style="width: 3.5vw; height: 3.5vh; cursor: pointer;">
+
             </div>
         </div>
 
@@ -78,6 +69,9 @@
                 <button class=" bg-transparent border-0">
                     <i class="bi bi-trash delete-icon"></i>
                 </button>
+
+                <img src="{{ asset('img/trashbin black.svg') }}" alt="Delete" class="icon-trash mt-1 delete-btn" style="width: 3.5vw; height: 3.5vh; cursor: pointer;">
+
             </div>
         </div>
 
@@ -90,6 +84,9 @@
                 <button class=" bg-transparent border-0">
                     <i class="bi bi-trash delete-icon"></i>
                 </button>
+
+                <img src="{{ asset('img/trashbin black.svg') }}" alt="Delete" class="icon-trash mt-1 delete-btn" style="width: 3.5vw; height: 3.5vh; cursor: pointer;">
+
             </div>
         </div>
 
@@ -102,6 +99,9 @@
                 <button class=" bg-transparent border-0">
                     <i class="bi bi-trash delete-icon"></i>
                 </button>
+
+                <img src="{{ asset('img/trashbin black.svg') }}" alt="Delete" class="icon-trash mt-1 delete-btn" style="width: 3.5vw; height: 3.5vh; cursor: pointer;">
+
             </div>
         </div>
 
@@ -114,6 +114,9 @@
                 <button class=" bg-transparent border-0">
                     <i class="bi bi-trash delete-icon"></i>
                 </button>
+
+                <img src="{{ asset('img/trashbin black.svg') }}" alt="Delete" class="icon-trash mt-1 delete-btn" style="width: 3.5vw; height: 3.5vh; cursor: pointer;">
+
             </div>
         </div>
 
@@ -126,18 +129,9 @@
                 <button class=" bg-transparent border-0">
                     <i class="bi bi-trash delete-icon"></i>
                 </button>
-            </div>
-        </div>
-        
-        <div class="col-6 my-3">
-            <div class="p-3 bg-white d-flex justify-content-between align-items-start shadow rounded-4">
-                <div>
-                    <p class="mb-0 nunito-bold">Sistem Inventory Sederhana untuk Kebutuhan Rumah Tangga</p>
-                    <p class="mb-0">2 days ago</p>
-                </div>
-                <button class=" bg-transparent border-0">
-                    <i class="bi bi-trash delete-icon"></i>
-                </button>
+
+                <img src="{{ asset('img/trashbin black.svg') }}" alt="Delete" class="icon-trash mt-1 delete-btn" style="width: 3.5vw; height: 3.5vh; cursor: pointer;">
+
             </div>
         </div>
 
@@ -150,6 +144,9 @@
                 <button class=" bg-transparent border-0">
                     <i class="bi bi-trash delete-icon"></i>
                 </button>
+
+                <img src="{{ asset('img/trashbin black.svg') }}" alt="Delete" class="icon-trash mt-1 delete-btn" style="width: 3.5vw; height: 3.5vh; cursor: pointer;">
+
             </div>
         </div>
 
@@ -162,6 +159,9 @@
                 <button class=" bg-transparent border-0">
                     <i class="bi bi-trash delete-icon"></i>
                 </button>
+
+                <img src="{{ asset('img/trashbin black.svg') }}" alt="Delete" class="icon-trash mt-1 delete-btn" style="width: 3.5vw; height: 3.5vh; cursor: pointer;">
+
             </div>
         </div>
 
@@ -174,6 +174,24 @@
                 <button class=" bg-transparent border-0">
                     <i class="bi bi-trash delete-icon"></i>
                 </button>
+
+                <img src="{{ asset('img/trashbin black.svg') }}" alt="Delete" class="icon-trash mt-1 delete-btn" style="width: 3.5vw; height: 3.5vh; cursor: pointer;">
+
+            </div>
+        </div>
+
+        <div class="col-6 my-3">
+            <div class="p-3 bg-white d-flex justify-content-between align-items-start shadow rounded-4">
+                <div>
+                    <p class="mb-0 nunito-bold">Sistem Inventory Sederhana untuk Kebutuhan Rumah Tangga</p>
+                    <p class="mb-0">2 days ago</p>
+                </div>
+                <button class=" bg-transparent border-0">
+                    <i class="bi bi-trash delete-icon"></i>
+                </button>
+
+                <img src="{{ asset('img/trashbin black.svg') }}" alt="Delete" class="icon-trash mt-1 delete-btn" style="width: 3.5vw; height: 3.5vh; cursor: pointer;">
+
             </div>
         </div>
 

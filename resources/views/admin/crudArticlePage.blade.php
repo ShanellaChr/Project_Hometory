@@ -55,6 +55,10 @@
                 </label>
 
                 <input type="file" class="d-none" id="fileUpload" accept=".png,.jpg,.jpeg,.svg" multiple>
+
+                <div id="imageError" class="text-danger mt-2" style="display: none;">
+                    Please Input an image.
+                </div>
             </div>
 
             <!-- Description -->
@@ -62,13 +66,49 @@
 
             <div class="border border-2 border-secondary border-dashed rounded-3 bg-white p-2 mb-3">
                 <input id="my_input" type="hidden" name="content">
-                <trix-editor input="my_input"></trix-editor>
+                <trix-editor input="my_input" style="color: black"></trix-editor>
+
+                <div id="trixError" class="text-danger mt-2" style="display: none;">
+                    Please fill in the content.
+                </div>  
+
             </div>
-            
+
             <!-- Submit -->
             <button type="submit" class="btn btn-orange px-4 p-2 shadow-lg nunito-bold">Submit</button>
         </form>
     </div>
+
+    <script>
+        const imageError = document.getElementById('imageError');
+        const fileUpload = document.getElementById('fileUpload');
+        const addArticleForm = document.getElementById('AddArticleForm');
+        const myInput = document.getElementById('my_input');
+        const trixError = document.getElementById('trixError');
+
+        addArticleForm.addEventListener('submit', function(event){
+
+            const value = myInput.value.replace(/<[^>]+>/g, '').trim();
+
+            if(fileUpload.files.length === 0){
+                event.preventDefault();
+                imageError.style.display = 'block';
+            }
+            else{
+                imageError.style.display = 'none';
+            }
+
+            if(value === ''){
+                event.preventDefault();
+                trixError.style.display = 'block';
+            }
+            else{
+                trixError.style.display = 'none';
+            }
+
+        });
+        
+    </script>
 
 </body>
 </html>
