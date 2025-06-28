@@ -432,3 +432,41 @@ $custom-colors: (
 .icon-trash:hover {
     content: url('/public/img/trashbin\ red.svg');
 }
+
+// Navbar Styling
+.navbar-hover:hover{
+  color: #E46504 !important;
+}
+
+.navlink-a{
+  text-decoration: none;
+  color: black;
+  font-size: 1vw;
+  transition: color 0.3s, border-bottom 1s ease-out;
+  border: 0.5vh solid transparent;
+  box-sizing: border-box;
+  padding: 1vh ;
+}
+
+.navlink-a.active{
+  color: #E46504;
+  border-bottom: solid#E46504;
+}
+
+.navbar-login{
+  display: inline-flex;
+  gap: 0.5vw;
+  border: 0.15vw solid black;
+  padding: 0.7vh 0.8vw;
+  border-radius: 50vh;
+  font-weight: bold;
+  font-size: small;
+  text-decoration: none;
+  color: black;
+  transition: color 0.3s;
+}
+
+.navbar-login:hover{
+  border: 0.15vw solid #E46504;
+  color: #E46504;
+}
