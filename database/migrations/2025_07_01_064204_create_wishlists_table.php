@@ -4,11 +4,11 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateWishlistTable extends Migration
+return new class extends Migration
 {
     public function up()
     {
-        Schema::create('wishlist', function (Blueprint $table) {
+        Schema::create('wishlists', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('items_name')->notNull();
             $table->unsignedBigInteger('category_id');
@@ -23,4 +23,4 @@ class CreateWishlistTable extends Migration
     {
         Schema::dropIfExists('wishlists');
     }
-}
+};
