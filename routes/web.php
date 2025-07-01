@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\WishlistController;
@@ -50,9 +51,9 @@ Route::get('/wishlist/update', function () {
 
 Route::get('/wishlist/{id}/redirect', [WishlistController::class, 'redirect'])->name('wishlist.redirect');
 
-Route::get('/article', function () {
-    return view('article.articlePage');
-});
+Route::get('/article', [ArticleController::class, 'index'])->name('article.index');
+
+Route::get('/article/{slug}', [ArticleController::class, 'show'])->name('article.detail');
 
 Route::get('/profile', function () {
     return view('profileUser.profilePage');

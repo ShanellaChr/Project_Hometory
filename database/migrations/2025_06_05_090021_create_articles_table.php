@@ -14,8 +14,9 @@ class CreateArticlesTable extends Migration
             $table->string('slug')->notNull();
             $table->longText('content')->notNull();
             $table->string('thumbnail')->notNull();
-            $table->boolean('isAdmin')->notNull();
+            $table->unsignedBigInteger('admin_id');
             $table->timestamps();
+            $table->foreign('admin_id')->references('id')->on('users')->onDelete('set null');
         });
     }
 
