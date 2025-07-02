@@ -20,7 +20,7 @@ class ItemSeeder extends Seeder
                 'subcategory_id' => 1,
                 'location' => 'Meja Makeup',
                 'note' => 'Ini punyanya mama bukan punya si Felis ya',
-                'expiration_id' => 15,
+                // 'expiration_id' => 15,
                 'user_id' => 1
             ],
             [
@@ -29,7 +29,7 @@ class ItemSeeder extends Seeder
                 'subcategory_id' => 1,
                 'location' => 'Rak Dinding Ruang Tamu',
                 'note' => 'Sisa dari hampers lebaran.',
-                'expiration_id' => 6,
+                // 'expiration_id' => 6,
                 'user_id' => 1
             ],
             [
@@ -38,7 +38,7 @@ class ItemSeeder extends Seeder
                 'subcategory_id' => 1,
                 'location' => 'Lemari Obat',
                 'note' => 'Dibeli waktu diskon besar-besaran.',
-                'expiration_id' => 14,
+                // 'expiration_id' => 14,
                 'user_id' => 1
             ],
             [
@@ -47,7 +47,7 @@ class ItemSeeder extends Seeder
                 'subcategory_id' => 1,
                 'location' => 'Laci Kamar Mandi',
                 'note' => 'Untuk cadangan saat kehabisan.',
-                'expiration_id' => 1,
+                // 'expiration_id' => 1,
                 'user_id' => 1
             ],
             [
@@ -56,7 +56,7 @@ class ItemSeeder extends Seeder
                 'subcategory_id' => 2,
                 'location' => 'Rak Dinding Ruang Tamu',
                 'note' => 'Dipakai saat pergi kondangan.',
-                'expiration_id' => 1,
+                // 'expiration_id' => 1,
                 'user_id' => 1
             ],
             [
@@ -65,7 +65,7 @@ class ItemSeeder extends Seeder
                 'subcategory_id' => 2,
                 'location' => 'Lemari Obat',
                 'note' => 'Untuk stok darurat kalau hujan besar.',
-                'expiration_id' => 6,
+                // 'expiration_id' => 6,
                 'user_id' => 1
             ],
             [
@@ -74,7 +74,7 @@ class ItemSeeder extends Seeder
                 'subcategory_id' => 2,
                 'location' => 'Lemari Obat',
                 'note' => 'Buat tamu kalau menginap.',
-                'expiration_id' => 2,
+                // 'expiration_id' => 2,
                 'user_id' => 1
             ],
             [
@@ -83,7 +83,7 @@ class ItemSeeder extends Seeder
                 'subcategory_id' => 3,
                 'location' => 'Bawah Wastafel',
                 'note' => 'Untuk stok darurat kalau hujan besar.',
-                'expiration_id' => 6,
+                // 'expiration_id' => 6,
                 'user_id' => 1
             ],
             [
@@ -92,7 +92,7 @@ class ItemSeeder extends Seeder
                 'subcategory_id' => 3,
                 'location' => 'Lemari Obat',
                 'note' => 'Dipakai saat pergi kondangan.',
-                'expiration_id' => 13,
+                // 'expiration_id' => 13,
                 'user_id' => 1
             ],
             [
@@ -101,7 +101,7 @@ class ItemSeeder extends Seeder
                 'subcategory_id' => 3,
                 'location' => 'Rak Kamar Tidur',
                 'note' => 'Dipakai saat pergi kondangan.',
-                'expiration_id' => 12,
+                // 'expiration_id' => 12,
                 'user_id' => 1
             ],
             [
@@ -110,7 +110,7 @@ class ItemSeeder extends Seeder
                 'subcategory_id' => 4,
                 'location' => 'Rak Kulkas',
                 'note' => 'Untuk stok darurat kalau hujan besar.',
-                'expiration_id' => 5,
+                // 'expiration_id' => 5,
                 'user_id' => 1
             ],
             [
@@ -119,7 +119,7 @@ class ItemSeeder extends Seeder
                 'subcategory_id' => 4,
                 'location' => 'Lemari Obat',
                 'note' => 'Untuk stok darurat kalau hujan besar.',
-                'expiration_id' => 10,
+                // 'expiration_id' => 10,
                 'user_id' => 1
             ],
             [
@@ -128,7 +128,7 @@ class ItemSeeder extends Seeder
                 'subcategory_id' => 4,
                 'location' => 'Rak Dinding Ruang Tamu',
                 'note' => 'Dibeli waktu diskon besar-besaran.',
-                'expiration_id' => 1,
+                // 'expiration_id' => 1,
                 'user_id' => 1
             ],
             [
@@ -137,7 +137,7 @@ class ItemSeeder extends Seeder
                 'subcategory_id' => 5,
                 'location' => 'Rak Kulkas',
                 'note' => 'Dipakai saat pergi kondangan.',
-                'expiration_id' => 4,
+                // 'expiration_id' => 4,
                 'user_id' => 1
             ],
             [
@@ -146,7 +146,7 @@ class ItemSeeder extends Seeder
                 'subcategory_id' => 5,
                 'location' => 'Laci Kamar Mandi',
                 'note' => 'Hanya dipakai sebulan sekali.',
-                'expiration_id' => 9,
+                // 'expiration_id' => 9,
                 'user_id' => 1
             ],
             [
@@ -155,7 +155,7 @@ class ItemSeeder extends Seeder
                 'subcategory_id' => 5,
                 'location' => 'Bawah Wastafel',
                 'note' => 'Untuk stok darurat kalau hujan besar.',
-                'expiration_id' => 6,
+                // 'expiration_id' => 6,
                 'user_id' => 1
             ],
             [
@@ -164,7 +164,7 @@ class ItemSeeder extends Seeder
                 'subcategory_id' => 6,
                 'location' => 'Lemari Dapur',
                 'note' => 'Dibeli waktu diskon besar-besaran.',
-                'expiration_id' => 8,
+                // 'expiration_id' => 8,
                 'user_id' => 1
             ],
             [
@@ -173,7 +173,7 @@ class ItemSeeder extends Seeder
                 'subcategory_id' => 6,
                 'location' => 'Lemari Obat',
                 'note' => 'Dipakai saat pergi kondangan.',
-                'expiration_id' => 13,
+                // 'expiration_id' => 13,
                 'user_id' => 1
             ],
             [
@@ -182,7 +182,7 @@ class ItemSeeder extends Seeder
                 'subcategory_id' => 6,
                 'location' => 'Lemari Dapur',
                 'note' => 'Punya Mama, jangan dipakai sembarangan!',
-                'expiration_id' => 5,
+                // 'expiration_id' => 5,
                 'user_id' => 1
             ],
             [
@@ -191,7 +191,7 @@ class ItemSeeder extends Seeder
                 'subcategory_id' => 7,
                 'location' => 'Lemari Obat',
                 'note' => 'Favorit Felis waktu kecil.',
-                'expiration_id' => 12,
+                // 'expiration_id' => 12,
                 'user_id' => 1
             ],
             [
@@ -200,7 +200,7 @@ class ItemSeeder extends Seeder
                 'subcategory_id' => 7,
                 'location' => 'Rak Kamar Tidur',
                 'note' => 'Punya Mama, jangan dipakai sembarangan!',
-                'expiration_id' => 15,
+                // 'expiration_id' => 15,
                 'user_id' => 1
             ],
             [
@@ -209,7 +209,7 @@ class ItemSeeder extends Seeder
                 'subcategory_id' => 7,
                 'location' => 'Rak Dinding Ruang Tamu',
                 'note' => 'Untuk cadangan saat kehabisan.',
-                'expiration_id' => 2,
+                // 'expiration_id' => 2,
                 'user_id' => 1
             ],
             [
@@ -218,7 +218,7 @@ class ItemSeeder extends Seeder
                 'subcategory_id' => 1,
                 'location' => 'Lemari Dapur',
                 'note' => 'Sisa dari hampers lebaran.',
-                'expiration_id' => 10,
+                // 'expiration_id' => 10,
                 'user_id' => 1
             ],
             [
@@ -227,7 +227,7 @@ class ItemSeeder extends Seeder
                 'subcategory_id' => 1,
                 'location' => 'Rak Kulkas',
                 'note' => 'Favorit Felis waktu kecil.',
-                'expiration_id' => 4,
+                // 'expiration_id' => 4,
                 'user_id' => 1
             ],
             [
@@ -236,7 +236,7 @@ class ItemSeeder extends Seeder
                 'subcategory_id' => 1,
                 'location' => 'Laci Kamar Mandi',
                 'note' => 'Dipesan khusus dari marketplace.',
-                'expiration_id' => 14,
+                // 'expiration_id' => 14,
                 'user_id' => 1
             ],
             [
@@ -245,7 +245,7 @@ class ItemSeeder extends Seeder
                 'subcategory_id' => 2,
                 'location' => 'Rak Kamar Tidur',
                 'note' => 'Untuk stok darurat kalau hujan besar.',
-                'expiration_id' => 8,
+                // 'expiration_id' => 8,
                 'user_id' => 1
             ],
             [
@@ -254,7 +254,7 @@ class ItemSeeder extends Seeder
                 'subcategory_id' => 2,
                 'location' => 'Lemari Obat',
                 'note' => 'Dipakai saat pergi kondangan.',
-                'expiration_id' => 15,
+                // 'expiration_id' => 15,
                 'user_id' => 1
             ],
             [
@@ -263,7 +263,7 @@ class ItemSeeder extends Seeder
                 'subcategory_id' => 2,
                 'location' => 'Rak Dinding Ruang Tamu',
                 'note' => 'Untuk cadangan saat kehabisan.',
-                'expiration_id' => 4,
+                // 'expiration_id' => 4,
                 'user_id' => 1
             ],
             [
@@ -272,7 +272,7 @@ class ItemSeeder extends Seeder
                 'subcategory_id' => 3,
                 'location' => 'Rak Kulkas',
                 'note' => 'Dipesan khusus dari marketplace.',
-                'expiration_id' => 5,
+                // 'expiration_id' => 5,
                 'user_id' => 1
             ],
             [
@@ -281,7 +281,7 @@ class ItemSeeder extends Seeder
                 'subcategory_id' => 3,
                 'location' => 'Bawah Wastafel',
                 'note' => 'Hanya dipakai sebulan sekali.',
-                'expiration_id' => 12,
+                // 'expiration_id' => 12,
                 'user_id' => 1
             ],
             [
@@ -290,7 +290,7 @@ class ItemSeeder extends Seeder
                 'subcategory_id' => 3,
                 'location' => 'Rak Kamar Tidur',
                 'note' => 'Untuk stok darurat kalau hujan besar.',
-                'expiration_id' => 14,
+                // 'expiration_id' => 14,
                 'user_id' => 1
             ],
             [
@@ -299,7 +299,7 @@ class ItemSeeder extends Seeder
                 'subcategory_id' => 4,
                 'location' => 'Lemari Obat',
                 'note' => 'Punya Mama, jangan dipakai sembarangan!',
-                'expiration_id' => 5,
+                // 'expiration_id' => 5,
                 'user_id' => 1
             ],
             [
@@ -308,7 +308,7 @@ class ItemSeeder extends Seeder
                 'subcategory_id' => 4,
                 'location' => 'Rak Dinding Ruang Tamu',
                 'note' => 'Buat tamu kalau menginap.',
-                'expiration_id' => 1,
+                // 'expiration_id' => 1,
                 'user_id' => 1
             ],
             [
@@ -317,7 +317,7 @@ class ItemSeeder extends Seeder
                 'subcategory_id' => 4,
                 'location' => 'Rak Kulkas',
                 'note' => 'Favorit Felis waktu kecil.',
-                'expiration_id' => 11,
+                // 'expiration_id' => 11,
                 'user_id' => 1
             ],
             [
@@ -326,7 +326,7 @@ class ItemSeeder extends Seeder
                 'subcategory_id' => 1,
                 'location' => 'Lemari Dapur',
                 'note' => 'Dibeli waktu diskon besar-besaran.',
-                'expiration_id' => 13,
+                // 'expiration_id' => 13,
                 'user_id' => 1
             ],
             [
@@ -335,7 +335,7 @@ class ItemSeeder extends Seeder
                 'subcategory_id' => 1,
                 'location' => 'Rak Kamar Tidur',
                 'note' => 'Untuk cadangan saat kehabisan.',
-                'expiration_id' => 7,
+                // 'expiration_id' => 7,
                 'user_id' => 1
             ],
             [
@@ -344,7 +344,7 @@ class ItemSeeder extends Seeder
                 'subcategory_id' => 1,
                 'location' => 'Rak Kulkas',
                 'note' => 'Sisa dari hampers lebaran.',
-                'expiration_id' => 6,
+                // 'expiration_id' => 6,
                 'user_id' => 1
             ],
             [
@@ -353,7 +353,7 @@ class ItemSeeder extends Seeder
                 'subcategory_id' => 2,
                 'location' => 'Laci Kamar Mandi',
                 'note' => 'Hanya dipakai sebulan sekali.',
-                'expiration_id' => 10,
+                // 'expiration_id' => 10,
                 'user_id' => 1
             ],
             [
@@ -362,7 +362,7 @@ class ItemSeeder extends Seeder
                 'subcategory_id' => 2,
                 'location' => 'Lemari Dapur',
                 'note' => 'Favorit Felis waktu kecil.',
-                'expiration_id' => 9,
+                // 'expiration_id' => 9,
                 'user_id' => 1
             ],
             [
@@ -371,7 +371,7 @@ class ItemSeeder extends Seeder
                 'subcategory_id' => 2,
                 'location' => 'Rak Dinding Ruang Tamu',
                 'note' => 'Dipesan khusus dari marketplace.',
-                'expiration_id' => 15,
+                // 'expiration_id' => 15,
                 'user_id' => 1
             ],
             [
@@ -380,7 +380,7 @@ class ItemSeeder extends Seeder
                 'subcategory_id' => 3,
                 'location' => 'Lemari Dapur',
                 'note' => 'Punya Mama, jangan dipakai sembarangan!',
-                'expiration_id' => 3,
+                // 'expiration_id' => 3,
                 'user_id' => 1
             ],
             [
@@ -389,7 +389,7 @@ class ItemSeeder extends Seeder
                 'subcategory_id' => 3,
                 'location' => 'Bawah Wastafel',
                 'note' => 'Untuk stok darurat kalau hujan besar.',
-                'expiration_id' => 13,
+                // 'expiration_id' => 13,
                 'user_id' => 1
             ],
             [
@@ -398,7 +398,7 @@ class ItemSeeder extends Seeder
                 'subcategory_id' => 3,
                 'location' => 'Rak Kamar Tidur',
                 'note' => 'Dipakai saat pergi kondangan.',
-                'expiration_id' => 2,
+                // 'expiration_id' => 2,
                 'user_id' => 1
             ],
             [
@@ -407,7 +407,7 @@ class ItemSeeder extends Seeder
                 'subcategory_id' => 1,
                 'location' => 'Rak Dinding Ruang Tamu',
                 'note' => 'Backup cadangan untuk acara keluarga.',
-                'expiration_id' => 8,
+                // 'expiration_id' => 8,
                 'user_id' => 1
             ],
             [
@@ -416,7 +416,7 @@ class ItemSeeder extends Seeder
                 'subcategory_id' => 1,
                 'location' => 'Lemari Dapur',
                 'note' => 'Dibawa saat piknik keluarga.',
-                'expiration_id' => 12,
+                // 'expiration_id' => 12,
                 'user_id' => 1
             ],
             [
@@ -425,7 +425,7 @@ class ItemSeeder extends Seeder
                 'subcategory_id' => 1,
                 'location' => 'Rak Kulkas',
                 'note' => 'Sisa dari kado arisan.',
-                'expiration_id' => 1,
+                // 'expiration_id' => 1,
                 'user_id' => 1
             ],
             [
@@ -434,7 +434,7 @@ class ItemSeeder extends Seeder
                 'subcategory_id' => 2,
                 'location' => 'Lemari Dapur',
                 'note' => 'Dibeli grosir untuk stok 3 bulan.',
-                'expiration_id' => 6,
+                // 'expiration_id' => 6,
                 'user_id' => 1
             ],
             [
@@ -443,7 +443,7 @@ class ItemSeeder extends Seeder
                 'subcategory_id' => 2,
                 'location' => 'Rak Kamar Tidur',
                 'note' => 'Disimpan di kamar karena dapur penuh.',
-                'expiration_id' => 4,
+                // 'expiration_id' => 4,
                 'user_id' => 1
             ],
             [
@@ -452,7 +452,7 @@ class ItemSeeder extends Seeder
                 'subcategory_id' => 2,
                 'location' => 'Laci Kamar Mandi',
                 'note' => 'Jangan tanya kenapa ini di sini.',
-                'expiration_id' => 10,
+                // 'expiration_id' => 10,
                 'user_id' => 1
             ],
             [
@@ -461,7 +461,7 @@ class ItemSeeder extends Seeder
                 'subcategory_id' => 3,
                 'location' => 'Rak Kulkas',
                 'note' => 'Untuk bekal sekolah Felis.',
-                'expiration_id' => 7,
+                // 'expiration_id' => 7,
                 'user_id' => 1
             ],
             [
@@ -470,7 +470,7 @@ class ItemSeeder extends Seeder
                 'subcategory_id' => 3,
                 'location' => 'Lemari Dapur',
                 'note' => 'Sisa eksperimen masak kue gagal.',
-                'expiration_id' => 3,
+                // 'expiration_id' => 3,
                 'user_id' => 1
             ],
             [
@@ -479,7 +479,7 @@ class ItemSeeder extends Seeder
                 'subcategory_id' => 3,
                 'location' => 'Rak Kamar Tidur',
                 'note' => 'Untuk baking project liburan nanti.',
-                'expiration_id' => 15,
+                // 'expiration_id' => 15,
                 'user_id' => 1
             ],
             [
@@ -488,7 +488,7 @@ class ItemSeeder extends Seeder
                 'subcategory_id' => 4,
                 'location' => 'Bawah Wastafel',
                 'note' => 'Stok cadangan bulan puasa.',
-                'expiration_id' => 5,
+                // 'expiration_id' => 5,
                 'user_id' => 1
             ],
             [
@@ -497,7 +497,7 @@ class ItemSeeder extends Seeder
                 'subcategory_id' => 4,
                 'location' => 'Lemari Dapur',
                 'note' => 'Dibeli pas harga turun.',
-                'expiration_id' => 9,
+                // 'expiration_id' => 9,
                 'user_id' => 1
             ],
             [
@@ -506,7 +506,7 @@ class ItemSeeder extends Seeder
                 'subcategory_id' => 4,
                 'location' => 'Rak Dinding Ruang Tamu',
                 'note' => 'Disimpan sembarangan oleh adik.',
-                'expiration_id' => 2,
+                // 'expiration_id' => 2,
                 'user_id' => 1
             ],
             [
@@ -515,7 +515,7 @@ class ItemSeeder extends Seeder
                 'subcategory_id' => 1,
                 'location' => 'Lemari Obat',
                 'note' => 'Jangan tertukar dengan obat tetes!',
-                'expiration_id' => 11,
+                // 'expiration_id' => 11,
                 'user_id' => 1
             ],
             [
@@ -524,7 +524,7 @@ class ItemSeeder extends Seeder
                 'subcategory_id' => 1,
                 'location' => 'Lemari Dapur',
                 'note' => 'Dipakai hanya saat bersih-bersih besar.',
-                'expiration_id' => 13,
+                // 'expiration_id' => 13,
                 'user_id' => 1
             ],
             [
@@ -533,7 +533,7 @@ class ItemSeeder extends Seeder
                 'subcategory_id' => 1,
                 'location' => 'Bawah Wastafel',
                 'note' => 'Jauhkan dari jangkauan anak-anak.',
-                'expiration_id' => 8,
+                // 'expiration_id' => 8,
                 'user_id' => 1
             ],
 

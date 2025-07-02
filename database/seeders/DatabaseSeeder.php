@@ -16,12 +16,12 @@ class DatabaseSeeder extends Seeder
         $this->call([
             CategorySeeder::class,
             UserSeeder::class,
-            ExpirationDateSeeder::class,
-            SubcategorySeeder::class,
             StatisticSeeder::class,
+            SubcategorySeeder::class,
             ArticleSeeder::class,
             WishlistSeeder::class,
             ItemSeeder::class, 
+            ExpirationDateSeeder::class,
         ]);
 
     }

@@ -20,7 +20,7 @@ class Item extends Model
 
     public function expirationDate()
     {
-        return $this->belongsTo(ExpirationDate::class, 'expiration_id');
+        return $this->hasMany(ExpirationDate::class);
     }
 
     public function user()

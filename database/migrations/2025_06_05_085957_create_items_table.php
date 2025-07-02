@@ -15,11 +15,9 @@ class CreateItemsTable extends Migration
             $table->unsignedBigInteger('subcategory_id');
             $table->string('location')->notNull();
             $table->string('note')->nullable();
-            $table->unsignedBigInteger('expiration_id');
             $table->unsignedBigInteger('user_id');
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->foreign('subcategory_id')->references('id')->on('subcategories')->onDelete('cascade');
-            $table->foreign('expiration_id')->references('id')->on('expiration_dates')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
