@@ -22,12 +22,12 @@ class SubcategorySeeder extends Seeder
                 ],
                 [
                     'subcategory' => 'Body Care',
-                    'img' => 'img/Personal Care - Body Care.svg',
+                    'img' => 'img/PC - Body Care.svg',
                     'category_id' => 1,
                 ],
                 [
                     'subcategory' => 'Facial Care',
-                    'img' => 'img/Personal Care - Facial Care.svg',
+                    'img' => 'img/PC - Facial Care.svg',
                     'category_id' => 1,
                 ],
                 [
@@ -116,7 +116,7 @@ class SubcategorySeeder extends Seeder
                     'category_id' => 5,
                 ],
                 [
-                    'subcategory' => 'Air Fresheners & Dehumidifiers',
+                    'subcategory' => 'Fresheners & Dehumidifiers',
                     'img' => 'img/Household Essentials - Air Fresheners & Dehumidifiers.svg',
                     'category_id' => 5,
                 ],
@@ -131,8 +131,8 @@ class SubcategorySeeder extends Seeder
                     'category_id' => 6,
                 ],
                 [
-                    'subcategory' => 'Vitamin & Supplements',
-                    'img' => 'img/Health Supplies - Vitamin & Supplements.svg',
+                    'subcategory' => 'Vitamins & Supplements',
+                    'img' => 'img/Health Supplies - Vitamins & Supplements.svg',
                     'category_id' => 6,
                 ],
                 [
@@ -145,7 +145,7 @@ class SubcategorySeeder extends Seeder
                     'img' => 'img/Health Supplies - Hygiene Products.svg',
                     'category_id' => 6,
                 ],
-                
+
             ]
         );
     }
