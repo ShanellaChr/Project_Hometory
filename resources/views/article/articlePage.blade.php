@@ -10,40 +10,35 @@
     {{-- div gede, ini untuk nampung semua article --}}
     <div class="container mb-5">
         {{-- div baris pertama, loop 3 articles --}}
-        <div class="container align-items-center d-flex flex-row justify-content">
+        <div class="container align-items-center d-flex flex-row justify-content mb-5">
             @foreach($articles->reverse()->slice(0, 3) as $article)
-                <a href="{{ route('article.detail', ['slug' => $article->slug]) }}">
-                    <div class="container">
+                <div class="ms-3 shadow rounded-4 custom-card pt-3">
+                    <a href="{{ route('article.detail', ['slug' => $article->slug]) }}">
                         <img src="{{ asset($article->thumbnail) }}" alt="{{ $article->title }}">
+                    </a>
+                    <div class="d-flex mb-4 container ms-2">
+                        <a href="{{ route('article.detail', ['slug' => $article->slug]) }}" class="text-decoration-none text-dark">
+                            <p class="nunito-extrabold text-xl align-items-center">{{ $article->title }}</p>
+                        </a>
                     </div>
-                </a>
+                </div>
             @endforeach
         </div>
-        <div class="d-flex mb-4">
-            @foreach($articles->reverse()->slice(0, 3) as $article)
-                <div class="container px-5 ms-5">
-                    <p class="nunito-extrabold text-xl">{{ $article->title }}</p>
+        
+        <div class="container align-items-center d-flex flex-row justify-content">
+            @foreach($articles->reverse()->slice(3, 3) as $article)
+                <div class="ms-3 shadow rounded-4 custom-card pt-3">
+                    <a href="{{ route('article.detail', ['slug' => $article->slug]) }}">
+                        <img src="{{ asset($article->thumbnail) }}" alt="{{ $article->title }}">
+                    </a>
+                    <div class="d-flex mb-4 container ms-2">
+                        <a href="{{ route('article.detail', ['slug' => $article->slug]) }}" class="text-decoration-none text-dark">
+                            <p class="nunito-extrabold text-xl align-items-center">{{ $article->title }}</p>
+                        </a>
+                    </div>
                 </div>
             @endforeach
         </div>
 
-
-        {{-- div baris pertama, loop 3 articles --}}
-        <div class="container align-items-center d-flex flex-row justify-content">
-            @foreach($articles->reverse()->slice(3, 3) as $article)
-                <a href="{{ route('article.detail', ['slug' => $article->slug]) }}">
-                    <div class="container">
-                        <img src="{{ asset($article->thumbnail) }}" alt="{{ $article->title }}">
-                    </div>
-                </a>
-            @endforeach
-        </div>
-        <div class="d-flex mb-4">
-            @foreach($articles->reverse()->slice(3, 3) as $article)
-                <div class="container ms-5 px-5">
-                    <p class="nunito-extrabold text-xl">{{ $article->title }}</p>
-                </div>
-            @endforeach
-        </div>
     </div>
 </x-master>

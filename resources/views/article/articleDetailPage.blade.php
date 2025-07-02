@@ -19,9 +19,9 @@
 <body>
     <div class="container">
         {{-- bagian atas utk back, gambar, title, tanggal --}}
-        <div class="pt-3">
+        <div class="pt-3 mb-5">
             <a href="{{ route('article.index') }}">
-                <img src="{{ asset('img/Back Button.svg') }}" alt="Back button">
+                <img src="{{ asset('img/Back Button.svg') }}" alt="Back button" class="BackButton">
             </a>
         </div>
         <div class="align-items-center justify-content-center d-flex">
@@ -33,7 +33,7 @@
         <div class="align-items-center justify-content-center d-flex poppins-regular text-md mb-5">
             {{ $article->updated_at->format('d F Y') }}
         </div>
-        <div>
+        <div style="margin-bottom: 15vh;">
             {!! $article->content !!}
         </div>
     </div>
