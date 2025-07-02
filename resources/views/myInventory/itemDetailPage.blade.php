@@ -13,7 +13,7 @@
 
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
     </style>
-    <title>Hometory</title>
+    <title>Hometory - Item Detail</title>
 </head>
 <body>
     <div class="container-fluid p-0">
@@ -25,9 +25,9 @@
         {{-- Content --}}
         <div class="d-flex justify-content-center align-items-center flex-column my-5">
             <img src="{{ asset('img/Beverages - Dairy Products.svg') }}" alt="Beverages - Dairy Products" style="width: 18vw">
-            
+
             <h1 class="montserrat-semibold text-3xl mt-3">Milo 330ml</h1>
-            
+
             <div class="d-flex flex-row mt-1">
                 <div class="mx-2 py-2 px-3 rounded-2 bg-birucategory shadow">
                     <p class="montserrat-semibold text-center text-lg m-0">Beverages</p>
@@ -35,7 +35,7 @@
 
                 <div class="mx-2 py-2 px-3 rounded-2 bg-orenpalette shadow">
                     <p class="montserrat-semibold text-center text-lg m-0">Dairy Products</p>
-                </div> 
+                </div>
             </div>
 
             <div class="container">
@@ -59,7 +59,7 @@
                 <h1 class="mt-5 montserrat-semibold text-2xl">My Notes</h1>
                 <hr class="border-2 border-black rounded w-full my-2" style="opacity: 1;">
                 <p class="nunito-medium text-xl">
-                    Susunya bentar lagi expired satu, harus cepet minum. Sisanya masih aman lah. 
+                    Susunya bentar lagi expired satu, harus cepet minum. Sisanya masih aman lah.
                     Semuanya ditaro di kulkas dapur biar dingin, laci yang kedua. Kemarin beli di Indomaret, kek biasa.
                 </p>
 
@@ -86,7 +86,7 @@
             <div class="d-flex flex-row ms-auto me-5">
                 <div class="mx-4 mb-4 mt-5" style="width: fit-content">
                     <a href = "../crudItemPage" class="btn-dark-blue rounded-3 shadow" style="padding-left: 3.25vw; padding-right: 2vw; padding-top: 1.5vw; padding-bottom: 1.5vw">
-                        <span class= "nunito-bold text-2xl text-center">Edit Item</span> 
+                        <span class= "nunito-bold text-2xl text-center">Edit Item</span>
                         <img src="{{ asset('img/editButton.svg') }}" alt="Edit Icon" class="pencil-icon mb-1 ms-0 pe-3">
                     </a>
                 </div>
@@ -94,7 +94,7 @@
                 <div class="me-5 mb-4 mt-5" style="width: fit-content%">
                     {{-- nanti pathnya diatur lagi --}}
                     <a href = "../myInventory/expiredItemPage" class="btn-merah rounded-3 shadow" style="padding-left: 3.25vw; padding-right: 2vw; padding-top: 1.5vw; padding-bottom: 1.5vw">
-                        <span class= "nunito-bold text-2xl text-center">Delete Item</span> 
+                        <span class= "nunito-bold text-2xl text-center">Delete Item</span>
                         <img src="{{ asset('img/trashbin white icon.svg') }}" alt="Trash Bin Icon" class="pencil-icon mb-1 ms-0 pe-3">
                     </a>
                 </div>

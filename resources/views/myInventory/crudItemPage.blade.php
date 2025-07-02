@@ -12,7 +12,7 @@
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
-    <title>Hometory</title>
+    <title>Hometory - Add Item</title>
 </head>
 
 <body style="height: 100%; margin-bottom: 5vh">
@@ -73,7 +73,7 @@
                         <div class="d-flex flex-row align-items-center rounded border border-dark shadow-sm p-3 bg-putih pe-5" style="opacity: 1; max-width: 500px;">
                             <!-- Icon Kalender -->
                             <img src="{{ asset('img/CalendarGreen.svg') }}" alt="Calendar Icon" class="me-3" style="width: 85px; height: 85px;">
-                            
+
                             <div class="d-flex flex-column w-100">
                                 <div class="d-flex justify-content-between align-items-center text-dark">
                                     <!-- Judul -->
@@ -138,12 +138,12 @@
     <div class="modal fade" id="deleteConfirmationModal" tabindex="-1" aria-labelledby="deleteConfirmationLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content" style="border-radius: 1rem;">
-                
+
                 <!-- Header -->
                 <div class="modal-header bg-merahbutton text-putihpalette d-flex flex-column align-items-center" style="border-bottom: none;">
                     <img src="/img/warning icon.svg" alt="Warning" width="80" height="80" class="mb-2">
                 </div>
-                
+
                 <!-- Footer -->
                 <div class="modal-footer d-flex justify-content-center gap-3 pt-2 mb-3">
                     <h3 class="modal-title w-100 text-center montserrat-bold" id="deleteConfirmationLabel">
@@ -230,13 +230,13 @@
                 // Membuat container baru untuk input tanggal
                 let newDateItem = document.createElement('div');
                 newDateItem.classList.add('date-item', 'mb-4');
-                
+
                 // Menambahkan HTML untuk Date Baru
                 newDateItem.innerHTML = `
                     <div class="d-flex flex-row align-items-center rounded border border-dark shadow-sm p-3 bg-putih pe-5" style="opacity: 1; max-width: 500px;">
                         <!-- Icon Kalender -->
                         <img src="{{ asset('img/CalendarGreen.svg') }}" alt="Calendar Icon" class="me-3" style="width: 85px; height: 85px;">
-                        
+
                         <div class="d-flex flex-column w-100">
                             <!-- Judul -->
                             <div class="d-flex justify-content-between align-items-center text-dark">
@@ -292,7 +292,7 @@
                 if (event.target.classList.contains('delete-btn')) {
                     itemToDelete = event.target.closest('.date-item') // Simpan item yang akan dihapus
                     let dateTitle = itemToDelete.querySelector('h1');
-                    
+
                     // Jika item yang akan dihapus adalah Date 1, tampilkan pesan error
                     if (dateTitle && dateTitle.textContent === 'Date 1') {
                         let errorMessage = document.getElementById('deletionError');
@@ -303,7 +303,7 @@
                         // Jika bukan Date 1, sembunyikan pesan error
                         let errorMessage = document.getElementById('deletionError');
                         errorMessage.style.display = 'none';  // Sembunyikan error message
-    
+
                         // For any other dates, show the modal
                         let deleteModal = new bootstrap.Modal(document.getElementById('deleteConfirmationModal'));
                         deleteModal.show();  // Show the modal for other dates

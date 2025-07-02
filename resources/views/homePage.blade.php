@@ -1,3 +1,4 @@
+@section('title', 'Hometory')
 <x-master>
 
     <div class="p-2 position-relative d-flex">
@@ -51,7 +52,7 @@
             <p class="nunito-bold m-3">Wishlist</p>
             <p class="mb-0 nunito-regular">  This feature enables users to create a personalized list of items they intend to purchase or add to their inventory in the future, supporting better planning and budgeting.</p>
         </div>
-        
+
         <div class=" shadow p-3 d-flex flex-column col m-3 align-items-center rounded-4">
             <img src="{{ asset('img/Article Icon Home.svg') }}" alt="">
             <p class="nunito-bold m-3">Article</p>
@@ -87,10 +88,10 @@
         </button>
 
         <div class="d-flex flex-row gap-5 row" style="width:70%">
-            
+
             <div class="shadow p-3 rounded-3 col">
                 {{-- Untuk foto profil dan username --}}
-                <div class="d-flex flex-row"> 
+                <div class="d-flex flex-row">
                     <img src="{{ asset('img/Profil Dummy.svg') }}" alt="">
 
                     <div class="ms-2" style=""> {{-- Untuk username dan waktu upload --}}
@@ -107,7 +108,7 @@
 
             <div class="shadow p-3 rounded-3 col">
                 {{-- Untuk foto profil dan username --}}
-                <div class="d-flex flex-row"> 
+                <div class="d-flex flex-row">
                     <img src="{{ asset('img/Profil Dummy.svg') }}" alt="">
 
                     <div class="ms-2" style=""> {{-- Untuk username dan waktu upload --}}
@@ -124,7 +125,7 @@
 
             <div class="shadow p-3 rounded-3 col" >
                 {{-- Untuk foto profil dan username --}}
-                <div class="d-flex flex-row"> 
+                <div class="d-flex flex-row">
                     <img src="{{ asset('img/Profil Dummy.svg') }}" alt="">
 
                     <div class="ms-2" style=""> {{-- Untuk username dan waktu upload --}}
@@ -138,13 +139,13 @@
                     Wah ini website sangat membantu o, oe jadi tau kapan kapan aja expired dari barang oe, oe juga jadi inget punya barang apa aja o
                 </p>
             </div>
-        
+
         </div>
 
         <button class=" border-0 bg-transparent">
             <i class="bi bi-caret-right-fill rounded-circle d-flex justify-content-center align-items-center p-2 shadow"></i>
         </button>
-        
+
     </div>
 
 </x-master>

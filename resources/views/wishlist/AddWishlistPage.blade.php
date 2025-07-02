@@ -15,7 +15,7 @@
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
-    <title>Add Wishlist</title>
+    <title>Hometory - Add Wishlist</title>
 </head>
 
 <body style="height: 100%;">

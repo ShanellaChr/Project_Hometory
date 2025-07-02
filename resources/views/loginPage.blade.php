@@ -14,11 +14,11 @@
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <title>Login</title>
+    <title>Hometory - Login</title>
 </head>
 <body>
     <div class="container-fluid p-0">
-        <div class="row g-0">  
+        <div class="row g-0">
             <div class="col-6 vh-100 position-relative d-flex flex-column align-items-center">
                 <img src="/img/Back Button.svg" alt="Back Button" class="BackButton">
                 <div class="position-absolute top-50 start-50 translate-middle" style="width: 400px;">
@@ -30,18 +30,18 @@
                             <label for="inputUsername" class="form-label montserrat-medium">Username</label>
                             <input type="text" class="form-control form-control-lg nunito-medium" id="inputUsername" placeholder="Enter your username">
                         </div>
-    
+
                         <div class="mb-1">
                             <label for="inputPassword" class="form-label montserrat-medium">Password</label>
                             <input type="password" class="form-control form-control-lg nunito-medium" id="inputPassword" placeholder="Enter your password">
                         </div>
-    
+
                         <div class="mt-3 mb-5 text-end">
                             <a href="#" class="small text-dark montserrat-medium text-decoration-none">Forgot Password?</a>
                         </div>
-    
+
                         <button type="submit" class="nunito-bold p-3 btn-orange rounded shadow w-100">Login</button>
-                        
+
                          <div class="mt-3 mb-5">
                             <p class="d-inline montserrat-medium">Don't have an account? </p>
                             <a href="#" class="montserrat-bold text-decoration-none text-orenyedija">Sign Up</a>

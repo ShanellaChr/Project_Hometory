@@ -1,3 +1,4 @@
+@section('title', 'Hometory - My Statistic')
 <x-master>
     {{-- START OF SECTION JUDUL PAGE --}}
     {{-- Judul My Statistic --}}
@@ -39,7 +40,7 @@
             @endif
         </div>
         {{-- End Header Tabel --}}
-        
+
         {{-- Main Content --}}
         <div class="rounded-bottom-4 shadow-lg p-3 pt-5 mb-5" style="background: linear-gradient(to bottom, #FFCE93, #EEA144); margin-top: -0.85vw;">
             <div class="row m-4">

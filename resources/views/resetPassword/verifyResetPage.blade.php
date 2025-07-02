@@ -14,7 +14,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <title>Reset Password</title>
+    <title>Hometory - Reset Password</title>
 </head>
 <body style="margin: 0; height: 100vh; background-image: url('/img/BackdropCircle2.svg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
   <div class="container text-align-center justify-content-center align-items-center d-flex vh-100 flex-column">

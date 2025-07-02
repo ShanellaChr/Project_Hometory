@@ -1,3 +1,4 @@
+@section('title', 'Hometory - My Wishlist')
 <x-master>
     {{-- START OF SECTION JUDUL PAGE --}}
     {{-- Judul My Wishlist --}}
@@ -19,9 +20,9 @@
 
                     {{-- Checkbox --}}
                     <label class="custom-checkbox-wrapper ms-1 me-3">
-                        <input 
-                            type="checkbox" 
-                            class="custom-checkbox" 
+                        <input
+                            type="checkbox"
+                            class="custom-checkbox"
                             onchange="window.location.href='{{ route('wishlist.redirect', $wishlist['id']) }}'"
                         >
                         <span class="checkmark"></span>
@@ -57,7 +58,7 @@
 
         {{-- Label dan tombol --}}
         <div class = "container position-relative mt-4">
-            {{-- Kategori Label --}} 
+            {{-- Kategori Label --}}
             <div class = "row mb-1">
                 <div class="col-4 d-flex align-items-center gap-2">
                     <div class="color-box-wishlist rounded-1 bg-pinkcategory"> </div>
@@ -72,7 +73,7 @@
                     <p class="poppins-semibold mb-0">Beverages</p>
                 </div>
             </div>
-            <div class = "row">    
+            <div class = "row">
                 <div class="col-4 d-flex align-items-center gap-2">
                     <div class="color-box-wishlist rounded-1 bg-coklatcategory"> </div>
                     <p class="poppins-semibold mb-0">Kitchen Needs</p>
@@ -86,17 +87,17 @@
                     <p class="poppins-semibold mb-0">Health Supplies</p>
                 </div>
             </div>
-            
+
             {{-- Tombol Tambah --}}
             <div class="position-absolute bottom-0 end-0">
                 <a href="{{ route('wishlist.add') }}" class="btn-orange rounded-3 px-4 pe-4 shadow-lg gap-2" style="padding-bottom: 0.8vw; padding-top: 0.8vw; display: flex; align-items: center;">
-                    <span  class= "nunito-bold">Add Wishlist</span> 
+                    <span  class= "nunito-bold">Add Wishlist</span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
                         <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
                     </svg>
                 </a>
             </div>
-        </div> 
+        </div>
     </div>
     {{-- End Box Wishlist --}}
 

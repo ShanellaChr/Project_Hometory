@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Hometory</title>
+    <title>Hometory - Admin Dashboard</title>
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
     <style>
@@ -17,16 +17,16 @@
 
 </head>
 <body>
-    
+
     <div class=" d-flex justify-content-between align-content-between my-4 mx-5">
         <p class=" text-4xl montserrat-bold mb-0">Helo, <span class="text-orenyedija">Good Afternoon!</span></p>
-        
+
         <div class="align-items-center d-flex">
             <a href="/" class="btn-merah rounded-3 nunito-bold" style="padding-inline:1.5vw; padding-block:1vh; text-decoration: none; display: inline-block;">Log Out <i class="bi bi-box-arrow-right" style="margin-left:0.5rem"></i></a>
         </div>
-        
+
     </div>
-    
+
     <div class="border border-2 mx-5 mb-3"></div>
 
     {{-- <p class=" montserrat-semibold text-2xl mx-5">Article List</p> --}}
