@@ -41,6 +41,7 @@ Route::get('/crudItemPage', function () {
 });
 
 Route::get('/calendar', [CalendarController::class , 'show'])->name('calendar.show');
+Route::get('/calendar/{month}/{year}/{selected_date}', [CalendarController::class, 'show'])->name('calendar.show.date');
 
 Route::get('/statistic', [StatisticController::class, 'index'])->name('statistic.page');
 
