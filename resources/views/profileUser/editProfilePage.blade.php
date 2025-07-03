@@ -14,10 +14,10 @@
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <title>Edit Profile</title>
+    <title>Hometory - Edit Profile</title>
 </head>
 <body>
-  <div 
+  <div
     class="position-relative w-100 d-flex flex-column align-items-center"
     style="height: 100vh; background: url('/img/BackdropProfilePage.svg') no-repeat top center; background-size: cover; padding-top: 10vh;"
   >
@@ -27,29 +27,29 @@
       <form>
         <div class="mb-4">
           <label for="inputUsername" class="form-label montserrat-medium">Username</label>
-          <input 
-            type="text" 
-            class="form-control form-control-lg nunito-medium" 
-            id="inputUsername" 
-            placeholder="Enter your username" 
+          <input
+            type="text"
+            class="form-control form-control-lg nunito-medium"
+            id="inputUsername"
+            placeholder="Enter your username"
           >
         </div>
         <div class="mb-4">
           <label for="inputEmail" class="form-label montserrat-medium">Email</label>
-          <input 
-            type="email" 
-            class="form-control form-control-lg nunito-medium" 
-            id="inputEmail" 
-            placeholder="Enter your email" 
+          <input
+            type="email"
+            class="form-control form-control-lg nunito-medium"
+            id="inputEmail"
+            placeholder="Enter your email"
           >
         </div>
         <div class="mb-4">
           <label for="inputPassword" class="form-label montserrat-medium">Password</label>
-          <input 
-            type="password" 
-            class="form-control form-control-lg nunito-medium" 
-            id="inputPassword" 
-            placeholder="Enter your password" 
+          <input
+            type="password"
+            class="form-control form-control-lg nunito-medium"
+            id="inputPassword"
+            placeholder="Enter your password"
           >
         </div>
       </form>

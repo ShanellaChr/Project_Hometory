@@ -1,3 +1,4 @@
+@section('title', 'Hometory - Article')
 <x-master>
     {{-- START OF SECTION JUDUL PAGE --}}
     {{-- Judul Article --}}
@@ -24,7 +25,7 @@
                 </div>
             @endforeach
         </div>
-        
+
         <div class="container align-items-center d-flex flex-row justify-content">
             @foreach($articles->reverse()->slice(3, 3) as $article)
                 <div class="ms-3 shadow rounded-4 custom-card pt-3">

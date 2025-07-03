@@ -1,3 +1,4 @@
+@section('title', 'Hometory - My Calendar')
 <x-master>
     {{-- START OF SECTION JUDUL PAGE --}}
     {{-- Judul My Calendar --}}
@@ -48,7 +49,7 @@
                 {{-- Tanggal dari kalender--}}
                 <table class="w-100 calendar-table">
                     <tbody>
-                        <?php 
+                        <?php
                         // variable yang bakal bertambah utk print tanggal sesuai bulan tahun tsb
                         $day = 1;
                         $position = 0;
@@ -93,7 +94,7 @@
                                     {{-- kondisi tanggal utk bulan setelahnya --}}
                                     @else
                                         <td class="next-month bg-transparent text-center text-xl align-middle poppins-bold text-birupalette py-3">{{ $nextMonthDay }}</td>
-                                        <?php $nextMonthDay++; ?> 
+                                        <?php $nextMonthDay++; ?>
                                     @endif
                                     <?php $position++; ?>
                                 @endfor

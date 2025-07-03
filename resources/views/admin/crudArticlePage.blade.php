@@ -19,7 +19,7 @@
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.8/dist/trix.css">
     <script type="text/javascript" src="https://unpkg.com/trix@2.0.8/dist/trix.umd.min.js"></script>
 
-    <title>Add Wishlist</title>
+    <title>Hometory - Create Article</title>
 </head>
 
 <body style="height: 100%;">
@@ -45,7 +45,7 @@
             </div>
 
             <!-- Upload Image -->
-            <div class="mb-4">  
+            <div class="mb-4">
                 <label for="itemName" class="form-label nunito-bold text-2xl">Article Image</label>
 
                 <label for="fileUpload" class="border border-2 border-secondary border-dashed rounded-3 bg-white text-center p-5 d-block" style="cursor: pointer;">
@@ -70,7 +70,7 @@
 
                 <div id="trixError" class="text-danger mt-2" style="display: none;">
                     Please fill in the content.
-                </div>  
+                </div>
 
             </div>
 
@@ -107,7 +107,7 @@
             }
 
         });
-        
+
     </script>
 
 </body>

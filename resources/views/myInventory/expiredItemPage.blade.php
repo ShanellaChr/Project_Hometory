@@ -13,7 +13,7 @@
 
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
     </style>
-    <title>Hometory</title>
+    <title>Hometory - Expired Item</title>
 </head>
 <body>
     <div class="container-fluid p-0">
@@ -47,7 +47,7 @@
                              data-bs-target="#deleteConfirmationModal">
                     </div>
                 </div>
-                
+
                 <div class="col-12 col-md-6 mb-4">
                     <div class="d-flex flex-row bg-putihpalette rounded-3 mt-3 me-3 pe-4 shadow border" style="width: 35vw">
                         <img src="{{ asset('img/Household Essentials - Pest Control.svg') }}" alt="Item Image" class="p-0 m-0 rounded-start-3" style="width: 5vw">
@@ -75,7 +75,7 @@
                              data-bs-target="#deleteConfirmationModal">
                     </div>
                 </div>
-                
+
                 <div class="col-12 col-md-6 mb-4">
                     <div class="d-flex flex-row bg-putihpalette rounded-3 mt-3 me-3 pe-4 shadow border" style="width: 35vw">
                         <img src="{{ asset('img/Foods - Snacks.svg') }}" alt="Item Image" class="p-0 m-0 rounded-start-3" style="width: 5vw">
@@ -103,7 +103,7 @@
                              data-bs-target="#deleteConfirmationModal">
                     </div>
                 </div>
-                
+
                 <div class="col-12 col-md-6 mb-4">
                     <div class="d-flex flex-row bg-putihpalette rounded-3 mt-3 me-3 pe-4 shadow border" style="width: 35vw">
                         <img src="{{ asset('img/Beverages - Soft Drinks.svg') }}" alt="Item Image" class="p-0 m-0 rounded-start-3" style="width: 5vw">
@@ -131,7 +131,7 @@
                              data-bs-target="#deleteConfirmationModal">
                     </div>
                 </div>
-                
+
                 <div class="col-12 col-md-6 mb-4">
                     <div class="d-flex flex-row bg-putihpalette rounded-3 mt-3 me-3 pe-4 shadow border" style="width: 35vw">
                         <img src="{{ asset('img/Health Supplies - Medicines.svg') }}" alt="Item Image" class="p-0 m-0 rounded-start-3" style="width: 5vw">
@@ -159,7 +159,7 @@
                              data-bs-target="#deleteConfirmationModal">
                     </div>
                 </div>
-                
+
                 <div class="col-12 col-md-6 mb-4">
                     <div class="d-flex flex-row bg-putihpalette rounded-3 mt-3 me-3 pe-4 shadow border" style="width: 35vw">
                         <img src="{{ asset('img/Personal Care - Oral Care.svg') }}" alt="Item Image" class="p-0 m-0 rounded-start-3" style="width: 5vw">
@@ -195,12 +195,12 @@
     <div class="modal fade" id="deleteConfirmationModal" tabindex="-1" aria-labelledby="deleteConfirmationLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content" style="border-radius: 1rem;">
-                
+
                 <!-- Header -->
                 <div class="modal-header bg-merahbutton text-putihpalette d-flex flex-column align-items-center" style="border-bottom: none;">
                     <img src="/img/warning icon.svg" alt="Warning" width="80" height="80" class="mb-2">
                 </div>
-                
+
                 <!-- Footer -->
                 <div class="modal-footer d-flex justify-content-center gap-3 pt-2 mb-3">
                     <h3 class="modal-title w-100 text-center montserrat-bold" id="deleteConfirmationLabel">
