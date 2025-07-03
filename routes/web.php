@@ -54,7 +54,7 @@ Route::get('/wishlist/add', [WishlistController::class, 'create'])->name('wishli
 Route::post('/wishlist/store', [WishlistController::class, 'store'])->name('wishlist.store');
 Route::get('/wishlist/{id}/edit', [WishlistController::class, 'edit'])->name('wishlist.edit');
 Route::post('/wishlist/{id}/update', [WishlistController::class, 'update'])->name('wishlist.update');
-Route::delete('/wishlist/delete/{id}', [WishlistController::class, 'destroy'])->name('wishlist.delete');
+Route::delete('/wishlist/{id}', [WishlistController::class, 'destroy'])->name('wishlist.delete');
 Route::get('/wishlist/check/{id}', [WishlistController::class, 'check'])->name('wishlist.check');
 Route::get('/cruditempage', function () {
     return view('myInventory.crudItemPage'); // Nama file: resources/views/crudItemPage.blade.php

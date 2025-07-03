@@ -44,13 +44,13 @@
                         <a href="{{ route('wishlist.edit', $wishlist->id) }}" class="btn bg-transparent p-0">
                             <img src="{{ asset('img/pencil black.svg') }}" alt="Edit" width="26" height="26">
                         </a>
-                        <form action="{{ route('wishlist.delete', $wishlist->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this wishlist item?');">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn bg-transparent p-0">
-                                <img src="{{ asset('img/trashbin black.svg') }}" alt="Delete" width="26" height="26">
-                            </button>
-                        </form>
+                        <button type="button"
+                            class="btn bg-transparent p-0"
+                            data-bs-toggle="modal"
+                            data-bs-target="#deleteConfirmationModal"
+                            data-wishlist-id="{{ $wishlist->id }}">
+                            <img src="{{ asset('img/trashbin black.svg') }}" alt="Delete" width="26" height="26">
+                        </button>
                     </div>
                 </div>
             @endforeach
@@ -105,5 +105,39 @@
             </div>
         </div>
     </div>
+<!-- Modal Delete Konfirmasi -->
+<div class="modal fade" id="deleteConfirmationModal" tabindex="-1" aria-labelledby="deleteConfirmationLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content" style="border-radius: 1rem;">
 
+      <!-- Header -->
+      <div class="modal-header bg-merahbutton text-putihpalette d-flex flex-column align-items-center" style="border-bottom: none;">
+        <img src="/img/warning icon.svg" alt="Warning" width="80" height="80" class="mb-2">
+      </div>
+
+      <!-- Body & Footer -->
+      <div class="modal-footer d-flex flex-column justify-content-center gap-3 pt-2 mb-3">
+        <h3 class="modal-title w-100 text-center montserrat-bold" id="deleteConfirmationLabel">
+          Are You Sure Want <br> To Delete?
+        </h3>
+        <div class="d-flex justify-content-center gap-3">
+          <button type="button" class="btn btn-abu d-flex align-items-center gap-2 px-4" data-bs-dismiss="modal">
+            Cancel
+            <img src="/img/cancel icon.svg" alt="Cancel" width="20" height="20">
+          </button>
+
+          <form id="deleteForm" method="POST">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="btn btn-merah d-flex align-items-center gap-2 px-4">
+              Delete
+              <img src="/img/trashbin white icon.svg" alt="Delete" width="20" height="20">
+            </button>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
 </x-master>
