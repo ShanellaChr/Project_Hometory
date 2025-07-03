@@ -10,7 +10,7 @@ class ItemController extends Controller
     // Show all items
     public function index()
     {
-        $items = Item::with('subCategory')->orderBy('expired_date', 'desc')->get();
+        $items = Item::with(['category', 'subCategory', 'expirationDate'])->orderBy('expired_date', 'desc')->get();
         return view('myInventory.myInventoryPage', compact('items'));
     }
 

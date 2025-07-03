@@ -168,7 +168,8 @@
                                 <img src="{{ asset($item->subCategory->img) }}" class="img-fluid"
                                     alt="{{ $item->category->category . ' - ' . $item->subCategory->subcategory }}">
                                 <div class="my-3 py-2 rounded-2 bg-{{ $item->category->color }} shadow">
-                                    <p class="montserrat-semibold text-center text-lg m-0">{{ $item->category->category }}
+                                    <p class="montserrat-semibold text-center text-lg m-0">
+                                        {{ $item->category->category }}
                                     </p>
                                 </div>
 
@@ -177,9 +178,15 @@
                                         {{ $item->subCategory->subcategory }}</p>
                                 </div>
 
-                                <p class="d-flex align-items-center mb-2 nunito-bold text-2xl" style="min-height: 10vh; max-width: 80%">{{ $item->name }}</p>
+                                <p class="d-flex align-items-center mb-2 nunito-bold text-2xl"
+                                    style="min-height: 10vh; max-width: 80%">{{ $item->name }}</p>
                                 <p class="mb-2 poppins-medium text-sm">Item Quantity: 3</p>
-                                <p class="mb-1 poppins-medium text-sm">Expired Date: 05/06/2025</p>
+                                <p class="mb-1 poppins-medium text-sm">Expired Date:
+                                    {{-- {{ $item->expirationDate->sortBy('expiration_date')->first()?->expiration_date ?? '-' }} --}}
+                                    {{ optional($item->expirationDate->sortBy('expiration_date')->first())->expiration_date
+                                        ? \Carbon\Carbon::parse($item->expirationDate->sortBy('expiration_date')->first()->expiration_date)->format('d/m/Y')
+                                        : '-' }}
+                                </p>
                             </a>
                         </div>
                     @empty
@@ -187,7 +194,8 @@
                             style="margin-top: 15vh">
                             <img src="{{ asset('img/Inventory Icon Home.svg') }}" class="img-fluid w-25"
                                 alt="No Item Icon">
-                            <h1 class="nunito-semibold w-25 text-center text-3xl mt-3">You Had No Item On Your Inventory
+                            <h1 class="nunito-semibold w-25 text-center text-3xl mt-3">You Had No Item On Your
+                                Inventory
                             </h1>
                         </div>
                     @endforelse
