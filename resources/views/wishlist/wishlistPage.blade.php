@@ -1,4 +1,4 @@
-
+@section('title', 'Hometory - My Wishlist')
 <x-master>
     {{-- Judul --}}
     <div class="d-flex justify-content-center align-items-center pt-7 montserrat-bold text-5xl">
