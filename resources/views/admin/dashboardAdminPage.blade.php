@@ -33,125 +33,31 @@
 
     <div class="row overflow-auto" style="margin-inline:2.5vw; max-height:60vh">
 
+        @foreach ($articles as $article)
+        
         <div class="col-6 my-3">
-            <div class="p-3 bg-white d-flex justify-content-between align-items-start shadow rounded-4">
-                <div>
-                    <p class="mb-0 nunito-bold">Sistem Inventory Sederhana untuk Kebutuhan Rumah Tangga</p>
-                    <p class="mb-0">2 days ago</p>
+            <a href="{{ route('article.detail', $article->slug) }}" style="text-decoration: none; color: inherit">
+                <div class="p-3 bg-white d-flex justify-content-between align-items-start shadow rounded-4">
+                    <div>
+                        <p class="mb-0 nunito-bold">{{ $article->title }}</p>
+                        <p class="mb-0">{{ $article->created_at->diffForHumans()}}</p>
+                    </div>
+
+                    <form action="{{ route('article.destroy', $article->id) }}", method="POST", onsubmit="return confirm('Are You Sure?')", style="display: inline">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class=" my-0" style="background:none ; border:none">
+                            <img src="{{ asset('img/trashbin black.svg') }}" alt="Delete" class="icon-trash mt-1 delete-btn" style="width: 3.5vw; height: 3.5vh; cursor: pointer;">
+                        </button>
+
+                    </form>  
+
                 </div>
-
-                <img src="{{ asset('img/trashbin black.svg') }}" alt="Delete" class="icon-trash mt-1 delete-btn" style="width: 3.5vw; height: 3.5vh; cursor: pointer;">
-
-            </div>
+            </a>
+            
         </div>
 
-        <div class="col-6 my-3">
-            <div class="p-3 bg-white d-flex justify-content-between align-items-start shadow rounded-4">
-                <div>
-                    <p class="mb-0 nunito-bold">Sistem Inventory Sederhana untuk Kebutuhan Rumah Tangga</p>
-                    <p class="mb-0">2 days ago</p>
-                </div>
-
-                <img src="{{ asset('img/trashbin black.svg') }}" alt="Delete" class="icon-trash mt-1 delete-btn" style="width: 3.5vw; height: 3.5vh; cursor: pointer;">
-
-            </div>
-        </div>
-
-        <div class="col-6 my-3">
-            <div class="p-3 bg-white d-flex justify-content-between align-items-start shadow rounded-4">
-                <div>
-                    <p class="mb-0 nunito-bold">Sistem Inventory Sederhana untuk Kebutuhan Rumah Tangga</p>
-                    <p class="mb-0">2 days ago</p>
-                </div>
-
-                <img src="{{ asset('img/trashbin black.svg') }}" alt="Delete" class="icon-trash mt-1 delete-btn" style="width: 3.5vw; height: 3.5vh; cursor: pointer;">
-
-            </div>
-        </div>
-
-        <div class="col-6 my-3">
-            <div class="p-3 bg-white d-flex justify-content-between align-items-start shadow rounded-4">
-                <div>
-                    <p class="mb-0 nunito-bold">Sistem Inventory Sederhana untuk Kebutuhan Rumah Tangga</p>
-                    <p class="mb-0">2 days ago</p>
-                </div>
-
-                <img src="{{ asset('img/trashbin black.svg') }}" alt="Delete" class="icon-trash mt-1 delete-btn" style="width: 3.5vw; height: 3.5vh; cursor: pointer;">
-
-            </div>
-        </div>
-
-        <div class="col-6 my-3">
-            <div class="p-3 bg-white d-flex justify-content-between align-items-start shadow rounded-4">
-                <div>
-                    <p class="mb-0 nunito-bold">Sistem Inventory Sederhana untuk Kebutuhan Rumah Tangga</p>
-                    <p class="mb-0">2 days ago</p>
-                </div>
-
-                <img src="{{ asset('img/trashbin black.svg') }}" alt="Delete" class="icon-trash mt-1 delete-btn" style="width: 3.5vw; height: 3.5vh; cursor: pointer;">
-
-            </div>
-        </div>
-
-        <div class="col-6 my-3">
-            <div class="p-3 bg-white d-flex justify-content-between align-items-start shadow rounded-4">
-                <div>
-                    <p class="mb-0 nunito-bold">Sistem Inventory Sederhana untuk Kebutuhan Rumah Tangga</p>
-                    <p class="mb-0">2 days ago</p>
-                </div>
-
-                <img src="{{ asset('img/trashbin black.svg') }}" alt="Delete" class="icon-trash mt-1 delete-btn" style="width: 3.5vw; height: 3.5vh; cursor: pointer;">
-
-            </div>
-        </div>
-
-        <div class="col-6 my-3">
-            <div class="p-3 bg-white d-flex justify-content-between align-items-start shadow rounded-4">
-                <div>
-                    <p class="mb-0 nunito-bold">Sistem Inventory Sederhana untuk Kebutuhan Rumah Tangga</p>
-                    <p class="mb-0">2 days ago</p>
-                </div>
-
-                <img src="{{ asset('img/trashbin black.svg') }}" alt="Delete" class="icon-trash mt-1 delete-btn" style="width: 3.5vw; height: 3.5vh; cursor: pointer;">
-
-            </div>
-        </div>
-
-        <div class="col-6 my-3">
-            <div class="p-3 bg-white d-flex justify-content-between align-items-start shadow rounded-4">
-                <div>
-                    <p class="mb-0 nunito-bold">Sistem Inventory Sederhana untuk Kebutuhan Rumah Tangga</p>
-                    <p class="mb-0">2 days ago</p>
-                </div>
-
-                <img src="{{ asset('img/trashbin black.svg') }}" alt="Delete" class="icon-trash mt-1 delete-btn" style="width: 3.5vw; height: 3.5vh; cursor: pointer;">
-
-            </div>
-        </div>
-
-        <div class="col-6 my-3">
-            <div class="p-3 bg-white d-flex justify-content-between align-items-start shadow rounded-4">
-                <div>
-                    <p class="mb-0 nunito-bold">Sistem Inventory Sederhana untuk Kebutuhan Rumah Tangga</p>
-                    <p class="mb-0">2 days ago</p>
-                </div>
-
-                <img src="{{ asset('img/trashbin black.svg') }}" alt="Delete" class="icon-trash mt-1 delete-btn" style="width: 3.5vw; height: 3.5vh; cursor: pointer;">
-
-            </div>
-        </div>
-
-        <div class="col-6 my-3">
-            <div class="p-3 bg-white d-flex justify-content-between align-items-start shadow rounded-4">
-                <div>
-                    <p class="mb-0 nunito-bold">Sistem Inventory Sederhana untuk Kebutuhan Rumah Tangga</p>
-                    <p class="mb-0">2 days ago</p>
-                </div>
-
-                <img src="{{ asset('img/trashbin black.svg') }}" alt="Delete" class="icon-trash mt-1 delete-btn" style="width: 3.5vw; height: 3.5vh; cursor: pointer;">
-
-            </div>
-        </div>
+        @endforeach
 
     </div>
 

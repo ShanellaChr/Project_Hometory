@@ -19,4 +19,17 @@ class ArticleController extends Controller
         $article = Article::where('slug', $slug)->firstOrFail();
         return view('article.articleDetailPage', compact('article'));
     }
+
+    public function adminIndex()
+    {
+        $articles = Article::all();
+        return view('admin.dashboardAdminPage', compact('articles'));
+    }
+
+    public function destroy($id){
+        $article = Article::findOrFail($id);
+        $article->delete();
+
+        return redirect()->route('admin');
+    }
 }
