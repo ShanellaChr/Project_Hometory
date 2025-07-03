@@ -20,17 +20,9 @@ Route::get('/signup', function () {
     return view('signUpPage');
 });
 
-// Route::get('/myInventory', function () {
-//     return view('myInventory.myInventoryPage');
-// });
-
 Route::get('/myInventory', [ItemController::class, 'index'])->name('item.index');
 
 Route::get('/myInventory/{id}', [ItemController::class, 'show'])->name('item.detail');
-
-// Route::get('/itemDetailPage', function () {
-//     return view('myInventory.itemDetailPage');
-// });
 
 Route::get('/expiredItemPage', function () {
     return view('myInventory.expiredItemPage');

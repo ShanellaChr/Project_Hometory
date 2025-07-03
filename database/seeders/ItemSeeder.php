@@ -87,7 +87,7 @@ class ItemSeeder extends Seeder
                 'user_id' => 1
             ],
             [
-                'name' => 'ABC Sardines',
+                'name' => 'ABC Sardines Kaleng',
                 'category_id' => 2,
                 'subcategory_id' => 10,
                 'location' => 'Rak Kulkas',
@@ -111,7 +111,7 @@ class ItemSeeder extends Seeder
                 'user_id' => 1
             ],
             [
-                'name' => 'Coca-Cola Kaleng',
+                'name' => 'Coca-Cola 330ml Kaleng',
                 'category_id' => 3,
                 'subcategory_id' => 13,
                 'location' => 'Rak Kulkas',
