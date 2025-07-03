@@ -45,7 +45,6 @@ Route::get('/calendar/{month}/{year}/{selected_date}', [CalendarController::clas
 
 Route::get('/statistic', [StatisticController::class, 'index'])->name('statistic.page');
 
-
 Route::get('/wishlist', [WishlistController::class, 'index'])->name('wishlist');
 Route::get('/wishlist/{id}/redirect', function ($id) {
     // Logika redirect, contoh ke halaman edit
