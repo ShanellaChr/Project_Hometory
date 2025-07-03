@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,34 +20,39 @@
 </head>
 
 <body style="height: 100%;">
-   <!-- Header -->
+    <!-- Header -->
     <div class="bg-birupalette py-3 px-4 d-flex align-items-center" style="height: 5vw;">
-    <a href="{{ route('wishlist') }}">
-        <img src="{{ asset('img/White Back Button.svg') }}" alt="Back" class="BackButton" style="width: 40px; height: 40px;">
-    </a>
+        <a href="{{ route('wishlist') }}">
+            <img src="{{ asset('img/White Back Button.svg') }}" alt="Back" class="BackButton"
+                style="width: 40px; height: 40px;">
+        </a>
     </div>
 
     <div class="text-center mt-5">
         <h1 class="montserrat-bold text-5xl">Add <span class="text-orenyedija">Wishlist</span></h1>
     </div>
 
-    <div class="container mt-4 p-4 ps-5 pe-5 rounded-4 bg-abupalette text-white mb-0" style="max-width: 92%; max-height:100%; min-height: 100%;">
-        <form id="wishlistForm">
+    <div class="container mt-4 p-4 ps-5 pe-5 rounded-4 bg-abupalette text-white mb-0"
+        style="max-width: 92%; max-height:100%; min-height: 100%;">
+        <form id="wishlistForm" method="POST" action="{{ route('wishlist.store') }}">
             @csrf
             <!-- Item Name -->
             <div class="mb-4">
                 <label for="itemName" class="form-label nunito-bold text-2xl">Item Name</label>
-                <input type="text" name="name" class="form-control" id="itemName" placeholder="Enter the name of your wishlist item..." required>
+                <input type="text" name="name" class="form-control" id="itemName"
+                    placeholder="Enter the name of your wishlist item..." required>
             </div>
 
             <!-- Category -->
             <div class="mb-4">
                 <label class="form-label nunito-bold text-2xl">Item Category</label>
                 <div class="row gy-2">
-                    @foreach (['Personal Care', 'Foods', 'Beverages', 'Kitchen Needs', 'Household Essentials', 'Health Supplies'] as $category)
+                    @foreach ($categories as $category)
                         <div class="col-6 col-md-4">
-                            <button type="button" class="w-100 btn bg-putihpalette montserrat-semibold category-btn text-dark p-2">
-                                {{ $category }}
+                            <button type="button"
+                                class="w-100 btn bg-putihpalette montserrat-semibold category-btn text-dark p-2"
+                                data-category-id="{{ $category->id }}">
+                                {{ $category->category }}
                             </button>
                         </div>
                     @endforeach
@@ -60,7 +66,8 @@
             <!-- Description -->
             <div class="mb-4">
                 <label for="itemDesc" class="form-label nunito-bold text-2xl">Item Description (Optional)</label>
-                <textarea name="description" class="form-control" id="itemDesc" rows="4" placeholder="Enter the description of your wishlist item..."></textarea>
+                <textarea name="description" class="form-control" id="itemDesc" rows="4"
+                    placeholder="Enter the description of your wishlist item..."></textarea>
             </div>
 
             <!-- Submit -->
@@ -69,4 +76,5 @@
     </div>
 
 </body>
+
 </html>

@@ -470,3 +470,8 @@ $custom-colors: (
   border: 0.15vw solid #E46504;
   color: #E46504;
 }
+
+.category-btn.selected {
+    background-color: #FFB74D !important;
+    color: white !important;
+}

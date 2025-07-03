@@ -12,4 +12,9 @@ class Categories extends Model
     {
         return $this->hasMany(Subcategories::class);
     }
+
+    public function wishlists()
+    {
+        return $this->hasMany(Wishlist::class);
+    }
 }
