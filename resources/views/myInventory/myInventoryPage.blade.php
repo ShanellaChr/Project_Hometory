@@ -182,8 +182,8 @@
                                     style="min-height: 10vh; max-width: 80%">{{ $item->name }}</p>
                                 <p class="mb-2 poppins-medium text-sm">Item Quantity: 3</p>
                                 <p class="mb-1 poppins-medium text-sm">Expired Date:
-                                    {{ optional($item->expirationDate->sortBy('expiration_date')->first())->expiration_date
-                                        ? \Carbon\Carbon::parse($item->expirationDate->sortBy('expiration_date')->first()->expiration_date)->format('d/m/Y')
+                                    {{ optional($item->expirationDates->sortBy('expiration_date')->first())->expiration_date
+                                        ? \Carbon\Carbon::parse($item->expirationDates->sortBy('expiration_date')->first()->expiration_date)->format('d/m/Y')
                                         : '-' }}
                                 </p>
                             </a>

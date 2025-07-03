@@ -16,23 +16,25 @@
             <div class="container rounded-3 bg-orenpalette mb-4 col-10 p-4 calendar-shadow overflow-hidden">
                 {{-- Ini khusus untuk header kalendernya --}}
                 {{-- Header Kalender --}}
-                <div class="d-flex align-items-center justify-content-center mb-3 mt-3 calendar-line">
+                <div class="row align-items-center justify-content-center mb-3 mt-3 calendar-line" style="min-height: 60px;">
                     {{-- Bulan sebelumnya --}}
-                    <div class="me-5 mb-3">
-                        <a href="{{ route('calendar.show', ['month' => $prevMonth, 'year' => $prevYear]) }}">
-                            <img src="{{ asset('img/White Back Button.svg') }}" alt="Previous Month" />
+                    <div class="col-2 d-flex justify-content-end align-items-center pb-3" style="max-width:60px;">
+                        <a href="{{ route('calendar.show', ['month' => $prevMonth, 'year' => $prevYear]) }}" class="d-inline-flex align-items-center justify-content-center" style="width: 32px; height: 32px;">
+                            <img src="{{ asset('img/White Back Button.svg') }}" alt="Previous Month" style="width: 64px; height: 64px; object-fit: contain;" />
                         </a>
                     </div>
                     {{-- Bulan dan Tahun --}}
-                    <div class="ms-5 me-5 mb-3">
-                        <div class="text-center montserrat-bold text-3xl text-white">
-                            {{ $date->format('F Y') }}
+                    <div class="col-8 d-flex justify-content-center align-items-center pb-3">
+                        <div class="montserrat-bold text-3xl text-white text-center w-100">
+                            <a href="{{ route('calendar.show', ['month' => $date->format('m'), 'year' => $date->format('Y')]) }}" class="text-white text-decoration-none" style="cursor:pointer;">
+                                {{ $date->format('F Y') }}
+                            </a>
                         </div>
                     </div>
                     {{-- Bulan setelahnya --}}
-                    <div class="ms-5 mb-3">
-                        <a href="{{ route('calendar.show', ['month' => $nextMonth, 'year' => $nextYear]) }}">
-                            <img src="{{ asset('img/White Back Button.svg') }}" alt="Next Month" class="rotate-180"/>
+                    <div class="col-2 d-flex justify-content-start align-items-center pb-3" style="max-width:60px;">
+                        <a href="{{ route('calendar.show', ['month' => $nextMonth, 'year' => $nextYear]) }}" class="d-inline-flex align-items-center justify-content-center" style="width: 32px; height: 32px;">
+                            <img src="{{ asset('img/White Back Button.svg') }}" alt="Next Month" class="rotate-180" style="width: 64px; height: 64px; object-fit: contain;" />
                         </a>
                     </div>
                 </div>
@@ -63,7 +65,7 @@
                         $currentMonth = $date->format('m');
                         ?>
                         {{-- ngeloop baris, di kalender ini max 6 baris (sama kyk kalender bawaan windows di bawah kanan) --}}
-                        @for ($i = 0; $i < 5; $i++)
+                        @for ($i = 0; $i < 6; $i++)
                             <tr>
                                 {{-- loop kolom, utk tanggalnya --}}
                                 @for ($j = 0; $j < 7; $j++)
@@ -105,7 +107,7 @@
             </div>
             {{-- Edit Item Expiration Date Button --}}
             <div class="mt-3 edit-button-shadow">
-                <a href="../myInventory" class="nunito-bold btn-dark-blue text-xl text-center rounded-3">
+                <a href="{{ url('myInventory') }}" class="nunito-bold btn-dark-blue text-xl text-center rounded-3">
                     Edit Item's Expiration Date
                     <img src="{{ asset('img/editButton.svg') }}" alt="Edit Button" class="pencil-icon mb-1 ms-0 pe-3">
                 </a>
@@ -116,6 +118,11 @@
             <div class="container rounded-3 border shadow-lg col-10 pt-5 right-box">
                 <div class="text-2xl montserrat-bold ms-4 mb-2">
                     Items to Expire
+                    <span style="float:right" class="me-5">
+                        @if ($selectedDate)
+                            <span class="text-xl ms-2">{{ \Carbon\Carbon::parse($selectedDate)->format('j F Y') }}</span>
+                        @endif
+                    </span>
                 </div>
                 @if (!$selectedDate || $selectedItems->isEmpty())
                     <div class="text-center">
@@ -123,15 +130,19 @@
                         <p class="mt-5 nunito-semibold text-3xl">No Item Expired Today</p>
                     </div>
                 @else
-                    @foreach ($selectedItems as $item)
-                        <div class="d-flex align-items-center p-2 mb-2 bg-light rounded" style="border-left: 10px solid #{{ $item->id % 2 == 0 ? 'd9534f' : '5cb85c' }};">
-                            <img src="{{ asset($item->subcategory->img) }}" alt="{{ $item->name }}" style="width: 40px; height: 40px; margin-right: 10px;">
-                            <div>
-                                <span>{{ $item->name }}</span>
-                                <span class="ms-3">{{ $item->expirationDate->qty }} item{{ $item->expirationDate->qty != 1 ? 's' : '' }}</span>
-                            </div>
-                        </div>
-                    @endforeach
+                    <div style="max-height: 66.7vh; overflow-y: auto;">
+                        @foreach ($selectedItems as $item)
+                            @foreach ($item->expirationDates as $expiration)
+                                <a href="{{ route('item.detail', ['id' => $item->id]) }}" class="text-decoration-none">
+                                    <div class="d-flex flex-row bg-putihpalette rounded-3 mt-3 ms-4 pe-4 shadow border" style="width: 35vw; cursor:pointer;">
+                                        <img src="{{ asset($item->subcategory->img) }}" alt="{{ $item->name }}" class="p-0 m-0 rounded-start-3" style="width: 6vw">
+                                        <h1 class="nunito-bold text-black text-2xl ms-4 w-50 me-auto pb-1 pt-3">{{ $item->name }}</h1>
+                                        <p class="poppins-medium text-black text-base pt-3 ms-auto me-0">{{ $expiration->qty }} item{{ $expiration->qty != 1 ? 's' : '' }}</p>
+                                    </div>
+                                </a>
+                            @endforeach
+                        @endforeach
+                    </div>
                 @endif
             </div>
         </div>
