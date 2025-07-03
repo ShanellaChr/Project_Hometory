@@ -27,7 +27,7 @@
                             <input
                                 type="checkbox"
                                 class="custom-checkbox"
-                                onchange="if(confirm('Apakah item ini sudah selesai?')) { window.location.href='{{ route('wishlist.check', $wishlist->id) }}' }"
+                                onchange="handleCheckboxChange(this, '{{ route('wishlist.check', $wishlist->id) }}')"
                             />
                             <span class="checkmark"></span>
                         </label>
