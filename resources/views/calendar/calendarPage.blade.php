@@ -80,15 +80,15 @@
                                         <?php
                                             $currentDate = sprintf('%04d-%02d-%02d', $currentYear, $currentMonth, $day);
                                         ?>
-                                        <td class="calendar-day bg-transparent text-center text-xl align-middle poppins-bold text-putihpalette py-3">
-                                            <a href="{{ url('/calendar', ['month' => $currentMonth, 'year' => $currentYear, 'selected_date' => $currentDate]) }}" class="text-decoration-none text-putihpalette">
+                                        <td class="calendar-day bg-transparent text-center text-xl align-middle poppins-bold text-putihpalette py-3 position-relative" style="cursor:pointer;">
+                                            <a href="{{ url('/calendar', ['month' => $currentMonth, 'year' => $currentYear, 'selected_date' => $currentDate]) }}" class="text-decoration-none text-putihpalette d-block w-100 h-100" style="position:relative;">
                                                 @if ($selectedDate == $currentDate)
                                                     <span class="selected-date">{{ $day }}</span>
                                                 @else
                                                     {{ $day }}
                                                 @endif
-                                                @if (in_array($day, $expirations))
-                                                    <span class="expiration-dot"></span>
+                                                @if (isset($expirations) && in_array($day, $expirations))
+                                                    <span style="display:block; width:7px; height:7px; background:#d9534f; border-radius:50%; position:absolute; left:50%; transform:translateX(-50%);"></span>
                                                 @endif
                                             </a>
                                         </td>
