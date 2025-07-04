@@ -9,13 +9,10 @@ use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\WishlistController;
 use App\Http\Controllers\StatisticController;
 
-<<<<<<< Updated upstream
 // HOMEPAGE
 Route::get('/', function () {
     return view('homePage');
-});
-=======
->>>>>>> Stashed changes
+})->middleware('auth');
 
 // LOGIN & SIGN UP
 // Route::get('/login', function () {
@@ -32,10 +29,6 @@ Route::post('/login', [AuthController::class, 'login']);
 
 Route::get('/signup', [AuthController::class, 'showSignup'])->name('signup');
 Route::post('/signup', [AuthController::class, 'signup']);
-
-Route::get('/', function () {
-    return view('homePage');
-});
 
 // Route::middleware(['auth'])->group(function () {
 //     Route::get('/myInventory', [ItemController::class, 'index'])->name('item.index');
@@ -58,13 +51,8 @@ Route::get('/crudItemPage', function () {
     return view('myInventory.crudItemPage');
 });
 
-<<<<<<< Updated upstream
 // CALENDAR
 Route::get('/calendar', [CalendarController::class, 'show'])->name('calendar.show');
-
-=======
-Route::get('/calendar', [CalendarController::class, 'show'])->name('calendar.show');
->>>>>>> Stashed changes
 Route::get('/calendar/{month}/{year}/{selected_date}', [CalendarController::class, 'show'])->name('calendar.show.date');
 
 // STATISTIC
