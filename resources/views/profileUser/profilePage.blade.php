@@ -4,7 +4,7 @@
     style="height: 100vh; background: url('/img/BackdropProfilePage.svg') no-repeat top center; background-size: cover; padding-top: 15vh;"
   >
     <h1 class="montserrat-bold text-5xl text-center mb-5">
-      My<span class="ms-3 text-orenyedija">Hometory - My Profile</span>
+      My<span class="ms-3 text-orenyedija">Profile</span>
     </h1>
 
     <div class="container mt-5 pt-5" style="max-width: 480px;">
