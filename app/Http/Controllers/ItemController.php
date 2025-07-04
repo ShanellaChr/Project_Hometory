@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Item;
+use App\Models\Categories;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\DB;
@@ -37,6 +38,18 @@ class ItemController extends Controller
         return view('myInventory.myInventoryPage', ['items' => $pagedItems]);
     }
 
+    // Filter category
+    public function filterByCategory($slug)
+    {
+        $category = Categories::where('slug', $slug)->firstOrFail();
+
+        $items = Item::with(['category', 'subCategory', 'expirationDates'])
+            ->where('category_id', $category->id)
+            ->paginate(9);
+
+        return view('myInventory.myInventoryPage', compact('items'));
+    }
+
     // Show form to add/create new item
     public function create()
     {
@@ -50,9 +63,9 @@ class ItemController extends Controller
     }
 
     // Show item detail by slug (for now, its by id)
-    public function show(string $id)
+    public function show(string $slug)
     {
-        $item = Item::with(['category', 'subCategory', 'expirationDates'])->where('id', $id)->firstOrFail();
+        $item = Item::with(['category', 'subCategory', 'expirationDates'])->where('slug', $slug)->firstOrFail();
         return view('myInventory.itemDetailPage', compact('item'));
     }
 

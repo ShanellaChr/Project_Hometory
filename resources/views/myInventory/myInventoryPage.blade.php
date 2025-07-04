@@ -46,9 +46,14 @@
                     <hr class="border-4 border-orenyedija rounded w-full my-2" style="opacity: 1;">
                 </div>
 
+                @php
+                    $currentSlug = request()->route('slug'); // slug dari route kategori
+                @endphp
+
                 <!-- PERSONAL CARE CATEGORY -->
-                <button class="category-btn bg-putih gradient-pinkcategory my-3 ps-0 w-100 d-flex flex-row rounded-3"
-                    style="border: 0;">
+                <a href="{{ route('item.category', 'personal-care') }}"
+                    class="category-btn bg-putih gradient-pinkcategory my-3 ps-0 w-100 d-flex flex-row rounded-3 {{ $currentSlug === 'personal-care' ? 'active' : '' }}"
+                    style="border: 0; text-decoration: none">
                     <img src="{{ asset('img/Personal_Care.svg') }}" class="rounded-3 ms-0 ps-0" style="width: 5vw;"
                         alt="Personal Care Category">
                     <div class="w-75 d-flex flex-column align-items-start">
@@ -57,12 +62,12 @@
                             Personal Care</p>
                         <hr class="category-line border-4 border-pinkcategory ms-3 mt-1" style="opacity: 1;">
                     </div>
-                </button>
+                </a>
 
                 <!-- FOODS CATEGORY -->
-                <button
-                    class="category-btn bg-putih gradient-merahtuacategory my-3 ps-0 w-100 d-flex flex-row rounded-3"
-                    style="border: 0;">
+                <a href="{{ route('item.category', 'foods') }}"
+                    class="category-btn bg-putih gradient-merahtuacategory my-3 ps-0 w-100 d-flex flex-row rounded-3 {{ $currentSlug === 'foods' ? 'active' : '' }}"
+                    style="border: 0; text-decoration: none">
                     <img src="{{ asset('img/Foods.svg') }}" class="rounded-3 ms-0 ps-0" style="width: 5vw;"
                         alt="Foods Category">
                     <div class="w-75 d-flex flex-column align-items-start">
@@ -71,11 +76,12 @@
                             Foods</p>
                         <hr class="category-line border-4 border-merahtuacategory ms-3 mt-1" style="opacity: 1;">
                     </div>
-                </button>
+                </a>
 
                 <!-- BEVERAGES CATEGORY -->
-                <button class="category-btn bg-putih gradient-birucategory my-3 ps-0 w-100 d-flex flex-row rounded-3"
-                    style="border: 0;">
+                <a href="{{ route('item.category', 'beverages') }}"
+                    class="category-btn bg-putih gradient-birucategory my-3 ps-0 w-100 d-flex flex-row rounded-3 {{ $currentSlug === 'beverages' ? 'active' : '' }}"
+                    style="border: 0; text-decoration: none">
                     <img src="{{ asset('img/Beverages.svg') }}" class="rounded-3 ms-0 ps-0" style="width: 5vw;"
                         alt="Beverages Category">
                     <div class="w-75 d-flex flex-column align-items-start">
@@ -84,25 +90,26 @@
                             Beverages</p>
                         <hr class="category-line border-4 border-birucategory ms-3 mt-1" style="opacity: 1;">
                     </div>
-                </button>
+                </a>
 
                 <!-- KITCHEN NEEDS CATEGORY -->
-                <button
-                    class="category-btn bg-putih gradient-coklatcategory my-3 pt-0 ps-0 w-100 d-flex flex-row rounded-3"
-                    style="border: 0;">
-                    <img src="{{ asset('img/Kitchen_Needs.svg') }}" class="rounded-3 ms-0 pt-0 ps-0" style="width: 5vw;"
-                        alt="Kitchen Needs Category">
-                    <div class="w-75 d-flex flex-column align-items-start pt-0">
+                <a href="{{ route('item.category', 'kitchen-needs') }}"
+                    class="category-btn bg-putih gradient-coklatcategory my-3 ps-0 w-100 d-flex flex-row rounded-3 {{ $currentSlug === 'kitchen-needs' ? 'active' : '' }}"
+                    style="border: 0; text-decoration: none">
+                    <img src="{{ asset('img/Kitchen_Needs.svg') }}" class="rounded-3 ms-0 ps-0"
+                        style="width: 5vw;" alt="Kitchen Needs Category">
+                    <div class="w-75 d-flex flex-column align-items-start">
                         <p
-                            class="category-title text-coklatcategory montserrat-semibold text-2xl text-start ps-3 pb-0 mb-0 my-0">
+                            class="category-title text-coklatcategory montserrat-semibold text-2xl text-start ps-3 pb-0 mb-0 mt-4">
                             Kitchen Needs</p>
                         <hr class="category-line border-4 border-coklatcategory ms-3 mt-1" style="opacity: 1;">
                     </div>
-                </button>
+                </a>
 
                 <!-- HOUSEHOLD ESSENTIALS CATEGORY -->
-                <button class="category-btn bg-putih gradient-ijocategory my-3 ps-0 w-100 d-flex flex-row rounded-3"
-                    style="border: 0;">
+                <a href="{{ route('item.category', 'household-essentials') }}"
+                    class="category-btn bg-putih gradient-ijocategory my-3 ps-0 w-100 d-flex flex-row rounded-3 {{ $currentSlug === 'household-essentials' ? 'active' : '' }}"
+                    style="border: 0; text-decoration: none">
                     <img src="{{ asset('img/Household_Essentials.svg') }}" class="rounded-3 ms-0 ps-0"
                         style="width: 5vw;" alt="Household Essentials Category">
                     <div class="w-75 d-flex flex-column align-items-start">
@@ -111,11 +118,12 @@
                             Household Essentials</p>
                         <hr class="category-line border-4 border-ijocategory ms-3 mt-1" style="opacity: 1;">
                     </div>
-                </button>
+                </a>
 
                 <!-- HEALTH SUPPLIES CATEGORY -->
-                <button class="category-btn bg-putih gradient-merahcategory my-3 ps-0 w-100 d-flex flex-row rounded-3"
-                    style="border: 0;">
+                <a href="{{ route('item.category', 'health-supplies') }}"
+                    class="category-btn bg-putih gradient-merahcategory my-3 ps-0 w-100 d-flex flex-row rounded-3 {{ $currentSlug === 'health-supplies' ? 'active' : '' }}"
+                    style="border: 0; text-decoration: none">
                     <img src="{{ asset('img/Health_Supplies.svg') }}" class="rounded-3 ms-0 ps-0" style="width: 5vw;"
                         alt="Health Supplies Category">
                     <div class="w-75 d-flex flex-column align-items-start">
@@ -124,7 +132,7 @@
                             Health Supplies</p>
                         <hr class="category-line border-4 border-merahcategory ms-3 mt-1" style="opacity: 1;">
                     </div>
-                </button>
+                </a>
             </div>
             {{-- Category End --}}
         </div>
@@ -178,7 +186,7 @@
                         {{-- LOOPING ITEM JIKA ADA DATA --}}
                         @foreach ($items as $item)
                             <div class="col-12 col-sm-6 col-md-4 mb-4">
-                                <a href="{{ route('item.detail', ['id' => $item->id]) }}"
+                                <a href="{{ route('item.detail', ['slug' => $item->slug]) }}"
                                     class="custom-card d-block p-4 h-100 rounded-4 shadow text-black text-decoration-none border">
                                     <img src="{{ asset($item->subCategory->img) }}" class="img-fluid"
                                         alt="{{ $item->category->category . ' - ' . $item->subCategory->subcategory }}">
@@ -219,7 +227,7 @@
     {{-- END OF SECTION MY INVENTORY --}}
 
     {{-- START OF SCRIPT SECTION untuk CATEGORY --}}
-    <script>
+    {{-- <script>
         document.querySelectorAll('.category-btn').forEach(function(button) {
             button.addEventListener('click', function() {
                 // Jika tombol yang diklik sudah aktif, matikan
@@ -234,7 +242,6 @@
                 }
             });
         });
-    </script>
-
+    </script> --}}
     {{-- END OF SCRIPT SECTION --}}
 </x-master>

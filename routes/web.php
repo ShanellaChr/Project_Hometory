@@ -8,10 +8,12 @@ use App\Http\Controllers\ItemController;
 use App\Http\Controllers\WishlistController;
 use App\Http\Controllers\StatisticController;
 
+// HOMEPAGE
 Route::get('/', function () {
     return view('homePage');
 });
 
+// LOGIN & SIGN UP
 Route::get('/login', function () {
     return view('loginPage');
 });
@@ -20,9 +22,12 @@ Route::get('/signup', function () {
     return view('signUpPage');
 });
 
+// MY INVENTORY
 Route::get('/myInventory', [ItemController::class, 'index'])->name('item.index');
 
-Route::get('/myInventory/{id}', [ItemController::class, 'show'])->name('item.detail');
+Route::get('/myInventory/{slug}', [ItemController::class, 'show'])->name('item.detail');
+
+Route::get('/myInventory/category/{slug}', [ItemController::class, 'filterByCategory'])->name('item.category');
 
 Route::get('/expiredItemPage', function () {
     return view('myInventory.expiredItemPage');
@@ -32,30 +37,44 @@ Route::get('/crudItemPage', function () {
     return view('myInventory.crudItemPage');
 });
 
-Route::get('/calendar', [CalendarController::class , 'show'])->name('calendar.show');
+// CALENDAR
+Route::get('/calendar', [CalendarController::class, 'show'])->name('calendar.show');
+
 Route::get('/calendar/{month}/{year}/{selected_date}', [CalendarController::class, 'show'])->name('calendar.show.date');
 
+// STATISTIC
 Route::get('/statistic', [StatisticController::class, 'index'])->name('statistic.page');
 
+// WISHLIST
 Route::get('/wishlist', [WishlistController::class, 'index'])->name('wishlist');
+
 Route::get('/wishlist/{id}/redirect', function ($id) {
     // Logika redirect, contoh ke halaman edit
     return redirect()->route('wishlist.edit', ['id' => $id]);
 })->name('wishlist.redirect');
+
 Route::get('/wishlist/add', [WishlistController::class, 'create'])->name('wishlist.add');
+
 Route::post('/wishlist/store', [WishlistController::class, 'store'])->name('wishlist.store');
+
 Route::get('/wishlist/{id}/edit', [WishlistController::class, 'edit'])->name('wishlist.edit');
+
 Route::post('/wishlist/{id}/update', [WishlistController::class, 'update'])->name('wishlist.update');
+
 Route::delete('/wishlist/{id}', [WishlistController::class, 'destroy'])->name('wishlist.delete');
+
 Route::get('/wishlist/check/{id}', [WishlistController::class, 'check'])->name('wishlist.check');
+
 Route::get('/cruditempage', function () {
     return view('myInventory.crudItemPage'); // Nama file: resources/views/crudItemPage.blade.php
 })->name('crudItemPage');
 
+// ARTICLE
 Route::get('/article', [ArticleController::class, 'index'])->name('article.index');
 
 Route::get('/article/{slug}', [ArticleController::class, 'show'])->name('article.detail');
 
+// PROFILE
 Route::get('/profile', function () {
     return view('profileUser.profilePage');
 });
@@ -76,6 +95,7 @@ Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.e
 
 Route::delete('/profile/delete', [ProfileController::class, 'destroy'])->name('profile.delete');
 
+// ADMIN
 Route::get('/admin', [ArticleController::class, 'adminIndex'])->name('admin');
 
 Route::delete('/admin/{id}', [ArticleController::class, 'destroy'])->name('article.destroy');

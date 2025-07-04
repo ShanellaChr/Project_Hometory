@@ -11,12 +11,16 @@ class CreateCategoriesTable extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('category')->notNull()->unique();
+            $table->string('slug')->unique()->after('category');
             $table->string('color')->unique();
         });
     }
 
     public function down()
     {
-        Schema::dropIfExists('categories');
+        // Schema::dropIfExists('categories');
+        Schema::table('categories', function (Blueprint $table) {
+            $table->dropColumn('slug');
+        });
     }
 }

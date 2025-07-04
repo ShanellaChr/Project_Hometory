@@ -11,6 +11,7 @@ class CreateItemsTable extends Migration
         Schema::create('items', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name')->notNull();
+            $table->string('slug')->unique()->after('name');
             $table->unsignedBigInteger('category_id');
             $table->unsignedBigInteger('subcategory_id');
             $table->string('location')->notNull();
@@ -25,6 +26,9 @@ class CreateItemsTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('items');
+        // Schema::dropIfExists('items');
+        Schema::table('items', function (Blueprint $table) {
+            $table->dropColumn('slug');
+        });
     }
 }

@@ -16,6 +16,7 @@ class ItemSeeder extends Seeder
         DB::table('items')->insert([
             [
                 'name' => 'Wardah Eyeliner',
+                'slug' => 'wardah-eyeliner',
                 'category_id' => 1,
                 'subcategory_id' => 1,
                 'location' => 'Meja Makeup',
@@ -24,6 +25,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'name' => 'Scarlett Whitening',
+                'slug' => 'scarlett-whitening',
                 'category_id' => 1,
                 'subcategory_id' => 2,
                 'location' => 'Rak Dinding Ruang Tamu',
@@ -32,6 +34,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'name' => 'Emina Face Wash',
+                'slug' => 'emina-face-wash',
                 'category_id' => 1,
                 'subcategory_id' => 3,
                 'location' => 'Rak Kamar Mandi',
@@ -40,6 +43,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'name' => 'Pantene Conditioner',
+                'slug' => 'pantene-conditioner',
                 'category_id' => 1,
                 'subcategory_id' => 4,
                 'location' => 'Rak Kamar Mandi',
@@ -48,6 +52,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'name' => 'Mykonos Slow Living Parfum',
+                'slug' => 'mykonos-slow-living-parfum',
                 'category_id' => 1,
                 'subcategory_id' => 5,
                 'location' => 'Meja Kerja',
@@ -56,6 +61,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'name' => 'Charm Pembalut',
+                'slug' => 'charm-pembalut',
                 'category_id' => 1,
                 'subcategory_id' => 6,
                 'location' => 'Lemari Bawah',
@@ -64,6 +70,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'name' => 'Pepsodent Pasta Gigi',
+                'slug' => 'pepsodent-pasta-gigi',
                 'category_id' => 1,
                 'subcategory_id' => 7,
                 'location' => 'Rak Kamar Mandi',
@@ -72,6 +79,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'name' => 'Indomie Goreng Cabe Ijo',
+                'slug' => 'indomie-goreng-cabe-ijo',
                 'category_id' => 2,
                 'subcategory_id' => 8,
                 'location' => 'Lemari Dapur',
@@ -80,6 +88,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'name' => 'Chitato Sapi Panggang',
+                'slug' => 'chitato-sapi-panggang',
                 'category_id' => 2,
                 'subcategory_id' => 9,
                 'location' => 'Meja Ruang Keluarga',
@@ -88,6 +97,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'name' => 'ABC Sardines Kaleng',
+                'slug' => 'abc-sardines-kaleng',
                 'category_id' => 2,
                 'subcategory_id' => 10,
                 'location' => 'Rak Kulkas',
@@ -96,6 +106,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'name' => 'Nutella Spread',
+                'slug' => 'nutella-spread',
                 'category_id' => 2,
                 'subcategory_id' => 11,
                 'location' => 'Meja Makan',
@@ -104,6 +115,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'name' => 'Greenfields Full Cream',
+                'slug' => 'greenfields-full-cream',
                 'category_id' => 3,
                 'subcategory_id' => 12,
                 'location' => 'Rak Kulkas',
@@ -112,6 +124,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'name' => 'Coca-Cola 330ml Kaleng',
+                'slug' => 'coca-cola-330ml-kaleng',
                 'category_id' => 3,
                 'subcategory_id' => 13,
                 'location' => 'Rak Kulkas',
@@ -120,6 +133,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'name' => 'Kapal Api Special',
+                'slug' => 'kapal-api-special',
                 'category_id' => 3,
                 'subcategory_id' => 14,
                 'location' => 'Lemari Dapur',
@@ -128,6 +142,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'name' => 'Piring Melamin',
+                'slug' => 'piring-melamin',
                 'category_id' => 4,
                 'subcategory_id' => 15,
                 'location' => 'Lemari Dapur',
@@ -136,6 +151,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'name' => 'Royco Ayam',
+                'slug' => 'royco-ayam',
                 'category_id' => 4,
                 'subcategory_id' => 16,
                 'location' => 'Laci Kamar',
@@ -144,6 +160,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'name' => 'Maizena Tepung',
+                'slug' => 'maizena-tepung',
                 'category_id' => 4,
                 'subcategory_id' => 17,
                 'location' => 'Lemari Dapur',
@@ -152,6 +169,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'name' => 'Minyak Bimoli',
+                'slug' => 'minyak-bimoli',
                 'category_id' => 4,
                 'subcategory_id' => 18,
                 'location' => 'Bawah Wastafel',
@@ -160,6 +178,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'name' => 'Wipol Karbol',
+                'slug' => 'wipol-karbol',
                 'category_id' => 5,
                 'subcategory_id' => 19,
                 'location' => 'Lemari Dapur',
@@ -168,6 +187,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'name' => 'Baterai AA Alkaline',
+                'slug' => 'baterai-aa-alkaline',
                 'category_id' => 5,
                 'subcategory_id' => 20,
                 'location' => 'Laci Meja Gudang',
@@ -176,6 +196,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'name' => 'Stella Pengharum Jeruk',
+                'slug' => 'stella-pengharum-jeruk',
                 'category_id' => 5,
                 'subcategory_id' => 21,
                 'location' => 'Lemari Perlengkapan',
@@ -184,6 +205,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'name' => 'Baygon Obat Nyamuk',
+                'slug' => 'baygon-obat-nyamuk',
                 'category_id' => 5,
                 'subcategory_id' => 22,
                 'location' => 'Lemari Perlengkapan',
@@ -192,6 +214,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'name' => 'Panadol Merah Paracetamol',
+                'slug' => 'panadol-merah-paracetamol',
                 'category_id' => 6,
                 'subcategory_id' => 23,
                 'location' => 'Lemari Obat',
@@ -200,6 +223,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'name' => 'HolistiCare Ester Vitamin C',
+                'slug' => 'holisticare-ester-vitamin-c',
                 'category_id' => 6,
                 'subcategory_id' => 24,
                 'location' => 'Lemari Obat',
@@ -208,6 +232,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'name' => 'Masker Wajah KF90',
+                'slug' => 'masker-wajah-kf90',
                 'category_id' => 6,
                 'subcategory_id' => 25,
                 'location' => 'Lemari Perlengkapan',
@@ -216,6 +241,7 @@ class ItemSeeder extends Seeder
             ],
             [
                 'name' => 'Dettol Cairan Antiseptik',
+                'slug' => 'dettol-cairan-antiseptik',
                 'category_id' => 6,
                 'subcategory_id' => 26,
                 'location' => 'Lemari Perlengkapan',
