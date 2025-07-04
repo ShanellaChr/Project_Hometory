@@ -46,7 +46,17 @@
             <div class="row m-4">
                 {{-- PIE CHART --}}
                 <div class="col-md-5 d-flex justify-content-center align-items-center">
-                    <canvas id="inventoryPieChart" style="width:100%; max-width:38vw"></canvas>
+                    @php
+                        $allZero = $cards->pluck('value')->every(fn($v) => $v == 0);
+                    @endphp
+                    @if ($cards->isEmpty() || $allZero)
+                        <div class="w-100 text-center text-muted d-flex flex-column align-items-center justify-content-center" style="min-height:200px;">
+                            <img src="{{ asset('img/doughnut_nodata.svg') }}" class="img-fluid mt-0 mb-0" style="width: 32vw;">
+                            <p class="mt-0 fs-4 nunito-semibold">No data available for this month.</p>
+                        </div>
+                    @else
+                        <canvas id="inventoryPieChart" style="width:100%; max-width:38vw"></canvas>
+                    @endif
                 </div>
 
                 {{-- DESKRIPSI --}}
@@ -98,8 +108,11 @@
             afterDatasetDraw(chart, args) {
                 const { ctx } = chart;
                 const dataset = args.meta.data;
+                const dataValues = chart.data.datasets[0].data;
 
                 dataset.forEach((arc, index) => {
+                    // Hanya tampilkan gambar jika persentase > 0
+                    if (!dataValues[index] || dataValues[index] === 0) return;
                     const angle = (arc.startAngle + arc.endAngle) / 2;
                     const radius = (arc.outerRadius + arc.innerRadius) / 2;
                     const x = arc.x + Math.cos(angle) * radius;
@@ -136,7 +149,7 @@
                             getCssColor('--merahcategory')
                         ]
                     }]
-                }
+                }, // ← Tambahkan koma di sini
                 options: {
                     responsive: true,
                     cutout: '30%',
