@@ -76,7 +76,7 @@ class WishlistController extends Controller
         $wishlist = Wishlist::findOrFail($id);
         $wishlist->delete();
 
-        return redirect()->route('wishlist')->with('success', 'Wishlist item deleted successfully.');
+        return redirect()->route('wishlist')->with('success', 'Wishlist deleted successfully.');
     }
 
     public function redirect($id)

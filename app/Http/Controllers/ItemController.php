@@ -4,14 +4,37 @@ namespace App\Http\Controllers;
 
 use App\Models\Item;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Facades\DB;
 
 class ItemController extends Controller
 {
     // Show all items
-    public function index()
+    public function index(Request $request)
     {
-        $items = Item::with('subCategory')->orderBy('expired_date', 'desc')->get();
-        return view('myInventory.myInventoryPage', compact('items'));
+        $query = Item::with(['category', 'subCategory', 'expirationDates']);
+
+        if ($request->filled('search')) {
+            $search = $request->search;
+            $query->where('name', 'like', "%{$search}%");
+        }
+
+        $items = $query->get()->sortBy(function ($item) {
+            return optional($item->expirationDates->sortBy('expiration_date')->first())->expiration_date;
+        });
+
+        // Paginate manual (9 item per halaman)
+        $currentPage = LengthAwarePaginator::resolveCurrentPage();
+        $perPage = 9;
+        $pagedItems = new LengthAwarePaginator(
+            $items->forPage($currentPage, $perPage)->values(), // values() untuk reset key
+            $items->count(),
+            $perPage,
+            $currentPage,
+            ['path' => request()->url(), 'query' => request()->query()]
+        );
+
+        return view('myInventory.myInventoryPage', ['items' => $pagedItems]);
     }
 
     // Show form to add/create new item
@@ -29,7 +52,7 @@ class ItemController extends Controller
     // Show item detail by slug (for now, its by id)
     public function show(string $id)
     {
-        $item = Item::where('id', $id)->firstOrFail();
+        $item = Item::with(['category', 'subCategory', 'expirationDates'])->where('id', $id)->firstOrFail();
         return view('myInventory.itemDetailPage', compact('item'));
     }
 

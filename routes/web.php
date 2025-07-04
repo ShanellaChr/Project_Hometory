@@ -29,17 +29,9 @@ Route::get('/signup', [AuthController::class, 'showSignup'])->name('signup');
 Route::post('/signup', [AuthController::class, 'signup']);
 
 
-// Route::get('/myInventory', function () {
-//     return view('myInventory.myInventoryPage');
-// });
-
 Route::get('/myInventory', [ItemController::class, 'index'])->name('item.index');
 
 Route::get('/myInventory/{id}', [ItemController::class, 'show'])->name('item.detail');
-
-// Route::get('/itemDetailPage', function () {
-//     return view('myInventory.itemDetailPage');
-// });
 
 Route::get('/expiredItemPage', function () {
     return view('myInventory.expiredItemPage');
@@ -50,9 +42,9 @@ Route::get('/crudItemPage', function () {
 });
 
 Route::get('/calendar', [CalendarController::class , 'show'])->name('calendar.show');
+Route::get('/calendar/{month}/{year}/{selected_date}', [CalendarController::class, 'show'])->name('calendar.show.date');
 
 Route::get('/statistic', [StatisticController::class, 'index'])->name('statistic.page');
-
 
 Route::get('/wishlist', [WishlistController::class, 'index'])->name('wishlist');
 Route::get('/wishlist/{id}/redirect', function ($id) {
@@ -63,7 +55,7 @@ Route::get('/wishlist/add', [WishlistController::class, 'create'])->name('wishli
 Route::post('/wishlist/store', [WishlistController::class, 'store'])->name('wishlist.store');
 Route::get('/wishlist/{id}/edit', [WishlistController::class, 'edit'])->name('wishlist.edit');
 Route::post('/wishlist/{id}/update', [WishlistController::class, 'update'])->name('wishlist.update');
-Route::delete('/wishlist/delete/{id}', [WishlistController::class, 'destroy'])->name('wishlist.delete');
+Route::delete('/wishlist/{id}', [WishlistController::class, 'destroy'])->name('wishlist.delete');
 Route::get('/wishlist/check/{id}', [WishlistController::class, 'check'])->name('wishlist.check');
 Route::get('/cruditempage', function () {
     return view('myInventory.crudItemPage'); // Nama file: resources/views/crudItemPage.blade.php

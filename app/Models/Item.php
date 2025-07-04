@@ -18,7 +18,7 @@ class Item extends Model
         return $this->belongsTo(Subcategories::class);
     }
 
-    public function expirationDate()
+    public function expirationDates()
     {
         return $this->hasMany(ExpirationDate::class);
     }
