@@ -1,10 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ItemController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CalendarController;
-use App\Http\Controllers\ItemController;
 use App\Http\Controllers\WishlistController;
 use App\Http\Controllers\StatisticController;
 
@@ -14,13 +15,21 @@ Route::get('/', function () {
 });
 
 // LOGIN & SIGN UP
-Route::get('/login', function () {
-    return view('loginPage');
-});
+// Route::get('/login', function () {
+//     return view('loginPage');
+// });
 
-Route::get('/signup', function () {
-    return view('signUpPage');
-});
+// Route::get('/signup', function () {
+//     return view('signUpPage');
+// });
+
+// Menampilkan form login dan signup
+Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
+Route::post('/login', [AuthController::class, 'login']);
+
+Route::get('/signup', [AuthController::class, 'showSignup'])->name('signup');
+Route::post('/signup', [AuthController::class, 'signup']);
+
 
 // MY INVENTORY
 Route::get('/myInventory', [ItemController::class, 'index'])->name('item.index');

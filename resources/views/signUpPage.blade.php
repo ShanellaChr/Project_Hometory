@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,35 +17,47 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <title>Welcome to Hometory!</title>
 </head>
+
 <body>
     <div class="container-fluid p-0">
         <div class="row g-0">
             <div class="col-6 vh-100 position-relative d-flex flex-column align-items-center">
                 <img src="/img/Back Button.svg" alt="Back Button" class="BackButton">
                 <div class="position-absolute top-50 start-50 translate-middle" style="width: 400px;">
-                    <img src="/img/LogoBox.svg" alt="Logo Box" class="img-fluid d-block mx-auto" >
+                    <img src="/img/LogoBox.svg" alt="Logo Box" class="img-fluid d-block mx-auto">
                     <h3 class="pt-3 montserrat-bold text-center">Welcome to Hometory!</h3>
                     <h6 class="mb-5 text-muted  montserrat-medium text-center">Register your account</h6>
                     {{-- input form --}}
-                    <form>
+                    <form action="{{ url('/signup') }}" method="POST">
+                        @csrf
+
+
                         <div class="mb-3">
                             <label for="inputEmail" class="form-label montserrat-medium">Email</label>
-                            <input type="text" class="form-control form-control-lg  nunito-medium" id="inputEmail" placeholder="Enter your email">
+                            <input type="text" class="form-control form-control-lg  nunito-medium" id="inputEmail"
+                                name="email" placeholder="Enter your email">
                         </div>
 
                         <div class="mb-3">
                             <label for="inputUsername" class="form-label montserrat-medium">Username</label>
-                            <input type="text" class="form-control form-control-lg nunito-medium" id="inputUsername" placeholder="Enter your username">
+                            <input type="text" class="form-control form-control-lg nunito-medium" id="inputUsername"
+                                name="username" placeholder="Enter your username">
                         </div>
 
                         <div class="mb-1">
                             <label for="inputPassword" class="form-label montserrat-medium">Password</label>
-                            <input type="password" class="nunito-medium form-control form-control-lg" id="inputPassword" placeholder="Enter your password">
+                            <input type="password" class="nunito-medium form-control form-control-lg" id="inputPassword"
+                                name="password" placeholder="Enter your password">
                         </div>
 
-
-                        <button type="submit" class="nunito-bold p-3 mt-5 btn-orange rounded shadow w-100">Sign Up</button>
+                        <button type="submit" class="nunito-bold p-3 mt-5 btn-orange rounded shadow w-100">Sign
+                            Up</button>
                     </form>
+                    @if ($errors->any())
+                        <div class="alert alert-danger mt-2">
+                            {{ $errors->first() }}
+                        </div>
+                    @endif
                 </div>
             </div>
 
@@ -56,7 +69,8 @@
                     <h3 class="nunito-medium text-end m-0">Track Smarter, Waste No More!</h3>
                 </div>
             </div>
-       </div>
+        </div>
     </div>
 </body>
+
 </html>
