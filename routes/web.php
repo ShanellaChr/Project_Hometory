@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ItemController;
@@ -89,37 +90,28 @@ Route::get('/article', [ArticleController::class, 'index'])->name('article.index
 Route::get('/article/{slug}', [ArticleController::class, 'show'])->name('article.detail');
 
 // PROFILE
-Route::get('/profile', function () {
-    return view('profileUser.profilePage');
-});
-
+Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
 Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
-
+Route::post('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
 Route::delete('/profile/delete', [ProfileController::class, 'destroy'])->name('profile.delete');
 
-// RESET PASSWORD
-// Route::get('/reset', function () {
-//     return view('resetPassword.requestResetPage');
-// });
+// Logout
+Route::post('/logout', function () {
+    Auth::logout();
+    request()->session()->invalidate();
+    request()->session()->regenerateToken();
+    return redirect('/login')->with('success', 'Logged out successfully.');
+})->name('logout');
 
+// Reset Password
 Route::get('/reset', [ResetPasswordController::class, 'showRequestForm'])->name('password.request');
 Route::post('/reset', [ResetPasswordController::class, 'sendResetCode'])->name('password.sendCode');
-
 
 Route::get('/reset/verify', [ResetPasswordController::class, 'showVerifyForm'])->name('password.verify');
 Route::post('/reset/verify', [ResetPasswordController::class, 'verifyResetCode'])->name('password.verifyCode');
 
-// Route::get('/resetVerif', function () {
-//     return view('resetPassword.verifyResetPage');
-// });
-
 Route::get('/reset/new-password', [ResetPasswordController::class, 'showNewPasswordForm'])->name('password.new');
 Route::post('/reset/new-password', [ResetPasswordController::class, 'updatePassword'])->name('password.update');
-
-// Route::get('/resetAdd', function () {
-//     return view('resetPassword.addNewPasswordPage');
-// });
-
 
 // ADMIN
 Route::get('/admin', [ArticleController::class, 'adminIndex'])->name('admin');
