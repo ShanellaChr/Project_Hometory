@@ -21,13 +21,22 @@
     <img src="/img/LogoBox.svg" alt="Logo Box" class="img-fluid" >
     <h3 class="pt-3 montserrat-bold text-center">Reset Password</h3>
     <img src="/img/resetPassword2.svg" alt="Logo Box" class="img-fluid" >
-    <form style="width: 400px;">
-        <div class="mb-3">
-            <label for="inputVerificationCode" class="form-label montserrat-medium">Code Verification</label>
-            <input type="text" class="nunito-medium form-control form-control-lg" id="inputVerificationCode" placeholder="Enter your verification code">
-        </div>
-      <button type="submit" class="nunito-bold p-3 mt-5 btn-orange rounded shadow w-100">Validate Code</button>
-    </form>
+    <form action="{{ route('password.verifyCode') }}" method="POST" style="width: 400px;">
+    @csrf
+    <input type="hidden" name="email" value="{{ $email }}">
+    <div class="mb-3">
+        <label for="inputVerificationCode" class="form-label montserrat-medium">Verification Code</label>
+        <input type="text" name="reset_code" class="nunito-medium form-control form-control-lg"
+            id="inputVerificationCode" placeholder="Enter your verification code" required>
+    </div>
+    <button type="submit" class="nunito-bold p-3 mt-5 btn-orange rounded shadow w-100">
+        Validate Code
+    </button>
+    @if ($errors->any())
+        <div class="alert alert-danger mt-2">{{ $errors->first() }}</div>
+    @endif
+</form>
+
   </div>
 </body>
 </html>

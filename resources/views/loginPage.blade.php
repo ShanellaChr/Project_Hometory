@@ -50,7 +50,7 @@
                         </div>
 
                         <div class="mt-3 mb-3 text-end">
-                            <a href="#" class="small text-dark montserrat-medium text-decoration-none">Forgot Password?</a>
+                            <a href="{{ route('password.request') }}" class="small text-dark montserrat-medium text-decoration-none">Forgot Password?</a>
                         </div>
 
                         <button type="submit" class="btn btn-orange rounded shadow w-100 nunito-bold p-3">Login</button>

@@ -8,6 +8,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\WishlistController;
 use App\Http\Controllers\StatisticController;
+use App\Http\Controllers\ResetPasswordController;
 
 // HOMEPAGE
 Route::get('/', function () {
@@ -92,21 +93,33 @@ Route::get('/profile', function () {
     return view('profileUser.profilePage');
 });
 
-Route::get('/reset', function () {
-    return view('resetPassword.requestResetPage');
-});
-
-Route::get('/resetVerif', function () {
-    return view('resetPassword.verifyResetPage');
-});
-
-Route::get('/resetAdd', function () {
-    return view('resetPassword.addNewPasswordPage');
-});
-
 Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
 
 Route::delete('/profile/delete', [ProfileController::class, 'destroy'])->name('profile.delete');
+
+// RESET PASSWORD
+// Route::get('/reset', function () {
+//     return view('resetPassword.requestResetPage');
+// });
+
+Route::get('/reset', [ResetPasswordController::class, 'showRequestForm'])->name('password.request');
+Route::post('/reset', [ResetPasswordController::class, 'sendResetCode'])->name('password.sendCode');
+
+
+Route::get('/reset/verify', [ResetPasswordController::class, 'showVerifyForm'])->name('password.verify');
+Route::post('/reset/verify', [ResetPasswordController::class, 'verifyResetCode'])->name('password.verifyCode');
+
+// Route::get('/resetVerif', function () {
+//     return view('resetPassword.verifyResetPage');
+// });
+
+Route::get('/reset/new-password', [ResetPasswordController::class, 'showNewPasswordForm'])->name('password.new');
+Route::post('/reset/new-password', [ResetPasswordController::class, 'updatePassword'])->name('password.update');
+
+// Route::get('/resetAdd', function () {
+//     return view('resetPassword.addNewPasswordPage');
+// });
+
 
 // ADMIN
 Route::get('/admin', [ArticleController::class, 'adminIndex'])->name('admin');

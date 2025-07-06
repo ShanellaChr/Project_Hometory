@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
@@ -16,7 +15,8 @@ class CreateUsersTable extends Migration
             email_verified_at DATETIME,
             password TEXT NOT NULL,
             role TEXT NOT NULL DEFAULT "user" CHECK (role IN ("user", "admin")),
-            remember_token TEXT,
+            reset_code TEXT,
+            reset_code_expires_at DATETIME,
             created_at DATETIME,
             updated_at DATETIME
         )');
