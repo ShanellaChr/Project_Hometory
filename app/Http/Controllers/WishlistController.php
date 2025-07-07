@@ -17,7 +17,7 @@ class WishlistController extends Controller
     // }
     public function index()
     {
-        $wishlists = Wishlist::with('category')->get();
+        $wishlists = Wishlist::with('category')->where('user_id', Auth::id())->get();
 
         return view('wishlist.wishlistPage', compact('wishlists'));
     }
@@ -41,8 +41,7 @@ class WishlistController extends Controller
             'items_name' => $request->name,
             'category_id' => $request->category,
             'items_description' => $request->description,
-            // 'user_id' => auth()->id(), // sesuaikan jika pakai auth, kalau tidak bisa hardcode sementara
-            'user_id' => 1, // Contoh hardcode user_id
+            'user_id' => Auth::id(), // gunakan Auth::id() untuk mendapatkan ID user yang sedang login
         ]);
         return redirect()->route('wishlist');
     }
