@@ -10,9 +10,11 @@
             <h1 class="text-white montserrat-bold text-6xl" style="letter-spacing: 0.3vw">WASTE NO MORE!</h1>
             <p class="text-white nunito-medium">A flexible and structured inventory system allows users to record and organize household items with ease. It helps streamline daily management, minimize waste, and maintain clarity over available supplies at home.</p>
 
-            <button type="button" class="btn montserrat-bold text-white mt-3 btn-orange-gelap">
-                GET STARTED
-            </button>
+            <a href="{{ route('item.index') }}">
+                <button type="button" class="btn montserrat-bold text-white mt-3 btn-orange-gelap">
+                    GET STARTED
+                </button>
+            </a>
         </div>
     </div>
 
@@ -79,6 +81,7 @@
 
     </div>
 
+
     <div class=" d-flex flex-row justify-content-center mt-5 mb-5 align-items-center" style="gap: 7vw">
 
         <button onclick="showPrev()" class=" border-0 bg-transparent">
@@ -97,30 +100,35 @@
 
     <script>
         const comments = [
-            {
+             {
                 name: "Christina",
                 time: "1 day ago",
-                comment: "Website buatan oe memang sangat mantap o, bisa bantu olang banyak juga lo, so proud of my team.",
+                comment: "Website ini sangat membantu dalam mengatur inventaris barang pribadi saya. UI-nya intuitif dan mudah digunakan. Terima kasih tim developer!"
+            },
+            {
+                name: "Angjaya",
+                time: "2 months ago",
+                comment: "Awalnya saya ragu, tapi setelah mencoba, ternyata sangat berguna untuk memantau masa kedaluwarsa barang di rumah. Fitur notifikasinya sangat membantu."
             },
             {
                 name: "Sutara",
-                time: "2 day ago",
-                comment: "Oe bingung mau tulis apa lo, tapi ini buat contoh aja la.",
+                time: "1 year ago",
+                comment: "Platform ini cocok banget buat orang yang sering lupa stok barang di rumah. Bisa lebih hemat karena nggak beli barang yang sudah ada."
             },
             {
-                name: "Alfheim - 18",
-                time: "1 day ago",
-                comment: "Wah ini website sangat membantu o, oe jadi tau kapan kapan aja expired dari barang oe, oe juga jadi inget punya barang apa aja o",
+                name: "Handoyo",
+                time: "7 months ago",
+                comment: "Saya menggunakan website ini untuk keperluan kantor kecil kami. Cukup efektif dalam memantau barang masuk dan keluar."
             },
             {
-                name: "Christina",
-                time: "1 day ago",
-                comment: "Website buatan oe memang sangat mantap o, bisa bantu olang banyak juga lo, so proud of my team.",
+                name: "Hazael",
+                time: "1 week ago",
+                comment: "Antarmukanya simpel dan bersih. Cocok untuk semua kalangan, baik yang paham teknologi maupun tidak. Semoga terus dikembangkan."
             },
             {
-                name: "Christina",
-                time: "1 day ago",
-                comment: "Website buatan oe memang sangat mantap o, bisa bantu olang banyak juga lo, so proud of my team.",
+                name: "Alhe18m",
+                time: "1 second ago",
+                comment: "Bangga dengan buatan anak anak kelas ini"
             },
         ];
 
@@ -160,8 +168,11 @@
     function showNext() {
         if (startIndex + itemsPerPage < comments.length) {
             startIndex += itemsPerPage;
-            renderComments();
         }
+        else{
+            startIndex = 0;
+        }
+        renderComments();
     }
 
     function showPrev() {
@@ -172,5 +183,6 @@
     }
     renderComments();
 </script> 
+    {{-- feedback --}}
 
 </x-master>

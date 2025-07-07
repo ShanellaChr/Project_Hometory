@@ -466,6 +466,23 @@ $custom-colors: (
   transition: color 0.3s;
 }
 
+.navbar-login-done{
+  display: inline-flex;
+  gap: 0.8vw;
+  padding: 0.7vh 0.8vw;
+  border-radius: 50vh;
+  font-weight:600;
+  font-size: medium;
+  text-decoration: none;
+  color: black;
+  transition: color 0.3s;
+  align-items: center;
+}
+
+.navbar-login-done:hover{
+  color: #E46504;
+}
+
 .navbar-login:hover{
   border: 0.15vw solid #E46504;
   color: #E46504;
