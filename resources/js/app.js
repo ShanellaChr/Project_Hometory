@@ -43,6 +43,29 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
+    
+        // Ini buat Feedback customer di homepage
+        const carousel = document.getElementById("feedbackCarousel");
+        const prevBtn = document.getElementById("prevBtn");
+        const nextBtn = document.getElementById("nextBtn");
+
+        let currentIndex = 0;
+        const cardWidth = 340;
+
+        nextBtn?.addEventListener("click", () => {
+            currentIndex++;
+            carousel.style.transform = `translateX(-${cardWidth * currentIndex}px)`;
+        });
+
+        prevBtn?.addEventListener("click", () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                carousel.style.transform = `translateX(-${cardWidth * currentIndex}px)`;
+            }
+        });
+    });
+
+    //ga tau ini error knp
     form.addEventListener("submit", function (e) {
         if (!hiddenInput.value) {
             e.preventDefault(); // Hentikan submit
@@ -50,4 +73,3 @@ document.addEventListener("DOMContentLoaded", function () {
             window.scrollTo({ top: errorText.offsetTop - 100, behavior: "smooth" }); // Scroll ke atas
         }
     });
-});
