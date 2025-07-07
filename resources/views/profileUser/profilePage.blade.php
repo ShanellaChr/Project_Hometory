@@ -57,7 +57,7 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content" style="border-radius: 1rem;">
                 <div class="modal-header bg-merahbutton text-putihpalette d-flex flex-column align-items-center"
-                    style="border-bottom: none;">
+                    style="border-bottom: none;border-top-left-radius: 1rem; border-top-right-radius: 1rem;">
                     <img src="/img/warning icon.svg" alt="Warning" width="80" height="80" class="mb-2">
                 </div>
                 <div class="modal-footer d-flex justify-content-center gap-3 pt-2 mb-3">
