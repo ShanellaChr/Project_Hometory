@@ -3,10 +3,11 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Item extends Model
 {
-    protected $fillable = ['name', 'category_id', 'subcategory_id', 'location', 'note', 'expiration_id', 'user_id'];
+    protected $fillable = ['name', 'slug', 'category_id', 'subcategory_id', 'location', 'note', 'expiration_id', 'user_id'];
 
     public function category()
     {
@@ -18,7 +19,7 @@ class Item extends Model
         return $this->belongsTo(Subcategories::class);
     }
 
-    public function expirationDate()
+    public function expirationDates()
     {
         return $this->hasMany(ExpirationDate::class);
     }
@@ -26,5 +27,38 @@ class Item extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($item) {
+            $item->slug = static::generateUniqueSlug($item->name);
+        });
+
+        static::updating(function ($item) {
+            if ($item->isDirty('name')) {
+                $item->slug = static::generateUniqueSlug($item->name, $item->id);
+            }
+        });
+    }
+
+    // Fungsi pembantu untuk generate slug unik
+    protected static function generateUniqueSlug($name, $excludeId = null)
+    {
+        $baseSlug = Str::slug($name);
+        $slug = $baseSlug;
+        $counter = 2;
+
+        while (static::where('slug', $slug)
+            ->when($excludeId, fn($q) => $q->where('id', '!=', $excludeId))
+            ->exists()
+        ) {
+            $slug = $baseSlug . '-' . $counter;
+            $counter++;
+        }
+
+        return $slug;
     }
 }

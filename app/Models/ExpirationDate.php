@@ -10,7 +10,7 @@ class ExpirationDate extends Model
 
     protected $dates = ['expiration_date'];
 
-    public function items()
+    public function item()
     {
         return $this->belongsTo(Item::class, 'item_id');
     }

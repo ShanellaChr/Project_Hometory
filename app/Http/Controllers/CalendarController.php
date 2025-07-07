@@ -11,10 +11,11 @@ class CalendarController extends Controller
     // controller ini untuk bikin kalender dinamis, jadi tanggal2 kalendernya akurat dengan irl (Gregorian Calendar ya)
 
     // request jadi parameter, karena user bakal click tanggal dan itu akan request list of items to expire di tgl itu
-    public function show(Request $request){
+    public function show(Request $request, $month = null, $year = null, $selected_date = null){
         // untuk dapetin value bulan dan tahun di waktu user buka kalender
-        $month = $request->input('month', now()->month);
-        $year = $request->input('year', now()->year);
+        $month = $month ?? $request->input('month', now()->month);
+        $year = $year ?? $request->input('year', now()->year);
+        $selectedDate = $selected_date ?? $request->input('selected_date', null);
         // bikin variable datatype tanggal, bulan, dan tgl 1. bakal dipake lagi dibawah
         $date = new DateTime("$year-$month-01");
 
@@ -25,30 +26,31 @@ class CalendarController extends Controller
 
         // code untuk ambil tanggal expire dari database
         // Fetch days with expirations for the current month
-        $expirations = Item::whereHas('expirationDate', function ($query) use ($month, $year) {
+        $expirations = Item::whereHas('expirationDates', function ($query) use ($month, $year) {
             $query->whereMonth('expiration_date', $month)
-                  ->whereYear('expiration_date', $year);
+                ->whereYear('expiration_date', $year);
         })
-        ->with('expirationDate')
+        ->with('expirationDates')
         ->get()
-        ->pluck('expirationDate.expiration_date')
+        ->pluck('expirationDates')
+        ->flatten()
+        ->pluck('expiration_date')
         ->map(function ($expirationDate) {
-            return (int) $expirationDate->format('d');
+            return (int) (new DateTime($expirationDate))->format('d');
         })
         ->unique()
         ->values()
         ->toArray();
 
-        // Get the selected date (default to null if not set)
-        $selectedDate = $request->input('selected_date', null);
         $selectedItems = [];
-
         if ($selectedDate) {
             // Fetch items expiring on the selected date
-            $selectedItems = Item::whereHas('expirationDate', function ($query) use ($selectedDate) {
+            $selectedItems = Item::whereHas('expirationDates', function ($query) use ($selectedDate) {
                 $query->whereDate('expiration_date', $selectedDate);
             })
-            ->with(['subcategory', 'expirationDate'])
+            ->with(['subcategory', 'expirationDates' => function ($query) use ($selectedDate) {
+                $query->whereDate('expiration_date', $selectedDate);
+            }])
             ->get();
         }
 

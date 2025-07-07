@@ -46,29 +46,34 @@
             <div class="row m-4">
                 {{-- PIE CHART --}}
                 <div class="col-md-5 d-flex justify-content-center align-items-center">
-                    <canvas id="inventoryPieChart" style="width:100%; max-width:38vw"></canvas>
+                    @php
+                        $allZero = $cards->pluck('value')->every(fn($v) => $v == 0);
+                    @endphp
+                    @if ($cards->isEmpty() || $allZero)
+                        <div class="w-100 text-center text-muted d-flex flex-column align-items-center justify-content-center" style="min-height:200px;">
+                            <img src="{{ asset('img/doughnut_nodata.svg') }}" class="img-fluid mt-0 mb-0" style="width: 32vw;">
+                            <p class="mt-0 fs-4 nunito-semibold">No data available for this month.</p>
+                        </div>
+                    @else
+                        <canvas id="inventoryPieChart" style="width:100%; max-width:38vw"></canvas>
+                    @endif
                 </div>
 
                 {{-- DESKRIPSI --}}
                 <div class="col-md-7 d-flex flex-wrap justify-content-center gap-4">
-                    @php
-                        $cards = [
-                            ['title' => 'Personal Care', 'color' => 'text-pinkcategory', 'value' => '21%', 'desc' => 'Makeup, body care, facial care, hair care, perfume, feminine hygiene & diapers, dental & oral care, and others.'],
-                            ['title' => 'Foods', 'color' => 'text-merahtuacategory', 'value' => '17.8%', 'desc' => 'Instant foods, snacks, canned foods, jams and cereals, and others.'],
-                            ['title' => 'Beverages', 'color' => 'text-birucategory', 'value' => '15.4%', 'desc' => 'Dairy products, soft drinks, instant drinks, and others.'],
-                            ['title' => 'Kitchen Needs', 'color' => 'text-coklatcategory', 'value' => '22.8%', 'desc' => 'Kitchen & dining equipment, spices, baking ingredients, cooking ingredients, and others.'],
-                            ['title' => 'Household Essentials', 'color' => 'text-ijocategory', 'value' => '12.5%', 'desc' => 'Care & cleaning, home supplies, air fresheners & dehumidifiers, pest & insect repellent, and others.'],
-                            ['title' => 'Health Supplies', 'color' => 'text-merahcategory', 'value' => '10.5%', 'desc' => 'Medicines, vitamins & supplements, medical devices, hygiene products, and others.'],
-                        ];
-                    @endphp
-
-                    @foreach ($cards as $card)
-                        <div class="bg-putihpalette rounded-5 shadow-lg p-3 text-center" style="flex: 1 1 14.5vw; max-width: 100%; max-height: 10.5vw;">
-                            <strong class="montserrat-semibold text-xl">{{ $card['title'] }}</strong>
-                            <div class="{{ $card['color'] }} text-4xl flex-bold nunito-extrabold">{{ $card['value'] }}</div>
-                            <p class="nunito-reguler text-xs mt-0 mb-0">{{ $card['desc'] }}</p>
-                        </div>
-                    @endforeach
+                    @if ($cards->isEmpty())
+                        <p class="text-center text-muted">No data available for this month.</p>
+                    @else
+                        @foreach ($cards as $card)
+                            <div class="bg-putihpalette rounded-5 shadow-lg p-3 text-center" style="flex: 1 1 14.5vw; max-width: 100%; max-height: 10.5vw;">
+                                <strong class="montserrat-semibold text-xl">{{ $card['title'] }}</strong>
+                                <div class="{{ $card['color'] }} text-4xl flex-bold nunito-extrabold">
+                                    {{ $card['value'] }}%
+                                </div>
+                                <p class="nunito-reguler text-xs mt-0 mb-0">{{ $card['desc'] }}</p>
+                            </div>
+                        @endforeach
+                    @endif
                 </div>
                 {{-- END OF DESKRIPSI --}}
 
@@ -103,8 +108,11 @@
             afterDatasetDraw(chart, args) {
                 const { ctx } = chart;
                 const dataset = args.meta.data;
+                const dataValues = chart.data.datasets[0].data;
 
                 dataset.forEach((arc, index) => {
+                    // Hanya tampilkan gambar jika persentase > 0
+                    if (!dataValues[index] || dataValues[index] === 0) return;
                     const angle = (arc.startAngle + arc.endAngle) / 2;
                     const radius = (arc.outerRadius + arc.innerRadius) / 2;
                     const x = arc.x + Math.cos(angle) * radius;
@@ -129,12 +137,9 @@
             new Chart(ctx, {
                 type: "doughnut",
                 data: {
-                    labels: [
-                        'Personal Care', 'Foods', 'Beverages',
-                        'Kitchen Needs', 'Household Essentials', 'Health Supplies'
-                    ],
+                   labels: {!! json_encode($cards->pluck('title')->toArray()) !!},
                     datasets: [{
-                        data: [21, 17.8, 15.4, 22.8, 12.5, 10.5],
+                        data: {!! json_encode($cards->pluck('value')->toArray()) !!},
                         backgroundColor: [
                             getCssColor('--pinkcategory'),
                             getCssColor('--merahtuacategory'),
@@ -144,7 +149,7 @@
                             getCssColor('--merahcategory')
                         ]
                     }]
-                },
+                }, // ← Tambahkan koma di sini
                 options: {
                     responsive: true,
                     cutout: '30%',

@@ -367,7 +367,7 @@ $custom-colors: (
 }
 
 .right-box {
-  height : 75vh;
+  height : 80vh;
 }
 
 // Search Bar
@@ -469,4 +469,9 @@ $custom-colors: (
 .navbar-login:hover{
   border: 0.15vw solid #E46504;
   color: #E46504;
+}
+
+.category-btn.selected {
+    background-color: #FFB74D !important;
+    color: white !important;
 }

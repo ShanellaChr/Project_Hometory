@@ -1,36 +1,49 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ItemController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CalendarController;
-use App\Http\Controllers\ItemController;
 use App\Http\Controllers\WishlistController;
 use App\Http\Controllers\StatisticController;
+use App\Http\Controllers\ResetPasswordController;
 
+// HOMEPAGE
 Route::get('/', function () {
     return view('homePage');
-});
+})->middleware('auth');
 
-Route::get('/login', function () {
-    return view('loginPage');
-});
-
-Route::get('/signup', function () {
-    return view('signUpPage');
-});
-
-// Route::get('/myInventory', function () {
-//     return view('myInventory.myInventoryPage');
+// LOGIN & SIGN UP
+// Route::get('/login', function () {
+//     return view('loginPage');
 // });
 
+// Route::get('/signup', function () {
+//     return view('signUpPage');
+// });
+
+// Menampilkan form login dan signup
+Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
+Route::post('/login', [AuthController::class, 'login']);
+
+Route::get('/signup', [AuthController::class, 'showSignup'])->name('signup');
+Route::post('/signup', [AuthController::class, 'signup']);
+
+// Route::middleware(['auth'])->group(function () {
+//     Route::get('/myInventory', [ItemController::class, 'index'])->name('item.index');
+//     // tambahkan route lain yang butuh login
+// });
+
+
+// MY INVENTORY
 Route::get('/myInventory', [ItemController::class, 'index'])->name('item.index');
 
-Route::get('/myInventory/{id}', [ItemController::class, 'show'])->name('item.detail');
+Route::get('/myInventory/{slug}', [ItemController::class, 'show'])->name('item.detail');
 
-// Route::get('/itemDetailPage', function () {
-//     return view('myInventory.itemDetailPage');
-// });
+Route::get('/myInventory/category/{slug}', [ItemController::class, 'filterByCategory'])->name('item.category');
 
 Route::get('/expiredItemPage', function () {
     return view('myInventory.expiredItemPage');
@@ -40,46 +53,67 @@ Route::get('/crudItemPage', function () {
     return view('myInventory.crudItemPage');
 });
 
-Route::get('/calendar', [CalendarController::class , 'show'])->name('calendar.show');
+// CALENDAR
+Route::get('/calendar', [CalendarController::class, 'show'])->name('calendar.show');
+Route::get('/calendar/{month}/{year}/{selected_date}', [CalendarController::class, 'show'])->name('calendar.show.date');
 
+// STATISTIC
 Route::get('/statistic', [StatisticController::class, 'index'])->name('statistic.page');
 
+// WISHLIST
 Route::get('/wishlist', [WishlistController::class, 'index'])->name('wishlist');
 
-Route::get('/wishlist/add', function () {
-    return view('wishlist.AddWishlistPage');
-})->name('wishlist.add');
+Route::get('/wishlist/{id}/redirect', function ($id) {
+    // Logika redirect, contoh ke halaman edit
+    return redirect()->route('wishlist.edit', ['id' => $id]);
+})->name('wishlist.redirect');
 
-Route::get('/wishlist/update', function () {
-    return view('wishlist.UpdateWishlistPage');
-})->name('wishlist.update');
+Route::get('/wishlist/add', [WishlistController::class, 'create'])->name('wishlist.add');
 
-Route::get('/wishlist/{id}/redirect', [WishlistController::class, 'redirect'])->name('wishlist.redirect');
+Route::post('/wishlist/store', [WishlistController::class, 'store'])->name('wishlist.store');
 
+Route::get('/wishlist/{id}/edit', [WishlistController::class, 'edit'])->name('wishlist.edit');
+
+Route::post('/wishlist/{id}/update', [WishlistController::class, 'update'])->name('wishlist.update');
+
+Route::delete('/wishlist/{id}', [WishlistController::class, 'destroy'])->name('wishlist.delete');
+
+Route::get('/wishlist/check/{id}', [WishlistController::class, 'check'])->name('wishlist.check');
+
+Route::get('/cruditempage', function () {
+    return view('myInventory.crudItemPage'); // Nama file: resources/views/crudItemPage.blade.php
+})->name('crudItemPage');
+
+// ARTICLE
 Route::get('/article', [ArticleController::class, 'index'])->name('article.index');
 
 Route::get('/article/{slug}', [ArticleController::class, 'show'])->name('article.detail');
 
-Route::get('/profile', function () {
-    return view('profileUser.profilePage');
-});
-
-Route::get('/reset', function () {
-    return view('resetPassword.requestResetPage');
-});
-
-Route::get('/resetVerif', function () {
-    return view('resetPassword.verifyResetPage');
-});
-
-Route::get('/resetAdd', function () {
-    return view('resetPassword.addNewPasswordPage');
-});
-
+// PROFILE
+Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
 Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
-
+Route::post('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
 Route::delete('/profile/delete', [ProfileController::class, 'destroy'])->name('profile.delete');
 
+// Logout
+Route::post('/logout', function () {
+    Auth::logout();
+    request()->session()->invalidate();
+    request()->session()->regenerateToken();
+    return redirect('/login')->with('success', 'Logged out successfully.');
+})->name('logout');
+
+// Reset Password
+Route::get('/reset', [ResetPasswordController::class, 'showRequestForm'])->name('password.request');
+Route::post('/reset', [ResetPasswordController::class, 'sendResetCode'])->name('password.sendCode');
+
+Route::get('/reset/verify', [ResetPasswordController::class, 'showVerifyForm'])->name('password.verify');
+Route::post('/reset/verify', [ResetPasswordController::class, 'verifyResetCode'])->name('password.verifyCode');
+
+Route::get('/reset/new-password', [ResetPasswordController::class, 'showNewPasswordForm'])->name('password.new');
+Route::post('/reset/new-password', [ResetPasswordController::class, 'updatePassword'])->name('password.update');
+
+// ADMIN
 Route::get('/admin', [ArticleController::class, 'adminIndex'])->name('admin');
 
 Route::delete('/admin/{id}', [ArticleController::class, 'destroy'])->name('article.destroy');

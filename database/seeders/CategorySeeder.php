@@ -18,31 +18,37 @@ class CategorySeeder extends Seeder
                 [
                     // 1
                     'category' => 'Personal Care',
+                    'slug' => 'personal-care',
                     'color' => 'pinkcategory'
                 ],
                 [
                     // 2
                     'category' => 'Foods',
+                    'slug' => 'foods',
                     'color' => 'merahtuacategory'
                 ],
                 [
                     // 3
                     'category' => 'Beverages',
+                    'slug' => 'beverages',
                     'color' => 'birucategory'
                 ],
                 [
                     // 4
                     'category' => 'Kitchen Needs',
+                    'slug' => 'kitchen-needs',
                     'color' => 'coklatcategory'
                 ],
                 [
                     // 5
                     'category' => 'Household Essentials',
+                    'slug' => 'household-essentials',
                     'color' => 'ijocategory'
                 ],
                 [
                     // 6
                     'category' => 'Health Supplies',
+                    'slug' => 'health-supplies',
                     'color' => 'merahcategory'
                 ],
             ]

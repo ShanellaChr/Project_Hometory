@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,18 +17,35 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <title>Hometory - Reset Password</title>
 </head>
-<body style="margin: 0; height: 100vh; background-image: url('/img/BackdropCircle2.svg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
-  <div class="container text-align-center justify-content-center align-items-center d-flex vh-100 flex-column">
-    <img src="/img/LogoBox.svg" alt="Logo Box" class="img-fluid" >
-    <h3 class="pt-3 montserrat-bold text-center">Reset Password</h3>
-    <img src="/img/resetPassword1.svg" alt="Logo Box" class="img-fluid" >
-    <form style="width: 400px;">
+
+<body
+    style="margin: 0; height: 100vh; background-image: url('/img/BackdropCircle2.svg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+    <div class="container text-align-center justify-content-center align-items-center d-flex vh-100 flex-column">
+        <img src="/img/LogoBox.svg" alt="Logo Box" class="img-fluid">
+        <h3 class="pt-3 montserrat-bold text-center">Reset Password</h3>
+        <img src="/img/resetPassword1.svg" alt="Logo Box" class="img-fluid">
+        {{-- <form style="width: 400px;">
        <div class="mb-3">
             <label for="inputEmail" class="form-label montserrat-medium">Email</label>
             <input type="text" class="form-control form-control-lg  nunito-medium" id="inputEmail" placeholder="Enter your email">
         </div>
       <button type="submit" class="nunito-bold p-3 mt-5 btn-orange rounded shadow w-100">Get Verification Code</button>
-    </form>
-  </div>
+    </form> --}}
+        <form action="{{ route('password.sendCode') }}" method="POST" style="width: 400px;">
+            @csrf
+            <div class="mb-3">
+                <label for="inputEmail" class="form-label montserrat-medium">Email</label>
+                <input type="email" name="email" id="inputEmail" class="nunito-medium form-control form-control-lg"
+                    placeholder="Enter your email" required>
+            </div>
+            <button type="submit" class="nunito-bold p-3 mt-5 btn-orange rounded shadow w-100">
+                Send Reset Code
+            </button>
+            @if ($errors->any())
+                <div class="alert alert-danger mt-2">{{ $errors->first() }}</div>
+            @endif
+        </form>
+    </div>
 </body>
+
 </html>

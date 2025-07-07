@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,18 +17,38 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <title>Hometory - Reset Password</title>
 </head>
-<body style="margin: 0; height: 100vh; background-image: url('/img/BackdropCircle2.svg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
-  <div class="container text-align-center justify-content-center align-items-center d-flex vh-100 flex-column">
-    <img src="/img/LogoBox.svg" alt="Logo Box" class="img-fluid" >
-    <h3 class="pt-3 montserrat-bold text-center">Reset Password</h3>
-    <img src="/img/resetPassword.svg" alt="Logo Box" class="img-fluid" >
-    <form style="width: 400px;">
-      <div class="mb-1">
-          <label for="inputPassword" class="form-label montserrat-medium">Password</label>
-          <input type="password" class="nunito-medium form-control form-control-lg" id="inputPassword" placeholder="Enter your password">
-      </div>
-      <button type="submit" class="nunito-bold p-3 mt-5 btn-orange rounded shadow w-100">Set New Password</button>
-    </form>
-  </div>
+
+<body
+    style="margin: 0; height: 100vh; background-image: url('/img/BackdropCircle2.svg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+    <div class="container text-align-center justify-content-center align-items-center d-flex vh-100 flex-column">
+        <img src="/img/LogoBox.svg" alt="Logo Box" class="img-fluid">
+        <h3 class="pt-3 montserrat-bold text-center">Reset Password</h3>
+        <img src="/img/ResetPassword3.svg" alt="Logo Box" class="img-fluid">
+        <form action="{{ route('password.update') }}" method="POST" style="width: 400px;">
+            @csrf
+            <input type="hidden" name="email" value="{{ $email }}">
+
+            <div class="mb-3">
+                <label for="inputPassword" class="form-label montserrat-medium">New Password</label>
+                <input type="password" name="password" class="form-control form-control-lg nunito-medium"
+                    id="inputPassword" placeholder="Enter your new password" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="inputConfirmPassword" class="form-label montserrat-medium">Confirm Password</label>
+                <input type="password" name="password_confirmation" class="form-control form-control-lg nunito-medium"
+                    id="inputConfirmPassword" placeholder="Confirm your new password" required>
+            </div>
+
+            <button type="submit" class="nunito-bold p-3 mt-4 btn-orange rounded shadow w-100">Set New
+                Password</button>
+
+            @if ($errors->any())
+                <div class="alert alert-danger mt-2">{{ $errors->first() }}</div>
+            @endif
+        </form>
+
+    </div>
 </body>
+
 </html>
