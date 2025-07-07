@@ -48,43 +48,13 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-<<<<<<< HEAD
-    
-        // Ini buat Feedback customer di homepage
-        const carousel = document.getElementById("feedbackCarousel");
-        const prevBtn = document.getElementById("prevBtn");
-        const nextBtn = document.getElementById("nextBtn");
-
-        let currentIndex = 0;
-        const cardWidth = 340;
-
-        nextBtn?.addEventListener("click", () => {
-            currentIndex++;
-            carousel.style.transform = `translateX(-${cardWidth * currentIndex}px)`;
-        });
-
-        prevBtn?.addEventListener("click", () => {
-            if (currentIndex > 0) {
-                currentIndex--;
-                carousel.style.transform = `translateX(-${cardWidth * currentIndex}px)`;
-            }
-        });
-    });
-
-    //ga tau ini error knp
-    form.addEventListener("submit", function (e) {
-=======
     // Validasi sebelum submit
     form?.addEventListener("submit", function (e) {
->>>>>>> 458e26dbb1ff2aaea18b2aa4d377027af142e6ce
         if (!hiddenInput.value) {
             e.preventDefault();
             errorText.style.display = "block";
             window.scrollTo({ top: errorText.offsetTop - 100, behavior: "smooth" });
         }
-<<<<<<< HEAD
-    });
-=======
     });
 });
 
@@ -192,4 +162,3 @@ document.addEventListener("DOMContentLoaded", function () {
 
     
 // });
->>>>>>> 458e26dbb1ff2aaea18b2aa4d377027af142e6ce
