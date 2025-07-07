@@ -87,7 +87,7 @@
                                                 @else
                                                     {{ $day }}
                                                 @endif
-                                                @if (isset($expirations) && in_array($day, $expirations))
+                                                @if (isset($expirations) && in_array($currentDate, $expirations))
                                                     <span style="display:block; width:7px; height:7px; background:#d9534f; border-radius:50%; position:absolute; left:50%; transform:translateX(-50%);"></span>
                                                 @endif
                                             </a>
@@ -117,7 +117,11 @@
         <div class="col-6 d-flex flex-column">
             <div class="container rounded-3 border shadow-lg col-10 pt-5 right-box">
                 <div class="text-2xl montserrat-bold ms-4 mb-2">
-                    Items to Expire
+                    @if ($selectedDate && \Carbon\Carbon::parse($selectedDate)->isPast())
+                        Expired Items
+                    @else
+                        Items to Expire
+                    @endif
                     <span style="float:right" class="me-5">
                         @if ($selectedDate)
                             <span class="text-xl ms-2">{{ \Carbon\Carbon::parse($selectedDate)->format('j F Y') }}</span>
