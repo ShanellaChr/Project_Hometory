@@ -42,97 +42,84 @@
                 style="width: 88%">
                 <div>
                     <h4 class="montserrat-bold text-2xl">Items Category</h4>
-
                     <hr class="border-4 border-orenyedija rounded w-full my-2" style="opacity: 1;">
                 </div>
 
                 @php
-                    $currentSlug = request()->route('slug'); // slug dari route kategori
+                    $categories = [
+                        [
+                            'slug' => 'personal-care',
+                            'name' => 'Personal Care',
+                            'img' => 'Personal_Care.svg',
+                            'gradient' => 'gradient-pinkcategory',
+                            'text' => 'text-pinkcategory',
+                            'border' => 'border-pinkcategory',
+                        ],
+                        [
+                            'slug' => 'foods',
+                            'name' => 'Foods',
+                            'img' => 'Foods.svg',
+                            'gradient' => 'gradient-merahtuacategory',
+                            'text' => 'text-merahtuacategory',
+                            'border' => 'border-merahtuacategory',
+                        ],
+                        [
+                            'slug' => 'beverages',
+                            'name' => 'Beverages',
+                            'img' => 'Beverages.svg',
+                            'gradient' => 'gradient-birucategory',
+                            'text' => 'text-birucategory',
+                            'border' => 'border-birucategory',
+                        ],
+                        [
+                            'slug' => 'kitchen-needs',
+                            'name' => 'Kitchen Needs',
+                            'img' => 'Kitchen_Needs.svg',
+                            'gradient' => 'gradient-coklatcategory',
+                            'text' => 'text-coklatcategory',
+                            'border' => 'border-coklatcategory',
+                        ],
+                        [
+                            'slug' => 'household-essentials',
+                            'name' => 'Household Essentials',
+                            'img' => 'Household_Essentials.svg',
+                            'gradient' => 'gradient-ijocategory',
+                            'text' => 'text-ijocategory',
+                            'border' => 'border-ijocategory',
+                        ],
+                        [
+                            'slug' => 'health-supplies',
+                            'name' => 'Health Supplies',
+                            'img' => 'Health_Supplies.svg',
+                            'gradient' => 'gradient-merahcategory',
+                            'text' => 'text-merahcategory',
+                            'border' => 'border-merahcategory',
+                        ],
+                    ];
                 @endphp
 
-                <!-- PERSONAL CARE CATEGORY -->
-                <a href="{{ route('item.category', 'personal-care') }}"
-                    class="category-btn bg-putih gradient-pinkcategory my-3 ps-0 w-100 d-flex flex-row rounded-3 {{ $currentSlug === 'personal-care' ? 'active' : '' }}"
-                    style="border: 0; text-decoration: none">
-                    <img src="{{ asset('img/Personal_Care.svg') }}" class="rounded-3 ms-0 ps-0" style="width: 5vw;"
-                        alt="Personal Care Category">
-                    <div class="w-75 d-flex flex-column align-items-start">
-                        <p
-                            class="category-title text-pinkcategory montserrat-semibold text-2xl text-start ps-3 pb-0 mb-0 mt-4">
-                            Personal Care</p>
-                        <hr class="category-line border-4 border-pinkcategory ms-3 mt-1" style="opacity: 1;">
-                    </div>
-                </a>
+                @foreach ($categories as $cat)
+                    @php
+                        $isActive = request('category') === $cat['slug'];
+                        $url = $isActive
+                            ? route('item.index', ['search' => request('search')])
+                            : route('item.index', ['category' => $cat['slug'], 'search' => request('search')]);
+                    @endphp
 
-                <!-- FOODS CATEGORY -->
-                <a href="{{ route('item.category', 'foods') }}"
-                    class="category-btn bg-putih gradient-merahtuacategory my-3 ps-0 w-100 d-flex flex-row rounded-3 {{ $currentSlug === 'foods' ? 'active' : '' }}"
-                    style="border: 0; text-decoration: none">
-                    <img src="{{ asset('img/Foods.svg') }}" class="rounded-3 ms-0 ps-0" style="width: 5vw;"
-                        alt="Foods Category">
-                    <div class="w-75 d-flex flex-column align-items-start">
-                        <p
-                            class="category-title text-merahtuacategory montserrat-semibold text-2xl text-start ps-3 pb-0 mb-0 mt-4">
-                            Foods</p>
-                        <hr class="category-line border-4 border-merahtuacategory ms-3 mt-1" style="opacity: 1;">
-                    </div>
-                </a>
-
-                <!-- BEVERAGES CATEGORY -->
-                <a href="{{ route('item.category', 'beverages') }}"
-                    class="category-btn bg-putih gradient-birucategory my-3 ps-0 w-100 d-flex flex-row rounded-3 {{ $currentSlug === 'beverages' ? 'active' : '' }}"
-                    style="border: 0; text-decoration: none">
-                    <img src="{{ asset('img/Beverages.svg') }}" class="rounded-3 ms-0 ps-0" style="width: 5vw;"
-                        alt="Beverages Category">
-                    <div class="w-75 d-flex flex-column align-items-start">
-                        <p
-                            class="category-title text-birucategory montserrat-semibold text-2xl text-start ps-3 pb-0 mb-0 mt-4">
-                            Beverages</p>
-                        <hr class="category-line border-4 border-birucategory ms-3 mt-1" style="opacity: 1;">
-                    </div>
-                </a>
-
-                <!-- KITCHEN NEEDS CATEGORY -->
-                <a href="{{ route('item.category', 'kitchen-needs') }}"
-                    class="category-btn bg-putih gradient-coklatcategory my-3 ps-0 w-100 d-flex flex-row rounded-3 {{ $currentSlug === 'kitchen-needs' ? 'active' : '' }}"
-                    style="border: 0; text-decoration: none">
-                    <img src="{{ asset('img/Kitchen_Needs.svg') }}" class="rounded-3 ms-0 ps-0"
-                        style="width: 5vw;" alt="Kitchen Needs Category">
-                    <div class="w-75 d-flex flex-column align-items-start">
-                        <p
-                            class="category-title text-coklatcategory montserrat-semibold text-2xl text-start ps-3 pb-0 mb-0 mt-4">
-                            Kitchen Needs</p>
-                        <hr class="category-line border-4 border-coklatcategory ms-3 mt-1" style="opacity: 1;">
-                    </div>
-                </a>
-
-                <!-- HOUSEHOLD ESSENTIALS CATEGORY -->
-                <a href="{{ route('item.category', 'household-essentials') }}"
-                    class="category-btn bg-putih gradient-ijocategory my-3 ps-0 w-100 d-flex flex-row rounded-3 {{ $currentSlug === 'household-essentials' ? 'active' : '' }}"
-                    style="border: 0; text-decoration: none">
-                    <img src="{{ asset('img/Household_Essentials.svg') }}" class="rounded-3 ms-0 ps-0"
-                        style="width: 5vw;" alt="Household Essentials Category">
-                    <div class="w-75 d-flex flex-column align-items-start">
-                        <p
-                            class="category-title text-ijocategory montserrat-semibold text-2xl text-start ps-3 pb-0 my-0">
-                            Household Essentials</p>
-                        <hr class="category-line border-4 border-ijocategory ms-3 mt-1" style="opacity: 1;">
-                    </div>
-                </a>
-
-                <!-- HEALTH SUPPLIES CATEGORY -->
-                <a href="{{ route('item.category', 'health-supplies') }}"
-                    class="category-btn bg-putih gradient-merahcategory my-3 ps-0 w-100 d-flex flex-row rounded-3 {{ $currentSlug === 'health-supplies' ? 'active' : '' }}"
-                    style="border: 0; text-decoration: none">
-                    <img src="{{ asset('img/Health_Supplies.svg') }}" class="rounded-3 ms-0 ps-0" style="width: 5vw;"
-                        alt="Health Supplies Category">
-                    <div class="w-75 d-flex flex-column align-items-start">
-                        <p
-                            class="category-title text-merahcategory montserrat-semibold text-2xl text-start ps-3 pb-0 my-0">
-                            Health Supplies</p>
-                        <hr class="category-line border-4 border-merahcategory ms-3 mt-1" style="opacity: 1;">
-                    </div>
-                </a>
+                    <a href="{{ $url }}"
+                        class="category-btn bg-putih {{ $cat['gradient'] }} my-3 ps-0 w-100 d-flex flex-row rounded-3 {{ $isActive ? 'active' : '' }}"
+                        style="border: 0; text-decoration: none">
+                        <img src="{{ asset('img/' . $cat['img']) }}" class="rounded-3 ms-0 ps-0" style="width: 5vw;"
+                            alt="{{ $cat['name'] }}">
+                        <div class="w-75 d-flex flex-column align-items-start">
+                            <p
+                                class="category-title {{ $cat['text'] }} montserrat-semibold text-2xl text-start ps-3 pb-0 mb-0 mt-4">
+                                {{ $cat['name'] }}
+                            </p>
+                            <hr class="category-line border-4 {{ $cat['border'] }} ms-3 mt-1" style="opacity: 1;">
+                        </div>
+                    </a>
+                @endforeach
             </div>
             {{-- Category End --}}
         </div>
@@ -152,6 +139,10 @@
                     <!-- Input -->
                     <input class="form-control border-0 shadow-none bg-putih" type="search" name="search"
                         placeholder="Search here..." value="{{ request('search') }}" aria-label="Search">
+
+                    @if (request('category'))
+                        <input type="hidden" name="category" value="{{ request('category') }}">
+                    @endif
 
                     <!-- Tombol -->
                     <button class="btn-orange nunito-bold rounded-3 px-4 py-2 shadow ms-2"
