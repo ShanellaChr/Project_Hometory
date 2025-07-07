@@ -133,7 +133,7 @@
                     <div style="max-height: 66.7vh; overflow-y: auto;">
                         @foreach ($selectedItems as $item)
                             @foreach ($item->expirationDates as $expiration)
-                                <a href="{{ route('item.detail', ['id' => $item->id]) }}" class="text-decoration-none">
+                                <a href="{{ route('item.detail', ['slug' => $item->slug]) }}" class="text-decoration-none">
                                     <div class="d-flex flex-row bg-putihpalette rounded-3 mt-3 ms-4 pe-4 shadow border" style="width: 35vw; cursor:pointer;">
                                         <img src="{{ asset($item->subcategory->img) }}" alt="{{ $item->name }}" class="p-0 m-0 rounded-start-3" style="width: 6vw">
                                         <h1 class="nunito-bold text-black text-2xl ms-4 w-50 me-auto pb-1 pt-3">{{ $item->name }}</h1>
