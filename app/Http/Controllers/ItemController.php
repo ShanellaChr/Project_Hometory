@@ -15,11 +15,21 @@ class ItemController extends Controller
     {
         $query = Item::with(['category', 'subCategory', 'expirationDates']);
 
+        // Filter berdasarkan kategori jika tersedia
+        if ($request->filled('category')) {
+            $category = Categories::where('slug', $request->category)->first();
+            if ($category) {
+                $query->where('category_id', $category->id);
+            }
+        }
+
+        // Filter berdasarkan pencarian
         if ($request->filled('search')) {
             $search = $request->search;
             $query->where('name', 'like', "%{$search}%");
         }
 
+        // Ambil semua item lalu sort manual berdasarkan tanggal expired terdekat
         $items = $query->get()->sortBy(function ($item) {
             return optional($item->expirationDates->sortBy('expiration_date')->first())->expiration_date;
         });
@@ -35,20 +45,24 @@ class ItemController extends Controller
             ['path' => request()->url(), 'query' => request()->query()]
         );
 
-        return view('myInventory.myInventoryPage', ['items' => $pagedItems]);
+
+        return view('myInventory.myInventoryPage', [
+            'items' => $pagedItems,
+            'selectedCategory' => $request->category
+        ]);
     }
 
     // Filter category
-    public function filterByCategory($slug)
-    {
-        $category = Categories::where('slug', $slug)->firstOrFail();
+    // public function filterByCategory($slug)
+    // {
+    //     $category = Categories::where('slug', $slug)->firstOrFail();
 
-        $items = Item::with(['category', 'subCategory', 'expirationDates'])
-            ->where('category_id', $category->id)
-            ->paginate(9);
+    //     $items = Item::with(['category', 'subCategory', 'expirationDates'])
+    //         ->where('category_id', $category->id)
+    //         ->paginate(9);
 
-        return view('myInventory.myInventoryPage', compact('items'));
-    }
+    //     return view('myInventory.myInventoryPage', compact('items'));
+    // }
 
     // Show form to add/create new item
     public function create()
@@ -62,7 +76,7 @@ class ItemController extends Controller
         //
     }
 
-    // Show item detail by slug (for now, its by id)
+    // Show item detail by slug
     public function show(string $slug)
     {
         $item = Item::with(['category', 'subCategory', 'expirationDates'])->where('slug', $slug)->firstOrFail();

@@ -43,7 +43,7 @@ Route::get('/myInventory', [ItemController::class, 'index'])->name('item.index')
 
 Route::get('/myInventory/{slug}', [ItemController::class, 'show'])->name('item.detail');
 
-Route::get('/myInventory/category/{slug}', [ItemController::class, 'filterByCategory'])->name('item.category');
+// Route::get('/myInventory/category/{slug}', [ItemController::class, 'filterByCategory'])->name('item.category');
 
 Route::get('/expiredItemPage', function () {
     return view('myInventory.expiredItemPage');
