@@ -89,9 +89,9 @@
             </div>
 
             {{-- Buttons --}}
-            <div class="d-flex flex-row ms-auto me-5">
+            <div class="d-flex flex-row align-items-center ms-auto me-5">
                 <div class="mx-4 mb-4 mt-5" style="width: fit-content">
-                    <a href = "../crudItemPage" class="btn-dark-blue rounded-3 shadow"
+                    <a href = "{{ route('item.edit', $item->slug) }}" class="btn-dark-blue rounded-3 shadow"
                         style="padding-left: 3.25vw; padding-right: 2vw; padding-top: 1.5vw; padding-bottom: 1.5vw">
                         <span class= "nunito-bold text-2xl text-center">Edit Item</span>
                         <img src="{{ asset('img/editButton.svg') }}" alt="Edit Icon"
@@ -99,14 +99,50 @@
                     </a>
                 </div>
 
-                <div class="me-5 mb-4 mt-5" style="width: fit-content%">
-                    {{-- nanti pathnya diatur lagi --}}
-                    <a href = "../myInventory/expiredItemPage" class="btn-merah rounded-3 shadow"
-                        style="padding-left: 3.25vw; padding-right: 2vw; padding-top: 1.5vw; padding-bottom: 1.5vw">
+                <div class="me-5 mb-4 mt-5" style="width: fit-content">
+                    <button type="button" class="btn-merah rounded-3 shadow"
+                        style="padding-left: 3.25vw; padding-right: 2vw; padding-top: 1vw; padding-bottom: 1vw"
+                        data-bs-toggle="modal" data-bs-target="#deleteConfirmationModal">
                         <span class= "nunito-bold text-2xl text-center">Delete Item</span>
                         <img src="{{ asset('img/trashbin white icon.svg') }}" alt="Trash Bin Icon"
                             class="pencil-icon mb-1 ms-0 pe-3">
-                    </a>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{-- MODAL UNTUK DELETE --}}
+    <div class="modal fade" id="deleteConfirmationModal" tabindex="-1" aria-labelledby="deleteConfirmationLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content" style="border-radius: 1rem;">
+
+                <!-- Header -->
+                <div class="modal-header bg-merahbutton text-putihpalette d-flex flex-column align-items-center"
+                    style="border-bottom: none;">
+                    <img src="/img/warning icon.svg" alt="Warning" width="80" height="80" class="mb-2">
+                </div>
+
+                <!-- Footer -->
+                <div class="modal-footer d-flex justify-content-center gap-3 pt-2 mb-3">
+                    <h3 class="modal-title w-100 text-center montserrat-bold" id="deleteConfirmationLabel">
+                        Are You Sure Want <br> To Delete?
+                    </h3>
+                    <button type="button" class="btn btn-abu d-flex align-items-center gap-2 px-4"
+                        data-bs-dismiss="modal">
+                        Cancel
+                        <img src="/img/cancel icon.svg" alt="Cancel" width="20" height="20">
+                    </button>
+
+                    <form action="{{ route('item.delete', $item->slug) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-merah d-flex align-items-center gap-2 px-4">
+                            Delete
+                            <img src="/img/trashbin white icon.svg" alt="Delete" width="20" height="20">
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>

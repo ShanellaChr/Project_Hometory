@@ -41,17 +41,21 @@ Route::post('/signup', [AuthController::class, 'signup']);
 // MY INVENTORY
 Route::get('/myInventory', [ItemController::class, 'index'])->name('item.index');
 
+Route::get('/myInventory/expiredItemPage', [ItemController::class, 'expiredItems'])->name('item.expired');
+
+Route::delete('/myInventory/expiredItemPage/delete/{id}', [ItemController::class, 'deleteExpiration'])->name('item.expiredDelete');
+
+Route::get('/myInventory/add', [ItemController::class, 'create'])->name('item.create'); // tambah item baru
+
+Route::post('/myInventory/store', [ItemController::class, 'store'])->name('item.store'); // simpan item baru
+
 Route::get('/myInventory/{slug}', [ItemController::class, 'show'])->name('item.detail');
 
-// Route::get('/myInventory/category/{slug}', [ItemController::class, 'filterByCategory'])->name('item.category');
+Route::get('/myInventory/{slug}/edit', [ItemController::class, 'edit'])->name('item.edit'); // edit item
 
-Route::get('/expiredItemPage', function () {
-    return view('myInventory.expiredItemPage');
-});
+Route::put('/myInventory/{slug}/update', [ItemController::class, 'update'])->name('item.update'); // update item
 
-Route::get('/crudItemPage', function () {
-    return view('myInventory.crudItemPage');
-});
+Route::delete('/myInventory/{slug}/delete', [ItemController::class, 'destroy'])->name('item.delete'); // delete item
 
 // CALENDAR
 Route::get('/calendar', [CalendarController::class, 'show'])->name('calendar.show');
@@ -80,9 +84,9 @@ Route::delete('/wishlist/{id}', [WishlistController::class, 'destroy'])->name('w
 
 Route::get('/wishlist/check/{id}', [WishlistController::class, 'check'])->name('wishlist.check');
 
-Route::get('/cruditempage', function () {
-    return view('myInventory.crudItemPage'); // Nama file: resources/views/crudItemPage.blade.php
-})->name('crudItemPage');
+// Route::get('/cruditempage', function () {
+//     return view('myInventory.crudItemPage');
+// })->name('crudItemPage');
 
 // ARTICLE
 Route::get('/article', [ArticleController::class, 'index'])->name('article.index');

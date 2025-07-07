@@ -13,6 +13,7 @@ class CreateExpirationDatesTable extends Migration
             $table->foreignId('item_id')->constrained('items')->onDelete('cascade');
             $table->date('expiration_date')->notNull();
             $table->integer('qty')->notNull();
+            $table->timestamps();
         });
     }
 

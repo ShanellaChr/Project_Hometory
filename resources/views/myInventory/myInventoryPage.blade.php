@@ -16,7 +16,7 @@
         <div class="w-25 min-h-full">
             {{-- Button Add New Item --}}
             <div class="mt-3 mb-4 mx-4" style="width: 88%">
-                <a href = "../crudItemPage" class="btn-orange rounded-3 shadow"
+                <a href = "{{ route('item.create') }}" class="btn-orange rounded-3 shadow"
                     style="padding-left: 4.2vw; padding-right: 4.5vw; padding-top: 1.5vw; padding-bottom: 1.5vw">
                     <span class= "nunito-bold text-2xl text-center">Add New Item</span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
@@ -29,7 +29,7 @@
 
             {{-- Button Expired Products --}}
             <div class="mx-4 mb-4 mt-5" style="width: 88%">
-                <a href = "../expiredItemPage" class="btn-dark-blue rounded-3 shadow"
+                <a href = "{{ route('item.expired')}}" class="btn-dark-blue rounded-3 shadow"
                     style="padding-left: 3.25vw; padding-right: 2vw; padding-top: 1.5vw; padding-bottom: 1.5vw">
                     <span class= "nunito-bold text-2xl text-center">Expired Products</span>
                     <img src="{{ asset('img/expiredButton.svg') }}" alt="Expired Icon"
