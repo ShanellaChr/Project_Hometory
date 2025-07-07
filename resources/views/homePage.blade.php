@@ -79,75 +79,98 @@
 
     </div>
 
-
-
-    {{-- Review Aplikasi --}}
-
     <div class=" d-flex flex-row justify-content-center mt-5 mb-5 align-items-center" style="gap: 7vw">
 
-        <button id="prevBtn" class=" border-0 bg-transparent">
-            <i class="bi bi-caret-left-fill rounded-circle d-flex justify-content-center align-items-center p-2 shadow"></i>
+        <button onclick="showPrev()" class=" border-0 bg-transparent">
+            <i class="btn btn-outline-dark bi bi-caret-left-fill rounded-circle d-flex justify-content-center align-items-center p-2 shadow"></i>
         </button>
 
-        <div class="d-flex flex-row gap-5 row" style="width:70%">
+        <div id="comment-container" class=" d-flex justify-content-center flex-wrap gap-5" style="width: 70%;">
+        <!-- Komentar akan dirender di sini -->
+        </div>        
 
-            <div class="shadow p-3 rounded-3 col">
-                {{-- Untuk foto profil dan username --}}
-                <div class="d-flex flex-row">
-                    <img src="{{ asset('img/Profil Dummy.svg') }}" alt="">
-
-                    <div class="ms-2" style=""> {{-- Untuk username dan waktu upload --}}
-                        <p class="mb-0 poppins-medium text-orenyedija" style="font-size: 1.5vw">Christina</p>
-                        <p class="mb-0 poppins-medium opacity-75" style="font-size: 0.8vw">1 day ago</p>
-                    </div>
-                </div>
-
-                {{-- Untuk Commentnya --}}
-                <p class="mb-0 mt-3 poppins-medium" style="font-size: 0.9vw">
-                    Website buatan oe memang sangat mantap o, bisa bantu olang banyak juga lo, so proud of my team.
-                </p>
-            </div>
-
-            <div class="shadow p-3 rounded-3 col">
-                {{-- Untuk foto profil dan username --}}
-                <div class="d-flex flex-row">
-                    <img src="{{ asset('img/Profil Dummy.svg') }}" alt="">
-
-                    <div class="ms-2" style=""> {{-- Untuk username dan waktu upload --}}
-                        <p class="mb-0 poppins-medium text-orenyedija" style="font-size: 1.5vw">Sutara</p>
-                        <p class="mb-0 poppins-medium opacity-75" style="font-size: 0.8vw">2 day ago</p>
-                    </div>
-                </div>
-
-                {{-- Untuk Commentnya --}}
-                <p class="mb-0 mt-3 poppins-medium" style="font-size: 0.9vw">
-                    Oe bingung mau tulis apa lo, tapi ini buat contoh aja la.
-                </p>
-            </div>
-
-            <div class="shadow p-3 rounded-3 col" >
-                {{-- Untuk foto profil dan username --}}
-                <div class="d-flex flex-row">
-                    <img src="{{ asset('img/Profil Dummy.svg') }}" alt="">
-
-                    <div class="ms-2" style=""> {{-- Untuk username dan waktu upload --}}
-                        <p class="mb-0 poppins-medium text-orenyedija" style="font-size: 1.5vw">Alfheim - 18</p>
-                        <p class="mb-0 poppins-medium opacity-75" style="font-size: 0.8vw">1 day ago</p>
-                    </div>
-                </div>
-
-                {{-- Untuk Commentnya --}}
-                <p class="mb-0 mt-3 poppins-medium" style="font-size: 0.9vw">
-                    Wah ini website sangat membantu o, oe jadi tau kapan kapan aja expired dari barang oe, oe juga jadi inget punya barang apa aja o
-                </p>
-            </div>
-
-        </div>
-
-        <button id="nextBtn" class=" border-0 bg-transparent">
-            <i class="bi bi-caret-right-fill rounded-circle d-flex justify-content-center align-items-center p-2 shadow"></i>
+        <button onclick="showNext()" class=" border-0 bg-transparent">
+            <i class="btn btn-outline-dark bi bi-caret-right-fill rounded-circle d-flex justify-content-center align-items-center p-2 shadow"></i>
         </button>
 
     </div>
+
+    <script>
+        const comments = [
+            {
+                name: "Christina",
+                time: "1 day ago",
+                comment: "Website buatan oe memang sangat mantap o, bisa bantu olang banyak juga lo, so proud of my team.",
+            },
+            {
+                name: "Sutara",
+                time: "2 day ago",
+                comment: "Oe bingung mau tulis apa lo, tapi ini buat contoh aja la.",
+            },
+            {
+                name: "Alfheim - 18",
+                time: "1 day ago",
+                comment: "Wah ini website sangat membantu o, oe jadi tau kapan kapan aja expired dari barang oe, oe juga jadi inget punya barang apa aja o",
+            },
+            {
+                name: "Christina",
+                time: "1 day ago",
+                comment: "Website buatan oe memang sangat mantap o, bisa bantu olang banyak juga lo, so proud of my team.",
+            },
+            {
+                name: "Christina",
+                time: "1 day ago",
+                comment: "Website buatan oe memang sangat mantap o, bisa bantu olang banyak juga lo, so proud of my team.",
+            },
+        ];
+
+    let startIndex = 0;
+    const itemsPerPage = 3;
+
+    function renderComments() {
+    const container = document.getElementById("comment-container");
+    container.innerHTML = "";
+
+    const sliced = comments.slice(startIndex, startIndex + itemsPerPage);
+
+    // Jika hanya 1 komentar → center dan tidak pakai flex-row
+    if (sliced.length === 1) {
+        container.className = "d-flex justify-content-center";
+    } else {
+        container.className = "d-flex gap-3 justify-content-center";
+    }
+
+    sliced.forEach(item => {
+        container.innerHTML += `
+            <div class="shadow p-3 rounded-3" style="width: 100%; max-width: 400px; height: auto;">
+
+                <div class="d-flex flex-row">
+                    <img src="{{ asset('img/Profil Dummy.svg') }}" alt="">
+                    <div class="ms-2">
+                        <p class="mb-0 poppins-medium text-orenyedija" style="font-size: 1.5vw">${item.name}</p>
+                        <p class="mb-0 poppins-medium opacity-75" style="font-size: 0.8vw">${item.time}</p>
+                    </div>
+                </div>
+                <p class="mb-0 mt-3 poppins-medium" style="font-size: 0.9vw">${item.comment}</p>
+            </div>
+        `;
+    });
+}
+
+    function showNext() {
+        if (startIndex + itemsPerPage < comments.length) {
+            startIndex += itemsPerPage;
+            renderComments();
+        }
+    }
+
+    function showPrev() {
+        if (startIndex - itemsPerPage >= 0) {
+            startIndex -= itemsPerPage;
+            renderComments();
+        }
+    }
+    renderComments();
+</script> 
 
 </x-master>
