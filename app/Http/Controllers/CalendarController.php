@@ -25,7 +25,7 @@ class CalendarController extends Controller
         $firstDay = $date->format('w');
 
         // code untuk ambil tanggal expire dari database
-        // Fetch days with expirations for the current month
+        // Fetch full expiration dates for the current month
         $expirations = Item::whereHas('expirationDates', function ($query) use ($month, $year) {
             $query->whereMonth('expiration_date', $month)
                 ->whereYear('expiration_date', $year);
@@ -35,9 +35,6 @@ class CalendarController extends Controller
         ->pluck('expirationDates')
         ->flatten()
         ->pluck('expiration_date')
-        ->map(function ($expirationDate) {
-            return (int) (new DateTime($expirationDate))->format('d');
-        })
         ->unique()
         ->values()
         ->toArray();

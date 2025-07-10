@@ -24,7 +24,7 @@ class WishlistController extends Controller
     public function create()
     {
         $categories = Categories::all();
-        return view('wishlist.addWishlistPage', compact('categories'));
+        return view('wishlist.AddWishlistPage', compact('categories'));
     }
 
     public function store(Request $request)
@@ -50,7 +50,7 @@ class WishlistController extends Controller
     {
         $wishlist = Wishlist::findOrFail($id); // Ambil data berdasarkan ID
         $categories = Categories::all(); // Jika ingin ambil dari database
-        return view('wishlist.updateWishlistPage', compact('wishlist', 'categories'));
+        return view('wishlist.UpdateWishlistPage', compact('wishlist', 'categories'));
     }
 
     public function update(Request $request, $id)
@@ -91,11 +91,11 @@ class WishlistController extends Controller
         $wishlist->delete();
 
         // Redirect ke halaman tujuan (pastikan route ini ADA di web.php)
-        return redirect()->route('crudItemPage')->with('success', 'Wishlist item marked as completed.');
+        return redirect()->route('item.create')->with('success', 'Wishlist item marked as completed.');
     }
 
     public function crudPage()
     {
-        return view('cruditempage'); // sesuaikan nama view-nya
+        return view('myInventory.crudItemPage'); // sesuaikan nama view-nya
     }
 }
