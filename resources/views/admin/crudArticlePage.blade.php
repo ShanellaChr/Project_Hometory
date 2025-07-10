@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,11 +24,12 @@
 </head>
 
 <body style="height: 100%;">
-   <!-- Header -->
+    <!-- Header -->
     <div class="bg-birupalette py-3 px-4 d-flex align-items-center" style="height: 5vw;">
-    <a href="/admin">
-        <img src="{{ asset('img/White Back Button.svg') }}" alt="Back" class="BackButton" style="width: 40px; height: 40px;">
-    </a>
+        <a href="/admin">
+            <img src="{{ asset('img/White Back Button.svg') }}" alt="Back" class="BackButton"
+                style="width: 40px; height: 40px;">
+        </a>
     </div>
 
     <div class="text-center mt-5">
@@ -35,26 +37,31 @@
         <p class="montserrat-semibold">Make it <span class="fw-bold">Wisely</span></p>
     </div>
 
-    <div class="container mt-4 p-4 ps-5 pe-5 rounded-4 bg-abupalette text-white mb-0" style="max-width: 92%; max-height:100%; min-height: 100%;">
-        <form id="AddArticleForm">
+    <div class="container mt-4 p-4 ps-5 pe-5 rounded-4 bg-abupalette text-white mb-0"
+        style="max-width: 92%; max-height:100%; min-height: 100%;">
+
+        <form id="AddArticleForm" action="{{ route('article.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <!-- Item Name -->
             <div class="mb-4">
                 <label for="itemName" class="form-label nunito-bold text-2xl">Title of article</label>
-                <input type="text" name="name" class="form-control" id="itemName" placeholder="Title here" required>
+                <input type="text" name="title" class="form-control" id="itemName" placeholder="Title here"
+                    required>
             </div>
 
             <!-- Upload Image -->
             <div class="mb-4">
                 <label for="itemName" class="form-label nunito-bold text-2xl">Article Image</label>
 
-                <label for="fileUpload" class="border border-2 border-secondary border-dashed rounded-3 bg-white text-center p-5 d-block" style="cursor: pointer;">
+                <label for="fileUpload"
+                    class="border border-2 border-secondary border-dashed rounded-3 bg-white text-center p-5 d-block"
+                    style="cursor: pointer;">
                     <i class="bi bi-cloud-arrow-up fs-1 text-secondary"></i>
                     <p class="my-1 fw-semibold text-dark">Click to upload</p>
                     <p class="text-muted small">or drag and drop<br>SVG, PNG, JPG (MAX. 1 MB each)</p>
                 </label>
 
-                <input type="file" class="d-none" id="fileUpload" accept=".png,.jpg,.jpeg,.svg" multiple>
+                <input type="file" class="d-none" id="fileUpload"  name="thumbnail" accept=".png,.jpg,.jpeg,.svg">
 
                 <div id="imageError" class="text-danger mt-2" style="display: none;">
                     Please Input an image.
@@ -86,28 +93,25 @@
         const myInput = document.getElementById('my_input');
         const trixError = document.getElementById('trixError');
 
-        addArticleForm.addEventListener('submit', function(event){
+        addArticleForm.addEventListener('submit', function(event) {
 
             const value = myInput.value.replace(/<[^>]+>/g, '').trim();
 
-            if(fileUpload.files.length === 0){
+            if (fileUpload.files.length === 0) {
                 event.preventDefault();
                 imageError.style.display = 'block';
-            }
-            else{
+            } else {
                 imageError.style.display = 'none';
             }
 
-            if(value === ''){
+            if (value === '') {
                 event.preventDefault();
                 trixError.style.display = 'block';
-            }
-            else{
+            } else {
                 trixError.style.display = 'none';
             }
 
         });
-
     </script>
 
 </body>

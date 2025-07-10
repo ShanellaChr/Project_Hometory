@@ -8,7 +8,7 @@
         </a>
 
         <div class="d-flex g-5 text-black decoration-0">
-            <a class="navlink-a {{ request()->is('myInventory*') ? 'active' : '' }} navbar-hover" href="/myInventory">MyInventory</a>
+            <a class="navlink-a {{ request()->is('myInventory*') ? 'active' : '' }} navbar-hover" href="/myInventory">My Inventory</a>
             <a class="navlink-a {{ request()->is('calendar*') ? 'active' : '' }} navbar-hover" href="/calendar">Calendar</a>
             <a class="navlink-a {{ request()->is('statistic*') ? 'active' : '' }} navbar-hover" href="/statistic">Statistic</a>
             <a class="navlink-a {{ request()->is('wishlist*') ? 'active' : '' }} navbar-hover" href="/wishlist">Wishlist</a>

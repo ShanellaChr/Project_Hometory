@@ -32,10 +32,10 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::get('/signup', [AuthController::class, 'showSignup'])->name('signup');
 Route::post('/signup', [AuthController::class, 'signup']);
 
-// Route::middleware(['auth'])->group(function () {
-//     Route::get('/myInventory', [ItemController::class, 'index'])->name('item.index');
-//     // tambahkan route lain yang butuh login
-// });
+Route::middleware(['auth'])->group(function () {
+    Route::get('/myInventory', [ItemController::class, 'index'])->name('item.index');
+    Route::get('/admin', [ArticleController::class, 'adminIndex'])->name('admin');
+});
 
 
 // MY INVENTORY
@@ -89,6 +89,8 @@ Route::get('/article', [ArticleController::class, 'index'])->name('article.index
 
 Route::get('/article/{slug}', [ArticleController::class, 'show'])->name('article.detail');
 
+Route::post('/article/store', [ArticleController::class, 'store'])->name('article.store');
+
 // PROFILE
 Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
 Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -114,8 +116,6 @@ Route::get('/reset/new-password', [ResetPasswordController::class, 'showNewPassw
 Route::post('/reset/new-password', [ResetPasswordController::class, 'updatePassword'])->name('password.update');
 
 // ADMIN
-Route::get('/admin', [ArticleController::class, 'adminIndex'])->name('admin');
-
 Route::delete('/admin/{id}', [ArticleController::class, 'destroy'])->name('article.destroy');
 
 Route::get('/addarticle', function () {

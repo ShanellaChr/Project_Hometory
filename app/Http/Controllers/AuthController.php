@@ -68,10 +68,12 @@ class AuthController extends Controller
                 'invalid_password' => 'Invalid password.',
             ])->withInput();
         }
-
         Auth::login($user);
         $request->session()->regenerate();
 
+        if ($user->role === 'admin') {
+            return redirect('/admin'); // ganti dengan route admin milikmu
+        }
         return redirect('/');
     }
 
@@ -82,4 +84,6 @@ class AuthController extends Controller
         $request->session()->regenerateToken();
         return redirect('/login');
     }
+
+    
 }

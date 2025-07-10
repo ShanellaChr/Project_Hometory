@@ -43,7 +43,7 @@ Lalu, bagaimana untuk memulai zero waste bagi pemula? Mulai dari satu area kecil
 <br> <br>
 
 Semoga dengan artikel ini, Anda dapat menerapkan prinsip Zero Waste dengan baik!</p>',
-                'thumbnail' => 'img/Article_Zero_Waste.svg',
+                'thumbnail' => 'thumbnails/Article_Zero_Waste.svg',
                 'admin_id' => 1,
                 'created_at' => '2025-05-21 18.31.00',
                 'updated_at' => '2025-05-21 18.31.00',
@@ -78,7 +78,7 @@ Semoga dengan artikel ini, Anda dapat menerapkan prinsip Zero Waste dengan baik!
 <p class="nunito-regular">Cairkan makanan di kulkas semalaman untuk mencegah pertumbuhan bakteri. Alternatifnya, gunakan microwave dengan mode defrost atau rendam kemasan dalam air dingin.
 <br> <br>
 Dengan mengikuti langkah-langkah ini, Anda dapat mengurangi food waste, menghemat biaya, dan menjaga kualitas makanan. Mulailah membekukan dengan bijak!</p>',
-                'thumbnail' => 'img/Article_Freezing_Food.svg',
+                'thumbnail' => 'thumbnails/Article_Freezing_Food.svg',
                 'admin_id' => 1,
                 'created_at' => '2025-05-22 18.30.00',
                 'updated_at' => '2025-05-22 18.30.00',
@@ -113,7 +113,7 @@ Dengan mengikuti langkah-langkah ini, Anda dapat mengurangi food waste, menghema
 <p class="nunito-regular">Catat pengeluaran untuk setiap pembelian barang. Evaluasi bulanan untuk mengidentifikasi pola konsumsi dan mengurangi pembelian berlebih. Misalnya, jika sabun selalu sisa, kurangi frekuensi pembelian.
 <br> <br>
 Dengan sistem ini, Anda dapat mengelola kebutuhan rumah tangga secara efisien, mengurangi pemborosan, dan menjaga anggaran tetap terkendali. Mulailah dengan langkah kecil dan konsisten!</p>',
-                'thumbnail' => 'img/Article_Storage.svg',
+                'thumbnail' => 'thumbnails/Article_Storage.svg',
                 'admin_id' => 1,
                 'created_at' => '2025-05-23 18.30.00',
                 'updated_at' => '2025-05-23 18.30.00',
@@ -140,7 +140,7 @@ Dengan sistem ini, Anda dapat mengelola kebutuhan rumah tangga secara efisien, m
 
 <p class="nunito-bold">6. Simpan dengan Benar</p>
 <p class="nunito-regular">Setelah berbelanja, simpan bahan makanan dengan tepat. Sayuran hijau dibungkus kain lembap, daging di freezer, dan keringkan rempah agar tahan lama. Penyimpanan yang baik mencegah pembusukan dini.<br><br>Dengan menerapkan tips ini, Anda dapat berbelanja secara efisien, mengurangi food waste, dan menjaga anggaran rumah tangga tetap terkendali.</p>',
-                'thumbnail' => 'img/Article_Purchase_No_Waste.svg',
+                'thumbnail' => 'thumbnails/Article_Purchase_No_Waste.svg',
                 'admin_id' => 1,
                 'created_at' => '2025-05-24 18.30.00',
                 'updated_at' => '2025-05-24 18.30.00',
@@ -167,7 +167,7 @@ Dengan sistem ini, Anda dapat mengelola kebutuhan rumah tangga secara efisien, m
 
 <p class="nunito-bold">6. Gunakan Kompos dengan Bijak</p>
 <p class="nunito-regular">Setelah jadi, gunakan kompos untuk menyuburkan tanaman di kebun atau pot. Taburkan di permukaan tanah atau campur dengan media tanam. Simpan sisa kompos di wadah kering untuk penggunaan berikutnya.<br><br>Dengan mengikuti panduan ini, Anda dapat mengurangi sisa makanan, mendukung lingkungan, dan menghasilkan pupuk alami berkualitas.</p>',
-                'thumbnail' => 'img/Article_Create_Compost.svg',
+                'thumbnail' => 'thumbnails/Article_Create_Compost.svg',
                 'admin_id' => 1,
                 'created_at' => '2025-05-25 18.30.00',
                 'updated_at' => '2025-05-25 18.30.00',
@@ -194,7 +194,7 @@ Dengan sistem ini, Anda dapat mengelola kebutuhan rumah tangga secara efisien, m
 
 <p class="nunito-bold">6. Gunakan Kompos dengan Bijak</p>
 <p class="nunito-regular">Setelah jadi, gunakan kompos untuk menyuburkan tanaman di kebun atau pot. Taburkan di permukaan tanah atau campur dengan media tanam. Simpan sisa kompos di wadah kering untuk penggunaan berikutnya.<br><br>Dengan mengikuti panduan ini, Anda dapat mengurangi sisa makanan, mendukung lingkungan, dan menghasilkan pupuk alami berkualitas.</p>',
-                'thumbnail' => 'img/Article_Choose_Quality_Label.svg',
+                'thumbnail' => 'thumbnails/Article_Choose_Quality_Label.svg',
                 'admin_id' => 1,
                 'created_at' => '2025-05-26 18.30.00',
                 'updated_at' => '2025-05-26 18.30.00',

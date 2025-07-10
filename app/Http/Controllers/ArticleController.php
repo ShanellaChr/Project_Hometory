@@ -1,8 +1,11 @@
 <?php
 namespace App\Http\Controllers;
 
+use id;
 use App\Models\Article;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ArticleController extends Controller
 {
@@ -31,5 +34,26 @@ class ArticleController extends Controller
         $article->delete();
 
         return redirect()->route('admin');
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'title' => 'required|max:255',
+            'content' => 'required',
+            'thumbnail' => 'required|image|mimes:jpg,jpeg,png,svg|max:2048',
+        ]);
+
+        $thumbnailPath = $request->file('thumbnail')->store('thumbnails', 'public');
+
+        Article::create([
+            'title' => $request->title,
+            'slug' => Str::slug($request->title),
+            'content' => $request->content,
+            'thumbnail' => $thumbnailPath,
+            'admin_id' => Auth::id(),
+        ]);
+
+        return redirect()->back()->with('success', 'Article created successfully!');
     }
 }
