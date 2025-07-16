@@ -19,9 +19,9 @@ class DatabaseSeeder extends Seeder
             StatisticSeeder::class,
             SubcategorySeeder::class,
             ArticleSeeder::class,
-            WishlistSeeder::class,
             ItemSeeder::class, 
             ExpirationDateSeeder::class,
+            WishlistSeeder::class,
         ]);
 
     }
