@@ -20,12 +20,12 @@
     <div class="container">
         {{-- bagian atas utk back, gambar, title, tanggal --}}
         <div class="pt-3 mb-5">
-            <a href="{{ route('article.index') }}">
+            <a href="{{ url()->previous() }}">
                 <img src="{{ asset('img/Back Button.svg') }}" alt="Back button" class="BackButton">
             </a>
         </div>
         <div class="align-items-center justify-content-center d-flex">
-            <img src="{{ asset($article->thumbnail) }}" alt="Image placeholder">
+            <img src="{{ asset('storage/'.$article->thumbnail) }}" alt="Image placeholder">
         </div>
         <div class="align-items-center justify-content-center d-flex montserrat-bold text-xl mb-2">
             {{ $article->title }}
