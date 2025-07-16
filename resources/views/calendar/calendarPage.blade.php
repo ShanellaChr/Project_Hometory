@@ -74,7 +74,7 @@
                                         <?php
                                             $prevMonthDay = $prevMonthDays - ($firstDay - $position - 1);
                                         ?>
-                                        <td class="prev-month bg-transparent text-center text-xl align-middle poppins-bold text-birupalette py-3">{{ $prevMonthDay }}</td>
+                                        <td class="prev-month bg-transparent text-center text-xl align-middle poppins-bold text-birupalette mb-2 py-3">{{ $prevMonthDay }}</td>
                                     {{-- kondisi udah masuk dalam tanggal dari bulan tahun disaat user buka kalender --}}
                                     @elseif ($day <= $daysInMonth)
                                         <?php
@@ -83,12 +83,19 @@
                                         <td class="calendar-day bg-transparent text-center text-xl align-middle poppins-bold text-putihpalette py-3 position-relative" style="cursor:pointer;">
                                             <a href="{{ url('/calendar', ['month' => $currentMonth, 'year' => $currentYear, 'selected_date' => $currentDate]) }}" class="text-decoration-none text-putihpalette d-block w-100 h-100" style="position:relative;">
                                                 @if ($selectedDate == $currentDate)
-                                                    <span class="selected-date">{{ $day }}</span>
+                                                    <span class="selected-date position-relative">
+                                                        {{ $day }}
+                                                        @if (isset($expirations) && in_array($currentDate, $expirations))
+                                                            <span class="calendar-dot"></span>
+                                                        @endif
+                                                    </span>
                                                 @else
-                                                    {{ $day }}
-                                                @endif
-                                                @if (isset($expirations) && in_array($currentDate, $expirations))
-                                                    <span style="display:block; width:7px; height:7px; background:#d9534f; border-radius:50%; position:absolute; left:50%; transform:translateX(-50%);"></span>
+                                                    <span>
+                                                        {{ $day }}
+                                                        @if (isset($expirations) && in_array($currentDate, $expirations))
+                                                            <span class="calendar-dot-else"></span>
+                                                        @endif
+                                                    </span>
                                                 @endif
                                             </a>
                                         </td>
