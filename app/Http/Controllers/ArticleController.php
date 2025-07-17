@@ -54,6 +54,6 @@ class ArticleController extends Controller
             'admin_id' => Auth::id(),
         ]);
 
-        return redirect()->back()->with('success', 'Article created successfully!');
+        return redirect()->route('admin')->with('success', 'Article created successfully!');
     }
 }
