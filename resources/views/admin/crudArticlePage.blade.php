@@ -52,16 +52,22 @@
             <!-- Upload Image -->
             <div class="mb-4">
                 <label for="itemName" class="form-label nunito-bold text-2xl">Article Image</label>
-
-                <label for="fileUpload"
-                    class="border border-2 border-secondary border-dashed rounded-3 bg-white text-center p-5 d-block"
-                    style="cursor: pointer;">
-                    <i class="bi bi-cloud-arrow-up fs-1 text-secondary"></i>
-                    <p class="my-1 fw-semibold text-dark">Click to upload</p>
-                    <p class="text-muted small">or drag and drop<br>SVG, PNG, JPG (MAX. 1 MB each)</p>
-                </label>
-
-                <input type="file" class="d-none" id="fileUpload"  name="thumbnail" accept=".png,.jpg,.jpeg,.svg">
+                <div id="uploadPrompt">
+                    <label for="fileUpload"
+                        class="border border-2 border-secondary border-dashed rounded-3 bg-white text-center p-5 d-block"
+                        style="cursor: pointer;">        
+                        <i class="bi bi-cloud-arrow-up fs-1 text-secondary"></i>
+                        <p class="my-1 fw-semibold text-dark">Click to upload</p>
+                        <p class="text-muted small">or drag and drop<br>SVG, PNG, JPG (MAX. 1 MB each)</p>
+                        
+                    </label>
+                </div>
+                    <input type="file" class="d-none" id="fileUpload" name="thumbnail" accept=".png,.jpg,.jpeg,.svg">
+                    
+                <div id="uploadedInfo" style="display: none;" class="text-center mt-3">
+                    <img id="previewImage" src="" alt="Preview" class="img-fluid rounded mb-2" style="max-height: 150px;">
+                    <p id="fileName" class="small text-white" ></p>
+                </div>
 
                 <div id="imageError" class="text-danger mt-2" style="display: none;">
                     Please Input an image.
@@ -112,7 +118,26 @@
             }
 
         });
+
+        fileUpload.addEventListener('change', function(event){
+            const file = event.target.files[0];
+
+            if(file){
+                document.getElementById("uploadPrompt").style.display = 'none';
+
+                document.getElementById("uploadedInfo").style.display = 'block';
+                document.getElementById("fileName").textContent = file.name;
+
+                const reader = new FileReader();
+
+                reader.onload = function(e){
+                    document.getElementById("previewImage").src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
     </script>
 
 </body>
+
 </html>

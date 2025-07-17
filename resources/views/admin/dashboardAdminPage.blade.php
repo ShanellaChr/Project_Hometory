@@ -45,7 +45,7 @@
                     <div class="p-3 bg-white d-flex justify-content-between align-items-start shadow rounded-4">
                         <div>
                             <p class="mb-0 nunito-bold">{{ $article->title }}</p>
-                            <p class="mb-0">{{ $article->created_at->diffForHumans() }}</p>
+                            <p class="mb-0 nunito-regular fs-6">{{ $article->created_at->diffForHumans() }}</p>
                         </div>
 
                         <form action="{{ route('article.destroy', $article->id) }}", method="POST",
@@ -97,7 +97,7 @@
                         Cancel
                         <img src="/img/cancel icon.svg" alt="Cancel" width="20" height="20">
                     </button>
-                    <a href="/" style="text-decoration: none">
+                    <a href="{{ route('loginShow') }}" style="text-decoration: none">
                         <button type="" class="btn btn-merah btn-merah:hover d-flex align-items-center gap-2 px-4">
                             Log Out
                             <img src="{{ asset('img/logOutIcon.svg') }}" width="20" height="20">

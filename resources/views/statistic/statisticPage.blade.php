@@ -112,8 +112,8 @@
                 const dataValues = chart.data.datasets[0].data;
 
                 dataset.forEach((arc, index) => {
-                    // Hanya tampilkan gambar jika persentase > 0 dan >= 5%
-                    if (!dataValues[index] || dataValues[index] < 3) return;
+                    // Hanya tampilkan gambar jika persentase > 0
+                    if (!dataValues[index] || dataValues[index] === 0) return;
                     const angle = (arc.startAngle + arc.endAngle) / 2;
                     const radius = (arc.outerRadius + arc.innerRadius) / 2;
                     const x = arc.x + Math.cos(angle) * radius;

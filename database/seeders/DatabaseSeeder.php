@@ -5,7 +5,6 @@ namespace Database\Seeders;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Http\Controllers\StatisticController;
 
 class DatabaseSeeder extends Seeder
 {
@@ -20,12 +19,10 @@ class DatabaseSeeder extends Seeder
             StatisticSeeder::class,
             SubcategorySeeder::class,
             ArticleSeeder::class,
-            ItemSeeder::class,
-            ExpirationDateSeeder::class,
             WishlistSeeder::class,
+            ItemSeeder::class, 
+            ExpirationDateSeeder::class,
         ]);
 
-        // Jalankan perhitungan statistik setelah item & expiration lengkap
-        app(StatisticController::class)->recalculateStatisticsForUser(2);
     }
 }
