@@ -10,8 +10,8 @@ use App\Models\Statistic;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Pagination\LengthAwarePaginator;
-use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class ItemController extends Controller
 {
@@ -95,7 +95,8 @@ class ItemController extends Controller
             ]);
         }
 
-        $this->updateStatistics($item);
+        // $this->updateStatistics($item);
+        app(\App\Http\Controllers\StatisticController::class)->updateStatisticForSingleItem($item);
 
         return redirect()->route('item.index')->with('success', 'Item added successfully.');
     }
@@ -127,6 +128,9 @@ class ItemController extends Controller
             ->where('user_id', Auth::id())
             ->firstOrFail();
 
+        // Simpan kategori lama
+        $originalCategoryId = $item->category_id;
+
         $validated = $request->validate([
             'name' => 'required|string|max:255',
             'category' => 'required|string',
@@ -156,7 +160,8 @@ class ItemController extends Controller
             ]);
         }
 
-        $this->updateStatistics($item);
+        // $this->updateStatistics($item, $originalCategoryId);
+        app(\App\Http\Controllers\StatisticController::class)->updateStatisticForSingleItem($item);
 
         return redirect()->route('item.detail', ['slug' => $item->slug])->with('success', 'Item updated successfully.');
     }
@@ -167,10 +172,17 @@ class ItemController extends Controller
             ->where('user_id', Auth::id())
             ->firstOrFail();
 
+        $currentMonth = Carbon::now()->startOfMonth();
+        $deletedQty = $item->expirationDates()->sum('qty'); // hitung dulu sebelum delete
+
         $item->expirationDates()->delete();
         $item->delete();
 
-        $this->updateStatistics($item);
+        Statistic::where([
+            'user_id' => Auth::id(),
+            'category_id' => $item->category_id,
+            'month_year' => $currentMonth->format('Y-m-d'),
+        ])->decrement('total_items', $deletedQty);
 
         return redirect()->route('item.index')->with('success', 'Item berhasil dihapus.');
     }
@@ -199,43 +211,72 @@ class ItemController extends Controller
             abort(403);
         }
 
+        $currentMonth = Carbon::now()->startOfMonth();
+
+        $deletedQty = $exp->qty;
         $exp->delete();
 
         if ($item->expirationDates()->count() === 0) {
+            $categoryId = $item->category_id;
             $item->delete();
-            $this->updateStatistics($item);
+
+            // Kurangi statistik bulan saat ini
+            Statistic::where([
+                'user_id' => Auth::id(),
+                'category_id' => $categoryId,
+                'month_year' => $currentMonth->format('Y-m-d'),
+            ])->decrement('total_items', $deletedQty);
+
             return redirect()->route('item.expired')->with('success', 'Item and expiration date deleted.');
         }
 
-        $this->updateStatistics($item);
+        Statistic::where([
+            'user_id' => Auth::id(),
+            'category_id' => $item->category_id,
+            'month_year' => $currentMonth->format('Y-m-d'),
+        ])->decrement('total_items', $deletedQty);
+
         return redirect()->route('item.expired')->with('success', 'Expiration date deleted.');
     }
 
-    private function updateStatistics(Item $item)
+    private function updateStatistics(Item $item, $originalCategoryId = null)
     {
+        $currentMonth = Carbon::now()->startOfMonth();
         $userId = $item->user_id;
-        $categoryId = $item->category_id;
 
-        $expirations = $item->expirationDates;
+        // Total qty dari item ini
+        $currentTotalQty = $item->expirationDates()->sum('qty');
 
-        $monthlyStats = [];
-        foreach ($expirations as $exp) {
-            $month = Carbon::parse($exp->created_at)->startOfMonth()->format('Y-m-d');
-            if (!isset($monthlyStats[$month])) {
-                $monthlyStats[$month] = 0;
-            }
-            $monthlyStats[$month] += $exp->qty;
-        }
+        // Jika kategori berubah, kita perlu update dua kategori: yang lama dan yang baru
+        if ($originalCategoryId && $originalCategoryId != $item->category_id) {
+            // Kurangi dari kategori lama
+            Statistic::where([
+                'user_id' => $userId,
+                'category_id' => $originalCategoryId,
+                'month_year' => $currentMonth->format('Y-m-d'),
+            ])->decrement('total_items', $currentTotalQty);
 
-        foreach ($monthlyStats as $monthDate => $totalQty) {
+            // Tambahkan ke kategori baru
             Statistic::updateOrCreate(
                 [
                     'user_id' => $userId,
-                    'category_id' => $categoryId,
-                    'month_year' => $monthDate,
+                    'category_id' => $item->category_id,
+                    'month_year' => $currentMonth->format('Y-m-d'),
                 ],
                 [
-                    'total_items' => $totalQty,
+                    'total_items' => DB::raw("total_items + {$currentTotalQty}")
+                ]
+            );
+        } else {
+            // Jika kategori tetap, hanya update qty-nya
+            Statistic::updateOrCreate(
+                [
+                    'user_id' => $userId,
+                    'category_id' => $item->category_id,
+                    'month_year' => $currentMonth->format('Y-m-d'),
+                ],
+                [
+                    'total_items' => $currentTotalQty
                 ]
             );
         }

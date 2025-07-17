@@ -65,13 +65,13 @@
                         <p class="text-center text-muted">No data available for this month.</p>
                     @else
                         @foreach ($cards as $card)
-                            <div class="bg-putihpalette rounded-5 shadow-lg p-3 text-center" style="flex: 1 1 14.5vw; max-width: 100%; max-height: 10.5vw;">
+                            <div class="bg-putihpalette rounded-5 shadow-lg text-center p-3" style="flex: 1 1 14.5vw; max-width: 100%; max-height: 12vw;">
                                 <strong class="montserrat-bold text-2xl text-birupalette">{{ $card['title'] }}</strong>
                                 <div class="{{ $card['color'] }} text-4xl flex-bold nunito-extrabold text-ijopalette">
                                     {{-- Display item count instead of percentage --}}
                                     {{ $card['items'] }} items
                                 </div>
-                                <p class="nunito-reguler text-xs mt-0 mb-0 text-abupalette">{{ $card['desc'] }}</p>
+                                <p class="nunito-reguler text-xs ps-0 mt-0 mb-0 text-abupalette" style="width: 100%">{{ $card['desc'] }}</p>
                             </div>
                         @endforeach
                     @endif

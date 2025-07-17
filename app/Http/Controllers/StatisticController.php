@@ -4,12 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-use App\Models\Item;
 use App\Models\Statistic;
+use App\Models\Item;
 use App\Models\ExpirationDate;
 use App\Models\Categories;
 use Illuminate\Support\Carbon;
-use Illuminate\Support\Collection;
 
 class StatisticController extends Controller
 {

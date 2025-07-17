@@ -13,7 +13,8 @@ class CreateStatisticsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('category_id');
             $table->date('month_year')->notNull();
-            $table->integer('total_items')->notNull();
+            // $table->integer('total_items')->notNull();
+            $table->integer('total_items')->default(0);
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
