@@ -6,7 +6,6 @@ use App\Models\Item;
 use App\Models\Categories;
 use App\Models\Subcategories;
 use App\Models\ExpirationDate;
-use App\Models\Statistic;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Pagination\LengthAwarePaginator;
@@ -18,8 +17,7 @@ class ItemController extends Controller
     // Show all items
     public function index(Request $request)
     {
-        $query = Item::with(['category', 'subCategory', 'expirationDates'])
-            ->where('user_id', Auth::id());
+        $query = Item::with(['category', 'subCategory', 'expirationDates']);
 
         // Filter berdasarkan kategori jika tersedia
         if ($request->filled('category')) {
@@ -44,12 +42,13 @@ class ItemController extends Controller
         $currentPage = LengthAwarePaginator::resolveCurrentPage();
         $perPage = 9;
         $pagedItems = new LengthAwarePaginator(
-            $items->forPage($currentPage, $perPage)->values(),
+            $items->forPage($currentPage, $perPage)->values(), // values() untuk reset key
             $items->count(),
             $perPage,
             $currentPage,
             ['path' => request()->url(), 'query' => request()->query()]
         );
+
 
         return view('myInventory.myInventoryPage', [
             'items' => $pagedItems,
@@ -57,12 +56,14 @@ class ItemController extends Controller
         ]);
     }
 
+    // Show form to add/create new item
     public function create()
     {
         $mode = 'create';
         return view('myInventory.crudItemPage', compact('mode'));
     }
 
+    // Store the new item created to storage
     public function store(Request $request)
     {
         $request->validate([
@@ -77,17 +78,17 @@ class ItemController extends Controller
             'qty.*' => 'required|integer|min:1',
         ]);
 
-        $category = Categories::where('category', $request->category)->first();
-
+        // Simpan item baru
         $item = Item::create([
             'name' => $request->name,
-            'category_id' => $category->id,
+            'category_id' => Categories::where('category', $request->category)->first()->id,
             'subcategory_id' => Subcategories::where('subcategory', $request->subcategory)->first()->id,
             'location' => $request->location,
             'note' => $request->note,
             'user_id' => Auth::id(),
         ]);
 
+        // Simpan semua tanggal exp
         foreach ($request->date as $index => $date) {
             $item->expirationDates()->create([
                 'expiration_date' => $date,
@@ -95,37 +96,26 @@ class ItemController extends Controller
             ]);
         }
 
-        $this->updateStatistics($item);
-
         return redirect()->route('item.index')->with('success', 'Item added successfully.');
     }
 
+    // Show item detail by slug
     public function show(string $slug)
     {
-        $item = Item::with(['category', 'subCategory', 'expirationDates'])
-            ->where('slug', $slug)
-            ->where('user_id', Auth::id())
-            ->firstOrFail();
-
+        $item = Item::with(['category', 'subCategory', 'expirationDates'])->where('slug', $slug)->firstOrFail();
         return view('myInventory.itemDetailPage', compact('item'));
     }
 
     public function edit(string $slug)
     {
-        $item = Item::with('category', 'subcategory', 'expirationDates')
-            ->where('slug', $slug)
-            ->where('user_id', Auth::id())
-            ->firstOrFail();
-
+        $item = Item::with('category', 'subcategory', 'expirationDates')->where('slug', $slug)->firstOrFail();
         $mode = 'edit';
         return view('myInventory.crudItemPage', compact('item', 'mode'));
     }
 
     public function update(Request $request, string $slug)
     {
-        $item = Item::where('slug', $slug)
-            ->where('user_id', Auth::id())
-            ->firstOrFail();
+        $item = Item::where('slug', $slug)->firstOrFail();
 
         $validated = $request->validate([
             'name' => 'required|string|max:255',
@@ -147,8 +137,10 @@ class ItemController extends Controller
             'note' => $validated['note'],
         ]);
 
+        // Hapus semua tanggal exp lama
         $item->expirationDates()->delete();
 
+        // Tambahkan tanggal exp baru
         foreach ($validated['date'] as $index => $expDate) {
             $item->expirationDates()->create([
                 'expiration_date' => $expDate,
@@ -156,21 +148,18 @@ class ItemController extends Controller
             ]);
         }
 
-        $this->updateStatistics($item);
-
         return redirect()->route('item.detail', ['slug' => $item->slug])->with('success', 'Item updated successfully.');
     }
 
     public function destroy(string $slug)
     {
-        $item = Item::where('slug', $slug)
-            ->where('user_id', Auth::id())
-            ->firstOrFail();
+        $item = Item::where('slug', $slug)->firstOrFail();
 
+        // Hapus semua exp date terkait
         $item->expirationDates()->delete();
-        $item->delete();
 
-        $this->updateStatistics($item);
+        // Hapus item-nya
+        $item->delete();
 
         return redirect()->route('item.index')->with('success', 'Item berhasil dihapus.');
     }
@@ -179,10 +168,8 @@ class ItemController extends Controller
     {
         $today = Carbon::today();
 
+        // Ambil semua expiration date yang sudah lewat
         $expiredDates = ExpirationDate::with('item.category', 'item.subCategory')
-            ->whereHas('item', function ($query) {
-                $query->where('user_id', Auth::id());
-            })
             ->whereDate('expiration_date', '<', $today)
             ->orderBy('expiration_date', 'asc')
             ->get();
@@ -195,49 +182,15 @@ class ItemController extends Controller
         $exp = ExpirationDate::findOrFail($id);
         $item = $exp->item;
 
-        if ($item->user_id !== Auth::id()) {
-            abort(403);
-        }
-
+        // Hapus expiration date yang dimaksud
         $exp->delete();
 
+        // Cek apakah item masih punya expiration date
         if ($item->expirationDates()->count() === 0) {
             $item->delete();
-            $this->updateStatistics($item);
             return redirect()->route('item.expired')->with('success', 'Item and expiration date deleted.');
         }
 
-        $this->updateStatistics($item);
         return redirect()->route('item.expired')->with('success', 'Expiration date deleted.');
-    }
-
-    private function updateStatistics(Item $item)
-    {
-        $userId = $item->user_id;
-        $categoryId = $item->category_id;
-
-        $expirations = $item->expirationDates;
-
-        $monthlyStats = [];
-        foreach ($expirations as $exp) {
-            $month = Carbon::parse($exp->created_at)->startOfMonth()->format('Y-m-d');
-            if (!isset($monthlyStats[$month])) {
-                $monthlyStats[$month] = 0;
-            }
-            $monthlyStats[$month] += $exp->qty;
-        }
-
-        foreach ($monthlyStats as $monthDate => $totalQty) {
-            Statistic::updateOrCreate(
-                [
-                    'user_id' => $userId,
-                    'category_id' => $categoryId,
-                    'month_year' => $monthDate,
-                ],
-                [
-                    'total_items' => $totalQty,
-                ]
-            );
-        }
     }
 }
