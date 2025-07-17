@@ -73,7 +73,7 @@
             <!-- Item Sub-Category (Initially Hidden) -->
             <div class="mb-4" id="subcategoryContainer" style="display: none;">
                 <label for="itemSubCategory" class="form-label nunito-bold text-2xl">Item Sub-Category</label>
-                <select class="form-control" name="subcategory" id="subcategoryList">
+                <select class="form-control" name="subcategory" id="subcategoryList" required>
                     <option value="" disabled {{ $mode == 'create' ? 'selected' : '' }}>Select item sub-category
                     </option> <!-- Placeholder -->
                     <!-- Sub-category options will be added dynamically -->
