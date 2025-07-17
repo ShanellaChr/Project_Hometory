@@ -53,6 +53,7 @@ class StatisticController extends Controller
                 'color' => $category->color ?? 'text-muted',
                 'value' => $percentage, // ← angka asli (tanpa %)
                 'desc' => $this->getCategoryDescription($category->category),
+                'items' => $itemTotal,
             ];
         });
 

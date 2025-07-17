@@ -66,11 +66,12 @@
                     @else
                         @foreach ($cards as $card)
                             <div class="bg-putihpalette rounded-5 shadow-lg p-3 text-center" style="flex: 1 1 14.5vw; max-width: 100%; max-height: 10.5vw;">
-                                <strong class="montserrat-semibold text-xl">{{ $card['title'] }}</strong>
-                                <div class="{{ $card['color'] }} text-4xl flex-bold nunito-extrabold">
-                                    {{ $card['value'] }}%
+                                <strong class="montserrat-bold text-2xl text-birupalette">{{ $card['title'] }}</strong>
+                                <div class="{{ $card['color'] }} text-4xl flex-bold nunito-extrabold text-ijopalette">
+                                    {{-- Display item count instead of percentage --}}
+                                    {{ $card['items'] }} items
                                 </div>
-                                <p class="nunito-reguler text-xs mt-0 mb-0">{{ $card['desc'] }}</p>
+                                <p class="nunito-reguler text-xs mt-0 mb-0 text-abupalette">{{ $card['desc'] }}</p>
                             </div>
                         @endforeach
                     @endif
@@ -111,8 +112,8 @@
                 const dataValues = chart.data.datasets[0].data;
 
                 dataset.forEach((arc, index) => {
-                    // Hanya tampilkan gambar jika persentase > 0
-                    if (!dataValues[index] || dataValues[index] === 0) return;
+                    // Hanya tampilkan gambar jika persentase > 0 dan >= 5%
+                    if (!dataValues[index] || dataValues[index] < 3) return;
                     const angle = (arc.startAngle + arc.endAngle) / 2;
                     const radius = (arc.outerRadius + arc.innerRadius) / 2;
                     const x = arc.x + Math.cos(angle) * radius;
