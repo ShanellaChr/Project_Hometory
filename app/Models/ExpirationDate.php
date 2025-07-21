@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ExpirationDate extends Model
 {
-    protected $fillable = ['expiration_date', 'qty'];
+    protected $fillable = ['expiration_date', 'qty', 'user_id'];
 
     protected $dates = ['expiration_date'];
 

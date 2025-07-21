@@ -86,6 +86,7 @@ class ItemController extends Controller
             $item->expirationDates()->create([
                 'expiration_date' => $date,
                 'qty' => $request->qty[$index] ?? 1,
+                'user_id' => Auth::id(),
             ]);
         }
 

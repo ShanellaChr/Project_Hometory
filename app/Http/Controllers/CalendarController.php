@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Http\Request;
-use App\Models\Item;
-use App\Models\ExpirationDate;
 use DateTime;
+use App\Models\Item;
+use Illuminate\Http\Request;
+use App\Models\ExpirationDate;
+use Illuminate\Support\Facades\Auth;
 
 class CalendarController extends Controller
 {
@@ -24,13 +25,21 @@ class CalendarController extends Controller
         // hari dari tgl 1 dari bulan tahun yg kita setel (misal juni 2025, $firstDay outputnya 0 --> minggu)
         $firstDay = $date->format('w');
 
+        // Ambil user id yang sedang login
+        $userId = Auth::id();
+
         // code untuk ambil tanggal expire dari database
-        // Fetch full expiration dates for the current month
-        $expirations = Item::whereHas('expirationDates', function ($query) use ($month, $year) {
+        // Fetch full expiration dates for the current month, hanya untuk user yang sedang login
+        $expirations = Item::whereHas('expirationDates', function ($query) use ($month, $year, $userId) {
             $query->whereMonth('expiration_date', $month)
-                ->whereYear('expiration_date', $year);
+                ->whereYear('expiration_date', $year)
+                ->where('user_id', $userId);
         })
-        ->with('expirationDates')
+        ->with(['expirationDates' => function ($query) use ($month, $year, $userId) {
+            $query->whereMonth('expiration_date', $month)
+                ->whereYear('expiration_date', $year)
+                ->where('user_id', $userId);
+        }])
         ->get()
         ->pluck('expirationDates')
         ->flatten()
@@ -41,12 +50,14 @@ class CalendarController extends Controller
 
         $selectedItems = [];
         if ($selectedDate) {
-            // Fetch items expiring on the selected date
-            $selectedItems = Item::whereHas('expirationDates', function ($query) use ($selectedDate) {
-                $query->whereDate('expiration_date', $selectedDate);
+            // Fetch items expiring on the selected date, hanya untuk user yang sedang login
+            $selectedItems = Item::whereHas('expirationDates', function ($query) use ($selectedDate, $userId) {
+                $query->whereDate('expiration_date', $selectedDate)
+                      ->where('user_id', $userId);
             })
-            ->with(['subcategory', 'expirationDates' => function ($query) use ($selectedDate) {
-                $query->whereDate('expiration_date', $selectedDate);
+            ->with(['subcategory', 'expirationDates' => function ($query) use ($selectedDate, $userId) {
+                $query->whereDate('expiration_date', $selectedDate)
+                      ->where('user_id', $userId);
             }])
             ->get();
         }
