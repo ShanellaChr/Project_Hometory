@@ -20,18 +20,16 @@
                     {{-- Strip warna dari kategori --}}
                     <div class="position-absolute top-0 bottom-0 start-0 rounded-start bg-{{ $wishlist->category->color ?? 'pinkcategory' }}" style="width: 1.2vw;"></div>
 
-                    {{-- Checkbox --}}
-                    <form action="{{ route('wishlist.check', $wishlist->id) }}" method="POST" onsubmit="return confirm('Apakah kamu yakin wishlist ini sudah selesai dan ingin menghapusnya?');">
-                        @csrf
-                        <label class="custom-checkbox-wrapper ms-1 me-3" style="cursor: pointer;">
-                            <input
-                                type="checkbox"
-                                class="custom-checkbox"
-                                onchange="handleCheckboxChange(this, '{{ route('wishlist.check', $wishlist->id) }}')"
-                            />
-                            <span class="checkmark"></span>
-                        </label>
-                    </form>
+                    {{-- Checkbox untuk menandai wishlist selesai --}}
+                    <button type="button"
+                        class="custom-checkbox-wrapper ms-1 me-3 btn p-0 bg-transparent border-0"
+                        data-bs-toggle="modal"
+                        data-bs-target="#doneConfirmationModal"
+                        data-wishlist-id="{{ $wishlist->id }}"
+                        aria-label="Selesai">
+                        <input type="checkbox" class="custom-checkbox" tabindex="-1" style="pointer-events: none;" />
+                        <span class="checkmark"></span>
+                    </button>
 
                     {{-- Konten --}}
                     <div class="flex-grow-1">
@@ -140,4 +138,70 @@
     </div>
   </div>
 </div>
+<!-- Modal Selesai Konfirmasi -->
+<div class="modal fade" id="doneConfirmationModal" tabindex="-1" aria-labelledby="doneConfirmationLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content" style="border-radius: 1rem;">
+
+      <!-- Header -->
+      <div class="modal-header bg-ijopalette text-putihpalette d-flex flex-column align-items-center" style="border-bottom: none;">
+        <img src="/img/warning icon.svg" alt="Warning" width="80" height="80" class="mb-2">
+      </div>
+
+      <!-- Body & Footer -->
+      <div class="modal-footer d-flex flex-column justify-content-center gap-3 pt-2 mb-3">
+        <h3 class="modal-title w-100 text-center montserrat-bold" id="doneConfirmationLabel">
+          Are You Sure This Wishlist <br> Is Completed?
+        </h3>
+        <div class="d-flex justify-content-center gap-3">
+          <button type="button" class="btn btn-abu d-flex align-items-center gap-2 px-4" data-bs-dismiss="modal">
+            Cancel
+            <img src="/img/cancel icon.svg" alt="Cancel" width="20" height="20">
+          </button>
+
+          <form id="doneForm" method="POST">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="btn btn-ijo d-flex align-items-center gap-2 px-4">
+              Yes, Mark as Completed
+            </button>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Modal konfirmasi selesai (done)
+        var doneModal = document.getElementById('doneConfirmationModal');
+        var doneForm = document.getElementById('doneForm');
+        var lastCheckedButton = null;
+        var lastCheckedInput = null;
+
+        // When modal is about to show
+        doneModal.addEventListener('show.bs.modal', function (event) {
+            var button = event.relatedTarget;
+            var wishlistId = button.getAttribute('data-wishlist-id');
+            doneForm.action = `/wishlist/check/${wishlistId}`;
+
+            // Find the checkbox input inside the clicked button and check it
+            lastCheckedButton = button;
+            lastCheckedInput = button.querySelector('input[type="checkbox"]');
+            if (lastCheckedInput) {
+                lastCheckedInput.checked = true;
+            }
+        });
+
+        // When modal is hidden (cancel or close)
+        doneModal.addEventListener('hidden.bs.modal', function () {
+            if (lastCheckedInput) {
+                lastCheckedInput.checked = false;
+            }
+            lastCheckedButton = null;
+            lastCheckedInput = null;
+        });
+    });
+</script>
 </x-master>

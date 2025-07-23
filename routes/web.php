@@ -82,7 +82,7 @@ Route::post('/wishlist/{id}/update', [WishlistController::class, 'update'])->nam
 
 Route::delete('/wishlist/{id}', [WishlistController::class, 'destroy'])->name('wishlist.delete');
 
-Route::get('/wishlist/check/{id}', [WishlistController::class, 'check'])->name('wishlist.check');
+Route::delete('/wishlist/check/{id}', [WishlistController::class, 'check'])->name('wishlist.check');
 
 // Route::get('/cruditempage', function () {
 //     return view('myInventory.crudItemPage');
