@@ -150,6 +150,7 @@ class ItemController extends Controller
             $item->expirationDates()->create([
                 'expiration_date' => $expDate,
                 'qty' => $validated['qty'][$index] ?? 1,
+                'user_id' => $item->user_id,
             ]);
         }
 
@@ -228,37 +229,51 @@ class ItemController extends Controller
         $newQty = $item->expirationDates()->sum('qty');
 
         if ($originalCategoryId && $originalCategoryId != $newCategoryId) {
-            // Kategori berubah
-            Statistic::where([
+            // // Kategori berubah
+            // Statistic::where([
+            //     'user_id' => $userId,
+            //     'category_id' => $originalCategoryId,
+            //     'month_year' => $month,
+            // ])->decrement('total_items', $originalQty ?? 0);
+
+            // $stat = Statistic::firstOrNew([
+            //     'user_id' => $userId,
+            //     'category_id' => $newCategoryId,
+            //     'month_year' => $month,
+            // ]);
+
+            // $stat->total_items = ($stat->exists ? $stat->total_items : 0) + $newQty;
+            // $stat->save();
+
+            // Turunkan statistik kategori lama
+            $oldStat = Statistic::firstOrNew([
                 'user_id' => $userId,
                 'category_id' => $originalCategoryId,
                 'month_year' => $month,
-            ])->decrement('total_items', $originalQty ?? 0);
+            ]);
+            $oldStat->total_items = max(0, ($oldStat->exists ? $oldStat->total_items : 0) - ($originalQty ?? 0));
+            $oldStat->save();
 
-            Statistic::updateOrCreate(
-                [
-                    'user_id' => $userId,
-                    'category_id' => $newCategoryId,
-                    'month_year' => $month,
-                ],
-                [
-                    'total_items' => DB::raw("total_items + {$newQty}")
-                ]
-            );
+            // Tambah statistik kategori baru
+            $newStat = Statistic::firstOrNew([
+                'user_id' => $userId,
+                'category_id' => $newCategoryId,
+                'month_year' => $month,
+            ]);
+            $newStat->total_items = ($newStat->exists ? $newStat->total_items : 0) + $newQty;
+            $newStat->save();
         } else {
             // Kategori tetap
             $diffQty = $newQty - ($originalQty ?? 0);
 
-            Statistic::updateOrCreate(
-                [
-                    'user_id' => $userId,
-                    'category_id' => $newCategoryId,
-                    'month_year' => $month,
-                ],
-                [
-                    'total_items' => DB::raw("total_items + ({$diffQty})")
-                ]
-            );
+            $stat = Statistic::firstOrNew([
+                'user_id' => $userId,
+                'category_id' => $newCategoryId,
+                'month_year' => $month,
+            ]);
+
+            $stat->total_items = ($stat->exists ? $stat->total_items : 0) + $diffQty;
+            $stat->save();
         }
     }
 }
