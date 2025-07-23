@@ -113,7 +113,7 @@
 
                 dataset.forEach((arc, index) => {
                     // Hanya tampilkan gambar jika persentase > 0
-                    if (!dataValues[index] || dataValues[index] < 3) return;
+                    if (!dataValues[index] || dataValues[index] < 6) return;
                     const angle = (arc.startAngle + arc.endAngle) / 2;
                     const radius = (arc.outerRadius + arc.innerRadius) / 2;
                     const x = arc.x + Math.cos(angle) * radius;
