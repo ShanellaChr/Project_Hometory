@@ -31,6 +31,10 @@
                                     <p class="nunito-extrabold text-xl">{{ $article->title }}</p>
                                 </a>
                             </div>
+
+                            <div class="poppins-regular text-md mb-5 ms-3">
+                                {{ $article->updated_at->format('F jS, Y') }}
+                            </div>
                         
                         </div>
                     
