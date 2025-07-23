@@ -66,7 +66,7 @@
 
     </div>
 
-    <div class="border border-2 mx-5 mt-3"></div>
+    <div class="border-2 mx-5 mt-3"></div>
 
     <div class="d-flex justify-content-center p-5">
         <a href="/addarticle" class="btn btn-orange rounded-3 nunito-bold"
