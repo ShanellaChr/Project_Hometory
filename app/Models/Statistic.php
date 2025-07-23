@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Statistic extends Model
 {
-    protected $fillable = ['category_id', 'month_year', 'total_items'];
+    protected $fillable = ['user_id', 'category_id', 'month_year', 'total_items'];
 
     protected $dates = ['month_year'];
 

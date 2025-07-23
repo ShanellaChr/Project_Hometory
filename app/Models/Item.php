@@ -61,4 +61,9 @@ class Item extends Model
 
         return $slug;
     }
+
+    public function getTotalQty()
+    {
+        return $this->expirationDates()->sum('qty');
+    }
 }

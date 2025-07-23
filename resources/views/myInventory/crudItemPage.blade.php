@@ -73,7 +73,7 @@
             <!-- Item Sub-Category (Initially Hidden) -->
             <div class="mb-4" id="subcategoryContainer" style="display: none;">
                 <label for="itemSubCategory" class="form-label nunito-bold text-2xl">Item Sub-Category</label>
-                <select class="form-control" name="subcategory" id="subcategoryList">
+                <select class="form-control" name="subcategory" id="subcategoryList" required>
                     <option value="" disabled {{ $mode == 'create' ? 'selected' : '' }}>Select item sub-category
                     </option> <!-- Placeholder -->
                     <!-- Sub-category options will be added dynamically -->
@@ -214,18 +214,18 @@
     <script>
         // INI SCRIPT UNTUK SUB-CATEGORIES
         const categories = {
-            "Personal Care": ["Make Up & Cosmetics", "Body Care", "Facial Care", "Hair Care", "Fragrances",
-                "Feminine Hygiene & Diapers", "Oral Care", "Others"
+            "Personal Care": ["Makeup & Cosmetics", "Body Care", "Facial Care", "Hair Care", "Fragrances",
+                "Feminine Hygiene & Diapers", "Oral Care", "Others (Personal Care)"
             ],
-            "Foods": ["Instant Food", "Snacks", "Canned Food", "Spreads & Cereals", "Others"],
-            "Beverages": ["Dairy Products", "Soft Drinks", "Instant Beverages", "Others"],
+            "Foods": ["Instant Food", "Snacks", "Canned Food", "Spreads & Cereals", "Others (Foods)"],
+            "Beverages": ["Dairy Products", "Soft Drinks", "Instant Beverages", "Others (Beverages)"],
             "Kitchen Needs": ["Kitchen & Dining Utensils", "Seasonings & Spices", "Baking Ingredients",
-                "Cooking Ingredients", "Others"
+                "Cooking Ingredients", "Others (Kitchen Needs)"
             ],
-            "Household Essentials": ["Cleaning & Care Products", "Home Utilities", "Air Fresheners & Dehumidifiers",
-                "Pest Control", "Others"
+            "Household Essentials": ["Cleaning & Care Products", "Home Utilities", "Fresheners & Dehumidifiers",
+                "Pest Control", "Others (Household Essentials)"
             ],
-            "Health Supplies": ["Medicines", "Vitamins & Supplements", "Medical Devices", "Hygiene Products", "Others"]
+            "Health Supplies": ["Medicines", "Vitamins & Supplements", "Medical Devices", "Hygiene Products", "Others (Health Supplies)"]
         };
 
         const categoryButtons = document.querySelectorAll('.category-btn');

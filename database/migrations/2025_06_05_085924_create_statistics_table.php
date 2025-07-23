@@ -10,14 +10,18 @@ class CreateStatisticsTable extends Migration
     {
         Schema::create('statistics', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('category_id');
-            $table->date('month_year')->notNull(); // Stores YYYY-MM format
-            $table->integer('total_items')->notNull();
-            // $table->decimal('total_percentage', 5, 2)->notNull(); // e.g., 99.99
+            $table->date('month_year')->notNull();
+            // $table->integer('total_items')->notNull();
+            $table->integer('total_items')->default(0);
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
         });
     }
+
 
     public function down()
     {
