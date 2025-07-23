@@ -20,7 +20,7 @@ class WishlistFactory extends Factory
             'items_name' => $this->faker->words(3, true),
             'items_description' => $this->faker->sentence(8, true),
             'category_id' => $this->faker->numberBetween(1, 6),
-            'user_id' => $this->faker->numberBetween(1, 5), // sesuaikan dengan jumlah user di database
+            'user_id' => $this->faker->numberBetween(1, 2),
         ];
     }
 }
