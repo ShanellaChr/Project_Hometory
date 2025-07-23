@@ -24,7 +24,7 @@
         <p class=" text-4xl montserrat-bold mb-0">Helo, <span class="text-orenyedija">Good Afternoon!</span></p>
 
         <div class="align-items-center d-flex">
-            <a href="/" class="d-flex gap-2 btn-merah rounded-3 nunito-bold"
+            <a href="/" class="d-flex gap-2 btn btn-orange-putih btn-orange-putih:hover rounded-3 nunito-bold"
                 style="padding-inline:1.5vw; padding-block:1vh; text-decoration: none; display: inline-block;"
                 data-bs-toggle="modal" data-bs-target="#LogoutConfirmationModal">
                 Log Out
@@ -81,7 +81,7 @@
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content" style="border-radius: 1rem;">
-                <div class="modal-header bg-merahbutton text-putihpalette d-flex flex-column align-items-center"
+                <div class="modal-header bg-orenpalette text-putihpalette d-flex flex-column align-items-center"
                     style="border-bottom: none; border-top-left-radius: 1rem; border-top-right-radius: 1rem;">
                     <img src="/img/warning icon.svg" alt="Warning" width="80" height="80" class="mb-2">
                 </div>
@@ -96,7 +96,7 @@
                         <img src="/img/cancel icon.svg" alt="Cancel" width="20" height="20">
                     </button>
                     <a href="{{ route('loginShow') }}" style="text-decoration: none">
-                        <button type="" class="btn btn-merah btn-merah:hover d-flex align-items-center gap-2 px-4">
+                        <button type="" class="btn btn-orange-putih btn-orange-putih:hover d-flex align-items-center gap-2 px-4">
                             Log Out
                             <img src="{{ asset('img/logOutIcon.svg') }}" width="20" height="20">
                         </button>
