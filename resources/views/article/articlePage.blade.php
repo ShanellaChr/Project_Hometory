@@ -17,18 +17,23 @@
             <div class="row justify-content-center">
                 @foreach ($articles as $article)
                     <div class="col-12 col-sm-6 col-lg-4 mb-4 d-flex justify-content-center">
-                        <div class="shadow rounded-4 custom-card pt-3" style="width: 100%; max-width: 350px;">
-                            <a href="{{ route('article.detail', ['slug' => $article->slug]) }}">
-                                <img src="{{ asset('storage/'.$article->thumbnail) }}" alt="{{ $article->title }}"
-                                    class="img-fluid rounded-top-4">
-                            </a>
+                        
+                        <div class="shadow rounded-4 custom-card" style="width: 100%; max-width: 450px;">
+                            
+                            <div>
+                                <a href="{{ route('article.detail', ['slug' => $article->slug]) }}">
+                                    <img src="{{ asset('storage/'.$article->thumbnail) }}" alt="{{ $article->title }}"class=" rounded-top-4" style="width: 100%; height: 250px; object-fit:cover;">
+                                </a>
+                            </div>
+                            
                             <div class="p-3">
-                                <a href="{{ route('article.detail', ['slug' => $article->slug]) }}"
-                                    class="text-decoration-none text-dark">
+                                <a href="{{ route('article.detail', ['slug' => $article->slug]) }}" class="text-decoration-none text-dark">
                                     <p class="nunito-extrabold text-xl">{{ $article->title }}</p>
                                 </a>
                             </div>
+                        
                         </div>
+                    
                     </div>
                 @endforeach
             </div>

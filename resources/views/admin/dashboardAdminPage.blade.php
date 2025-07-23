@@ -26,7 +26,7 @@
         <div class="align-items-center d-flex">
             <a href="/" class="d-flex gap-2 btn-merah rounded-3 nunito-bold"
                 style="padding-inline:1.5vw; padding-block:1vh; text-decoration: none; display: inline-block;"
-                data-bs-toggle="modal" data-bs-target="#deleteConfirmationModal">
+                data-bs-toggle="modal" data-bs-target="#LogoutConfirmationModal">
                 Log Out
                 <img src="{{ asset('img/logOutIcon.svg') }}" style="width: 22px" alt="">
             </a>
@@ -41,28 +41,26 @@
 
         @foreach ($articles as $article)
             <div class="col-6 my-3">
-                <a href="{{ route('article.detail', $article->slug) }}" style="text-decoration: none; color: inherit">
-                    <div class="p-3 bg-white d-flex justify-content-between align-items-start shadow rounded-4">
+                {{-- Ini adalah div card utama dengan flexbox --}}
+                <div class="p-3 bg-white d-flex justify-content-between align-items-start shadow rounded-4">
+
+                    {{-- ELEMEN 1: Link untuk judul dan tanggal. Class flex-grow-1 membuatnya mengisi ruang. --}}
+                    <a href="{{ route('article.detail', $article->slug) }}" class="flex-grow-1" style="text-decoration: none; color: inherit; margin-right: 1rem;">
                         <div>
                             <p class="mb-0 nunito-bold">{{ $article->title }}</p>
                             <p class="mb-0 nunito-regular fs-6">{{ $article->created_at->diffForHumans() }}</p>
                         </div>
-
-                        <form action="{{ route('article.destroy', $article->id) }}", method="POST",
-                            onsubmit="return confirm('Are You Sure?')", style="display: inline">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class=" my-0" style="background:none ; border:none">
-                                <img src="{{ asset('img/trashbin black.svg') }}" alt="Delete"
-                                    class="icon-trash mt-1 delete-btn"
-                                    style="width: 3.5vw; height: 3.5vh; cursor: pointer;">
-                            </button>
-
-                        </form>
-
-                    </div>
-                </a>
-
+                    </a>
+                    
+                   <button type="button" class="my-0" style="background:none; border:none"
+                        data-bs-toggle="modal"
+                        data-bs-target="#adminArticleDeleteModal"
+                        data-delete-url="{{ route('article.destroy', $article->id) }}">
+                        <img src="{{ asset('img/trashbin black.svg') }}" style="width: 3.5vw; height: 3.5vh; cursor: pointer;">
+                    </button>
+                        
+                    
+                </div>
             </div>
         @endforeach
 
@@ -79,7 +77,7 @@
 
 
     {{-- Popup --}}
-    <div class="modal fade" id="deleteConfirmationModal" tabindex="-1" aria-labelledby="deleteConfirmationLabel"
+    <div class="modal fade" id="LogoutConfirmationModal" tabindex="-1" aria-labelledby="LogoutConfirmationModal"
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content" style="border-radius: 1rem;">
@@ -88,7 +86,7 @@
                     <img src="/img/warning icon.svg" alt="Warning" width="80" height="80" class="mb-2">
                 </div>
                 <div class="modal-footer d-flex justify-content-center gap-3 pt-2 mb-3">
-                    <h3 class="modal-title w-100 text-center montserrat-bold" id="deleteConfirmationLabel">Are You Sure
+                    <h3 class="modal-title w-100 text-center montserrat-bold" id="LogoutConfirmationLabel">Are You Sure
                         Want <br> To Log Out?
                     </h3>
 
@@ -107,6 +105,49 @@
             </div>
         </div>
     </div>
+
+
+    <div class="modal fade" id="adminArticleDeleteModal" tabindex="-1" aria-labelledby="adminArticleDeleteModal "
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content" style="border-radius: 1rem;">
+                <div class="modal-header bg-merahbutton text-putihpalette d-flex flex-column align-items-center"
+                    style="border-bottom: none;border-top-left-radius: 1rem; border-top-right-radius: 1rem;">
+                    <img src="/img/warning icon.svg" alt="Warning" width="80" height="80" class="mb-2">
+                </div>
+                <div class="modal-footer d-flex justify-content-center gap-3 pt-2 mb-3">
+                    <h3 class="modal-title w-100 text-center montserrat-bold" id="deleteConfirmationLabel">Are You Sure
+                        Want <br> To Delete?</h3>
+                    <button type="button" class="btn btn-abu btn-abu:hover d-flex align-items-center gap-2 px-4"
+                        data-bs-dismiss="modal">
+                        Cancel
+                        <img src="/img/cancel icon.svg" alt="Cancel" width="20" height="20">
+                    </button>
+
+                    <form id="deleteForm" action="" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-merah btn-merah:hover d-flex align-items-center gap-2 px-4">
+                            Delete
+                            <img src="/img/trashbin white icon.svg" alt="Delete" width="20" height="20">
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        const adminArticleDeleteModal = document.getElementById('adminArticleDeleteModal');
+
+        adminArticleDeleteModal.addEventListener('show.bs.modal', function (event) {
+            const button = event.relatedTarget;
+            const deleteUrl = button.getAttribute('data-delete-url');
+            const deleteForm = document.getElementById('deleteForm');
+            deleteForm.setAttribute('action', deleteUrl);
+        });
+    </script>
 
 </body>
 

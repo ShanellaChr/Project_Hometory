@@ -25,7 +25,7 @@
             </a>
         </div>
         <div class="align-items-center justify-content-center d-flex">
-            <img src="{{ asset('storage/'.$article->thumbnail) }}" alt="Image placeholder">
+            <img src="{{ asset('storage/'.$article->thumbnail) }}" alt="Image placeholder" class="img-fluid" style="width: 35%; height: auto;">
         </div>
         <div class="align-items-center justify-content-center d-flex montserrat-bold text-xl mb-2">
             {{ $article->title }}

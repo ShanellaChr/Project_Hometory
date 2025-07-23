@@ -58,13 +58,13 @@
                         style="cursor: pointer;">        
                         <i class="bi bi-cloud-arrow-up fs-1 text-secondary"></i>
                         <p class="my-1 fw-semibold text-dark">Click to upload</p>
-                        <p class="text-muted small">or drag and drop<br>SVG, PNG, JPG (MAX. 1 MB each)</p>
+                        <p class="text-muted small">or drag and drop<br>SVG, PNG, JPG (MAX. 5 MB each)</p>
                         
                     </label>
                 </div>
-                    <input type="file" class="d-none" id="fileUpload" name="thumbnail" accept=".png,.jpg,.jpeg,.svg">
-                    
-                <div id="uploadedInfo" style="display: none;" class="text-center mt-3">
+                <input type="file" class="d-none" id="fileUpload" name="thumbnail" accept=".png,.jpg,.jpeg,.svg">
+
+                <div id="uploadedInfo" style="display: none; cursor: pointer" class="text-center mt-3">
                     <img id="previewImage" src="" alt="Preview" class="img-fluid rounded mb-2" style="max-height: 150px;">
                     <p id="fileName" class="small text-white" ></p>
                 </div>
@@ -98,6 +98,16 @@
         const addArticleForm = document.getElementById('AddArticleForm');
         const myInput = document.getElementById('my_input');
         const trixError = document.getElementById('trixError');
+        const uploadPrompt = document.getElementById('uploadPrompt');
+        const uploadedInfo = document.getElementById('uploadedInfo');
+        const previewImage = document.getElementById('previewImage');
+        const fileName = document.getElementById('fileName');
+
+        // BARU: Tambahkan event listener untuk mengganti gambar
+        uploadedInfo.addEventListener('click', function() {
+            // Memicu klik pada input file yang tersembunyi
+            fileUpload.click();
+        });
 
         addArticleForm.addEventListener('submit', function(event) {
 
@@ -105,6 +115,7 @@
 
             if (fileUpload.files.length === 0) {
                 event.preventDefault();
+                imageError.textContent = 'Please Input an image.';
                 imageError.style.display = 'block';
             } else {
                 imageError.style.display = 'none';
@@ -121,17 +132,31 @@
 
         fileUpload.addEventListener('change', function(event){
             const file = event.target.files[0];
+            const maxSize = 5 * 1024 * 1024;
 
             if(file){
-                document.getElementById("uploadPrompt").style.display = 'none';
+                if(file.size > maxSize){
+                    // 1. Tampilkan peringatan
+                    imageError.textContent = 'File is too large! Maximum size is 5 MB.';
+                    imageError.style.display = 'block';
 
-                document.getElementById("uploadedInfo").style.display = 'block';
-                document.getElementById("fileName").textContent = file.name;
+                    // 2. Kosongkan input file agar tidak terkirim
+                    fileUpload.value = '';
+
+                    // 3. Reset UI ke tampilan awal
+                    uploadPrompt.style.display = 'block';
+                    uploadedInfo.style.display = 'none';
+                    return; // Hentikan eksekusi lebih lanjut
+                }
+
+                imageError.style.display = 'none'; // Sembunyikan error jika ada
+                uploadPrompt.style.display = 'none';
+                uploadedInfo.style.display = 'block';
+                fileName.textContent = file.name;
 
                 const reader = new FileReader();
-
-                reader.onload = function(e){
-                    document.getElementById("previewImage").src = e.target.result;
+                reader.onload = function(e) {
+                    previewImage.src = e.target.result;
                 };
                 reader.readAsDataURL(file);
             }

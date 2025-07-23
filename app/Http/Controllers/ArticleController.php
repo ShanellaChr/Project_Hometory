@@ -41,7 +41,7 @@ class ArticleController extends Controller
         $request->validate([
             'title' => 'required|max:255',
             'content' => 'required',
-            'thumbnail' => 'required|image|mimes:jpg,jpeg,png,svg|max:2048',
+            'thumbnail' => 'required|image|mimes:jpg,jpeg,png,svg|max:5120',
         ]);
 
         $thumbnailPath = $request->file('thumbnail')->store('thumbnails', 'public');
