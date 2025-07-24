@@ -9,11 +9,10 @@
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
         @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
     </style>
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <title>Edit Profile</title>
 </head>
@@ -21,8 +20,9 @@
 <body>
     <div class="position-relative w-100 d-flex flex-column align-items-center"
         style="height: 100vh; background: url('/img/BackdropProfilePage.svg') no-repeat top center; background-size: cover; padding-top: 10vh;">
-        <div class="d-flex justify-content-center align-items-center montserrat-bold text-5xl">Edit<span
-                class="ms-3 text-orenyedija">Profile</span></div>
+        <div class="d-flex justify-content-center align-items-center montserrat-bold text-5xl">
+            Edit<span class="ms-3 text-orenyedija">Profile</span>
+        </div>
         <a href="{{ route('profile.show') }}">
             <img src="/img/Back Button.svg" alt="Back Button" class="BackButton">
         </a>
@@ -45,12 +45,28 @@
 
                 <div class="mb-4">
                     <label for="password" class="form-label">New Password</label>
-                    <input type="password" class="form-control" name="password" id="password">
+                    <div class="input-group">
+                        <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" id="password">
+                        <span class="input-group-text" onclick="togglePassword('password', this)">
+                            <i class="fa fa-eye"></i>
+                        </span>
+                    </div>
+                    @error('password')
+                        <div class="text-danger small mt-1">{{ $message }}</div>
+                    @enderror
                 </div>
 
                 <div class="mb-4">
                     <label for="password_confirmation" class="form-label">Confirm Password</label>
-                    <input type="password" class="form-control" name="password_confirmation" id="password_confirmation">
+                    <div class="input-group">
+                        <input type="password" class="form-control @error('password_confirmation') is-invalid @enderror" name="password_confirmation" id="password_confirmation">
+                        <span class="input-group-text" onclick="togglePassword('password_confirmation', this)">
+                            <i class="fa fa-eye"></i>
+                        </span>
+                    </div>
+                    @error('password_confirmation')
+                        <div class="text-danger small mt-1">{{ $message }}</div>
+                    @enderror
                 </div>
 
                 <div class="row justify-content-center mt-5 pt-3 text-center">
@@ -65,6 +81,22 @@
             </form>
         </div>
     </div>
+
+    <script>
+        function togglePassword(id, el) {
+            const input = document.getElementById(id);
+            const icon = el.querySelector('i');
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                input.type = 'password';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        }
+    </script>
 </body>
 
 </html>

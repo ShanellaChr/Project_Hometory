@@ -42,8 +42,13 @@
 
                         <div class="mb-3">
                             <label for="inputPassword" class="form-label montserrat-medium">Password</label>
-                            <input type="password" name="password" class="form-control form-control-lg nunito-medium" id="inputPassword"
-                                placeholder="Enter your password">
+                            <div class="input-group">
+                                <input type="password" name="password" class="form-control form-control-lg nunito-medium" id="inputPassword"
+                                    placeholder="Enter your password">
+                                <span class="input-group-text bg-white">
+                                    <i class="fa-solid fa-eye" id="togglePassword" style="cursor: pointer;"></i>
+                                </span>
+                            </div>
                             @error('password')
                                 <div class="text-danger small mt-1">{{ $message }}</div>
                             @enderror
@@ -86,6 +91,21 @@
             </div>
         </div>
     </div>
+
+    {{-- Reveal password script --}}
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const togglePassword = document.getElementById('togglePassword');
+            const passwordInput = document.getElementById('inputPassword');
+
+            togglePassword.addEventListener('click', function () {
+                const type = passwordInput.type === 'password' ? 'text' : 'password';
+                passwordInput.type = type;
+                this.classList.toggle('fa-eye');
+                this.classList.toggle('fa-eye-slash');
+            });
+        });
+    </script>
 </body>
 
 </html>
