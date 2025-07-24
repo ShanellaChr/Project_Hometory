@@ -8,9 +8,6 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class ArticleSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
         DB::table('articles')->insert([

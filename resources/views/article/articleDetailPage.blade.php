@@ -18,7 +18,6 @@
 </head>
 <body>
     <div class="container">
-        {{-- bagian atas utk back, gambar, title, tanggal --}}
         <div class="pt-3 mb-5">
             <a href="{{ url()->previous() }}">
                 <img src="{{ asset('img/Back Button.svg') }}" alt="Back button" class="BackButton">
