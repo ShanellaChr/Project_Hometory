@@ -20,7 +20,6 @@
 </head>
 
 <body style="height: 100%;">
-    {{-- NOTE : TAPI INI NANTI NAMPILIN DATA WIHSLIST USER YANG SEBELUMNYA, TAPI INI BERARTI TUNGGU BACKENDNYA --}}
     <!-- Header -->
     <div class="bg-birupalette py-3 px-4 d-flex align-items-center" style="height: 5vw;">
         <a href="{{ route('wishlist') }}">

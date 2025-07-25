@@ -16,7 +16,7 @@ class Wishlist extends Model
         'user_id',
     ];
 
-    public $timestamps = false; // atau true kalau sudah tambahkan created_at dan updated_at
+    public $timestamps = false;
 
     // Relasi ke User
     public function user()
