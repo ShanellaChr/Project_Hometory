@@ -26,7 +26,6 @@ class CreateItemsTable extends Migration
 
     public function down()
     {
-        // Schema::dropIfExists('items');
         Schema::table('items', function (Blueprint $table) {
             $table->dropColumn('slug');
         });

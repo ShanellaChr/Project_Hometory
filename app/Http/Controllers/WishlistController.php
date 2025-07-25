@@ -10,11 +10,7 @@ use Illuminate\Support\Facades\Auth;
 
 class WishlistController extends Controller
 {
-    // public function index()
-    // {
-    //     $wishlists = Wishlist::with('category')->where('user_id', auth()->id())->get();
-    //     return view('wishlist.index', compact('wishlists'));
-    // }
+
     public function index()
     {
         $wishlists = Wishlist::with('category')->where('user_id', Auth::id())->get();
@@ -41,15 +37,15 @@ class WishlistController extends Controller
             'items_name' => $request->name,
             'category_id' => $request->category,
             'items_description' => $request->description,
-            'user_id' => Auth::id(), // gunakan Auth::id() untuk mendapatkan ID user yang sedang login
+            'user_id' => Auth::id(),
         ]);
         return redirect()->route('wishlist');
     }
 
     public function edit($id)
     {
-        $wishlist = Wishlist::findOrFail($id); // Ambil data berdasarkan ID
-        $categories = Categories::all(); // Jika ingin ambil dari database
+        $wishlist = Wishlist::findOrFail($id);
+        $categories = Categories::all();
         return view('wishlist.UpdateWishlistPage', compact('wishlist', 'categories'));
     }
 
@@ -96,6 +92,6 @@ class WishlistController extends Controller
 
     public function crudPage()
     {
-        return view('myInventory.crudItemPage'); // sesuaikan nama view-nya
+        return view('myInventory.crudItemPage');
     }
 }

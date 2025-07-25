@@ -70,13 +70,13 @@
                 </div>
             </div>
 
-            <!-- Item Sub-Category (Initially Hidden) -->
+            <!-- Item Sub-Category (Awalnya Hidden) -->
             <div class="mb-4" id="subcategoryContainer" style="display: none;">
                 <label for="itemSubCategory" class="form-label nunito-bold text-2xl">Item Sub-Category</label>
                 <select class="form-control" name="subcategory" id="subcategoryList" required>
                     <option value="" disabled {{ $mode == 'create' ? 'selected' : '' }}>Select item sub-category
                     </option> <!-- Placeholder -->
-                    <!-- Sub-category options will be added dynamically -->
+                    <!-- Sub-category options bakal muncul secara dinamis tergantung yang dipilih -->
                 </select>
             </div>
 
@@ -197,15 +197,11 @@
                         <img src="/img/cancel icon.svg" alt="Cancel" width="20" height="20">
                     </button>
 
-                    {{-- <form action="{{ route('profile.delete') }}" method="POST">
-                        @csrf
-                        @method('DELETE') --}}
                     <button type="button" class="btn btn-merah d-flex align-items-center gap-2 px-4"
                         data-bs-dismiss="modal" id="deleteConfirmBtn">
                         Delete
                         <img src="/img/trashbin white icon.svg" alt="Delete" width="20" height="20">
                     </button>
-                    {{-- </form> --}}
                 </div>
             </div>
         </div>

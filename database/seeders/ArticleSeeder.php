@@ -197,6 +197,6 @@ Dengan sistem ini, Anda dapat mengelola kebutuhan rumah tangga secara efisien, m
                 'updated_at' => '2025-05-26 18.30.00',
             ],
 
-            ]);
+        ]);
     }
 }
