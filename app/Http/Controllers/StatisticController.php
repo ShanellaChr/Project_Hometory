@@ -50,7 +50,7 @@ class StatisticController extends Controller
             return [
                 'title' => $category->category,
                 'color' => $category->color ?? 'text-muted',
-                'value' => $percentage, 
+                'value' => $percentage,
                 'desc' => $this->getCategoryDescription($category->category),
                 'items' => $itemTotal,
             ];
@@ -154,7 +154,7 @@ class StatisticController extends Controller
 
         $months = collect();
 
-        // Tambahkan bulan saat item dibuat
+        // Buat tambah bulan saat item dibuat
         $months->push($createdMonth);
 
         // Ambil bulan terakhir dari semua tanggal expired

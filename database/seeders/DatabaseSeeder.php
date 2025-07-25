@@ -25,7 +25,6 @@ class DatabaseSeeder extends Seeder
             ExpirationDateSeeder::class,
         ]);
 
-        // Jalankan perhitungan statistik setelah item & expiration lengkap
         app(StatisticController::class)->recalculateStatisticsForUser(2);
     }
 }

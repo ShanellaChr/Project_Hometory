@@ -1,3 +1,4 @@
+@section('title', 'Hometory - My Profile')
 <x-master>
     <div class="position-relative w-100 d-flex flex-column align-items-center"
         style="height: 100vh; background: url('/img/BackdropProfilePage.svg') no-repeat top center; background-size: cover; padding-top: 15vh;">
