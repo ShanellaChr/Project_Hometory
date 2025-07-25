@@ -51,23 +51,27 @@
                             <i class="fa fa-eye"></i>
                         </span>
                     </div>
-                    @error('password')
-                        <div class="text-danger small mt-1">{{ $message }}</div>
-                    @enderror
+                    @if ($errors->has('password') && !str_contains($errors->first('password'), 'confirmation'))
+                        <div class="text-danger small mt-1">{{ $errors->first('password') }}</div>
+                    @endif
                 </div>
 
-                <div class="mb-4">
+                <div class="mb-2">
                     <label for="password_confirmation" class="form-label">Confirm Password</label>
                     <div class="input-group">
-                        <input type="password" class="form-control @error('password_confirmation') is-invalid @enderror" name="password_confirmation" id="password_confirmation">
+                        <input type="password" class="form-control @if($errors->has('password_confirmation') || ($errors->has('password') && str_contains($errors->first('password'), 'confirmation'))) is-invalid @endif" name="password_confirmation" id="password_confirmation">
                         <span class="input-group-text" onclick="togglePassword('password_confirmation', this)">
                             <i class="fa fa-eye"></i>
                         </span>
                     </div>
-                    @error('password_confirmation')
-                        <div class="text-danger small mt-1">{{ $message }}</div>
-                    @enderror
                 </div>
+                @if ($errors->has('password') && str_contains($errors->first('password'), 'confirmation'))
+                    <div class="text-danger small mb-3">{{ $errors->first('password') }}</div>
+                @endif
+
+                @error('password_confirmation')
+                    <div class="text-danger small mb-3">{{ $message }}</div>
+                @enderror
 
                 <div class="row justify-content-center mt-5 pt-3 text-center">
                     <div class="col-12 col-md-4 mb-2">

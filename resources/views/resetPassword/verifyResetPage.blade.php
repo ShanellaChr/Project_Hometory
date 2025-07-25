@@ -18,6 +18,9 @@
 </head>
 <body style="margin: 0; height: 100vh; background-image: url('/img/BackdropCircle2.svg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
   <div class="container text-align-center justify-content-center align-items-center d-flex vh-100 flex-column">
+     <a href="/reset">
+            <img src="/img/Back Button.svg" alt="Back Button" class="BackButton">
+    </a>
     <img src="/img/LogoBox.svg" alt="Logo Box" class="img-fluid" >
     <h3 class="pt-3 montserrat-bold text-center">Reset Password</h3>
     <img src="/img/resetPassword2.svg" alt="Logo Box" class="img-fluid" >
