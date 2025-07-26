@@ -41,10 +41,8 @@
 
         @foreach ($articles as $article)
             <div class="col-6 my-3">
-                {{-- Ini adalah div card utama dengan flexbox --}}
                 <div class="p-3 bg-white d-flex justify-content-between align-items-start shadow rounded-4">
 
-                    {{-- ELEMEN 1: Link untuk judul dan tanggal. Class flex-grow-1 membuatnya mengisi ruang. --}}
                     <a href="{{ route('article.detail', $article->slug) }}" class="flex-grow-1" style="text-decoration: none; color: inherit; margin-right: 1rem;">
                         <div>
                             <p class="mb-0 nunito-bold">{{ $article->title }}</p>
@@ -58,8 +56,7 @@
                         data-delete-url="{{ route('article.destroy', $article->id) }}">
                         <img src="{{ asset('img/trashbin black.svg') }}" style="width: 3.5vw; height: 3.5vh; cursor: pointer;">
                     </button>
-                        
-                    
+                            
                 </div>
             </div>
         @endforeach

@@ -8,7 +8,9 @@
             <h1 class="text-orenpalette montserrat-bold" style="letter-spacing: 0.3vw;  font-size:2vw">HOMETORY</h1>
             <h1 class="text-white montserrat-bold text-6xl" style="letter-spacing: 0.3vw">TRACK SMARTER</h1>
             <h1 class="text-white montserrat-bold text-6xl" style="letter-spacing: 0.3vw">WASTE NO MORE!</h1>
-            <p class="text-white nunito-medium">A flexible and structured inventory system allows users to record and organize household items with ease. It helps streamline daily management, minimize waste, and maintain clarity over available supplies at home.</p>
+            <p class="text-white nunito-medium">A flexible and structured inventory system allows users to record and
+                organize household items with ease. It helps streamline daily management, minimize waste, and maintain
+                clarity over available supplies at home.</p>
 
             <a href="{{ route('item.index') }}">
                 <button type="button" class="btn montserrat-bold text-white mt-3 btn-orange-gelap">
@@ -20,7 +22,8 @@
 
     {{-- Judul Our Feature --}}
     <div>
-        <p class="d-flex justify-content-center align-items-center mt-4 montserrat-bold text-5xl mb-0">Our<span class="ms-3 text-orenyedija">Feature</span></p>
+        <p class="d-flex justify-content-center align-items-center mt-4 montserrat-bold text-5xl mb-0">Our<span
+                class="ms-3 text-orenyedija">Feature</span></p>
 
         <p class="text-center nunito-regular mb-0">Discover smart tools to organize your inventory with ease!</p>
 
@@ -31,35 +34,50 @@
 
     <div class="d-flex m-5 justify-content-center align-self-center text-center pb-5">
 
-        <div class=" shadow p-3 d-flex flex-column col m-3 align-items-center rounded-4">
+        <a href="{{ route('item.index') }}"
+            class=" shadow p-3 d-flex flex-column col m-3 align-items-center rounded-4 text-decoration-none text-black">
             <img src="{{ asset('img/Inventory Icon Home.svg') }}" alt="">
             <p class="nunito-bold m-3">My Inventory</p>
-            <p class="mb-0 nunito-regular"> This feature serves as the core of the system, allowing users to input, update, and monitor all item details, such as quantity, category, and location, ensuring accurate stock control</p>
-        </div>
+            <p class="mb-0 nunito-regular"> This feature serves as the core of the system, allowing users to input,
+                update, and monitor all item details, such as quantity, category, and location, ensuring accurate
+                stock control</p>
+        </a>
 
-        <div class=" shadow p-3 d-flex flex-column col m-3 align-items-center rounded-4">
+        <a href="{{ route('calendar.show') }}"
+            class=" shadow p-3 d-flex flex-column col m-3 align-items-center rounded-4 text-decoration-none text-black">
             <img src="{{ asset('img/Calendar Icon Home.svg') }}" alt="">
             <p class="nunito-bold m-3">Calendar</p>
-            <p class="mb-0 nunito-regular">  This feature helps users keep track of important inventory-related activities by scheduling restock dates, tracking item inflows and outflows, and setting reminders for timely actions</p>
-        </div>
+            <p class="mb-0 nunito-regular"> This feature helps users keep track of important inventory-related
+                activities by scheduling restock dates, tracking item inflows and outflows, and setting reminders
+                for timely actions</p>
+        </a>
 
-        <div class=" shadow p-3 d-flex flex-column col m-3 align-items-center rounded-4">
+        <a href="{{ route('statistic.page') }}"
+            class=" shadow p-3 d-flex flex-column col m-3 align-items-center rounded-4 text-decoration-none text-black">
             <img src="{{ asset('img/Statistic Icon Home.svg') }}" alt="">
             <p class="nunito-bold m-3">Statistic</p>
-            <p class="mb-0 nunito-regular">  With this feature, users can visualize their inventory data with charts and graphs, making it easier to identify trends, evaluate stock performance, and make data-driven decisions.</p>
-        </div>
+            <p class="mb-0 nunito-regular"> With this feature, users can visualize their inventory data with charts
+                and graphs, making it easier to identify trends, evaluate stock performance, and make data-driven
+                decisions.</p>
+        </a>
 
-        <div class=" shadow p-3 d-flex flex-column col m-3 align-items-center rounded-4">
+        <a href="route('wishlist')"
+            class=" shadow p-3 d-flex flex-column col m-3 align-items-center rounded-4 text-decoration-none text-black">
             <img src="{{ asset('img/Wishlist Icon Home.svg') }}" alt="">
             <p class="nunito-bold m-3">Wishlist</p>
-            <p class="mb-0 nunito-regular">  This feature enables users to create a personalized list of items they intend to purchase or add to their inventory in the future, supporting better planning and budgeting.</p>
-        </div>
+            <p class="mb-0 nunito-regular"> This feature enables users to create a personalized list of items they
+                intend to purchase or add to their inventory in the future, supporting better planning and budgeting.
+            </p>
+        </a>
 
-        <div class=" shadow p-3 d-flex flex-column col m-3 align-items-center rounded-4">
+        <a href="{{ route('article.index') }}"
+            class=" shadow p-3 d-flex flex-column col m-3 align-items-center rounded-4 text-decoration-none text-black">
             <img src="{{ asset('img/Article Icon Home.svg') }}" alt="">
             <p class="nunito-bold m-3">Article</p>
-            <p class="mb-0 nunito-regular"> This  section offers informative content, practical tips, and user guides about inventory management to enhance user knowledge and help them maximize the platform’s capabilities.</p>
-        </div>
+            <p class="mb-0 nunito-regular"> This section offers informative content, practical tips, and user guides
+                about inventory management to enhance user knowledge and help them maximize the platform’s capabilities.
+            </p>
+        </a>
 
     </div>
 
@@ -70,37 +88,42 @@
         {{-- judul --}}
 
         <div>
-            <p class="d-flex justify-content-center align-items-center montserrat-bold text-5xl mb-0">About<span class="ms-3 text-orenyedija">Hometory</span></p>
+            <p class="d-flex justify-content-center align-items-center montserrat-bold text-5xl mb-0">About<span
+                    class="ms-3 text-orenyedija">Hometory</span></p>
 
             <p class="text-center nunito-regular mb-0">Get to know about <span class="nunito-bold">Hometory</span></p>
 
             <div class=" bg-orenyedija mx-auto mt-3" style="width: 7vw; height: 0.5vh;"></div>
         </div>
 
-        <p class="text-center text-1xl pt-4" style="padding-inline: 10vw">Hometory is A web-based platform that helps families and individuals efficiently and responsibly record, manage, and control household necessities. Embracing the spirit of Sustainable Development Goal (SDG) 12, Hometory aims to promote mindful consumption behavior, reduce waste, and raise awareness about resource usage at home.</p>
+        <p class="text-center text-1xl pt-4" style="padding-inline: 10vw">Hometory is A web-based platform that helps
+            families and individuals efficiently and responsibly record, manage, and control household necessities.
+            Embracing the spirit of Sustainable Development Goal (SDG) 12, Hometory aims to promote mindful consumption
+            behavior, reduce waste, and raise awareness about resource usage at home.</p>
 
     </div>
 
+    {{-- Feedback dari user --}}
+    <div class="d-flex align-items-center justify-content-center mt-5 mb-5 gap-3">
 
-    <div class=" d-flex flex-row justify-content-center mt-5 mb-5 align-items-center" style="gap: 7vw">
-
-        <button onclick="showPrev()" class=" border-0 bg-transparent">
-            <i class="btn btn-outline-dark bi bi-caret-left-fill rounded-circle d-flex justify-content-center align-items-center p-2 shadow"></i>
+        <button onclick="showPrev()" class=" border-0 bg-transparent p-5">
+            <i
+                class="btn btn-outline-dark bi bi-caret-left-fill rounded-circle d-flex justify-content-center align-items-center p-2 shadow"></i>
         </button>
 
-        <div id="comment-container" class=" d-flex justify-content-center flex-wrap gap-5" style="width: 70%;">
-        <!-- Komentar akan dirender di sini -->
-        </div>        
+        <div id="comment-container" class=" d-flex justify-content-center flex-row gap-5" style="width: 100%;">
+            {{-- render comment --}}
+        </div>
 
-        <button onclick="showNext()" class=" border-0 bg-transparent">
-            <i class="btn btn-outline-dark bi bi-caret-right-fill rounded-circle d-flex justify-content-center align-items-center p-2 shadow"></i>
+        <button onclick="showNext()" class=" border-0 bg-transparent p-5">
+            <i
+                class="btn btn-outline-dark bi bi-caret-right-fill rounded-circle d-flex justify-content-center align-items-center p-2 shadow"></i>
         </button>
 
     </div>
 
     <script>
-        const comments = [
-             {
+        const comments = [{
                 name: "Christina",
                 time: "1 day ago",
                 comment: "Website ini sangat membantu dalam mengatur inventaris barang pribadi saya. UI-nya intuitif dan mudah digunakan. Terima kasih tim developer!"
@@ -132,26 +155,21 @@
             },
         ];
 
-    let startIndex = 0;
-    const itemsPerPage = 3;
+        let startIndex = 0;
+        const itemsPerPage = 3;
 
-    function renderComments() {
-    const container = document.getElementById("comment-container");
-    container.innerHTML = "";
+        function renderComments() {
+            const container = document.getElementById("comment-container");
+            container.innerHTML = "";
 
-    const sliced = comments.slice(startIndex, startIndex + itemsPerPage);
+            container.className = "d-flex gap-3 justify-content-center flex-wrap";
 
-    // Jika hanya 1 komentar → center dan tidak pakai flex-row
-    if (sliced.length === 1) {
-        container.className = "d-flex justify-content-center";
-    } else {
-        container.className = "d-flex gap-3 justify-content-center";
-    }
+            for (let i = 0; i < itemsPerPage; i++) {
+                const currentIndex = (startIndex + i) % comments.length;
+                const item = comments[currentIndex];
 
-    sliced.forEach(item => {
-        container.innerHTML += `
-            <div class="shadow p-3 rounded-3" style="width: 100%; max-width: 400px; height: auto;">
-
+                container.innerHTML += `
+            <div class="shadow p-3 rounded-3" style="width: 100%; max-width: 380px; height: auto;">
                 <div class="d-flex flex-row">
                     <img src="{{ asset('img/Profil Dummy.svg') }}" alt="">
                     <div class="ms-2">
@@ -162,27 +180,21 @@
                 <p class="mb-0 mt-3 poppins-medium" style="font-size: 0.9vw">${item.comment}</p>
             </div>
         `;
-    });
-}
-
-    function showNext() {
-        if (startIndex + itemsPerPage < comments.length) {
-            startIndex += itemsPerPage;
+            }
         }
-        else{
-            startIndex = 0;
-        }
-        renderComments();
-    }
 
-    function showPrev() {
-        if (startIndex - itemsPerPage >= 0) {
-            startIndex -= itemsPerPage;
+        function showNext() {
+            startIndex = (startIndex + 1) % comments.length;
             renderComments();
         }
-    }
-    renderComments();
-</script> 
-    {{-- feedback --}}
 
+        function showPrev() {
+            startIndex = (startIndex - 1 + comments.length) % comments.length;
+            renderComments();
+        }
+
+        window.onload = function() {
+            renderComments();
+        };
+    </script>
 </x-master>

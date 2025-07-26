@@ -103,9 +103,7 @@
         const previewImage = document.getElementById('previewImage');
         const fileName = document.getElementById('fileName');
 
-        // BARU: Tambahkan event listener untuk mengganti gambar
         uploadedInfo.addEventListener('click', function() {
-            // Memicu klik pada input file yang tersembunyi
             fileUpload.click();
         });
 
@@ -136,20 +134,18 @@
 
             if(file){
                 if(file.size > maxSize){
-                    // 1. Tampilkan peringatan
+                    // Pesan error
                     imageError.textContent = 'File is too large! Maximum size is 5 MB.';
                     imageError.style.display = 'block';
-
-                    // 2. Kosongkan input file agar tidak terkirim
                     fileUpload.value = '';
 
-                    // 3. Reset UI ke tampilan awal
+                    // Reset UI ke tampilan awal
                     uploadPrompt.style.display = 'block';
                     uploadedInfo.style.display = 'none';
-                    return; // Hentikan eksekusi lebih lanjut
+                    return;
                 }
 
-                imageError.style.display = 'none'; // Sembunyikan error jika ada
+                imageError.style.display = 'none'; 
                 uploadPrompt.style.display = 'none';
                 uploadedInfo.style.display = 'block';
                 fileName.textContent = file.name;

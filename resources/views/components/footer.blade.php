@@ -2,11 +2,11 @@
     <img class="pt-3" style="width: 22vw" src="{{ asset('img/footer Logo.svg') }}" alt="">
 
     <div class=" d-flex justify-content-center gap-4 m-4" >
-        <a class="text-white navbar-hover" style="text-decoration:none" href="">My Inventory</a>
-        <a class="text-white navbar-hover" style="text-decoration:none" href="">Calendar</a>
-        <a class="text-white navbar-hover" style="text-decoration:none" href="">Statistic</a>
-        <a class="text-white navbar-hover" style="text-decoration:none" href="">Wishlist</a>
-        <a class="text-white navbar-hover" style="text-decoration:none" href="">Article</a>
+        <a class="text-white navbar-hover" style="text-decoration:none" href="{{ route('item.index') }}">My Inventory</a>
+        <a class="text-white navbar-hover" style="text-decoration:none" href="{{ route('calendar.show') }}">Calendar</a>
+        <a class="text-white navbar-hover" style="text-decoration:none" href="{{ route('statistic.page') }}">Statistic</a>
+        <a class="text-white navbar-hover" style="text-decoration:none" href="{{ route('wishlist') }}">Wishlist</a>
+        <a class="text-white navbar-hover" style="text-decoration:none" href="{{ route('article.index') }}">Article</a>
     </div>
  
     <div class=" d-flex justify-content-center gap-5 m-4">
