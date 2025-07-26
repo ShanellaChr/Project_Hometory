@@ -112,8 +112,8 @@
                 const dataValues = chart.data.datasets[0].data;
 
                 dataset.forEach((arc, index) => {
-                    // Hanya tampilkan gambar jika persentase > 0
-                    if (!dataValues[index] || dataValues[index] === 0) return;
+                    // Hanya tampilkan gambar jika persentase > 6%
+                    if (!dataValues[index] || dataValues[index] < 6) return;
                     const angle = (arc.startAngle + arc.endAngle) / 2;
                     const radius = (arc.outerRadius + arc.innerRadius) / 2;
                     const x = arc.x + Math.cos(angle) * radius;
@@ -150,7 +150,7 @@
                             getCssColor('--merahcategory')
                         ]
                     }]
-                }, // ← Tambahkan koma di sini
+                },
                 options: {
                     responsive: true,
                     cutout: '30%',

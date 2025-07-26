@@ -35,7 +35,7 @@
 
     </div>
 
-    <div class="border border-2 mx-5 mb-3"></div>
+    <div class="border-2 mx-5 mb-3"></div>
 
     <div class="row overflow-auto" style="margin-inline:2.5vw; max-height:60vh">
 
@@ -49,21 +49,22 @@
                             <p class="mb-0 nunito-regular fs-6">{{ $article->created_at->diffForHumans() }}</p>
                         </div>
                     </a>
-                    
+
                    <button type="button" class="my-0" style="background:none; border:none"
                         data-bs-toggle="modal"
                         data-bs-target="#adminArticleDeleteModal"
                         data-delete-url="{{ route('article.destroy', $article->id) }}">
                         <img src="{{ asset('img/trashbin black.svg') }}" style="width: 3.5vw; height: 3.5vh; cursor: pointer;">
                     </button>
-                            
+
+
                 </div>
             </div>
         @endforeach
 
     </div>
 
-    <div class="border border-2 mx-5 mt-3"></div>
+    <div class="border-2 mx-5 mt-3"></div>
 
     <div class="d-flex justify-content-center p-5">
         <a href="/addarticle" class="btn btn-orange rounded-3 nunito-bold"

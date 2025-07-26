@@ -20,7 +20,7 @@
                     {{-- Strip warna dari kategori --}}
                     <div class="position-absolute top-0 bottom-0 start-0 rounded-start bg-{{ $wishlist->category->color ?? 'pinkcategory' }}" style="width: 1.2vw;"></div>
 
-                    {{-- Checkbox untuk menandai wishlist selesai --}}
+                    {{-- Checkbox --}}
                     <button type="button"
                         class="custom-checkbox-wrapper ms-1 me-3 btn p-0 bg-transparent border-0"
                         data-bs-toggle="modal"
@@ -180,7 +180,7 @@
         var lastCheckedButton = null;
         var lastCheckedInput = null;
 
-        // When modal is about to show
+        // When modal is shown
         doneModal.addEventListener('show.bs.modal', function (event) {
             var button = event.relatedTarget;
             var wishlistId = button.getAttribute('data-wishlist-id');

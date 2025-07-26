@@ -14,7 +14,7 @@ class StatisticController extends Controller
 {
     public function index(Request $request)
     {
-        // Ambil bulan dari query, default ke bulan sekarang
+
         $monthParam = $request->query('month');
         $currentMonth = $monthParam
             ? Carbon::createFromFormat('Y-m', $monthParam)->startOfMonth()
@@ -50,7 +50,7 @@ class StatisticController extends Controller
             return [
                 'title' => $category->category,
                 'color' => $category->color ?? 'text-muted',
-                'value' => $percentage, // ← angka asli (tanpa %)
+                'value' => $percentage,
                 'desc' => $this->getCategoryDescription($category->category),
                 'items' => $itemTotal,
             ];
@@ -131,7 +131,7 @@ class StatisticController extends Controller
         })->max('expiration_date');
 
         if (!$minCreated || !$maxExpired) {
-            return collect(); // Tidak ada data
+            return collect();
         }
 
         $months = collect();
@@ -154,7 +154,7 @@ class StatisticController extends Controller
 
         $months = collect();
 
-        // Tambahkan bulan saat item dibuat
+        // Buat tambah bulan saat item dibuat
         $months->push($createdMonth);
 
         // Ambil bulan terakhir dari semua tanggal expired

@@ -19,8 +19,6 @@ class Article extends Model
         'created_at',
         'updated_at',
     ];
-
-    // Relationship to User
     public function admin()
     {
         return $this->belongsTo(User::class, 'admin_id');

@@ -216,23 +216,4 @@
         {{-- Bagian Kanan (Konten) End --}}
     </div>
     {{-- END OF SECTION MY INVENTORY --}}
-
-    {{-- START OF SCRIPT SECTION untuk CATEGORY --}}
-    {{-- <script>
-        document.querySelectorAll('.category-btn').forEach(function(button) {
-            button.addEventListener('click', function() {
-                // Jika tombol yang diklik sudah aktif, matikan
-                if (this.classList.contains('active')) {
-                    this.classList.remove('active');
-                } else {
-                    // Nonaktifkan semua tombol dulu
-                    document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove(
-                        'active'));
-                    // Aktifkan tombol yang diklik
-                    this.classList.add('active');
-                }
-            });
-        });
-    </script> --}}
-    {{-- END OF SCRIPT SECTION --}}
 </x-master>

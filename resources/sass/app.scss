@@ -166,10 +166,10 @@ $custom-colors: (
   background-color: #011638 !important;
   border: none !important;
   transition: all 0.4s ease-in-out !important;
-  width:41vw; 
-  padding-left: 10.5vw; 
-  padding-right: 10.5vw; 
-  padding-top: 2.5vh; 
+  width:41vw;
+  padding-left: 10.5vw;
+  padding-right: 10.5vw;
+  padding-top: 2.5vh;
   padding-bottom: 2.5vh;
 }
 
@@ -186,7 +186,7 @@ $custom-colors: (
 }
 
 .btn-orange:hover {
-  background-color: #F3F9E3 !important; 
+  background-color: #F3F9E3 !important;
 }
 
 .btn-putih {
@@ -199,7 +199,7 @@ $custom-colors: (
 
 .btn-putih:hover {
   color: #FFFFFF !important;
-  background-color: #566E3D !important; 
+  background-color: #566E3D !important;
 }
 
 .btn-merah {
@@ -276,9 +276,9 @@ $custom-colors: (
   width: 50%;
 }
 
-.category-btn:hover, 
+.category-btn:hover,
 .category-btn.active {
-  background-size: 100% 100%; 
+  background-size: 100% 100%;
 }
 
 .category-btn:hover .category-title,
@@ -307,7 +307,7 @@ $custom-colors: (
 .color-box-wishlist {
     width: 1.25vw;
     height: 1.25vw;
-    display: inline-block;  /* atau block, supaya ukuran dipakai */
+    display: inline-block;
 }
 
 // Back Button
@@ -315,7 +315,7 @@ $custom-colors: (
   position: absolute !important;
   top: 0 !important;
   left: 0 !important;
-  margin: 1rem !important; 
+  margin: 1rem !important;
   width: 40px;
   cursor: pointer;
 }
@@ -372,9 +372,9 @@ $custom-colors: (
 
 // Search Bar
 .search-form {
-  border: 2px solid #000;     
-  border-radius: 10px;         
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); 
+  border: 2px solid #000;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 // Costom Checkbox (wishlist page)
@@ -493,7 +493,7 @@ $custom-colors: (
     color: white !important;
 }
 
-// highlight lingkaran keetika ada tanggal yang dipilih
+// highlight lingkaran ketika ada tanggal yang dipilih
 .selected-date {
     display: inline-block;
     width: 2.8em;

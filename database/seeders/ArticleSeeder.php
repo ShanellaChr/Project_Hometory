@@ -8,9 +8,6 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class ArticleSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
         DB::table('articles')->insert([
@@ -200,6 +197,6 @@ Dengan sistem ini, Anda dapat mengelola kebutuhan rumah tangga secara efisien, m
                 'updated_at' => '2025-05-26 18.30.00',
             ],
 
-            ]);
+        ]);
     }
 }
