@@ -32,7 +32,8 @@
             <div class="mb-3">
                 <label for="inputPassword" class="form-label montserrat-medium">New Password</label>
                 <div class="input-group">
-                    <input type="password" name="password" class="form-control form-control-lg nunito-medium" id="inputPassword" placeholder="Enter your new password" required>
+                    <input type="password" name="password" class="form-control form-control-lg nunito-medium"
+                        id="inputPassword" placeholder="Enter your new password" required>
                     <span class="input-group-text" onclick="togglePassword('inputPassword', this)">
                         <i class="fa fa-eye"></i>
                     </span>
@@ -42,14 +43,17 @@
             <div class="mb-3">
                 <label for="inputConfirmPassword" class="form-label montserrat-medium">Confirm Password</label>
                 <div class="input-group">
-                    <input type="password" name="password_confirmation" class="form-control form-control-lg nunito-medium" id="inputConfirmPassword" placeholder="Confirm your new password" required>
+                    <input type="password" name="password_confirmation"
+                        class="form-control form-control-lg nunito-medium" id="inputConfirmPassword"
+                        placeholder="Confirm your new password" required>
                     <span class="input-group-text" onclick="togglePassword('inputConfirmPassword', this)">
                         <i class="fa fa-eye"></i>
                     </span>
                 </div>
             </div>
 
-            <button type="submit" class="nunito-bold p-3 mt-4 btn-orange rounded shadow w-100">Set New Password</button>
+            <button type="submit" class="nunito-bold p-3 mt-4 btn-orange rounded shadow w-100">Set New
+                Password</button>
 
             @if ($errors->any())
                 <div class="alert alert-danger mt-2">{{ $errors->first() }}</div>

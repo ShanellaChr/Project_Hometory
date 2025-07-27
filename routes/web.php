@@ -11,11 +11,7 @@ use App\Http\Controllers\WishlistController;
 use App\Http\Controllers\StatisticController;
 use App\Http\Controllers\ResetPasswordController;
 
-// ==========================
-// PUBLIC ACCESS (No Login)
-// ==========================
-
-// Homepage (no login required)
+// Homepage
 Route::get('/', function () {
     return view('homePage');
 });
@@ -34,13 +30,9 @@ Route::post('/reset/verify', [ResetPasswordController::class, 'verifyResetCode']
 Route::get('/reset/new-password', [ResetPasswordController::class, 'showNewPasswordForm'])->name('password.new');
 Route::post('/reset/new-password', [ResetPasswordController::class, 'updatePassword'])->name('password.update');
 
-// Article (no login required)
+// Article
 Route::get('/article', [ArticleController::class, 'index'])->name('article.index');
 Route::get('/article/{slug}', [ArticleController::class, 'show'])->name('article.detail');
-
-// ==========================
-// PROTECTED ROUTES (Login Required)
-// ==========================
 
 Route::middleware(['mustlogin'])->group(function () {
 
@@ -64,7 +56,7 @@ Route::middleware(['mustlogin'])->group(function () {
 
     // Wishlist
     Route::get('/wishlist', [WishlistController::class, 'index'])->name('wishlist');
-    Route::get('/wishlist/{id}/redirect', fn ($id) => redirect()->route('wishlist.edit', ['id' => $id]))->name('wishlist.redirect');
+    Route::get('/wishlist/{id}/redirect', fn($id) => redirect()->route('wishlist.edit', ['id' => $id]))->name('wishlist.redirect');
     Route::get('/wishlist/add', [WishlistController::class, 'create'])->name('wishlist.add');
     Route::post('/wishlist/store', [WishlistController::class, 'store'])->name('wishlist.store');
     Route::get('/wishlist/{id}/edit', [WishlistController::class, 'edit'])->name('wishlist.edit');
@@ -78,11 +70,11 @@ Route::middleware(['mustlogin'])->group(function () {
     Route::post('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile/delete', [ProfileController::class, 'destroy'])->name('profile.delete');
 
-    // Admin Article (manage)
+    // Admin Article 
     Route::get('/admin', [ArticleController::class, 'adminIndex'])->name('admin');
     Route::post('/article/store', [ArticleController::class, 'store'])->name('article.store');
     Route::delete('/admin/{id}', [ArticleController::class, 'destroy'])->name('article.destroy');
-    Route::get('/addarticle', fn () => view('admin.crudArticlePage'))->name('admin.addArticle');
+    Route::get('/addarticle', fn() => view('admin.crudArticlePage'))->name('admin.addArticle');
 
     // Logout
     Route::post('/logout', function () {

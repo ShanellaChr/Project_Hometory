@@ -9,9 +9,6 @@ use Illuminate\Support\Facades\Hash;
 
 class ProfileController extends Controller
 {
-    /**
-     * Show current authenticated user's profile.
-     */
     public function show()
     {
         /** @var User $user */

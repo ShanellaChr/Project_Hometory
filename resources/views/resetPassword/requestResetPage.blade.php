@@ -27,13 +27,6 @@
         <img src="/img/LogoBox.svg" alt="Logo Box" class="img-fluid">
         <h3 class="pt-3 montserrat-bold text-center">Reset Password</h3>
         <img src="/img/resetPassword1.svg" alt="Logo Box" class="img-fluid">
-        {{-- <form style="width: 400px;">
-       <div class="mb-3">
-            <label for="inputEmail" class="form-label montserrat-medium">Email</label>
-            <input type="text" class="form-control form-control-lg  nunito-medium" id="inputEmail" placeholder="Enter your email">
-        </div>
-      <button type="submit" class="nunito-bold p-3 mt-5 btn-orange rounded shadow w-100">Get Verification Code</button>
-    </form> --}}
         <form action="{{ route('password.sendCode') }}" method="POST" style="width: 400px;">
             @csrf
             <div class="mb-3">

@@ -35,7 +35,6 @@ $custom-colors: (
   }
 }
 
-/* FONT SIZE utilities ala TailwindCSS */
 .text-xxs { font-size: 0.625rem !important; }
 .text-xs { font-size: 0.75rem !important; }
 .text-sm { font-size: 0.875rem !important; }
@@ -293,15 +292,13 @@ $custom-colors: (
 }
 
 .custom-card {
-  background-color: white; /* warna awal */
+  background-color: white; 
   transition: background-color 0.3s ease-in-out;
 }
 
 .custom-card:hover {
-  background-color: #f0f0f0; /* abu-abu saat hover */
+  background-color: #f0f0f0; 
 }
-
-/* OTHERS CLASS UNIVERSAL */
 
 // Wishlist
 .color-box-wishlist {
@@ -320,7 +317,7 @@ $custom-colors: (
   cursor: pointer;
 }
 
-// untuk back button tapi versi ie kanan
+// untuk back button tapi versi di kanan
 .rotate-180{
   transform: rotate(180deg);
 }
@@ -394,7 +391,7 @@ $custom-colors: (
 .custom-checkbox-wrapper .checkmark {
     width: 100%;
     height: 100%;
-    background-color: #F3F9E3; /* Bisa disesuaikan */
+    background-color: #F3F9E3; 
     border: 0.25vw solid black;
     border-radius: 0.5vw;
     display: inline-block;
