@@ -21,7 +21,9 @@
         <div class="row g-0">
             {{-- Left Form Side --}}
             <div class="col-6 vh-100 position-relative d-flex flex-column align-items-center">
-                <img src="/img/Back Button.svg" alt="Back Button" class="BackButton">
+                <a href="/">
+                    <img src="/img/Back Button.svg" alt="Back Button" class="BackButton">
+                </a>
 
                 <div class="position-absolute top-50 start-50 translate-middle" style="width: 400px;">
                     <img src="/img/LogoBox.svg" alt="Logo Box" class="img-fluid d-block mx-auto">

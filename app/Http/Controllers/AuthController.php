@@ -72,7 +72,7 @@ class AuthController extends Controller
         $request->session()->regenerate();
 
         if ($user->role === 'admin') {
-            return redirect('/admin'); // ganti dengan route admin milikmu
+            return redirect('/admin'); 
         }
         return redirect('/');
     }
