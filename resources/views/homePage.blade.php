@@ -61,7 +61,7 @@
                 decisions.</p>
         </a>
 
-        <a href="route('wishlist')"
+        <a href="{{ route('wishlist') }}"
             class=" shadow p-3 d-flex flex-column col m-3 align-items-center rounded-4 text-decoration-none text-black">
             <img src="{{ asset('img/Wishlist Icon Home.svg') }}" alt="">
             <p class="nunito-bold m-3">Wishlist</p>
