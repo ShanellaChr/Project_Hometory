@@ -104,72 +104,73 @@
     </div>
 
     {{-- Feedback dari user --}}
-    <div class="d-flex align-items-center justify-content-center mt-5 mb-5 gap-3">
+    {{-- Feedback dari user --}}
+<div class="d-flex align-items-center justify-content-center mt-5 mb-5 gap-3">
 
-        <button onclick="showPrev()" class=" border-0 bg-transparent p-5">
-            <i
-                class="btn btn-outline-dark bi bi-caret-left-fill rounded-circle d-flex justify-content-center align-items-center p-2 shadow"></i>
-        </button>
+    <button onclick="showPrev()" class=" border-0 bg-transparent p-5">
+        <i
+            class="btn btn-outline-dark bi bi-caret-left-fill rounded-circle d-flex justify-content-center align-items-center p-2 shadow"></i>
+    </button>
 
-        <div id="comment-container" class=" d-flex justify-content-center flex-row gap-5" style="width: 100%;">
-            {{-- render comment --}}
+    <div id="comment-wrapper" style="overflow: hidden; width: 100%;">
+        <div id="comment-container" class="d-flex flex-row" style="transition: transform 0.5s ease;">
+            {{-- render comment di JS --}}
         </div>
-
-        <button onclick="showNext()" class=" border-0 bg-transparent p-5">
-            <i
-                class="btn btn-outline-dark bi bi-caret-right-fill rounded-circle d-flex justify-content-center align-items-center p-2 shadow"></i>
-        </button>
-
     </div>
 
-    <script>
-        const comments = [{
-                name: "Christina",
-                time: "1 day ago",
-                comment: "Website ini sangat membantu dalam mengatur inventaris barang pribadi saya. UI-nya intuitif dan mudah digunakan. Terima kasih tim developer!"
-            },
-            {
-                name: "Angjaya",
-                time: "2 months ago",
-                comment: "Awalnya saya ragu, tapi setelah mencoba, ternyata sangat berguna untuk memantau masa kedaluwarsa barang di rumah. Fitur notifikasinya sangat membantu."
-            },
-            {
-                name: "Sutara",
-                time: "1 year ago",
-                comment: "Platform ini cocok banget buat orang yang sering lupa stok barang di rumah. Bisa lebih hemat karena nggak beli barang yang sudah ada."
-            },
-            {
-                name: "Handoyo",
-                time: "7 months ago",
-                comment: "Saya menggunakan website ini untuk keperluan kantor kecil kami. Cukup efektif dalam memantau barang masuk dan keluar."
-            },
-            {
-                name: "Hazael",
-                time: "1 week ago",
-                comment: "Antarmukanya simpel dan bersih. Cocok untuk semua kalangan, baik yang paham teknologi maupun tidak. Semoga terus dikembangkan."
-            },
-            {
-                name: "Alhe18m",
-                time: "1 second ago",
-                comment: "Bangga dengan buatan anak anak kelas ini"
-            },
-        ];
+    <button onclick="showNext()" class=" border-0 bg-transparent p-5">
+        <i
+            class="btn btn-outline-dark bi bi-caret-right-fill rounded-circle d-flex justify-content-center align-items-center p-2 shadow"></i>
+    </button>
 
-        let startIndex = 0;
-        const itemsPerPage = 3;
+</div>
 
-        function renderComments() {
-            const container = document.getElementById("comment-container");
-            container.innerHTML = "";
+<script>
+    const comments = [
+        {
+            name: "Christina",
+            time: "1 day ago",
+            comment: "Website ini sangat membantu dalam mengatur inventaris barang pribadi saya. UI-nya intuitif dan mudah digunakan. Terima kasih tim developer!"
+        },
+        {
+            name: "Angjaya",
+            time: "2 months ago",
+            comment: "Awalnya saya ragu, tapi setelah mencoba, ternyata sangat berguna untuk memantau masa kedaluwarsa barang di rumah. Fitur notifikasinya sangat membantu."
+        },
+        {
+            name: "Sutara",
+            time: "1 year ago",
+            comment: "Platform ini cocok banget buat orang yang sering lupa stok barang di rumah. Bisa lebih hemat karena nggak beli barang yang sudah ada."
+        },
+        {
+            name: "Handoyo",
+            time: "7 months ago",
+            comment: "Saya menggunakan website ini untuk keperluan kantor kecil kami. Cukup efektif dalam memantau barang masuk dan keluar."
+        },
+        {
+            name: "Hazael",
+            time: "1 week ago",
+            comment: "Antarmukanya simpel dan bersih. Cocok untuk semua kalangan, baik yang paham teknologi maupun tidak. Semoga terus dikembangkan."
+        },
+        {
+            name: "Alhe18m",
+            time: "1 second ago",
+            comment: "Bangga dengan buatan anak anak kelas ini"
+        },
+    ];
 
-            container.className = "d-flex gap-3 justify-content-center flex-wrap";
+    let startIndex = 0;
+    const itemsPerPage = 3;
 
-            for (let i = 0; i < itemsPerPage; i++) {
-                const currentIndex = (startIndex + i) % comments.length;
-                const item = comments[currentIndex];
+    function renderCommentsOnce() {
+        const container = document.getElementById("comment-container");
+        container.innerHTML = "";
 
-                container.innerHTML += `
-            <div class="shadow p-3 rounded-3" style="width: 100%; max-width: 380px; height: auto;">
+        comments.forEach((item, index) => {
+            const div = document.createElement("div");
+            div.className = "shadow p-3 rounded-3";
+            div.style = "width: 100%; max-width: 380px; margin-top:20px; margin-bottom:20px; margin-inline:20px; height: auto; flex-shrink: 0;";
+            div.innerHTML = `
                 <div class="d-flex flex-row">
                     <img src="{{ asset('img/Profil Dummy.svg') }}" alt="">
                     <div class="ms-2">
@@ -178,23 +179,44 @@
                     </div>
                 </div>
                 <p class="mb-0 mt-3 poppins-medium" style="font-size: 0.9vw">${item.comment}</p>
-            </div>
-        `;
-            }
-        }
+            `;
+            container.appendChild(div);
+        });
 
-        function showNext() {
-            startIndex = (startIndex + 1) % comments.length;
-            renderComments();
-        }
+        updateSliderPosition();
+    }
 
-        function showPrev() {
-            startIndex = (startIndex - 1 + comments.length) % comments.length;
-            renderComments();
-        }
+    function updateSliderPosition() {
+        const container = document.getElementById("comment-container");
+        const commentCard = container.querySelector("div");
+        if (!commentCard) return;
 
-        window.onload = function() {
-            renderComments();
-        };
-    </script>
+        const cardWidth = commentCard.offsetWidth;
+        const offset = startIndex * (cardWidth + 60);
+        container.style.transform = 'translateX(-' + offset + 'px)';
+    }
+
+    function showNext() {
+        if (startIndex + itemsPerPage < comments.length) {
+            startIndex++;
+        } else {
+            startIndex = 0;
+        }
+        updateSliderPosition();
+    }
+
+    function showPrev() {
+        if (startIndex > 0) {
+            startIndex--;
+        } else {
+            startIndex = comments.length - itemsPerPage;
+        }
+        updateSliderPosition();
+    }
+
+    window.onload = function () {
+        renderCommentsOnce();
+    };
+</script>
+
 </x-master>
