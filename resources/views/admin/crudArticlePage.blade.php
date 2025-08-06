@@ -103,6 +103,10 @@
         const previewImage = document.getElementById('previewImage');
         const fileName = document.getElementById('fileName');
 
+        document.addEventListener("trix-file-accept", function(event) {
+            event.preventDefault();
+        });
+
         uploadedInfo.addEventListener('click', function() {
             fileUpload.click();
         });
@@ -160,5 +164,11 @@
     </script>
 
 </body>
+
+<style>
+  trix-toolbar [data-trix-button-group="file-tools"] {
+    display: none;
+  }
+</style>
 
 </html>

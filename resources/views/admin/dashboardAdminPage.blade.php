@@ -21,7 +21,7 @@
 <body>
 
     <div class=" d-flex justify-content-between align-content-between my-4 mx-5">
-        <p class=" text-4xl montserrat-bold mb-0">Helo, <span class="text-orenyedija">Good Afternoon!</span></p>
+        <p class=" text-4xl montserrat-bold mb-0">Hello, <span class="text-orenyedija">Have a nice day!</span></p>
 
         <div class="align-items-center d-flex">
             <a href="/" class="d-flex gap-2 btn btn-orange-putih btn-orange-putih:hover rounded-3 nunito-bold"
