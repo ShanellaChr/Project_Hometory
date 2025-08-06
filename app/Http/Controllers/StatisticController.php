@@ -14,34 +14,34 @@ class StatisticController extends Controller
 {
     public function index(Request $request)
     {
-
         $monthParam = $request->query('month');
-        $currentMonth = $monthParam
-            ? Carbon::createFromFormat('Y-m', $monthParam)->startOfMonth()
-            : now()->startOfMonth();
 
-        $latestMonth = now()->startOfMonth(); // Bulan paling baru
+        // Validasi format bulan: YYYY-MM
+        if ($monthParam && preg_match('/^\d{4}-\d{2}$/', $monthParam)) {
+            $currentMonth = Carbon::parse($monthParam . '-01')->startOfMonth();
+        } else {
+            $currentMonth = now()->startOfMonth();
+        }
+
+        $latestMonth = now()->startOfMonth(); // Bulan ini
         $earliestMonth = $latestMonth->copy()->subMonths(11); // 12 bulan ke belakang
 
-        // Navigasi
         $prevMonth = $currentMonth->copy()->subMonth();
         $nextMonth = $currentMonth->copy()->addMonth();
-        $hasPrev = $currentMonth->greaterThan($earliestMonth);
-        $hasNext = $currentMonth->lessThan($latestMonth);
 
-        // Ambil semua kategori
+        // Pakai string compare karena Carbon::greaterThan bisa error kalau tipe beda
+        $hasPrev = $currentMonth->format('Y-m') > $earliestMonth->format('Y-m');
+        $hasNext = $currentMonth->format('Y-m') < $latestMonth->format('Y-m');
+
         $categories = Categories::all();
 
-        // Ambil statistik milik user berdasarkan bulan
         $statistics = Statistic::where('user_id', Auth::id())
             ->whereYear('month_year', $currentMonth->year)
             ->whereMonth('month_year', $currentMonth->month)
             ->get();
 
-        // Hitung total item di bulan tersebut
         $totalItems = $statistics->sum('total_items');
 
-        // Siapkan data cards, cocokkan kategori dengan statistik
         $cards = $categories->map(function ($category) use ($statistics, $totalItems) {
             $stat = $statistics->firstWhere('category_id', $category->id);
             $itemTotal = $stat ? $stat->total_items : 0;
@@ -65,6 +65,7 @@ class StatisticController extends Controller
             'hasNext' => $hasNext,
         ]);
     }
+
 
     private function getCategoryDescription($category)
     {
