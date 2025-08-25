@@ -93,7 +93,7 @@
                         Cancel
                         <img src="/img/cancel icon.svg" alt="Cancel" width="20" height="20">
                     </button>
-                    <a href="{{ route('loginShow') }}" style="text-decoration: none">
+                    <a href="{{ route('logout') }}" style="text-decoration: none">
                         <button type="" class="btn btn-orange-putih btn-orange-putih:hover d-flex align-items-center gap-2 px-4">
                             Log Out
                             <img src="{{ asset('img/logOutIcon.svg') }}" width="20" height="20">
